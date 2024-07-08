@@ -1,0 +1,36 @@
+/* main-banner */
+.main-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    height: 110px;
+    margin: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.500);
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.200);
+    border-radius: 15px;
+    padding: 10px;
+
+}
+/* main-banner container */
+.main-banner > .container{width: 1000px;}
+
+.main-banner .slide-container{
+     width: 3000px;
+    display: flex;
+    transition-duration: 0.5s;
+}
+
+.main-banner .slide{
+    width: 1000px;
+    margin: 0;
+}
+
+.main-banner a{
+    margin: 0;
+    padding: 0;
+}
+
+.main-banner img{
+    width: 1000px;
+}
