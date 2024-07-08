@@ -1,0 +1,88 @@
+/* main-login-signUp */
+.main-login-signUp{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.500);
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.200);
+    border-radius: 15px;
+}
+
+
+/* main-users-login */
+.main-users-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.main-users-login .fa-regular{
+    font-size: 50px;
+}
+
+.main-users-login a{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* main-left-user-login */
+.main-left-user-login{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid rgba(128, 128, 128, 0.500);
+    padding: 10px;
+}
+
+.main-left-user-login a{
+    margin-top: 20px;
+    border-radius: 15px;
+    background-color: #FFD0D0;
+    padding: 10px 20px;
+    color: black;
+}
+
+.main-left-user-login > div{
+    color: #330a0e;
+}
+
+/* main-right-ceo-login */
+.main-right-ceo-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.main-right-ceo-login a{
+    margin-top: 20px;
+    border-radius: 15px;
+    background-color: #4B70F5;
+    color: white;
+    padding: 10px 20px;
+}
+
+.main-right-ceo-login div{
+    color: #091235;
+}
+
+/* 아이디 비밀번호 찾기 회원가입 */
+.searchIdPwSignUp{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchIdPwSignUp > a{
+    text-decoration: none;
+    color: #7e7e7e;
+}

@@ -8,20 +8,20 @@
 				<a href="" id="logo-header">로고</a>
 				<a href="#" id="header-all">모두 게시판</a>
 				
-				<c:choose>
-					<c:when test="">
+				<%-- <c:choose> --%>
+					<%-- <c:when test=""> --%>
 						<a href="" id="header-worker">알바 게시판</a>
-					</c:when>
-					<c:when test="">
+					<%-- </c:when> --%>
+					<%-- <c:when test=""> --%>
 						<a href="" id="header-ceo">사장 게시판</a>
-					</c:when>
-				</c:choose>
+					<%-- </c:when> --%>
+			<%-- 	</c:choose> --%>
 				
 			</div>
 			<div class="header-login">
 				<a href="" id="search-header" class="fa-solid fa-magnifying-glass"></a>
-				<c:choose>
-					<c:when test="${!empty loginMember}">
+				<%-- <c:choose>
+					<c:when test="${!empty loginMember}"> --%>
 						<div id="headerProfileWrapper">
                             <div id="header-profile"> </div>
                             <div id="headerProfileHidden">
@@ -29,13 +29,13 @@
                                 <div><a href="">로그아웃</a></div>
                             </div>
                         </div>
-					</c:when>
-					<c:otherwise>
+				<%-- 	</c:when>
+					<c:otherwise> --%>
 						<a href="#">회원가입</a>
                         <a href="#">로그인</a>
 					
-					</c:otherwise>
-				</c:choose>
+				<%-- 	</c:otherwise>
+				</c:choose> --%>
 			</div>
 
 		</div>
