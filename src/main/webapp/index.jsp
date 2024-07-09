@@ -53,6 +53,7 @@
     <script src="${contextPath}/resources/js/main/popTabMenu.js"></script>
     <script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
     <script src="${contextPath}/resources/js/jquery.marquee.min.js"></script>
+    <script src="${contextPath}/resources/js/headerUPSlidAuto.js"></script>
     <script src="${contextPath}/resources/js/main/mainTopNotice.js"></script>
     <script src="${contextPath}/resources/js/main/mainHotSlide.js"></script>
 </body>
