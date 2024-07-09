@@ -1,0 +1,56 @@
+/* 밖에 있는 제목 */
+.title-back-color {
+    width: 100%;
+    margin: 0;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title-content-post {
+    width: 1000px;
+    display: flex;
+    flex-direction: flex-start;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 40px;
+
+}
+
+.all-box-shadow {
+    box-shadow: 3px 3px 5px #0592138c;
+}
+
+.all-title-boder-bottom {
+    border-bottom: 1px solid #9BEC00;
+}
+
+.ceo-box-shadow {
+    box-shadow: 3px 3px 5px #4b70f5a2;
+}
+
+.ceo-title-boder-bottom {
+    border-bottom: 1px solid #402E7A;
+}
+
+.worker-box-shadow {
+    box-shadow: 3px 3px 5px #ffd0d09d;
+}
+
+.worker-title-boder-bottom {
+    border-bottom: 1px solid #FF9EAA;
+}
+
+.all {
+    background-color: #0592138c;
+}
+
+.ceo {
+    background-color: #4b70f5a2;
+}
+
+.worker {
+    background-color: #ffd0d09d;
+}

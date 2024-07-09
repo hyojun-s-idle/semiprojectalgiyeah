@@ -6,7 +6,7 @@
 		<div class="header-suround">
 			<div class="header-post">
 				<a href="" id="logo-header">로고</a>
-				<a href="#" id="header-all">모두 게시판</a>
+				<a href="board/list" id="header-all">모두 게시판</a>
 				
 				<%-- <c:choose> --%>
 					<%-- <c:when test=""> --%>
