@@ -28,7 +28,7 @@
 
     <section class="content-suround">
         <div class="post-content-suround">
-            <jsp:include page="/WEB-INF/views/board/allTabmenu.jsp"/>
+            <jsp:include page="/WEB-INF/views/board/tabmenu.jsp"/>
     
             <ul class="post-content tab-active">
                 <li>

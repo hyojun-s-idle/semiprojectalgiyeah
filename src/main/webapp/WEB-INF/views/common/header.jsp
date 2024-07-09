@@ -6,7 +6,7 @@
 		<div class="header-suround">
 			<div class="header-post">
 				<a href="" id="logo-header">로고</a>
-				<a href="board/list" id="header-all">모두 게시판</a>
+				<a href="${contextPath}/board/list" id="header-all">모두 게시판</a>
 				
 				<%-- <c:choose> --%>
 					<%-- <c:when test=""> --%>
@@ -19,7 +19,7 @@
 				
 			</div>
 			<div class="header-login">
-				<a href="board/search" id="search-header" class="fa-solid fa-magnifying-glass"></a>
+				<a href="${contextPath}/board/search" id="search-header" class="fa-solid fa-magnifying-glass"></a>
 				<%-- <c:choose>
 					<c:when test="${!empty loginMember}"> --%>
 						<div id="headerProfileWrapper">
