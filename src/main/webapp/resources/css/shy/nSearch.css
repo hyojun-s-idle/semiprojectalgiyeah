@@ -1,0 +1,107 @@
+/* 검색창 */
+.nSearch-section {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nSearch-suround {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form[name="nSearchForm"] {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+form[name="nSearchForm"]>select {
+    margin: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    transition-duration: 0.3s;
+}
+
+form[name="nSearchForm"]>select:hover {
+    transform: scale(1.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.24);
+    font-weight: bold;
+}
+
+form[name="nSearchForm"]>input {
+    margin: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    transition-duration: 0.3s;
+}
+
+form[name="nSearchForm"]>input:hover,
+form[name="nSearchForm"]>input:focus {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+form[name="nSearchForm"]>button {
+    margin: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    transition-duration: 0.3s;
+    color: white;
+}
+
+form[name="nSearchForm"]>button:hover {
+    transform: scale(1.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.24);
+    font-weight: bold;
+}
+
+form[name="nSearchForm"]>button:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
+
+.ceo {
+    background-color: #4b70f5a2;
+}
+
+.ceo2 {
+    background-color: #402E7A;
+}
+
+.worker {
+    background-color: #ffd0d09d;
+}
+
+.worker2 {
+    background-color: #FF9EAA;
+}
+
+.all {
+    background-color: #0592138c;
+}
+
+.all2 {
+    background-color: #9BEC00;
+}
+
+/* 검색결과 제목 */
+#boardSearchTitle{
+    font-size: 30px;
+    font-weight: 800;
+    margin: 25px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.212);
+}

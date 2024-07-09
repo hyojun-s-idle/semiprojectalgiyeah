@@ -19,7 +19,7 @@
 				
 			</div>
 			<div class="header-login">
-				<a href="" id="search-header" class="fa-solid fa-magnifying-glass"></a>
+				<a href="board/search" id="search-header" class="fa-solid fa-magnifying-glass"></a>
 				<%-- <c:choose>
 					<c:when test="${!empty loginMember}"> --%>
 						<div id="headerProfileWrapper">
