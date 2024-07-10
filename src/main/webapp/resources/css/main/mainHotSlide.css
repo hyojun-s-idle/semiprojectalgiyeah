@@ -131,8 +131,9 @@
     overflow: hidden;
 }
 
-.type-hot>img {
-    height: 90%;
+.type-hot > img {
+    max-width: 90%;
+    max-height: 90%;
 }
 
 .content-title-hot {

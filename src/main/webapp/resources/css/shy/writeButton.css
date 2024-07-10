@@ -1,0 +1,39 @@
+/* write header-up */
+#write-suround {
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#write {
+    position: fixed;
+    right: 70px;
+    bottom: 110px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color: rgb(80, 245, 80);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#write+a {
+    display: none;
+    width: 90px;
+    height: 60px;
+    background-color: rgb(80, 245, 80);
+    border-radius: 20%;
+    text-align: center;
+    line-height: 60px;
+
+    cursor: pointer;
+    position: fixed;
+    right: 100px;
+    bottom: 90px;
+}
