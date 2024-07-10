@@ -49,7 +49,7 @@
         </section>
     </main>
 
-    <script src="${contextPath}/resources/js/common/headerUPSlidAuto.js"></script>
+    <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
     <script src="${contextPath}/resources/js/main/popTabMenu.js"></script>
     <script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
     <script src="${contextPath}/resources/js/jquery.marquee.min.js"></script>
