@@ -40,11 +40,6 @@
                         <option value="내용">내용</option>
                     </select>
         
-                    <select name="orderSearch">
-                        <option value="최신순">최신순</option> 
-                         <option value="조회순">조회순</option>
-                        <option value="좋아요순">좋아요순</option>
-                    </select>
     
                     <!-- 게시판 카테고리 -->
                     <select name="mSearchMember" id="mSearchMember">
