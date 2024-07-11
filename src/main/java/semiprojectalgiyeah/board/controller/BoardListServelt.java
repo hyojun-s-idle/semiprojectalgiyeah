@@ -8,13 +8,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/board/list")
+@WebServlet("/board/*")
 public class BoardListServelt extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "/WEB-INF/views/board/boardList.jsp";
-		req.getRequestDispatcher(path).forward(req, resp);
+		
+		String uri = req.getRequestURI();
+		String contextPath = req.getContextPath();
+		String command = uri.substring(  (contextPath + "/reply/").length()  );
+		
+		if(command.equals("allList")) {
+			String path = "/WEB-INF/views/board/allBoardList.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+			
+		}
+		
+		if(command.equals("workerList")) {
+			String path = "/WEB-INF/views/board/workerBoardList.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		
+		if(command.equals("ceoList")) {
+			String path = "/WEB-INF/views/board/ceoBoardList.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		
 	}
 
 }

@@ -3,7 +3,7 @@
 
     <article class="login-member-area">
         <a href="">
-            <img src="" id="login-member-profile-img">
+            <img src="${contextPath}/resources/images/user.png" id="login-member-profile-img">
         </a>
         <div class="login-member-info">
             <div>
