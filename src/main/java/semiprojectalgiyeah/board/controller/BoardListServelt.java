@@ -16,7 +16,7 @@ public class BoardListServelt extends HttpServlet{
 		
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
-		String command = uri.substring(  (contextPath + "/reply/").length()  );
+		String command = uri.substring(  (contextPath + "/board/").length()  );
 		
 		if(command.equals("allList")) {
 			String path = "/WEB-INF/views/board/allBoardList.jsp";

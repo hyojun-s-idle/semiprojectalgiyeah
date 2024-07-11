@@ -1,0 +1,76 @@
+.mSearch-complet {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mSearchComTable {
+    box-sizing: border-box;
+    width: 1200px;
+    border: 3px solid gray;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+
+.mSearchComTable > thead {
+    background-color: rgba(128, 128, 128, 0.384);
+}
+
+.mSearchComTable > thead > th {
+    box-sizing: border-box;
+    margin: 0;
+    border: 2px solid gray;
+}
+
+/* 테이블 열 비율 */
+.mSearchComTable > thead  th:nth-of-type(1){ width: 5%;}
+.mSearchComTable > thead  th:nth-of-type(2){ width: 7%;}
+.mSearchComTable > thead  th:nth-of-type(3){ width: 5%;}
+.mSearchComTable > thead  th:nth-of-type(4){ width: 10%;}
+.mSearchComTable > thead  th:nth-of-type(5){ width: 10%;}
+.mSearchComTable > thead  th:nth-of-type(6){ width: 7%;}
+.mSearchComTable > thead  th:nth-of-type(7){ width: 10%;}
+.mSearchComTable > thead  th:nth-of-type(8){ width: 5%;}
+.mSearchComTable > thead  th:nth-of-type(9){ width: 10%;}
+.mSearchComTable > thead  th:nth-of-type(10){ width: 20%;}
+.mSearchComTable > thead  th:nth-of-type(11){ width: 10%;}
+
+/* comment */
+.mSearchComTable.comment > thead  th:nth-of-type(1){ width: 5%;}
+.mSearchComTable.comment > thead  th:nth-of-type(2){ width: 7%;}
+.mSearchComTable.comment > thead  th:nth-of-type(3){ width: 5%;}
+.mSearchComTable.comment > thead  th:nth-of-type(4){ width: 10%;}
+.mSearchComTable.comment > thead  th:nth-of-type(5){ width: 10%;}
+.mSearchComTable.comment > thead  th:nth-of-type(6){ width: 7%;}
+.mSearchComTable.comment > thead  th:nth-of-type(7){ width: 10%;}
+.mSearchComTable.comment > thead  th:nth-of-type(8){ width: 5%;}
+.mSearchComTable.comment > thead  th:nth-of-type(9){ width: 10%;}
+.mSearchComTable.comment > thead  th:nth-of-type(10){ width: 20%;}
+.mSearchComTable.comment > thead  th:nth-of-type(11){ width: 10%;}
+
+
+.mSearchComTable > tbody td {
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.mSearchComTable>tbody tr {
+    cursor: pointer;
+}
+
+
+
+.ceoNum {
+    visibility: hidden;
+}
+
+.ceoNum.active {
+    visibility: visible;
+}
+
+.mSearchComTable>tbody tr:hover {
+    background-color: rgb(128, 128, 128);
+}

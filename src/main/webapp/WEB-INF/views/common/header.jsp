@@ -36,6 +36,8 @@
 					
 				<%-- 	</c:otherwise>
 				</c:choose> --%>
+
+				<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
 			</div>
 
 		</div>
