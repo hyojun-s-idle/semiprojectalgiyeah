@@ -21,6 +21,11 @@ public class ManagerServlet extends HttpServlet {
 			String path = "/WEB-INF/views/manager/manCommentReportSearch.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
 		}
+		
+		if(command.equals("manPostSearch")) {
+			String path = "/WEB-INF/views/manager/manPostReportSearch.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
 	}
 	
 	@Override
