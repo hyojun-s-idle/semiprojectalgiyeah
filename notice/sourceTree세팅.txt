@@ -1,0 +1,26 @@
+<집에가서> - 역순작성
+3. branch(kis) pull
+master pull.
+kis 우클릭 체크아웃
+master 브랜치 삭제
+
+kis pull땡겨주기.
+
+===================
+master를 일단은 먼저땡겨야함.!!!
+그리고나서 branch로 가야함.!!!
+
+master pull + branch(kis) pull
+
+
+
+2. (master pull) 생략
+master pull <- clone하면서 알아서 당겨지긴함
+
+
+1. sourceTree url복사 + clone
+소스트리
+git 주소 code복사
+clone
+
+
