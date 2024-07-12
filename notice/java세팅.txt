@@ -1,0 +1,64 @@
+1. Dynamic Web Module 설정
+Properties
+Project Facets
+Dynamic Web Module 4
+Java 11
+JavaScript 1.0
+
+2. Server생성
+-Dynamic Web Module
+설정해줘야
+Servers 생성해서
+next
+Add and Remove
+인식가능함.!!!
+
+3. Project Facets + Runtimes 설정
+Server생성후
+Project Facets
+Runtimes 
+Apache Tomcat v9.0 
+그제서야 뜸
+
+--- 여기까지 실행은가능
+
+
+4. Java Build Path  + Libraries 설정
+Java Build Path 
+Libraries
+Server Runtime
+-jsp오류 해결됨
+
+
+==========================
+Server 각자깔아줄것.
+
+1. Servers -> new 
+2. Java Build Path -> Libraries
+3. Project Facets -> Runtimes 
+
+
+
+
+
+=========================
+파일주의
+
+eclipse 최초킬때 내부폴더아닌경우 잡아도 실행됨.
+
+semi           semiProject
+semiProject   semi
+-이경우
+
+semi               semiProject(o)
+semiProject(o)   semi
+-이런식으로 잡힐수있음.!!!
+최초잡는 semiProject 이부분이 가변적임.!!!
+-경로 꼬이게될수있는듯함.!!!
+
+================================
+소스트리
+
+master pull
+kis 우클릭 체크아웃
+master 브랜치 삭제
