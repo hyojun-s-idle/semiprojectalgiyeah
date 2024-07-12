@@ -120,7 +120,7 @@
                 </thead>
     
                 <tbody class="mSearchComResult">
-                    <tr>
+                    <tr onclick="location.href=''">
                         <td>n1234</td>
                         <td>user01</td>
                         <td class="categoryMember">요식업</td>
