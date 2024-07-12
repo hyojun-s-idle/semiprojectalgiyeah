@@ -5,15 +5,15 @@
 	<div class="header-background">
 		<div class="header-suround">
 			<div class="header-post">
-				<a href="" id="logo-header">로고</a>
-				<a href="${contextPath}/board/list" id="header-all">모두 게시판</a>
+				<a href="${contextPath}" id="logo-header"><img src="${contextPath}/resources/images/logo.png"></a>
+				<a href="${contextPath}/board/allList" id="header-all">모두 게시판</a>
 				
 				<%-- <c:choose> --%>
 					<%-- <c:when test=""> --%>
-						<a href="" id="header-worker">알바 게시판</a>
+						<a href="${contextPath}/board/workerList" id="header-worker">알바 게시판</a>
 					<%-- </c:when> --%>
 					<%-- <c:when test=""> --%>
-						<a href="" id="header-ceo">사장 게시판</a>
+						<a href="${contextPath}/board/ceoList" id="header-ceo">사장 게시판</a>
 					<%-- </c:when> --%>
 			<%-- 	</c:choose> --%>
 				
@@ -23,7 +23,7 @@
 				<%-- <c:choose>
 					<c:when test="${!empty loginMember}"> --%>
 						<div id="headerProfileWrapper">
-                            <div id="header-profile"> </div>
+							<div id="header-profile"><img src="${contextPath}/resources/images/user.png"></div>
                             <div id="headerProfileHidden">
                                 <div><a href="">마이페이지</a></div>
                                 <div><a href="">로그아웃</a></div>
@@ -36,6 +36,8 @@
 					
 				<%-- 	</c:otherwise>
 				</c:choose> --%>
+
+				<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
 			</div>
 
 		</div>

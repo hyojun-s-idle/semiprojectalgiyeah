@@ -28,7 +28,11 @@
 
     <section class="content-suround">
         <div class="post-content-suround">
-            <jsp:include page="/WEB-INF/views/board/tabmenu.jsp"/>
+            <ul class="tab-menu">
+                <li class="tab-item tab-active"><a href="#all">전체</a></li>
+                <li class="tab-item"><a href="#worker">사장</a></li>
+                <li class="tab-item"><a href="#ced">알바</a></li>
+            </ul>
     
             <ul class="post-content tab-active">
                 <li>
@@ -45,71 +49,13 @@
                         <div class="account-div-name">
                             <div class="account-img"></div><div class="account-name">계정이름</div>
                         </div>
-                        <div class="account-div-catagory">카테고리</div>
+                        <div class="account-div-category">
+                            카테고리
+                        </div>
                     </div>
                     </a>
                 </li>
-                <li>
-                    <a href="" class="post-suround">
-                        <div class="title-div">
-                            <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                        </div>
-                        <div class="content-div">
-                            <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                보이는 끝까지 찾아다녀도 목</p>
-                        </div>
-                        <div class="account-div">
-                            <div class="account-div-name">
-                                <div class="account-img"></div><div class="account-name">계정이름</div>
-                            </div>
-                            <div class="account-div-catagory">카테고리</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="post-suround">
-                        <div class="title-div">
-                            <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                        </div>
-                        <div class="content-div">
-                            <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                보이는 끝까지 찾아다녀도 목</p>
-                        </div>
-                        <div class="account-div">
-                            <div class="account-div-name">
-                                <div class="account-img"></div><div class="account-name">계정이름</div>
-                            </div>
-                            <div class="account-div-catagory">카테고리</div>
-                        </div>
-                    </a>
-                </li>
                 
-                <li>
-                    <a href="" class="post-suround">
-                        <div class="title-div">
-                            <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                        </div>
-                        <div class="content-div">
-                            <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                보이는 끝까지 찾아다녀도 목</p>
-                        </div>
-                        <div class="account-div">
-                            <div class="account-div-name">
-                                <div class="account-img"></div><div class="account-name">계정이름</div>
-                            </div>
-                            <div class="account-div-catagory">카테고리</div>
-                        </div>
-                    </a>
-                </li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
                 <div class="pagination-area">
                     <ul class="pagination">
                         <li><a href="#">&lt;&lt;</a></li>
@@ -130,7 +76,8 @@
                         <li><a href="#">&gt;&gt;</a></li>
                     </ul>
                 </div>
-            </ul>
+                </ul>
+            </div>
 
     </section>
     <div class="write-suround">

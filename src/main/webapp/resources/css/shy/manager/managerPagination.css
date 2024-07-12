@@ -1,0 +1,31 @@
+/* pagination-container */
+.pagination{
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination > li{
+  width: 20px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.pagination > li > a{
+text-decoration : none;
+color:black;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 현재 페이지 번호 */
+.pagination .current{
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}

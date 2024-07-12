@@ -75,6 +75,7 @@
     overflow: hidden;
 }
 
+/* 계정, 카테고리 영역 */
 .account-div {
     margin-top: 10px;
     height: 35px;
@@ -95,6 +96,12 @@
     display: inline-block;
 }
 
+/* 프로필 사진 */
+.account-img > img{
+    max-width: 20px;
+    max-height: 20px;
+}
+
 .account-img:hover {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.404);
     transition-duration: 0.3s;
@@ -108,4 +115,55 @@
 
     display: flex;
     align-items: center;
+}
+
+ /* 계정, 카테고리 */
+ .account-div-category{
+    color: gray;
+}
+
+/* 수정 삭제 버튼 영역 */
+
+.account-div-up-del{
+    margin-top: 20px;
+    width: 960px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.account-div-up-del > div:hover{
+    transform: scale(1.1);
+}
+
+.account-div-up-del > div:active{
+    transform: scale(0.9);
+}
+
+/* 수정 삭제 버튼 */
+.accountUpdate{
+    border: 0;
+    border-radius: 5px;
+    background-color: black;
+    
+    padding: 5px;
+    transition-duration: 0.3s;
+}
+
+.accountUpdate > a{
+    color: white;
+}
+
+.accountDelete{
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(209, 27, 27);
+    
+    padding: 5px;
+    margin-left: 30px;
+    transition-duration: 0.3s;
+}
+
+.accountDelete > a{
+    color: white;
 }
