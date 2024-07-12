@@ -42,8 +42,7 @@ let moveLefttab = document.querySelectorAll(".hot-left");
 let moveRighttab = document.querySelectorAll(".hot-right");
 const mainTabItem = document.querySelectorAll(".hot-tab-item");
 const mainPostContent = document.querySelectorAll(".hot-post-suround-content");
-console.log(mainTabItem);
-console.log(mainPostContent);
+
 mainTabItem.forEach(function (item, index) {
     item.addEventListener("click", function (e) {
         e.preventDefault();
