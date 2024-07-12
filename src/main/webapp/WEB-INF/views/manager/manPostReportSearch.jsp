@@ -26,16 +26,16 @@
         <jsp:include page="/WEB-INF/views/manager/managerSearchBar.jsp"/>
     
         <section class="mSearch-complet">
-            <table class="mSearchComTable">
+            <table class="mSearchComTable post">
                 <thead>
                     <tr>
-                        <th>신고 누적</th>
+                        <th>신고<br> 누적</th>
                         <th>닉네임</th>
                         <th>회원</th>
                         <th>게시판</th>
                         <th>카테고리</th>
-                        <th>게시판 번호</th>
-                        <th>게시판 제목</th>
+                        <th>게시판<br> 번호</th>
+                        <th>게시판<br> 제목</th>
                         <th>게시판 내용</th>
                         <th>작성일자</th>
                         <th id="ceoNumTitle">비고</th>
@@ -43,7 +43,7 @@
                 </thead>
     
                 <tbody class="mSearchComResult">
-                    <tr>
+                    <tr onclick="location.href='${contextPath}/manager/postDetail'">
                         <td>13</td>
                         <td>방동사장</td>
                         <td>사장</td>
@@ -73,52 +73,6 @@
                         <td>2024-04-03</td>
                         <td class="ceoNum">n142536-45778254</td>
                     </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>방동사장</td>
-                        <td>사장</td>
-                        <td>사장 게시판</td>
-                        <td>요식업</td>
-                        <td>1234</td>
-                        <td>옆집 왜이러냐</td>
-                        <td class="contentReport">
-                            친구는 세월의 도둑이다.
-                            
-                        </td>
-                        <td>2024-04-03</td>
-                        <td class="ceoNum">n142536-45778254</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>방동사장</td>
-                        <td>사장</td>
-                        <td>사장 게시판</td>
-                        <td>요식업</td>
-                        <td>1234</td>
-                        <td>옆집 왜이러냐</td>
-                        <td class="contentReport">
-                            친구는 세월의 도둑이다.
-                            
-                        </td>
-                        <td>2024-04-03</td>
-                        <td class="ceoNum">n142536-45778254</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>방동사장</td>
-                        <td>사장</td>
-                        <td>사장 게시판</td>
-                        <td>요식업</td>
-                        <td>1234</td>
-                        <td>옆집 왜이러냐</td>
-                        <td class="contentReport">
-                            친구는 세월의 도둑이다.
-                            
-                        </td>
-                        <td>2024-04-03</td>
-                        <td class="ceoNum">n142536-45778254</td>
-                    </tr>
-    
                     
                 </tbody>
     

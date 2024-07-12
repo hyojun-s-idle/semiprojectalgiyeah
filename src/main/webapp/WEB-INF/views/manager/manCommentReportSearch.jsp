@@ -46,7 +46,7 @@
             </thead>
 
             <tbody class="mSearchComResult">
-                <tr>
+                <tr onclick="location.href='${contextPath}/manager/commentDetail'">
                     <td>13</td>
                     <td>방동사장</td>
                     <td>사장</td>
@@ -65,7 +65,7 @@
                     <td>2024-04-03</td>
                     <td class="ceoNum">n142536-45778254</td>
                 </tr>
-                <tr>
+                <tr onclick="location.href='${contextPath}/manager/commentDetail'">
                     <td>13</td>
                     <td>방동사장</td>
                     <td>사장</td>

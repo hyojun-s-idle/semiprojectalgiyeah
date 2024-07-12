@@ -1,0 +1,59 @@
+.report-post-suround {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reportPost {
+    box-sizing: border-box;
+    width: 1200px;
+    border: 3px solid gray;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.reportPost th {
+    border: 2px solid gray;
+    background-color: rgba(128, 128, 128, 0.384);
+}
+
+.reportPost td {
+    border: 2px solid gray;
+}
+
+
+#postContent>td {
+    text-align: left;
+    height: 800px;
+    overflow-y: scroll;
+    vertical-align: top;
+    line-height: auto;
+}
+
+form[name="reportPostFormDel"] {
+    margin-top: 40px;
+}
+
+form[name="reportPostFormDel"]>button {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 5px 20px;
+    transition-duration: 0.3s;
+    background-color: rgba(128, 128, 128, 0.384);
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+form[name="reportPostFormDel"]>button:hover {
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+form[name="reportPostFormDel"]>button:active {
+    transform: scale(0.9);
+    background-color: white;
+
+}

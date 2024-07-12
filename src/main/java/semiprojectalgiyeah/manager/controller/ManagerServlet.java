@@ -17,14 +17,36 @@ public class ManagerServlet extends HttpServlet {
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/manager/").length()  );
 		
-		if(command.equals("manCommentSearch")) {
-			String path = "/WEB-INF/views/manager/manCommentReportSearch.jsp";
-			req.getRequestDispatcher(path).forward(req, resp);
-		}
-		
-		if(command.equals("manPostSearch")) {
-			String path = "/WEB-INF/views/manager/manPostReportSearch.jsp";
-			req.getRequestDispatcher(path).forward(req, resp);
+		try {
+			if(command.equals("manCommentSearch")) {
+				String path = "/WEB-INF/views/manager/manCommentReportSearch.jsp";
+				req.getRequestDispatcher(path).forward(req, resp);
+			}
+			
+			if(command.equals("manPostSearch")) {
+				String path = "/WEB-INF/views/manager/manPostReportSearch.jsp";
+				req.getRequestDispatcher(path).forward(req, resp);
+			}
+			
+			if(command.equals("manMemberSearch")) {
+				String path = "/WEB-INF/views/manager/manMemberSearch.jsp";
+				req.getRequestDispatcher(path).forward(req, resp);
+			}
+			
+			if(command.equals("commentDetail")) {
+				String path = "/WEB-INF/views/manager/manCommentDetail.jsp";
+				req.getRequestDispatcher(path).forward(req, resp);
+				
+			}
+			
+			if(command.equals("postDetail")) {
+				String path = "/WEB-INF/views/manager/manPostDetail.jsp";
+				req.getRequestDispatcher(path).forward(req, resp);
+				
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
