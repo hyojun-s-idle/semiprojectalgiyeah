@@ -19,7 +19,7 @@
                             <div class="hot-post-content">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker10.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker10.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -42,7 +42,7 @@
                             <div class="hot-post-content">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker3.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker3.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -65,7 +65,7 @@
                             <div class="hot-post-content">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker4.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker4.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -171,7 +171,7 @@
                             <div class="hot-post-content">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker9.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker9.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -194,7 +194,7 @@
                             <div class="hot-post-content ">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker2.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker2.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -217,7 +217,7 @@
                             <div class="hot-post-content ">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker6.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker6.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -322,7 +322,7 @@
                             <div class="hot-post-content">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker5.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker5.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -345,7 +345,7 @@
                             <div class="hot-post-content ">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker7.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker7.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">
@@ -368,7 +368,7 @@
                             <div class="hot-post-content ">
                                 <a href="#" class="hot-post-suround">
                                     <div class="type-hot">
-                                        <img src="../../resources/images/worker8.jpeg" alt="">
+                                        <img src="${contextPath}/resources/images/worker8.jpeg" alt="">
                                     </div>
                                     <div class="content-title-hot">
                                         <div class="title-hot-div">

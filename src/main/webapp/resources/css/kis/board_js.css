@@ -1,0 +1,58 @@
+
+/* 스케일 */
+.trans {
+    transform: scale(1.1);
+    transition-duration: 1s;
+    box-shadow: none;
+}
+
+.transRemove {
+    transform: scale(1);
+    transition-duration: 1s;
+}
+
+
+/* 보임*숨김 */
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.replyNestedDisplay {
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+
+}
+
+
+
+/* 회전 */
+.arrow{
+ transition-duration: 1s;
+}
+.rotate90{
+ transform: rotate(1170deg);
+ transition-duration: 1s;
+ font-size: 80px;
+ border-radius: 100%;
+ color:rgba(255, 255, 255, 1);
+ /* box-shadow: 0 0 10px white; */
+ filter: drop-shadow(0 0 3px white);
+
+}
+.rotate0{
+ transform: rotate(0deg);
+ transition-duration: 1.5s;
+}
+

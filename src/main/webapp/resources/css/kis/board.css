@@ -1,0 +1,257 @@
+* {
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 가변부분 */
+    background-color: #FFD0D0;
+
+}
+
+div {
+    /* border: 1px solid black; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+/* 컨테이너 */
+.container {
+    width: 1500px;
+    padding: 100px 0px;
+
+
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.containerContent {
+    width: 1100px;
+    display: block;
+    box-shadow: 10px 10px 20px 0px black;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    background-color: hsla(0, 0%, 100%, 0.5);
+}
+
+/* 게시판 */
+#boardBox {
+    width: 1100px;
+    flex-direction: column;
+}
+
+#board {
+    flex-direction: column;
+}
+
+
+#boardHeader {
+    width: 900px;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: start;
+    display: block;
+}
+
+.boardHeaderPart {
+    justify-content: flex-start;
+}
+
+.boardHeaderTop {
+    justify-content: space-between;
+}
+
+.boardHeaderTop div {
+    height: 75px;
+}
+
+
+.boardHeaderTop span {
+    font-size: 13px;
+    margin: 0px 5px;
+}
+
+/* 댓글개수 */
+.replyCountLogo {
+    margin: 0;
+    /* 안먹음 */
+}
+
+.numbering {
+    margin: 0;
+}
+
+/* 조회수*경고버튼*삭제버튼 */
+.icon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.icon span {
+    font-size: 30px;
+}
+
+
+
+.boardHeaderMiddle {
+    height: 75px;
+}
+
+.boardHeaderBottom {
+    font-size: 10px;
+}
+
+#boardWriter {
+    justify-content: flex-start;
+    font-size: 10px;
+    height: 100px;
+}
+
+
+#boardWriterPhotoBox {
+    border: 1px solid #ddd;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+
+
+    overflow: hidden;
+}
+
+.replyWriterPhotoBox {
+    margin-top: 15px;
+    margin-right: 7px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+
+    width: 67.5px;
+    height: 67.5px;
+    width: 70px;
+    height: 70px;
+
+    overflow: hidden;
+}
+
+#boardWriterPhoto,
+#replyWriterPhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#boardContent {
+    width: 900px;
+    font-size: 15px;
+    line-height: 50px;
+    letter-spacing: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(249, 249, 224, 1); */
+
+    padding: 10px;
+}
+
+#boardContent p {
+    margin: 0px;
+}
+
+/* 좋아요 버튼 */
+#boardClick span {
+    font-size: 50px;
+    margin: 5px;
+    animation: beat  10s  ease-in-out infinite ;
+}
+@keyframes beat{
+    0%{
+        transform: scale(1)  rotate(0deg) translate(0px);
+    }
+    25%{
+        transform: scale(0.5)  rotate(1080deg) translate(50px, 50px)  ;
+    }
+    50%{
+        transform: scale(1)  rotate(1080deg)  translate(0px);
+    }
+    75%{
+        transform: rotate(360deg) translate(0px);
+    }
+    100%{
+        transform: rotate(360deg) translate(0px);
+    }
+}
+
+
+
+#replyBox {
+    width: 1100px;
+    flex-direction: column;
+    justify-content: flex-start;
+
+
+}
+
+.buttonBox {
+    width: 100%;
+    height: 100px;
+
+}
+
+
+.button {
+    width: 100%;
+    height: 100px;
+
+    background-color: transparent;
+    padding: 0px 0px;
+    border: none;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    filter: invert(0.7);
+    transition-duration: 0.5s;
+}
+
+
+.button span {
+    /* font-size: 50px;
+    color: gainsboro; */
+}
+
+/* js우선순위위해 준위낮춰버리기  */
+.arrowBoard,
+.arrowReplyList,
+.arrowReplyWriting {
+    font-size: 60px;
+    color: gainsboro;
+
+    display: inline-block;
+}
+
+/* 아이콘 */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  /* 'wght' 700, */
+  'wght' 400,
+  'GRAD' 200,
+  'opsz' 24
+}
