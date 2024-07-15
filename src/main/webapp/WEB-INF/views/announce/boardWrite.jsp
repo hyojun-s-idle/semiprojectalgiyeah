@@ -15,7 +15,7 @@
 </head>
 <body>
     <main>
-        <jsp:include page="/WEB-INF/views/commone/header.jsp"/>
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <div id="header-UP" class="all">
         </div>
         <div class="title-color">
