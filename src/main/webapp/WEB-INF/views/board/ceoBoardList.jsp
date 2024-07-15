@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/writeButton.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUpButton.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUPslide.css">
+    
 </head>
 <body id="up">
     <main>
@@ -44,7 +45,7 @@
     
             <ul class="post-content tab-active">
                 <li>
-                    <a href="" class="post-suround">
+                    <a href="${contextPath}/board/ceoList/detail" class="post-suround">
                     <div class="title-div">
                         <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
                     </div>
@@ -94,6 +95,14 @@
 
         
     </section>
+
+
+    <div class="write-suround">
+        <div class="fa-solid fa-pen" id="write">
+        </div>
+        <a href="${contextPath}/board/ceoList/boardWrite" id="write-write">글쓰기</a>
+    </div>
+
     <jsp:include page="/WEB-INF/views/common/write.jsp"/>
     <jsp:include page="/WEB-INF/views/common/toUp.jsp"/>
 

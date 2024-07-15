@@ -83,15 +83,19 @@
             </div>
 
     </section>
-    <div class="write-suround">
+
+<!--     <div class="write-suround">
         <div class="fa-solid fa-pen" id="write">
         </div>
-
         <a href="${contextPath}/board/allList/boardWrite" id="write-write">글쓰기</a>
+    </div> -->
 
-    </div>
-    <a href="#up" class="fa-solid fa-arrow-up" id="header-up"></a>
+    <jsp:include page="/WEB-INF/views/common/write.jsp"/>
+    <jsp:include page="/WEB-INF/views/common/toUp.jsp"/>
 
+
+
+    
     </main>
 
     <script src="${contextPath}/resources/js/shy/write.js"></script>

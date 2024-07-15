@@ -2,7 +2,14 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-        <!DOCTYPE html>
+
+<!-- url자르기 -->
+<!-- /boardWrite == 11자 -->
+<c:set var="sub" value="${requestScope['javax.servlet.forward.request_uri'].substring((contextPath+='/board/').length())}"/>
+<c:set var="type" value="${sub.substring(0,sub.length()-11)}"/>
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,7 +31,17 @@
 
 </head>
 
-<body>
+<!-- <c:if test="${type=='allList'}"></c:if>
+<c:if test="${type=='workerList'}"></c:if>
+<c:if test="${type=='ceoList'}"></c:if>
+ -->
+
+<!-- 배경색 -->
+<c:if test="${type=='allList'}"   ><body style="background-color: rgba(5, 146, 18, 0.7);"></c:if>
+<c:if test="${type=='workerList'}"   ><body style="background-color:  rgba(255, 158, 170, 1);"></c:if>
+<c:if test="${type=='ceoList'}"><body style="background-color: rgba(75, 112, 245, 0.7);"></c:if>
+
+    
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
@@ -38,10 +55,18 @@
 
                 <!-- 게시판선택 -->
                 <!-- 알바 -->
-                <select class="alba" id="albaBoardSelect" name="boardType">
-                    <option selected hidden disabled>종류</option>
-                    <option name="boardType" value="알바">알바</option>
-                    <option name="boardType" value="모두">모두</option>
+                <select class="alba" id="albaBoardSelect" name="boardType" value="1">
+
+
+                    <c:if test="${type=='allList'}"><option name="boardType" value="all">모두</option></c:if>
+                    <c:if test="${type=='workerList'}"><option name="boardType" value="worker">알바</option></c:if>
+                    <c:if test="${type=='ceoList'}"><option name="boardType" value="ceo">사장</option></c:if>
+                    
+
+                    
+
+                    
+
                 </select>
 
 
@@ -78,27 +103,34 @@
                 </select>
 
             </div>
+            
+            <!-- <select class="alba" id="albaBoardSelect" name="boardType">
+            <option selected hidden disabled>종류</option>
+            <option name="boardType" value="알바">알바</option>
+            <option name="boardType" value="모두">모두</option>
+        </select>
+        <select class="alba" id="albaSelect" name="occupationType">
+            <option selected hidden disabled>직종</option>
+            <option name="occupationType" value="외식/음료">외식/음료</option>
+            <option name="occupationType" value="매장 관리">매장 관리</option>
+            <option name="occupationType" value="서비스">서비스</option>
+            <option name="occupationType" value="사무직">사무직</option>
+            <option name="occupationType" value="운전/배달">운전/배달</option>
+            <option name="occupationType" value="생산">생산</option>
+            <option name="occupationType" value="디자인">디자인</option>
+            <option name="occupationType" value="IT">IT</option>
+            <option name="occupationType" value="교육">교육</option>
+        </select> -->
+        
             <div class="boardHeaderPart boardHeaderTop">
-                <!-- <select class="alba" id="albaBoardSelect" name="boardType">
-                <option selected hidden disabled>종류</option>
-                <option name="boardType" value="알바">알바</option>
-                <option name="boardType" value="모두">모두</option>
-            </select>
-            <select class="alba" id="albaSelect" name="occupationType">
-                <option selected hidden disabled>직종</option>
-                <option name="occupationType" value="외식/음료">외식/음료</option>
-                <option name="occupationType" value="매장 관리">매장 관리</option>
-                <option name="occupationType" value="서비스">서비스</option>
-                <option name="occupationType" value="사무직">사무직</option>
-                <option name="occupationType" value="운전/배달">운전/배달</option>
-                <option name="occupationType" value="생산">생산</option>
-                <option name="occupationType" value="디자인">디자인</option>
-                <option name="occupationType" value="IT">IT</option>
-                <option name="occupationType" value="교육">교육</option>
-            </select> -->
+                
+
+
                 <div id="boardNumber">
-                    <span>No. 10000</span>
-                    <span id="boardDate" name="boardDate"></span>
+                    <div>
+                        <span>No. 10000</span>
+                        <span id="boardDate" name="boardDate"></span>
+                    </div>
                 </div>
                 <div id="boardWriter">
                     <div id="boardWriterPhotoBox"><img src="${contextPath}/resources/images/user.png" id="boardWriterPhoto"></div>
@@ -191,17 +223,7 @@
         </div>
     </div>
 
-    <div class="footer">
-        ㅁ
-        ㅁ
-        ㅁ
-        ㅁ
-        ㅁ
-        ㅁ
-        ㅁ
-        ㅁ
 
-    </div>
     <script src="${contextPath}/resources/js/kis/boardWrite.js"></script>
 </body>
 

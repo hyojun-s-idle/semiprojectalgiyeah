@@ -2,5 +2,10 @@
 <div class="write-suround">
     <div class="fa-solid fa-pen" id="write">
     </div>
-    <a href="" id="write-write">글쓰기</a>
+
+
+    
+    <a href="${contextPath}/board/allList/boardWrite" id="write-write">글쓰기</a>
+
+
 </div>
