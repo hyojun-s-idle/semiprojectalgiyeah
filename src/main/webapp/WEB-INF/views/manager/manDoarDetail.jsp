@@ -69,10 +69,8 @@
                 <ul id="reply-list">
                     <li class="reply-row">
                         <p class="reply-writer">
-                            <span>
-                                <img src="${contextPath}/resources/images/user.png">
-                                <span>댓글 작성자 닉네임</span>
-                            </span>
+                            <img src="${contextPath}/resources/images/user.png">
+                            <span>댓글 작성자 닉네임</span>
                             <span class="reply-date">(2024.07.11 10:09:30)</span>
                         </p>
         
