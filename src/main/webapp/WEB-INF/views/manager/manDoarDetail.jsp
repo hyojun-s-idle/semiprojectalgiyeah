@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardDetail-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/manager/managerHeader.css">
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
         <div id="header-UP" class="all">
         </div>
         <div class="title-color">
@@ -31,7 +31,7 @@
             <!-- 프로필 + 닉네임 + 작성일 + 조회수 -->
             <div class="board-header">
                 <div class="board-writer">
-                    <img src="${contextPath}/resources/images/user.png">
+                    <img src="../resources/images/user.png">
                     <span>운영자</span>
                 </div>
 

@@ -7,15 +7,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/boardWrite-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/annTitle-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardWrite-style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/header.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css">
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
         <div id="header-UP" class="all">
         </div>
         <div class="title-color">

@@ -1,0 +1,95 @@
+/* 댓글 목록 */
+#reply-list{
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content:center;
+    padding: 0;
+    list-style: none;
+}
+
+/* 댓글 한 줄(댓글 하나) */
+.reply-row{
+	width:1200px;
+    border-top: 1px solid #ccc;
+    padding: 15px 30px;
+}
+
+/* 댓글 작성자 날짜 */
+.reply-writer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 댓글 작성자 프로필 이미지 */
+.reply-writer > span > img{
+    width: 40px;
+    height: 40px;
+}
+
+.reply-writer span{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 댓글 작성일 */
+.reply-date{
+    color : #aaa;
+    font-size: 0.8em;
+}
+
+/* 버튼 영역 */
+.reply-btn-area{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.reply-btn-area > button{
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+    font-weight: bold;
+    background-color: gray;
+    color: black;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0;
+}
+
+/* 버튼 hover */
+.reply-btn-area > button:hover{
+    background-color: black;
+    color: white;
+}
+
+/* 댓글 작성 영역 */
+.reply-write-area{
+    display: flex;
+    justify-content: center;
+    min-height: 85px;
+    margin: 30px 0;
+}
+
+/* 댓글 작성 내용 */
+#replyContent{
+    resize: none;
+    margin-right: 10px;
+    flex-basis: 75%;
+}
+
+/* 댓글 등록 버튼 */
+#addReply{
+    flex-basis: 8%;
+    font-weight: bold;
+    background-color: gray;
+    color: black;
+    border: 0;
+    cursor: pointer;
+}
+
+#addReply:hover{
+    background-color: black;
+    color: white;
+}

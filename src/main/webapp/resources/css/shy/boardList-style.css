@@ -1,27 +1,3 @@
-/* header-UP */
-#header-UP{
-    width: 100%;
-    height: 100px;
-    background-color: #ddd;
-}
-
-.title-color{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ddd;
-}
-
-.title-bottom{
-    width: 1000px;
-
-    border-bottom: 1px solid gray;
-    font-size: 30px;
-    font-weight: bold;
-}
-
 /* a태그 공통 설정 */
 .board-list a{
     text-decoration: none;
@@ -101,6 +77,8 @@
 
 /* 글쓰기 버튼 */
 #insertBtn{
+	text-align: center;
+	line-height : 40px;
     width: 80px;
     height: 40px;
     margin-right: 50px;
@@ -110,7 +88,13 @@
     color: black;
     border-radius: 5px;
     font-weight: bold;
+    text-decoration: none;
     cursor: pointer;
+}
+
+#insertBtn:hover{
+	background-color: white;
+	border: 1px solid black;
 }
 
 /* 페이지네이션(Pagination) */

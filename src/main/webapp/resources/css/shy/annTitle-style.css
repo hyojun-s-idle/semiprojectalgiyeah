@@ -13,3 +13,11 @@
     align-items: center;
     background-color: #ddd;
 }
+
+.title-bottom{
+    width: 1000px;
+
+    border-bottom: 1px solid gray;
+    font-size: 30px;
+    font-weight: bold;
+}

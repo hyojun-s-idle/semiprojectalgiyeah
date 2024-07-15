@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardList-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">
-    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css">
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
-        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
 
         <div id="header-UP" class="all">
         </div>
@@ -43,7 +43,7 @@
                         <tr>
                             <td>1</td>
                             <td>
-                                <a href="${contextPath}/announce/boardList/detail">1번째 게시글</a>
+                                <a href="${contextPath}/manager/manAnnounce/boardDetail">1번째 게시글</a>
                             </td>
                             <td>2024-07-08</td>
                         </tr>
@@ -52,7 +52,9 @@
                 </table>
             </div>
 
-        
+            <div class="btn-area">
+                <a href="${contextPath}/manager/manAnnounce/boardWrite" id="insertBtn">글쓰기</a>
+            </div>
 
             <div class="pagination-area">
                 <ul class="pagination">

@@ -16,6 +16,7 @@
 						<a href="${contextPath}/board/ceoList" id="header-ceo">사장 게시판</a>
 					<%-- </c:when> --%>
 			<%-- 	</c:choose> --%>
+					<a href="${contextPath}/announce/boardList" id="heade-announce">공지사항</a>
 				
 			</div>
 			<div class="header-login">
