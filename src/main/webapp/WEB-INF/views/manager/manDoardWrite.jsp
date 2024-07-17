@@ -29,21 +29,6 @@
                     <input type="text" name="boardTilte" placeholder="제목을 적어주세요.">
                 </div>
                 <div class="board-write-area">
-                    <div class="board-function">
-                        <select name="font-size" id="fontSize">
-                            <option>10px</option>
-                            <option selected>15px</option>
-                            <option>20px</option>
-                            <option>25px</option>
-                            <option>30px</option>
-                            <option>35px</option>
-                            <option>40px</option>
-                            <option>45px</option>
-                        </select>
-                        <input type="radio" name="fontStyle" value="bold" id="bold"><label for="bold">가</label>
-                        <input type="radio" name="fontStyle" value="italic" id="italic"><label for="italic">가</label>
-                        <input type="radio" name="fontStyle" value="underline" id="underline"><label for="underline">가</label>
-                    </div>
                     <div class="board-write-content">
                         <textarea name="boardContent" placeholder="내용을 적어주세요."></textarea>
                     </div>
