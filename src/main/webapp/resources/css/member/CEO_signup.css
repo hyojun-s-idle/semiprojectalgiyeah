@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Jua&display=swap');
+
+/* div{border: 1px solid black;} */
+
+
+*{box-sizing: border-box;
+
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.container{
+    height: 100vh;
+    font-family: "Playwrite SK", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+}
+
+/* 상단 */
+a{
+    text-decoration: none;
+    color: black;
+    margin: 20px;
+}
+
+a:hover{
+    font-weight: bold;
+    border-bottom: 3px solid black;
+    transition-duration: 0.3s;
+}
+
+.header{
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.137);
+    background-color: white;
+}
+
+.header-suround{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 100px;
+    font-size: 18px;
+}
+
+.header-post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-header:hover{
+    border: none;
+    transform: scale(1.2,1.2);
+    transition-duration: 0.3s;
+}
+
+#search-header{
+    margin-right: 30px;
+    font-size: 25px;
+}
+
+#logo-header{
+    border: none;
+}
+
+#header-all:hover{
+    border-bottom: 3px solid rgb(3, 206, 3);
+}
+
+#header-worker:hover{
+    border-bottom: 3px solid pink;
+}
+
+#header-ceo:hover{
+    border-bottom: 3px solid rgb(74, 74, 240);
+}
+
+
+/* 컨텐츠 */
+.content{
+    height: 1016px;
+   /*  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+
+}
+
+fieldset{
+    border: none;
+}
+
+.signup-box{
+    height: 1000px;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    /* border: 1px solid  rgb(255, 255, 255); */
+    /* border: 1px solid  purple; */
+/*     background-color: rgba(0,0,0,0);
+    background-color: rgba(255, 255, 255,0.7); */
+    border: 2px solid #4B70F5;
+    box-shadow: 2px 3px 10px 0px;
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+.signup-box>div{
+    width: 400px;
+    height: 110px;
+    margin: auto;
+}
+
+input{
+    width: 300px;
+    height: 50px;
+    border: 1px solid #4B70F5;
+    border-radius: 20px;
+}
+
+select{
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    border: 1px solid #4B70F5;
+    font-size: 23px;
+    text-align: center;
+}
+
+
+#next{
+    width: 200px;
+    height: 70px;
+    margin-top: 40px;
+    background-color: #4B70F5;
+   /*  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+    /* background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+    border-radius: 20px;
+    border: #ffd1ff;
+    box-shadow: 2px 3px 5px 0px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+    /* background-color:red; */
+}
+
+#next:hover{
+    /* background-image: linear-gradient(to top, #bea097 0%, #c4a0c4 100%);  */
+    /* background-image: linear-gradient(to top, #ffd1ff 0%, #fad0c4 100%);  */
+    box-shadow: none;
+    background-color: #c59e9e;
+    }   
+
+.signup-box2{
+    height: 1000px;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    /* border: 1px solid  rgb(255, 255, 255); */
+    /* border: 1px solid  purple; */
+/*     background-color: rgba(0,0,0,0);
+    background-color: rgba(255, 255, 255,0.7); */
+    border: 2px solid #4B70F5;
+    box-shadow: 2px 3px 10px 0px;
+    border-radius: 20px;
+    padding-top: 10px;
+    display: none;
+}
+
+.signup-box2>div{
+    width: 400px;
+    height: 110px;
+    margin: 10px auto;
+}
+
+#signup-com{
+    width: 200px;
+    height: 70px;
+    margin-top: 40px;
+    /* background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+    border-radius: 20px;
+    border: #4B70F5;
+    box-shadow: 2px 3px 5px 0px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+    /* background-color:red; */
+}
+
+#signup-com:hover{
+    /* background-image: linear-gradient(to top, #bea097 0%, #c4a0c4 100%);  */
+    /* background-image: linear-gradient(to top, #ffd1ff 0%, #fad0c4 100%);  */
+    box-shadow: none;
+    filter:brightness(0.3) invert(1);
+    }
+
+#q{
+    border: 1px solid dimgray;
+    width: 200px;
+    margin: auto;
+    display: none;
+    position: absolute;
+    margin-left: 230px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.do{
+    overflow: auto;
+    height: 80px;
+}
+
+.ck{
+    height: 25px;
+    width: 25px;
+}
