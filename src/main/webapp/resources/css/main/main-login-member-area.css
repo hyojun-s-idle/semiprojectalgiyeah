@@ -12,13 +12,6 @@
     border-radius: 15px;
 }
 
-.login-member-area > a{ 
-    display: flex;
-    align-items: center;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-}
 
 #login-member-profile-img{
     max-width: 60px;

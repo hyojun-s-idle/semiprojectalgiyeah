@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
     <article class="login-member-area">
-        <a href="">
+        <a>
             <img src="${contextPath}/resources/images/user.png" id="login-member-profile-img">
         </a>
         <div class="login-member-info">
