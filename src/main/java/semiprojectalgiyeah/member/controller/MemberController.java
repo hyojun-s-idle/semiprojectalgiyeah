@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.controller;
+package semiprojectalgiyeah.member.controller;
 
 import java.io.IOException;
 
