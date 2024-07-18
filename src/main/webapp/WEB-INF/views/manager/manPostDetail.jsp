@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerOutTopTitle.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerPost.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerUp.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body id="up">
     <main>
@@ -82,6 +83,8 @@
 
 
     </main>
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="${contextPath}/resources/js/shy/managerReportComment.js"></script>
     

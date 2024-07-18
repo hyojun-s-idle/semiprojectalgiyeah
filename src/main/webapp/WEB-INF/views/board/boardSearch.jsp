@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUpButton.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/shy/nSearch.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardSearch.css">
+        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     
     </head>
     <body id="up">
@@ -210,6 +211,8 @@
     
     
         </main>
+        
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
         <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
         <script src="${contextPath}/resources/js/shy/write.js"></script>

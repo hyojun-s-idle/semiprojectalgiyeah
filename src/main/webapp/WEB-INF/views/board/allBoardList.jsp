@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/writeButton.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUpButton.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUPslide.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body id="up">
     <main>
@@ -97,6 +98,8 @@
 
     
     </main>
+    
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="${contextPath}/resources/js/shy/write.js"></script>
     <script src="${contextPath}/resources/js/shy/postContentCut.js"></script>

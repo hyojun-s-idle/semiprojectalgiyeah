@@ -32,12 +32,12 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-user-login.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-pop-post-title-10.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-login-member-area.css">
-
     <link rel="stylesheet" href="${contextPath}/resources/css/main/graph_minumunWage_housingPrice.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/graph_minimumWage_Donut.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/minimumwageNumbering.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/treemap.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/jukeBox.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 
 </head>
 <body>
@@ -98,9 +98,13 @@
         </section>
     </main>
     
+
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
 
     <!-- 헤더 -->
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
