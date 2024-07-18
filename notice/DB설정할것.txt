@@ -1,0 +1,10 @@
+primary키 넣어주기
+foreign키 넣어주기
+seq.no cahe 해주기
+
+
+
+**복합키
+PRIMARY KEY REFRENCES MEMBER
+
+**CHECK키
