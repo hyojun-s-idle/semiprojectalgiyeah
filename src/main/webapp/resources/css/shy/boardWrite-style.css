@@ -1,0 +1,128 @@
+/* board-write-suround */
+.board-write-suround{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px ;
+}
+
+/* board form */
+form[name='boardWrite']{
+    width: 1000px;
+}
+
+/* 제목 */
+.board-title-area{
+    border-top: 2px solid gray;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.board-title-area > div{
+    font-size: 25px;
+    font-weight: bold;
+    flex-basis: 15%;
+}
+
+.board-title-area > input{
+    display: inline-block;
+    flex-basis: 85%;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ddd;
+}
+
+/* 내용 쓰는 영역 */
+.board-write-area{
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+/* 내용 기능 */
+.board-function{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* 폰트 사이즈 */
+#fontSize{
+    display: inline-block;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 폰트 스타일 */
+.board-function > input[name='fontStyle']{
+    display: none;
+}
+
+.board-function > input[name='fontStyle'] + label{
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    
+}
+
+.board-function > input[name='fontStyle'] + label:hover{
+    color: rgb(138, 138, 138);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+#bold  + label{
+    font-weight: bold;
+}
+
+#italic + label{
+    font-style: italic;
+}
+
+#underline + label{
+    text-decoration: underline;
+}
+
+/* 내용 쓰는 영역 */
+.board-write-content{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 내용 쓰는 곳 */
+.board-write-content > textarea{
+    border: 1px solid #ddd;
+    display: inline-block;
+    resize: none;
+    width: 960px;
+    min-height: 450px;
+    outline: none;
+}
+
+/* 버튼 영역 */
+.btn-area{
+    margin: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-area > button{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.btn-area > button:hover{
+    background-color: black;
+    color: white;
+}
+

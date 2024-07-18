@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerSearchComplet.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerPagination.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerUp.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body id="up">
     <main>
@@ -105,6 +106,8 @@
 
 
     </main>
+    
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="${contextPath}/resources/js/shy/managerSearch.js"></script>
     

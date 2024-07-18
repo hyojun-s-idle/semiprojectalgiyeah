@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-user-login.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-pop-post-title-10.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-login-member-area.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body>
     <main class="main-suround">
@@ -48,6 +49,8 @@
 
         </section>
     </main>
+    
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
     <script src="${contextPath}/resources/js/main/popTabMenu.js"></script>

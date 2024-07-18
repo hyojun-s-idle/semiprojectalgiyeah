@@ -1,0 +1,23 @@
+/* header-UP */
+#header-UP{
+    width: 100%;
+    height: 100px;
+    background-color: #ddd;
+}
+
+.title-color{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+}
+
+.title-bottom{
+    width: 1000px;
+
+    border-bottom: 1px solid gray;
+    font-size: 30px;
+    font-weight: bold;
+}
