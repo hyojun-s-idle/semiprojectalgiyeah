@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.common.wrapper;
+package APro.common.wrapper;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;

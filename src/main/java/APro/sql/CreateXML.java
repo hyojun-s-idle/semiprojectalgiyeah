@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.sql;
+package APro.sql;
 
 import java.io.FileOutputStream;
 import java.util.Properties;
@@ -17,7 +17,7 @@ public class CreateXML {
 
 			Properties prop = new Properties();
 
-			String filePath = "src/main/java/edu/kh/community/sql/";
+			String filePath = "src/main/java/APro/sql/";
 
 			prop.storeToXML(new FileOutputStream(filePath + fileName), fileName);
 

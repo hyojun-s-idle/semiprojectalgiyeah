@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.common.filter;
+package APro.common.filter;
 
 import java.io.IOException;
 
@@ -40,6 +40,7 @@ public class EncodingFilter extends HttpFilter implements Filter {
 
 		// 최상위 주소 얻어오기
 		String contextPath = ((HttpServletRequest)request).getContextPath();
+		System.out.println(contextPath);
 		//다운캐스팅 -> 우선순위로 ()로 한번더 감싸줌
 
 		// 세팅

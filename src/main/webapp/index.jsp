@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
+${contextPath}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +47,9 @@
 
 </head>
 <body>
+
+${contextPath}
+a
     <main class="main-suround">
         
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>

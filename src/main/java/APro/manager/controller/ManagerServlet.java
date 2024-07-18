@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.manager.controller;
+package APro.manager.controller;
 
 import java.io.IOException;
 

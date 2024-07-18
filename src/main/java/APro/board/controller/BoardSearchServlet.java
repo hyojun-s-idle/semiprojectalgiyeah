@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.board.controller;
+package APro.board.controller;
 
 import java.io.IOException;
 

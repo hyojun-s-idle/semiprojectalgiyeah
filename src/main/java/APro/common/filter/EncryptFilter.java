@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.common.filter;
+package APro.common.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -10,7 +10,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
-import semiprojectalgiyeah.common.wrapper.EncryptWrapper;
+
+import APro.common.wrapper.EncryptWrapper;
 
 
 @WebFilter(filterName = "encryptFilter", 
