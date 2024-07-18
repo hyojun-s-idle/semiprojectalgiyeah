@@ -34,6 +34,44 @@ public class BoardListServelt extends HttpServlet{
 			req.getRequestDispatcher(path).forward(req, resp);
 		}
 		
+		
+		//상세조회
+		if(command.equals("allList/detail")) {
+			String path = "/WEB-INF/views/board/boardDetail.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		if(command.equals("workerList/detail")) {
+			String path = "/WEB-INF/views/board/boardDetail.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		if(command.equals("ceoList/detail")) {
+			String path = "/WEB-INF/views/board/boardDetail.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		
+		
+		//글쓰기
+		if(command.equals("allList/boardWrite")) {
+			String path = "/WEB-INF/views/board/boardWrite.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		if(command.equals("workerList/boardWrite")) {
+			String path = "/WEB-INF/views/board/boardWrite.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		if(command.equals("ceoList/boardWrite")) {
+			String path = "/WEB-INF/views/board/boardWrite.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+
+		
+		
+		//사이드 게시판
+		if(command.equals("side/twelveBoard")) {
+			String path = "/WEB-INF/views/board/side/twelveBoard.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		
 	}
 
 }

@@ -117,7 +117,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" class="post-suround">
+                        <a href="" class="post-suround"></a>
                             <div class="title-div">
                                 <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
                             </div>

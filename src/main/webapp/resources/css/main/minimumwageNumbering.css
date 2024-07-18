@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+.minimumwageNumberingBox {
+    width: 390px;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    background-color: #FF9EAA;
+    box-shadow: 10px 10px 10px black;
+}
+
+
+
+.minimumwageNumberingBox div{
+    margin: 10px;
+}
+.minimumwageNumberingBox span{
+    margin:0 5px;
+}
+.minimumwageNumberingBoxTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.countingYearBox{
+    font-size: 10px;
+}
+
+.minimumwageNumbering {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.minimumwageNumberingComment{
+    font-size: 8px;
+}
+
+.duration {
+    transition-duration: 1s;
+}

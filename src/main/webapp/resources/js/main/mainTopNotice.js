@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('.main-top-notice').marquee({
-        speed: 200, // 속도
+        // speed: 200, // 속도
+        speed: 70, // 속도
         gap: 50, // 간격
         delayBeforeStart: 0, // 시작 delay값
         direction: 'left', // 방향

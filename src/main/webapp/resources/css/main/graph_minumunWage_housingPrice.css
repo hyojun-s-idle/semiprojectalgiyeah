@@ -1,0 +1,74 @@
+/* margin상쇄위해 넣어둠 */
+/* 추후제거!!! */
+.mainLeft {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+.mainLeftChart {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 1030px;
+
+
+    width: 98%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.500);
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.200);
+    border-radius: 15px;
+}
+.boxFlex{
+    display: flex;
+}
+.boxFlex>div:nth-child(1){margin:0px 10px 0px 0px;}
+.boxFlex>div:nth-child(2){margin:0px 0px 0px 10px;}
+
+.comment {
+    /* width: 1010px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: grey;
+}
+
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.statisticsBox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.statisticsBox>div{
+    margin:0px 3px;
+}
+
+.statisticsLogo {
+    width: 100px;
+}
+
+.chartMinimumwageBox {
+    width: 600px;
+}
+
+.chartMinimumwage {
+    width: 600px;
+}
+
+.chartMinimumwageHousingprice {
+    width: 1010px;
+}

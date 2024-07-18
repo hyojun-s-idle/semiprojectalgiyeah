@@ -1,0 +1,160 @@
+body {
+    /* background-color: blueviolet; */
+}
+
+/* 공통추출 */
+.jukeBoxDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+/* 컨테이너 */
+.jukeBox {
+    width: 430px;
+    height: 450px;
+    background: rgba(188, 184, 198, 0.5);
+
+    /* background-color:rgba(75, 112, 245,0.5); */
+    background-color:#FFD0D0;
+     
+
+    border-radius: 20%;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+
+
+}
+
+.jukeBox{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.500);
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.200);
+    border-radius: 15px;
+}
+
+.jukeBox>div:nth-child(2) {
+    flex-direction: column;
+}
+
+.jukeBox>div:nth-child(4) {
+    width: 60%;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+
+/* 커버 */
+.coverBox {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 100%;
+    border: 2px solid #ddd;
+    box-shadow: 0px 0px 5px white;
+}
+
+/* 회전하기(커버) */
+.rotateBox {
+    animation: rotateBox 20s ease-in-out infinite;
+}
+
+@keyframes rotateBox {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 정지하기(커버) */
+.pauseBox {
+    animation-play-state: paused;
+
+    /* animation:none; */
+}
+
+#cover {
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* 텍스트 */
+.songText {
+    color: white;
+    font-size: 20px;
+}
+
+.songSinger {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+}
+
+/* range꾸미기 */
+#songProgress {
+    width: 400px;
+    height: 30px;
+
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 100px;
+}
+
+/* range버튼 */
+#songProgress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 1);
+    filter: drop-shadow(0px 0px 10px white);
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+#songProgress::-webkit-slider-thumb:hover {
+    transform: scale(0.9);
+    transition-duration: 0.7s;
+}
+
+#playBtn {
+    border-radius: 100%;
+}
+
+.songBtn {
+    border-radius: 100%;
+    border: none;
+    /* border: 1px indianred rgba(255, 255, 255); */
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0px 0px 10px white);
+}
+
+.songBtn:hover {
+    transform: scale(0.9);
+    transition-duration: 0.7s;
+}
+
+.songBtnIcon {
+    color: white;
+
+}
+
+#backBtnIcon {
+    transform: rotate(180deg);
+    font-size: 50px;
+}
+
+#playBtnIcon {
+    font-size: 100px;
+}
+
+#forwBtnIcon {
+    font-size: 50px;
+}

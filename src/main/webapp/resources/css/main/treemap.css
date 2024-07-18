@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.con{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.500);
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.200);
+    border-radius: 15px;
+}

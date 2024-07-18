@@ -1,3 +1,68 @@
+[재정리]
+1. Server
+New 
+Server
+
+Apache 
+Tomcat v9.0 Server 				
+
+Tomcat installation directory :  
+Browse : 
+C/tools/Server/apache-tomcat-9.0.67 	
+
+
+Add and Remove <- 이부분은 설정x
+-아직 project가 Dynamic Web Module이 아님!!! (다음과정에서 설정해줌)
+-이과정에서 설정되는경우 있는데, 
+이런경우는 project를 이미 Dynamic Web Module 설정한경우에 한해서 뜸!!!
+-어찌됐든 지금 최초과정에서는x
+-Project Facets 에서 먼저 설정하고 (Runtimes는 나중에 설정) 하면은 가능하긴함.
+방식은 어느측면이든 상관x !!!
+-즉,
+Project Facets  : Project Facet (Dynamic Web Module)  -> Server -> Project Facets  : Runtimes (Apache Tomcat v9.0)
+Server -> Project Facets  : Project Facet (Dynamic Web Module) -> Project Facets  : Runtimes (Apache Tomcat v9.0)
+Server -> Project Facets  : Project Facet (Dynamic Web Module)  +  Runtimes (Apache Tomcat v9.0)
+-어느형태든 상관x
+-순서만 상이
+-결론은 동일
+-일단은, Project Facets 한번에 처리하는식으로 진행 
+-(종래는 왔다갔다했던듯함)
+-(한큐에 처리위해)
+-나중에 서버실행할때
+서버선택하고
+Always use .. 하단박스 체크하면 됨!!!
+-동일함.
+-프로젝트실행시 서버실행대상특정 
+서버생성단계 or 프로젝트실행단계
+전자방법 or 후자방법
+PF*S*PF  or  S*PF*PF
+
+
+
+2. Properties - Project Facets
+Project <- 우클릭
+Properties
+
+Project Facets :
+	Project Facet	 		  Runtimes 
+Dynamic Web Module(4.0)      Apache Tomcat v9.0
+Java(11)
+JavaScript(1.0)
+
+
+
+3. Properties - Java Build Path  
+(Project <- 우클릭)
+(Properties)
+
+Java Build Path :
+Libraries 
+Server Runtime [Apache Tomcat v9.0]
+
+
+
+===========================================================
+
 1. Dynamic Web Module 설정
 Properties
 Project Facets
@@ -8,12 +73,30 @@ JavaScript 1.0
 2. Server생성
 -Dynamic Web Module
 설정해줘야
-Servers 생성해서
-next
-Add and Remove
+Servers 생성해서 
+
+next 
+Add and Remove    <- Project
 인식가능함.!!!
 
-3. Project Facets + Runtimes 설정
+
+전체과정:
+New 
+-> Server 
+
+-> Apache 
+Tomcat v9.0 Server 				 -> next
+
+-> Tomcat installation directory :  
+Browse : 
+C/tools/Server/apache-tomcat-9.0.67 	 -> next
+
+-> Add and Remove
+project명 클릭 -> Add 				 -> next
+
+
+
+3. Project Facets - Runtimes 설정
 Server생성후
 Project Facets
 Runtimes 
@@ -23,7 +106,7 @@ Apache Tomcat v9.0
 --- 여기까지 실행은가능
 
 
-4. Java Build Path  + Libraries 설정
+4. Java Build Path  - Libraries 설정
 Java Build Path 
 Libraries
 Server Runtime
