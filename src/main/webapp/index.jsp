@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main/minimumwageNumbering.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/treemap.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/jukeBox.css">
+    
+    <!-- footer css -->
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 
 </head>
@@ -97,13 +99,13 @@
 
         </section>
     </main>
-    
+
+	<!-- footer jsp -->
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
 
     <!-- 헤더 -->
