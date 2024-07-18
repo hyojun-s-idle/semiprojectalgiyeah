@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사장님 로그인</title>
     <link rel="stylesheet" href="../resources/css/member/CEO_login.css">
+    
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
@@ -23,7 +25,7 @@
                     <h3>비밀번호</h3> 
                     <input type="password" name="inputPw" placeholder="8자~16자">
                     <span id="find"><a href="${contextPath }/member/findId">아이디</a> <span> | </span> <a href="${contextPath }/member/findPw">비밀번호 찾기</a>
-                    <button id="signup"><a href="Arbite_signup.html">회원가입</a></button></span>
+                    <button id="signup"><a href="singUpChoice">회원가입</a></button></span>
                     <button id="login">로그인</button>
                 </div>
                     

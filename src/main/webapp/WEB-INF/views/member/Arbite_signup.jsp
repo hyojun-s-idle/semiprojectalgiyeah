@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>알바님 회원가입</title>
     <link rel="stylesheet" href="../resources/css/member/Arbite_signup.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
     <script src="https://kit.fontawesome.com/3970146fa7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="content">

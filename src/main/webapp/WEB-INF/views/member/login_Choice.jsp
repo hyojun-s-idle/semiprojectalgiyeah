@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 선택</title>
     <link rel="stylesheet" href="../resources/css/member/choice.css">
+    
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>

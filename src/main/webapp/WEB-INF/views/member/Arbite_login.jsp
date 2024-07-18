@@ -5,14 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>알바님 로그인</title>
+    
     <link rel="stylesheet" href="../resources/css/member/Arbite_login.css">
+    <!-- 헤더 css  -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+	
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 </head>
 <body>
 
- <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+<!-- 헤더 -->
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="content">
         <form action="#">
