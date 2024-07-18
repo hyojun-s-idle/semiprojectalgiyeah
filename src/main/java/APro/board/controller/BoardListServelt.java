@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.board.controller;
+package APro.board.controller;
 
 import java.io.IOException;
 
@@ -8,11 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import APro.board.dao.BoardDAO;
+
 @WebServlet("/board/*")
 public class BoardListServelt extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		BoardDAO dao = new BoardDAO();
 		
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();

@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.common;
+package APro.common;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

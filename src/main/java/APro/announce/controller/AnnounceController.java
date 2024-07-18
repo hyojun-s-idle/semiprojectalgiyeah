@@ -1,4 +1,4 @@
-package semiprojectalgiyeah.announce.controller;
+package APro.announce.controller;
 
 import java.io.IOException;
 
