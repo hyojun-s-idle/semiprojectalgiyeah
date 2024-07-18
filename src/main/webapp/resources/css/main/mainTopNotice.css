@@ -2,15 +2,14 @@
     box-sizing: border-box;
 
     /* 이부분 수정필요 */
-    width: 1480px;
+    width: 100%;
 
 
-    border: 1px solid rgba(128, 128, 128, 0.500);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.500);
     padding: 10px;
     font-size: 18px;
     font-weight: bold;
     overflow: hidden;
-    border-radius: 15px;
     margin: 10px;
     color: rgba(128, 128, 128, 0.616);
     box-shadow: 0 0 10px rgba(128, 128, 128, 0.200);
