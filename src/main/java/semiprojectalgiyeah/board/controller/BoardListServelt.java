@@ -65,6 +65,13 @@ public class BoardListServelt extends HttpServlet{
 		}
 
 		
+		
+		//사이드 게시판
+		if(command.equals("side/twelveBoard")) {
+			String path = "/WEB-INF/views/board/side/twelveBoard.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
+		}
+		
 	}
 
 }

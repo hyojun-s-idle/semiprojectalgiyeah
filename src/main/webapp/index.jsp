@@ -18,7 +18,13 @@
    <link rel="shortcut icon" href="#">
 
     <!-- CSS -->
+    <!-- 헤더 -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+
+    <!-- 이부분 여쭤보기!!! 헤더 세희님 어느링크인지!!! -->
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUPslide.css">
+
+
     <link rel="stylesheet" href="${contextPath}/resources/css/main/main-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/mainTopNotice.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/mainHotSlide.css">
@@ -74,7 +80,12 @@
                 
 				<!-- 계산기영역-->
 				
-
+                <div>
+                    ${contextPath}/board/allList/detail
+                    <a href="${contextPath}/board/side/twelveBoard">12글자 게시판</a>
+                    <a href="#">불꽃 게시판</a>
+                    <a href="#">균형 게시판</a>
+                </div>
 
 
                 <jsp:include page="/WEB-INF/views/main/mainTreemap.jsp"/>
@@ -91,7 +102,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <!-- 헤더 -->
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
+
+
     <script src="${contextPath}/resources/js/main/popTabMenu.js"></script>
     <script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
     <script src="${contextPath}/resources/js/jquery.marquee.min.js"></script>
