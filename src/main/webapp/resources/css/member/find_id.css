@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Jua&display=swap');
 
-/* div{border: 1px solid black;} */
-
-*{box-sizing: border-box;
-    font-family: "Jua", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.container{
-    height: 100vh;
-}
-
-
-.header{
-    height: 100px;
-}
-
 .content{
     height: 800px;
     display: flex;

@@ -32,8 +32,8 @@
                         </div>
 				<%-- 	</c:when>
 					<c:otherwise> --%>
-						<a href="#">회원가입</a>
-                        <a href="#">로그인</a>
+						<a href="${contextPath}/member/singUpChoice">회원가입</a>
+                        <a href="${contextPath}/member/loginChoice">로그인</a>
 					
 				<%-- 	</c:otherwise>
 				</c:choose> --%>

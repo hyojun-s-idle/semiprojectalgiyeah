@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="../resources/css/member/choice.css">
     
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+    
 <body>
    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
