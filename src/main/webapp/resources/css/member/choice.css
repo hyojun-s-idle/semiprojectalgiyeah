@@ -1,0 +1,137 @@
+
+*{box-sizing: border-box;}
+
+a{
+text-decoration: none;
+color: black;
+margin: 20px;
+}
+
+a:hover{
+font-weight: bold;
+border-bottom: 3px solid black;
+transition-duration: 0.3s;
+}
+
+.header{
+z-index: 1;
+padding: 0;
+margin: 0;
+width: 100%;
+height: 100px;
+position: sticky;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.137);
+background-color: white;
+}
+
+.header-suround{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 1200px;
+height: 100px;
+font-size: 18px;
+}
+
+.header-post{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.header-login{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#search-header:hover{
+border: none;
+transform: scale(1.2,1.2);
+transition-duration: 0.3s;
+}
+
+#search-header{
+margin-right: 30px;
+font-size: 25px;
+}
+
+#logo-header{
+border: none;
+}
+
+#header-all:hover{
+border-bottom: 3px solid rgb(3, 206, 3);
+}
+
+#header-worker:hover{
+border-bottom: 3px solid pink;
+}
+
+#header-ceo:hover{
+border-bottom: 3px solid rgb(74, 74, 240);
+}
+
+/* div{border: 1px solid black;} */
+
+.content{
+height: 800px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+
+}
+
+.arbite{
+height: 465px;
+width: 400px;
+text-align: center;
+padding: 150px 0;
+border: 3px solid #FFD0D0;
+border-radius: 20px;
+/* box-shadow: 2px 3px 10px 0px; */
+box-shadow: 0px 0px 15px 0px;
+transition-duration: 0.2s;
+cursor: pointer;
+font-size: 25px;
+background-color: white;
+}
+
+.arbite:hover{
+box-shadow: none;
+background-color: #FF9EAA;
+/* border: 3px solid #FF9EAA; */
+font-size: 22px;
+padding: 160px 0;
+transform: scale(0.95);
+border: none;
+}
+
+.boss{
+height: 465px;
+width: 400px;
+text-align: center;
+padding: 150px 0;
+border: 3px solid #4B70F5;
+border-radius: 20px;
+box-shadow: 2px 3px 10px 0px;
+transition-duration: 0.2s;
+cursor: pointer;
+font-size: 25px;
+background-color: white;
+}
+
+
+.boss:hover{
+box-shadow: none;
+background-color: #402E7A;
+font-size: 22px;
+padding: 160px 0;
+transform: scale(0.95);
+border: none;
+
+}

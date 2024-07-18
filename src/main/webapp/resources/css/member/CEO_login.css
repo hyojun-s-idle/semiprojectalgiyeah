@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Jua&display=swap');
+
+/* div{border: 1px solid black;} */
+
+*{box-sizing: border-box;
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container{
+    /* height: 100vh; */
+}
+
+/* 상단 */
+header a{
+    text-decoration: none;
+    color: black;
+    margin: 20px;
+}
+
+header a:hover{
+    font-weight: bold;
+    border-bottom: 3px solid black;
+    transition-duration: 0.3s;
+    
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.137);
+    background-color: white;
+}
+
+.header-suround{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 100px;
+    font-size: 18px;
+}
+
+.header-post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-header:hover{
+    border: none;
+    transform: scale(1.2,1.2);
+    transition-duration: 0.3s;
+}
+
+#search-header{
+    margin-right: 30px;
+    font-size: 25px;
+}
+
+#logo-header{
+    border: none;
+}
+
+#header-all:hover{
+    border-bottom: 3px solid rgb(3, 206, 3);
+}
+
+#header-worker:hover{
+    border-bottom: 3px solid pink;
+}
+
+#header-ceo:hover{
+    border-bottom: 3px solid rgb(74, 74, 240);
+}
+
+
+/* 컨텐츠 */
+.content{
+    height: 866px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); */
+}
+
+fieldset{
+    border: none;
+}
+
+.login-box{
+    border: 2px solid #4B70F5;
+    border-radius: 20px;
+    height: 700px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;  
+ /*    background-color: rgba(0,0,0,0);
+    background-color: rgba(255, 255, 255,0.7); */
+    box-shadow: 2px 3px 5px 0px; 
+}
+
+.login-box a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.login-box>input{
+    margin-left: 60px;
+    height: 50px;
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid #4B70F5
+}
+
+#find{
+    text-align: left;
+    margin: 25px 0px 0px 60px;
+}
+
+#signup{
+    background: black;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin-left: 230px;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 2px 3px 5px 0px;
+    transition-duration: 0.2s;
+    border: none;
+    text-align: center;
+}
+
+#signup a{
+    color: white;
+}
+
+#signup:hover{
+    box-shadow: none;
+    /* filter:brightness(0.3) invert(1); */
+    background-color: rgb(168, 168, 168);
+}
+
+#login{
+    width: 400px;
+    height: 80px;
+    margin: 70px auto ;
+    box-shadow: 2px 3px 5px 0px;
+   /*  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%); */
+    background-color: #4B70F5;
+    border-radius: 20px; 
+    cursor: pointer;
+    transition-duration: 0.2s;
+    border: none;
+    font-size: 25px;
+}
+
+#login:hover{
+    box-shadow: none;
+    /* filter:brightness(0.3) invert(1); */
+    background-color: #402E7A
+}
+
+
+
+
+/* /* 하단 
+.footer{} */
