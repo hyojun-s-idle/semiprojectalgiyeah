@@ -46,7 +46,6 @@ public class BoardService {
 		}else {
 			listCount = dao.getListCount(type, conn);
 		}
-		
 		// 전체 게시글 수(카테고리 게시글 수) + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
 		Pagination pagination = new Pagination(cp, listCount);
 		
@@ -95,21 +94,36 @@ public class BoardService {
 		// 카테고리 얻어오기
 		List<Category> category = dao.selectCategory(conn);
 		
-		int listCount = dao.getSearchListCount(conn, all, search, standard);
-		
+		int listCount = dao.getSearchListCount(conn,board, all, search, standard);
+		System.out.println(listCount);
 		Pagination pagination = new Pagination(cp, listCount);
 		
-		List<Board> list = dao.searchBoardList(conn, all, search, pagination, standard);
+		List<Board> list = dao.searchBoardList(conn,board, all, search, pagination, standard);
 		
 		Map<String, Object> allList = new HashMap<>();
 		allList.put("boardName", boardName);
 		allList.put("category", category);
 		allList.put("pagination", pagination);
-		allList.put("resultList", list);
+		allList.put("boardList", list);
 		
 		close(conn);
 		
 		return allList;
+	}
+
+	/**모든 카테고리 Service
+	 * @return category
+	 * @throws Exception
+	 */
+	public List<Category> getCategory() throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Category> category = dao.selectCategory(conn);
+		
+		close(conn);
+		
+		return category;
 	}
 
 }

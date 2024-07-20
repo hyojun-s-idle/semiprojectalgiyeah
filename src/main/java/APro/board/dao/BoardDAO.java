@@ -239,12 +239,13 @@ public class BoardDAO {
 	/**카테고리 제목 검색 수 DAO
 	 * @param conn
 	 * @param all
+	 * @param all 
 	 * @param search
 	 * @param standard 
 	 * @return listCount
 	 * @throws Exception
 	 */
-	public int getSearchListCount(Connection conn, int all, String search, String standard) throws Exception {
+	public int getSearchListCount(Connection conn, int board, int all, String search, String standard) throws Exception {
 		int listCount = 0;
 		
 		try {
@@ -256,7 +257,8 @@ public class BoardDAO {
 				case "content" : sql = prop.getProperty("searchContentAll"); break;
 				}
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, search);
+				pstmt.setInt(1, board);
+				pstmt.setString(2, search);
 				
 			}else {
 				switch(standard) {
@@ -287,13 +289,14 @@ public class BoardDAO {
 	/**검색 게시물 목록 조회 DAO
 	 * @param conn
 	 * @param all
+	 * @param all 
 	 * @param search
 	 * @param pagination
 	 * @param standard 
 	 * @return list
 	 * @throws Exception
 	 */
-	public List<Board> searchBoardList(Connection conn, int all, String search, Pagination pagination, String standard) throws Exception {
+	public List<Board> searchBoardList(Connection conn, int board, int all, String search, Pagination pagination, String standard) throws Exception {
 		List<Board> list = new ArrayList<>();
 		
 		try {
@@ -309,9 +312,10 @@ public class BoardDAO {
 				case "content" : sql = prop.getProperty("searchListConAll"); break;
 				}
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, search);
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, end);
+				pstmt.setInt(1, board);
+				pstmt.setString(2, search);
+				pstmt.setInt(3, start);
+				pstmt.setInt(4, end);
 			}else {
 				switch(standard) {
 				case "title" : sql = prop.getProperty("searchListTitle"); break;

@@ -7,14 +7,10 @@ const nSearchSuround = document.getElementsByClassName("nSearch-suround")[0];
 const worker = document.querySelector("select[name='rectalSearch']");
 const ceo = document.querySelector("select[name='businessSearch']");
 const all = document.querySelector("select[name='allSearch']");
+const board = document.getElementById("mSearchMember");
 
-document.getElementById("mSearchMember").addEventListener("change",(e) => {
-    let member = e.target;
-    let memberOption = member.options[member.selectedIndex];
-    let memberValue = memberOption.value;
-    console.log(memberValue);
-
-    if(memberValue == 2){
+function selectValue(memberValue){
+    if(memberValue == "2"){
         worker.classList.add("active");
         ceo.classList.remove("active");
         all.classList.remove("active");
@@ -33,7 +29,7 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("worker-title-boder-bottom");
         titleContent.classList.remove("all-title-boder-bottom","ceo-title-boder-bottom");
 
-    }else if(memberValue == 3){
+    }else if(memberValue == "3"){
         ceo.classList.add("active");
         worker.classList.remove("active");
         all.classList.remove("active");
@@ -52,7 +48,7 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("ceo-title-boder-bottom");
         titleContent.classList.remove("all-title-boder-bottom","worker-title-boder-bottom");
         
-    }else if(memberValue == 1){
+    }else if(memberValue == "1"){
         worker.classList.remove("active");
         ceo.classList.remove("active");
         all.classList.add("active");
@@ -71,25 +67,21 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("all-title-boder-bottom");
         titleContent.classList.remove("ceo-title-boder-bottom","worker-title-boder-bottom");
        
-    }/* else{
-        console.log("test");
-        worker.classList.remove("active");
-        ceo.classList.remove("active");
-        all.classList.remove("active");
+    }
+}
 
-        headerUp.classList.add("all");
-        headerUp.classList.remove("ceo" ,"worker");
+(function(){
+    let memberOption = board.options[board.selectedIndex];
+    let memberValue = memberOption.value;
 
-        titleBackColor.classList.add("all");
-        titleBackColor.classList.remove("ceo" , "worker");
-        titleBackColor.classList.add("all-box-shadow");
-        titleBackColor.classList.remove("worker-box-shadow", "ceo-box-shadow");
+    selectValue(memberValue);
+})();
 
-        nSearchSuround.classList.add("all");
-        nSearchSuround.classList.remove("worker", "ceo");
+board.addEventListener("input",(e) => {
+    let member = e.target;
+    let memberOption = member.options[member.selectedIndex];
+    let memberValue = memberOption.value;
+    console.log(memberValue);
 
-        titleContent.classList.add("all-title-boder-bottom");
-        titleContent.classList.remove("ceo-title-boder-bottom","worker-title-boder-bottom");
-       
-    } */
+   selectValue(memberValue);
 })

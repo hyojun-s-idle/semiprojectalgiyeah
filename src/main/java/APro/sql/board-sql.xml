@@ -71,7 +71,9 @@
 	<!-- 제목 검색 게시물 수 -->
 	<entry key="searchTitleAll">
 	SELECT COUNT(*) FROM BOARD
-	WHERE BOARD_TITLE LIKE '%' || ? ||'%'
+	JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
+	WHERE PR_BOARD = ?
+	AND BOARD_TITLE LIKE '%' || ? ||'%'
 	</entry>
 	
 	<!-- 카테고리 작성자 검색 게시물 수 -->
@@ -86,7 +88,9 @@
 	<entry key="searchWriterAll">
 	SELECT COUNT(*) FROM BOARD
 	JOIN MEMBER USING(MEMBER_NO)
-	WHERE MEMBER_NICK LIKE '%' || ? || '%'
+	JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
+	WHERE PR_BOARD = ?
+	AND INSTR(MEMBER_NICK, ?) > 0
 	</entry>
 	
 	<!-- 카테고리 내용 검색 게시물 수 -->
@@ -99,7 +103,9 @@
 	<!-- 내용 검색 게시물 수 -->
 	<entry key="searchContentAll">
 	SELECT COUNT(*) FROM BOARD
-	WHERE BOARD_CONTENT LIKE '%' || ? ||'%'
+	JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
+	WHERE PR_BOARD = ?
+	AND BOARD_CONTENT LIKE '%' || ? ||'%'
 	</entry>
 	
 	<!-- 카테고리 제목 검색 게시물 목록 조회 -->
@@ -128,7 +134,8 @@
 	    FROM BOARD
 	    JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
 	    JOIN MEMBER USING(MEMBER_NO)
-	     BOARD_TITLE LIKE '%' || ? ||'%'
+		WHERE PR_BOARD = ?
+	    AND BOARD_TITLE LIKE '%' || ? ||'%'
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
@@ -144,7 +151,7 @@
 	    JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
 	    JOIN MEMBER USING(MEMBER_NO)
 	    WHERE BOARD_TYPE_CD = ?
-	    AND MEMBER_NICK LIKE '%' || ? ||'%'
+	    AND INSTR(MEMBER_NICK,?) > 0
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
@@ -159,7 +166,8 @@
 	    FROM BOARD
 	    JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
 	    JOIN MEMBER USING(MEMBER_NO)
-	    WHERE MEMBER_NICK LIKE '%' || ? ||'%'
+		WHERE PR_BOARD = ?
+	    AND INSTR(MEMBER_NICK,?) > 0
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
@@ -190,7 +198,8 @@
 	    FROM BOARD
 	    JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
 	    JOIN MEMBER USING(MEMBER_NO)
-	    WHERE BOARD_CONTENT LIKE '%' || ? ||'%'
+		WHERE PR_BOARD = ?
+	    AND BOARD_CONTENT LIKE '%' || ? ||'%'
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
