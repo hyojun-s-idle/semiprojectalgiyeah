@@ -12,9 +12,9 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
     let member = e.target;
     let memberOption = member.options[member.selectedIndex];
     let memberValue = memberOption.value;
+    console.log(memberValue);
 
-
-    if(memberValue == "worker"){
+    if(memberValue == 2){
         worker.classList.add("active");
         ceo.classList.remove("active");
         all.classList.remove("active");
@@ -33,7 +33,7 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("worker-title-boder-bottom");
         titleContent.classList.remove("all-title-boder-bottom","ceo-title-boder-bottom");
 
-    }else if(memberValue == "ceo"){
+    }else if(memberValue == 3){
         ceo.classList.add("active");
         worker.classList.remove("active");
         all.classList.remove("active");
@@ -52,7 +52,7 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("ceo-title-boder-bottom");
         titleContent.classList.remove("all-title-boder-bottom","worker-title-boder-bottom");
         
-    }else if(memberValue == "all"){
+    }else if(memberValue == 1){
         worker.classList.remove("active");
         ceo.classList.remove("active");
         all.classList.add("active");
@@ -71,7 +71,7 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("all-title-boder-bottom");
         titleContent.classList.remove("ceo-title-boder-bottom","worker-title-boder-bottom");
        
-    }else{
+    }/* else{
         console.log("test");
         worker.classList.remove("active");
         ceo.classList.remove("active");
@@ -91,5 +91,5 @@ document.getElementById("mSearchMember").addEventListener("change",(e) => {
         titleContent.classList.add("all-title-boder-bottom");
         titleContent.classList.remove("ceo-title-boder-bottom","worker-title-boder-bottom");
        
-    }
+    } */
 })

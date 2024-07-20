@@ -6,17 +6,17 @@
 		<div class="header-suround">
 			<div class="header-post">
 				<a href="${contextPath}" id="logo-header"><img src="${contextPath}/resources/images/logo.png"></a>
-				<a href="${contextPath}/board/allList" id="header-all">모두 게시판</a>
+				<a href="${contextPath}/board/boardList?type=1" id="header-all">모두 게시판</a>
 				
 				<%-- <c:choose> --%>
 					<%-- <c:when test=""> --%>
-						<a href="${contextPath}/board/workerList" id="header-worker">알바 게시판</a>
+						<a href="${contextPath}/board/boardList?type=2" id="header-worker">알바 게시판</a>
 					<%-- </c:when> --%>
 					<%-- <c:when test=""> --%>
-						<a href="${contextPath}/board/ceoList" id="header-ceo">사장 게시판</a>
+						<a href="${contextPath}/board/boardList?type=3" id="header-ceo">사장 게시판</a>
 					<%-- </c:when> --%>
 			<%-- 	</c:choose> --%>
-					<a href="${contextPath}/announce/boardList" id="heade-announce">공지사항</a>
+					<a href="${contextPath}/announce/boardList?type=23" id="heade-announce">공지사항</a>
 				
 			</div>
 			<div class="header-login">
