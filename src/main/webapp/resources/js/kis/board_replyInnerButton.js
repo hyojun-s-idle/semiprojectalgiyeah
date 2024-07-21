@@ -12,9 +12,18 @@ $(document).on("click", ".deletingReply", function () {
 
 //댓글토글버튼
 $(document).on("click", ".replyingNested", function () {
-    // $(this).parents(".replyView").find(".replyNestedRightBox").slideToggle();
-    $(this).parents(".replyView").children(".replyNestedRightBox").slideToggle();
-    
+    const disp=$(this).parents(".replyView").children(".nested").css("display");
+    if(disp!="none"){
+        $(this).parents(".replyView").children(".nested").slideUp();
+        $(this).find("span").css("transform","rotate(0deg)").css("transitionDuration","1s");
+        
+    }
+    if(disp=="none"){
+        $(this).parents(".replyView").children(".nested").slideDown();
+        count=0;
+        $(this).find("span").css("transform","rotate(450deg)").css("transitionDuration","1s");
+    }
+
 })
 
 
@@ -23,18 +32,17 @@ $(document).on("click", ".replyingNested", function () {
 
 //등록버튼
 $(document).on("click",".replyNestedRegister",function(){
-    const text=$(this).parents(".replyNestedRightBox").find(".textarea").val().replaceAll('\n', '<br>')
-    const clone =$(this).parents(".replyNestedRightBox").clone();
+    const text=$(this).parents(".nested").find(".textarea").val().replaceAll('\n', '<br>')
+    const clone =$(this).parents(".nested").clone();
     clone.find(".replyNestedRight").html(text);
     clone.find(".replyNestedRegister").remove();
 
     clone.find(".textarea").removeClass("textarea");
     clone.find(".textareaBox").removeClass("textareaBox");
 
-    const appendPart=$(this).parents(".replyView").find(".replyNestedBox").append(clone);
+    const appendPart=$(this).parents(".replyView").find(".nestedBox").append(clone);
 
-    // $('.replyNestedBox').append(clone);
 
-    $(this).parents(".replyNestedRightBox").find(".textarea").val("");
+    $(this).parents(".nested").find(".textarea").val("");
 })
 

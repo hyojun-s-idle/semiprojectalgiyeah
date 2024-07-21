@@ -17,15 +17,11 @@ $('#replyRegister').on('click', function () {
     $(this).siblings();
 
     const clone = $(this).siblings().clone();
-    // clone.find(".replyButtonBox").addClass("flex");
     clone.find(".replyButtonBox").css("display","flex");
-    clone.find(".replyNestedButtonBox").css("display","flex");
-    // replyNestedButtonBox
                             
     clone.find(".textareaReplyBox").html(text);
     clone.find(".textareaReplyBox").attr('class','replyContent');
-    clone.find(".replyContent").append($("<div class='replyNestedBox'>"));
-    clone.find(".replyNestedRightBox").addClass("replyNestedDisplay");
+    clone.find(".replyContent").append($("<div class='nestedBox'>"));
     
     
     $('#replyList').append(clone);

@@ -22,9 +22,12 @@ footer{
     padding: 0;
     border: 0;
 }
+.footer-2 div{
+    text-align:center;
+}
 
-.footer-2 > span{
-    margin: 0 10px;
+.footer-2 span:nth-of-type(2){
+    font-size: 12px;
 }
 
 .footer-2 > a{

@@ -43,16 +43,17 @@
 }
 .rotate90{
  transform: rotate(1170deg);
- transition-duration: 1s;
- font-size: 80px;
- border-radius: 100%;
  color:rgba(255, 255, 255, 1);
- /* box-shadow: 0 0 10px white; */
- filter: drop-shadow(0 0 3px white);
+ transition-duration: 1s;
+
+ border-radius: 100%;
 
 }
 .rotate0{
  transform: rotate(0deg);
  transition-duration: 1.5s;
+ font-size: 80px;
+
+ filter: drop-shadow(0 0 3px white);
 }
 

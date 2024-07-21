@@ -13,13 +13,10 @@ body {
     flex-direction: column;
     align-items: center;
 
-    /* 가변부분 */
-    background-color: #FFD0D0;
 
 }
 
 div {
-    /* border: 1px solid black; */
 
     display: flex;
     justify-content: center;
@@ -109,6 +106,13 @@ div {
     font-size: 30px;
 }
 
+.deleting, .updating{
+    color:white;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+
+
 
 
 .boardHeaderMiddle {
@@ -123,6 +127,10 @@ div {
     justify-content: flex-start;
     font-size: 10px;
     height: 100px;
+}
+
+#boardWriter span {
+    margin-left: 10px;
 }
 
 
@@ -231,19 +239,16 @@ div {
 }
 
 
-.button span {
-    /* font-size: 50px;
-    color: gainsboro; */
-}
-
 /* js우선순위위해 준위낮춰버리기  */
 .arrowBoard,
 .arrowReplyList,
 .arrowReplyWriting {
     font-size: 60px;
-    color: gainsboro;
+    color:white;
 
     display: inline-block;
+
+    transform: rotate(1170deg);
 }
 
 /* 아이콘 */

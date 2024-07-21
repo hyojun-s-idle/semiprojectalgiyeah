@@ -1,109 +1,4 @@
-
-.replyView {
-    display: block;
-    width: 70%;
-}
-
-.replyView>div:nth-child(2) {
-    justify-content: start;
-}
-
-#replyWrite {
-    /* display: none; */
-
-
-    width: 100%;
-
-    justify-content: start;
-}
-
-.replyContentBox {
-    width: 80%;
-    display: flex;
-    align-items: flex-start;
-    overflow: hidden;
-
-    margin: 20px 0;
-}
-
-#replyWriter {
-    justify-content: space-between;
-    font-size: 11px;
-}
-
-#replyWriter span {
-    margin: 0px 3px;
-}
-
-/* 댓글작성 */
-.textareaReplyBox{
-    display: block;
-}
-.textarea {
-    width: 100%;
-    border: none;
-    outline: none;
-
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -2px;
-
-    resize: none;
-    padding: 10px;
-    
-    color: white;
-
-    background-color: transparent;
-}
-
-
-.textareaReply {
-    background-color: rgba(0, 0, 0, 1);
-
-    box-shadow: 3px 5px 10px 0px gray;
-    filter: drop-shadow(3px 5px 10px black);
-    margin-bottom: 50px;
-}
-
-
-
-
-.replyButtonBox {
-    display: none;
-}
-.replyButtonBox span{
-    
-    font-size: 24px;
-}
-
-
-
-/* 댓글버튼 */
-.replyRegister {
-
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
-
-    font-size: 17px;
-    font-weight: bold;
-
-    cursor: pointer;
-    border: none;
-    box-shadow: 10px 10px 10px 0px gray;
-}
-
-.replyRegister:hover {
-    transition-duration: 0.7s;
-
-    transform: rotate(1800deg);
-    background-color: transparent;
-    font-size: 20px;
-    border-radius: 100%;
-    border: 1px solid black;
-    box-shadow: 0px 0px 10px 0px black;
-}
-
+/* 댓글목록 */
 #replyList {
     width: 100%;
 
@@ -115,11 +10,35 @@
 }
 
 
+
+.replyView {
+    display: block;
+    width: 70%;
+}
+
+.replyView>div:nth-child(2) {
+    justify-content: start;
+}
+
+
+
+.replyContentBox {
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+
+    margin: 20px 0;
+}
+
+
 .replyWriter {
     justify-content: flex-start;
     font-size: 10px;
     height: 50px;
 }
+
+
 
 .replyContent {
     width: 616px;
@@ -130,9 +49,13 @@
     background-color: rgba(249, 249, 224, 0.3);
     border: 1px solid #ddd;
     border-radius: 10px;
-    /* background-color: red; */
     display: block;
 }
+
+
+
+
+
 
 
 

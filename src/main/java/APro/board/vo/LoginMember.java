@@ -1,19 +1,19 @@
+//dummy용 추후 지울것.!!!
+
 package APro.board.vo;
+
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
-// List용
-
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class Board {
-
-	
-	
+public class LoginMember {
+	private int memberNo;
+	private String memberNickname;
+	private String profileImage;
 }
