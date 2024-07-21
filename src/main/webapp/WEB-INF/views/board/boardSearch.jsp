@@ -53,7 +53,7 @@
                     <select name="conSearch">
                         
                         <option value="title" ${tselect}>제목</option>
-                        <option value="writer" ${wselect}>닉네임</option>
+                       <!--  <option value="writer" ${wselect}>닉네임</option> -->
                         <option value="content" ${cselect}>내용</option>
                     </select>
         
@@ -154,7 +154,7 @@
         
                 <ul class="post-content tab-active">
                     <c:if test="${empty resultList}">
-                        <li></li>
+                        <li>검색 결과가 없습니다.</li>
                     </c:if>
 
                     <c:if test="${!empty resultList}">
