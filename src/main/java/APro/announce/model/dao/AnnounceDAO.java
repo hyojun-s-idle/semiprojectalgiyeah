@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import APro.announce.model.vo.AnBoardDetail;
+import APro.announce.model.vo.AnReply;
 import APro.announce.model.vo.AnnounceBoard;
 import APro.board.vo.Pagination;
 
@@ -101,6 +103,106 @@ public class AnnounceDAO {
 		}
 		
 		return boardList;
+	}
+
+	/**게시물 상제 조회 DAO
+	 * @param conn
+	 * @param no
+	 * @return detail
+	 * @throws Exception
+	 */
+	public AnBoardDetail getBoardDetail(Connection conn, int no) throws Exception {
+		AnBoardDetail detail = null;
+		
+		try {
+			String sql = prop.getProperty("getBoardDetail");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				detail = new AnBoardDetail();
+				detail.setBoardNo(rs.getInt(1));
+				detail.setBoardTitle(rs.getString(2));
+				detail.setBoardContent(rs.getString(3));
+				detail.setCreateDate(rs.getString(4));
+				detail.setUpdateDate(rs.getString(5));
+				detail.setProfileImage(rs.getString(6));
+				detail.setMemberNickname(rs.getString(7));
+				detail.setReadCount(rs.getInt(8));
+				detail.setMemberNo( rs.getInt(9));
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return detail;
+	}
+
+	/**조회수 증가 DAO
+	 * @param conn
+	 * @param no
+	 * @return result
+	 * @throws Exception
+	 */
+	public int setReadCount(Connection conn, int no) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("setReadCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/**게시물 댓글 조회 DAP
+	 * @param conn
+	 * @param no
+	 * @return list
+	 * @throws Exception
+	 */
+	public List<AnReply> getReplyList(Connection conn, int no) throws Exception {
+		List<AnReply> list = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("replyList");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				AnReply r = new AnReply();
+				r.setReplyNo(rs.getInt("REPLY_NO"));
+				r.setReplyContent(rs.getString("REPLY_CONTENT"));
+				r.setCreateDate(rs.getString("CREATE_DT"));
+				r.setMemberNickname(rs.getString("MEMBER_NICK"));
+				r.setMemberNo(rs.getInt("MEMBER_NO"));
+				r.setProfileImage(rs.getString("PROFILE_IMGE"));
+				r.setUpdateDate(rs.getString("UPDATE_DT"));
+				
+				list.add(r);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 
 }

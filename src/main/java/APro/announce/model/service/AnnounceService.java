@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import APro.announce.model.dao.AnnounceDAO;
+import APro.announce.model.vo.AnBoardDetail;
+import APro.announce.model.vo.AnReply;
 import APro.announce.model.vo.AnnounceBoard;
 import APro.board.vo.Pagination;
 
@@ -39,6 +41,35 @@ public class AnnounceService {
 		close(conn);
 		
 		return list;
+	}
+
+	/**게시물 상세 조회 Service
+	 * @param no
+	 * @return detail
+	 * @throws Exception
+	 */
+	public AnBoardDetail getBoardDetail(int no) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		AnBoardDetail detail = dao.getBoardDetail(conn , no);
+		
+		int result = dao.setReadCount(conn, no);
+		
+		if(result > 0) {
+			commit(conn);
+			
+			detail.setReadCount( detail.getReadCount()+1 );
+		}else {
+			rollback(conn);
+		}
+		
+		List<AnReply> replyList = dao.getReplyList(conn, no);
+		detail.setReplyList(replyList);
+		
+		close(conn);
+		
+		return detail;
 	}
 
 }

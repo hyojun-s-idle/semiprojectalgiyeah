@@ -24,4 +24,33 @@
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	<!-- 게시물 상세 조회 -->
+	<entry key="getBoardDetail">
+	SELECT BOARD_NO,BOARD_TITLE, BOARD_CONTENT, 
+	        TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') "CREATE_DT", 
+	        TO_CHAR(UPDATE_DT , 'YYYY"년" MM"월" DD"일" HH24:MI:SS') "UPDATE_DT", 
+	        PROFILE_IMGE, MEMBER_NICK, READ_COUNT,MEMBER_NO
+	FROM BOARD
+	JOIN MEMBER USING(MEMBER_NO)
+	WHERE BOARD_NO = ?
+	AND BOARD_ST = 'N'
+	</entry>
+	
+	<!-- 게시물 조회수 증가 -->
+	<entry key="setReadCount">
+	UPDATE BOARD SET READ_COUNT = READ_COUNT + 1 WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 게시물 댓글 조회 -->
+	<entry key="replyList">
+	SELECT REPLY_NO,REPLY_CONTENT,
+	    TO_CHAR(CREATE_DATE,'YYYY.MM.DD') "CREATE_DT",
+	    TO_CHAR(UPDATE_DATE,'YYYY.MM.DD') "UPDATE_DT"
+	    ,MEMBER_NO,PROFILE_IMGE,MEMBER_NICK
+	FROM REPLY
+	JOIN MEMBER USING(MEMBER_NO)
+	WHERE BOARD_NO = ?
+	AND REPLY_ST = 'N'
+	</entry>
 </properties>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import APro.announce.model.service.AnnounceService;
+import APro.announce.model.vo.AnBoardDetail;
 import APro.board.service.BoardService;
 
 @WebServlet("/announce/*")
@@ -45,8 +46,16 @@ public class AnnounceController extends HttpServlet {
 		
 		if(command.equals("boardList/detail")) {
 			int no = Integer.parseInt(req.getParameter("no"));
+			int type = Integer.parseInt(req.getParameter("type"));
 			
-			
+			try {
+				AnBoardDetail detail = service.getBoardDetail(no);
+				req.setAttribute("detail", detail);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			String path = "/WEB-INF/views/announce/boarDetail.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
