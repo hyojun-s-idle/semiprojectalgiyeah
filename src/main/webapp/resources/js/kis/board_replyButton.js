@@ -26,6 +26,9 @@ $('#replyRegister').on('click', function () {
     
     $('#replyList').append(clone);
 
-    $('.textareaReply').val("");
+    // $('.textareaReply').val("");
+    //form태그 초기화되서 삭제처리 !!!
+    //cf. ajax처리하는경우 필요함. <- 화면내 처리하기에 <- 화면단위 ""필요 
+    
 })
 

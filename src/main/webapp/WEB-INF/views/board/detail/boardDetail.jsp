@@ -290,9 +290,8 @@
                         <!-- 댓글작성 -->
 
                         <!-- <div id="replyWrite"> -->
-                        <form id="replyWrite" method="get"
-                            action="${contextPath}/board/allList">
-                            <!-- ?no=${detail.boardNo}&replyContent=1 -->
+                        <form id="replyWrite" method="get" action="detail">
+                            <!-- no도 같이보내는법 -->
 
 
                             <div class="replyContentBox">
@@ -356,8 +355,8 @@
 
                                     <div class="textareaReplyBox">
 
-                                        <textarea name="replyContent" class="textarea textareaReply" id="textareaReply"
-                                            rows="7"></textarea>
+                                        <textarea name="replycontent" class="textarea textareaReply" id="textareaReply"
+                                            rows="7">111</textarea>
 
 
                                         <!-- 대댓글 추가위해 영역할당 -->
