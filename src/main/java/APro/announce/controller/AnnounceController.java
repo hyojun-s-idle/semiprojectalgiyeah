@@ -44,6 +44,10 @@ public class AnnounceController extends HttpServlet {
 		}
 		
 		if(command.equals("boardList/detail")) {
+			int no = Integer.parseInt(req.getParameter("no"));
+			
+			
+			
 			String path = "/WEB-INF/views/announce/boarDetail.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
 		}
