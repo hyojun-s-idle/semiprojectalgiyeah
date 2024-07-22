@@ -85,35 +85,38 @@
                         </c:forEach>
                     </c:otherwise>
                 </c:choose>
-                <div class="pagination-area">
 
-                    <c:if test="${empty param.cate}">
-                        <c:set var="url" value="boardList?type=${param.type}&cp="/>
-                    </c:if>
-                    <c:if test="${!empty param.cate}">
-                        <c:set var="url" value="boardList?type=${param.type}&cate=${param.cate}&cp="/>
-                    </c:if>
+                <c:if test="${!empty pagination}">
+                    <div class="pagination-area">
 
-                    <ul class="pagination">
-                        <li><a href="${url}1">&lt;&lt;</a></li>
-                        <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+                        <c:if test="${empty param.cate}">
+                            <c:set var="url" value="boardList?type=${param.type}&cp="/>
+                        </c:if>
+                        <c:if test="${!empty param.cate}">
+                            <c:set var="url" value="boardList?type=${param.type}&cate=${param.cate}&cp="/>
+                        </c:if>
 
-                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-                            <c:choose>
-                                <c:when test="${pagination.currentPage == i}">
-                                    <li><a href="${url}${i}" class="current">${i}</a></li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li><a href="${url}${i}">${i}</a></li>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
-                        
+                        <ul class="pagination">
+                            <li><a href="${url}1">&lt;&lt;</a></li>
+                            <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
 
-                        <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                        <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
-                    </ul>
-                </div>
+                            <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                                <c:choose>
+                                    <c:when test="${pagination.currentPage == i}">
+                                        <li><a href="${url}${i}" class="current">${i}</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="${url}${i}">${i}</a></li>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+                            
+
+                            <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                            <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                        </ul>
+                    </div>
+                </c:if>
 
             </section>
 
@@ -129,9 +132,7 @@
 
 
 
-        </main>
 
-        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 
     
