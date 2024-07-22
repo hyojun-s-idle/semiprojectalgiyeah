@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="boardName" value="${list.boardName}"/>
+<c:set var="pagination" value="${list.pagination}"/>
+<c:set var="boardList" value="${list.boardList}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,13 +42,22 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a href="${contextPath}/announce/boardList/detail">1번째 게시글</a>
-                            </td>
-                            <td>2024-07-08</td>
-                        </tr>
+                        <c:if test="${empty boardList}">
+                            <tr><td colspan="3">게시글이 없습니다.</td></tr>
+                        </c:if>
+
+                        <c:if test="${!empty boardList}">
+                            <c:forEach var="board" items="${boardList}" varStatus="v">
+                                <tr>
+                                    <td>${v.count}</td>
+                                    <td>
+                                        <a href="boardList/detail?type=23&no=${board.boardNo}&cp=${pagination.currentPage}">${board.boardTitle}</a>
+                                    </td>
+                                    <td>${board.createDate}</td>
+                                </tr>
+
+                            </c:forEach>
+                        </c:if>
                         
                     </tbody>
                 </table>
@@ -55,23 +66,27 @@
         
 
             <div class="pagination-area">
+
+                <c:set var="url" value="boardList?type=${param.type}&cp="/>
+                    
                 <ul class="pagination">
-                    <li><a href="#">&lt;&lt;</a></li>
-                    <li><a href="#">&lt;</a></li>
+                    <li><a href="${url}1">&lt;&lt;</a></li>
+                    <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
 
-                    <li><a class="current">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">6</a></li>
-                    <li><a href="">7</a></li>
-                    <li><a href="">8</a></li>
-                    <li><a href="">9</a></li>
-                    <li><a href="">10</a></li>
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                        <c:choose>
+                            <c:when test="${pagination.currentPage == i}">
+                                <li><a href="${url}${i}" class="current">${i}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="${url}${i}">${i}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    
 
-                    <li><a href="#">&gt;</a></li>
-                    <li><a href="#">&gt;&gt;</a></li>
+                    <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
                 </ul>
             </div>
 

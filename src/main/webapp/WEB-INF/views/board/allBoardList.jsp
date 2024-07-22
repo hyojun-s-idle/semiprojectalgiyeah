@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="boardName" value="${list.boardName}"/>
+<c:set var="category" value="${list.category}" scope="request"/>
+<c:set var="pagination" value="${list.pagination}"/>
+<c:set var="boardList" value="${list.boardList}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,63 +27,91 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-    <div id="header-UP" class="all">
+    
+    <c:if test="${param.type == 1}">
+        <c:set var="headTitle" value="all"/>
+    </c:if>
+    <c:if test="${param.type == 2}">
+        <c:set var="headTitle" value="worker"/>
+    </c:if>
+    <c:if test="${param.type == 3}">
+        <c:set var="headTitle" value="ceo"/>
+    </c:if>
+    
+    <div id="header-UP" class="${headTitle}">
     </div>
-    <div class="title-back-color all all-box-shadow">
-     <div class="title-content-post all-title-boder-bottom" >모두 게시판</div>
+    <div class="title-back-color ${headTitle} ${headTitle}-box-shadow">
+     <div class="title-content-post ${headTitle}-title-boder-bottom" >${boardName} 게시판</div>
     </div>
 
     <section class="content-suround">
         <div class="post-content-suround">
-            <ul class="tab-menu">
-                <li class="tab-item tab-active"><a href="#all">전체</a></li>
-                <li class="tab-item"><a href="#worker">사장</a></li>
-                <li class="tab-item"><a href="#ced">알바</a></li>
-            </ul>
+            <jsp:include page="/WEB-INF/views/board/tabmenu.jsp"/>
     
             <ul class="post-content tab-active">
-                <li>
+                <c:choose>
+                    <c:when test="${empty boardList}">
+                        <li>게시글이 없습니다.</li>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach var="board" items="${boardList}">
+                            <li>
+                                <!-- 테스트용 -->
+                                <a href="${contextPath}/board/boardList/detail" class="post-suround">
 
-                    <!-- 테스트용 -->
-                    <a href="${contextPath}/board/allList/detail" class="post-suround">
-
-                    <div class="title-div">
-                        <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                    </div>
-                    <div class="content-div">
-                        <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                            사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                            보이는 끝까지 찾아다녀도 목</p>
-                    </div>
-                    <div class="account-div">
-                        <div class="account-div-name">
-                            <div class="account-img"></div><div class="account-name">계정이름</div>
-                        </div>
-                        <div class="account-div-category">
-                            카테고리
-                        </div>
-                    </div>
-                    </a>
-                </li>
-                
+                                <div class="title-div">
+                                    <div class="title">${board.boardTitle}</div><div class="date">${board.createDate}</div>
+                                </div>
+                                <div class="content-div">
+                                    <p class="content">${board.boardContent}</p>
+                                </div>
+                                <div class="account-div">
+                                    <div class="account-div-name">
+                                        <div class="account-img">
+                                            <c:if test="${empty board.profileImage}">
+                                                <img src="${contextPath}/resources/images/user.png">
+                                            </c:if>
+                                            <c:if test="${!empty board.profileImage}">
+                                                <img src="${contextPath}${board.profileImage}">
+                                            </c:if>
+                                        </div><div class="account-name">${board.memberNickname}</div>
+                                    </div>
+                                    <div class="account-div-category">
+                                        ${board.category}
+                                    </div>
+                                </div>
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
                 <div class="pagination-area">
+
+                    <c:if test="${empty param.cate}">
+                        <c:set var="url" value="boardList?type=${param.type}&cp="/>
+                    </c:if>
+                    <c:if test="${!empty param.cate}">
+                        <c:set var="url" value="boardList?type=${param.type}&cate=${param.cate}&cp="/>
+                    </c:if>
+
                     <ul class="pagination">
-                        <li><a href="#">&lt;&lt;</a></li>
-                        <li><a href="#">&lt;</a></li>
+                        <li><a href="${url}1">&lt;&lt;</a></li>
+                        <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
 
-                        <li><a class="current">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                            <c:choose>
+                                <c:when test="${pagination.currentPage == i}">
+                                    <li><a href="${url}${i}" class="current">${i}</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li><a href="${url}${i}">${i}</a></li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                        
 
-                        <li><a href="#">&gt;</a></li>
-                        <li><a href="#">&gt;&gt;</a></li>
+                        <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                        <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
                     </ul>
                 </div>
                 </ul>
@@ -99,8 +133,8 @@
     
     </main>
     
+    
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
     <script src="${contextPath}/resources/js/shy/write.js"></script>
     <script src="${contextPath}/resources/js/shy/postContentCut.js"></script>
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="boardName" value="${list.boardName}" />
+<c:set var="category" value="${list.category}" scope="session"/>
+<c:set var="category" value="${category}"/>
+<c:set var="pagination" value="${list.pagination}"/>
+<c:set var="resultList" value="${list.boardList}"/>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -24,191 +31,194 @@
     <body id="up">
         <main>
             <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-            
         
         <div id="header-UP" class="all">
         </div>
         <div class="title-back-color all all-box-shadow">
             <div class="title-content-post all-title-boder-bottom">게시판 검색</div>
         </div>
-        
+        <c:if test="${search.conSearch == 'title'}">
+            <c:set var="tselect" value="selected"/>
+        </c:if>
+        <c:if test="${search.conSearch == 'writer'}">
+            <c:set var="wselect" value="selected"/>
+        </c:if>
+        <c:if test="${search.conSearch == 'content'}">
+            <c:set var="cselect" value="selected"/>
+        </c:if>
+
         <section class="nSearch-section">
             <div class="nSearch-suround all">
-                <form action="#" name="nSearchForm">
+                <form action="search" name="nSearchForm">
                     <select name="conSearch">
-                        <option value="제목">제목</option>
-                        <option value="작성자">작성자</option>
-                        <option value="내용">내용</option>
+                        
+                        <option value="title" ${tselect}>제목</option>
+                        <option value="writer" ${wselect}>닉네임</option>
+                        <option value="content" ${cselect}>내용</option>
                     </select>
         
     
                     <!-- 게시판 카테고리 -->
                     <select name="mSearchMember" id="mSearchMember">
-                        <option value="all" selected>모두</option>
-                        <option value="worker">알바</option>
-                        <option value="ceo">사장</option>
+
+                        <c:forEach var="i" begin="0" end="2" step="1">
+                            <c:set var="cat" value="${category[i]}"/>
+                            <c:choose>
+                                <c:when test="${search.mSearchMember == i+1}">
+                                    <option value="${i+1}" selected>${cat.categoryName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${i+1}">${cat.categoryName}</option>
+                                </c:otherwise>
+
+                            </c:choose>
+
+                        </c:forEach>
                     </select>
-    
+
                     <select name="allSearch" class="category active">
-                        <option value="전체">전체</option>
-                        <option value="알바">알바</option>
-                        <option value="사장">사장</option>
+                        
+                        <option value="0" >전체</option>
+                        <c:forEach var="i" begin="1" end="2" step="1">
+                            <c:set var="cat" value="${category[i]}"/>
+                            <c:choose>
+                                <c:when test="${search.allSearch == i+1}">
+                                    <option value="${i+1}" selected>${cat.categoryName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${i+1}">${cat.categoryName}</option>
+                                </c:otherwise>
+
+                            </c:choose>
+
+                        </c:forEach>
                         
                     </select>
                 
                 
                     <select name="businessSearch" class="category">
-                        <option value="null">사업별</option>
-                        <option value="요식업">요식업</option>
-                        <option value="숙박업">숙박업</option>
-                        <option value="제조업">제조업</option>
-                        <option value="배송업">배송업</option>
-                        <option value="정보서비스업">정보서비스업</option>
-                        <option value="시설관리업">시설관리업</option>
-                        <option value="교육관리업">교육관리업</option>
-                        <option value="여가관련업">여가관련업</option>
-                        <option value="기타">기타</option>
+                        
+                        <option value="0">전체</option>
+
+                        <c:forEach var="i" begin="13" end="21" step="1">
+                            <c:set var="cat" value="${category[i]}"/>
+                            <c:choose>
+                                <c:when test="${search.businessSearch == i+1}">
+                                    <option value="${i+1}" selected>${cat.categoryName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${i+1}">${cat.categoryName}</option>
+                                </c:otherwise>
+
+                            </c:choose>
+
+                        </c:forEach>
+
+                        
                     </select>
                 
                 
                     <select name="rectalSearch" class="category">
-                        <option value="null">직종별</option>
-                        <option value="외식/음료">외식/음료</option>
-                        <option value="매장관리">매장관리</option>
-                        <option value="서비스">서비스</option>
-                        <option value="사무직">사무직</option>
-                        <option value="운전/배달">운전/배달</option>
-                        <option value="생산">생산</option>
-                        <option value="디자인">디자인</option>
-                        <option value="IT">IT</option>
-                        <option value="교육">교육</option>
-                        <option value="기타">기타</option>
+                        
+                        <option value="0" >전체</option>
+
+                        <c:forEach var="i" begin="3" end="12" step="1">
+                            <c:set var="cat" value="${category[i]}"/>
+                            <c:choose>
+                                <c:when test="${search.businessSearch == i+1}">
+                                    <option value="${i+1}" selected>${cat.categoryName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${i+1}">${cat.categoryName}</option>
+                                </c:otherwise>
+
+                            </c:choose>
+
+                        </c:forEach>
+                        
                     </select>
         
                     
-                    <input type="search" name="nSearch" placeholder="검색어를 입력해주세요">
+                    <input type="text" name="nSearch" placeholder="검색어를 입력해주세요">
         
                     <button class="all2">검색</button>
                 </form>
             </div>
         </section>
-    
+
         <section class="content-suround">
             <div class="post-content-suround">
-                <div id="boardSearchTitle">모두 게시판 검색 결과</div>
+                <c:if test="${!empty boardName}">
+                    <div id="boardSearchTitle">${boardName} 게시판 검색 결과</div>
+                </c:if>
         
                 <ul class="post-content tab-active">
-                    <li>
-                        <a href="" class="post-suround">
-                        <div class="title-div">
-                            <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                        </div>
-                        <div class="content-div">
-                            <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                보이는 끝까지 찾아다녀도 목</p>
-                        </div>
-                        <div class="account-div">
-                            <div class="account-div-name">
-                                <div class="account-img"></div><div class="account-name">계정이름</div>
-                            </div>
-                            <div class="account-div-catagory">카테고리</div>
-                        </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="post-suround"></a>
-                            <div class="title-div">
-                                <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                            </div>
-                            <div class="content-div">
-                                <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                    사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                    보이는 끝까지 찾아다녀도 목</p>
-                            </div>
-                            <div class="account-div">
-                                <div class="account-div-name">
-                                    <div class="account-img"></div><div class="account-name">계정이름</div>
+                    <c:if test="${empty resultList}">
+                        <li>검색 결과가 없습니다.</li>
+                    </c:if>
+
+                    <c:if test="${!empty resultList}">
+                        <c:forEach var="result" items="${resultList}">
+                            <li>
+                                <a href="" class="post-suround">
+                                <div class="title-div">
+                                    <div class="title">${result.boardTitle}</div><div class="date">${result.createDate}</div>
                                 </div>
-                                <div class="account-div-catagory">카테고리</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="post-suround">
-                            <div class="title-div">
-                                <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                            </div>
-                            <div class="content-div">
-                                <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                    사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                    보이는 끝까지 찾아다녀도 목</p>
-                            </div>
-                            <div class="account-div">
-                                <div class="account-div-name">
-                                    <div class="account-img"></div><div class="account-name">계정이름</div>
+                                <div class="content-div">
+                                    <p class="content">${result.boardContent}</p>
                                 </div>
-                                <div class="account-div-catagory">카테고리</div>
-                            </div>
-                        </a>
-                    </li>
+                                <div class="account-div">
+                                    <div class="account-div-name">
+                                        <div class="account-img">
+                                            <c:if test="${empty board.profileImage}">
+                                                <img src="${contextPath}/resources/images/user.png">
+                                            </c:if>
+                                            <c:if test="${!empty board.profileImage}">
+                                                <img src="${contextPath}${result.profileImage}">
+                                            </c:if>
+                                        </div>
+                                        <div class="account-name">${result.memberNickname}</div>
+                                    </div>
+                                    <div class="account-div-catagory">${result.category}</div>
+                                </div>
+                                </a>
+                            </li>
+                        </c:forEach>
+                        <div class="pagination-area">
+                            
+                         
+                                <c:set var="url" value="search?conSearch=${search.conSearch}&mSearchMember=${search.mSearchMember}&allSearch=${search.allSearch}&businessSearch=${search.businessSearch}&rectalSearch=${search.rectalSearch}&nSearch=${search.nSearch}&cp="/>
+                            
+
+                            <ul class="pagination">
+                                <li><a href="${url}1">&lt;&lt;</a></li>
+                                <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+
+                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                                    <c:choose>
+                                        <c:when test="${pagination.currentPage == i}">
+                                            <li><a href="${url}${i}" class="current">${i}</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li><a href="${url}${i}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                                
+
+                                <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                                <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                        </div>
+                    </c:if>
                     
-                    <li>
-                        <a href="" class="post-suround">
-                            <div class="title-div">
-                                <div class="title">아니다 그들은 커다란 이상</div><div class="date">2024.01.01</div>
-                            </div>
-                            <div class="content-div">
-                                <p class="content">꽃이 피고 희망의 놀이 뜨고 열락의 새가 운다. 
-                                    사랑의 풀이 없으면 인간은 사막이다. 오아이스도 없는 사빅이다. 
-                                    보이는 끝까지 찾아다녀도 목</p>
-                            </div>
-                            <div class="account-div">
-                                <div class="account-div-name">
-                                    <div class="account-img"></div><div class="account-name">계정이름</div>
-                                </div>
-                                <div class="account-div-catagory">카테고리</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <div class="pagination-area">
-                        <ul class="pagination">
-                            <li><a href="#">&lt;&lt;</a></li>
-                            <li><a href="#">&lt;</a></li>
-    
-                            <li><a class="current">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="">6</a></li>
-                            <li><a href="">7</a></li>
-                            <li><a href="">8</a></li>
-                            <li><a href="">9</a></li>
-                            <li><a href="">10</a></li>
-    
-                            <li><a href="#">&gt;</a></li>
-                            <li><a href="#">&gt;&gt;</a></li>
-                        </ul>
-                    </div>
+                
                 </ul>
     
         </section>
+        <c:remove var="list" scope="session"/>
         
-        
-        <div class="write-suround">
-            <div class="fa-solid fa-pen" id="write">
-            </div>
-            <a href="" id="write-write">글쓰기</a>
-        </div>
-        <a href="#up" class="fa-solid fa-arrow-up" id="header-up"></a>
-    
+        <jsp:include page="/WEB-INF/views/common/write.jsp"/>
+        <jsp:include page="/WEB-INF/views/common/toUp.jsp"/>
     
         </main>
         
