@@ -125,7 +125,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    flex-basis: 60%;
     font-size: 30px;
     font-weight: 900;
     overflow: hidden;
@@ -175,13 +175,21 @@
 }
 
 .account-hot-img {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     border: 1px solid black;
     padding: 10px;
     border-radius: 50%;
     margin-right: 10px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.account-hot-img > img{
+    max-width: 20px;
+    max-height: 20px;
 }
 
 /* .account-hot-img:hover {

@@ -10,7 +10,7 @@
         </ul>
 
         <table class="popTitle tab-active">
-                <tr>
+                <tr onclick="location.href='${contextPath}/board/boardList/detail'">
                     <td class="pop-num">1</td>
                     <td>제목</td>
                 </tr>
