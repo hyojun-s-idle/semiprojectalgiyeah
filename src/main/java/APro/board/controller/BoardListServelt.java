@@ -124,10 +124,11 @@ public class BoardListServelt extends HttpServlet{
 				System.out.println(boardNo);
 				System.out.println(replyContent);
 				
-				String path = "../../detail?no="+boardNo;
+//				String path = "../../detail?no="+boardNo;
+				String path=req.getHeader("referer");
 				resp.sendRedirect(path);
 				
-//				System.out.println(path);
+				System.out.println(path);
 
 				
 				
