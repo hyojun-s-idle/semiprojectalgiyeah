@@ -37,6 +37,11 @@ public class BoardListServelt extends HttpServlet{
 		
 		BoardService service = new BoardService();
 		
+
+		int cp = 1;
+		int cate = 0; // 전체 선택 시
+		
+		
 		try {
 			
 			//목록조회
@@ -95,13 +100,6 @@ public class BoardListServelt extends HttpServlet{
 				
 				
 				
-
-				
-				
-				
-				
-				
-				
 			}
 			if(command.equals("workerList/detail")) {
 				String path = "/WEB-INF/views/board/detail/boardDetail.jsp";
@@ -109,18 +107,16 @@ public class BoardListServelt extends HttpServlet{
 			}
 			if(command.equals("ceoList/detail")) {
 				String path = "/WEB-INF/views/board/detail/boardDetail.jsp";
+			}
 // boardList <- 여기로 변경해줄것
         
         
   
   
-		int cp = 1;
-		int cate = 0; // 전체 선택 시
-		
-		try {
+	
 			
 			// BoardService
-			BoardService service = new BoardService();
+			
 			
 			if(command.equals("boardList")) {
 				int type = Integer.parseInt( req.getParameter("type") ); 
@@ -196,25 +192,21 @@ public class BoardListServelt extends HttpServlet{
 			
 			//사이드 게시판
 			if(command.equals("side/twelveBoard")) {
-				String path = "/WEB-INF/views/board/side/twelveBoard.jsp";
+				String	path = "/WEB-INF/views/board/side/twelveBoard.jsp";
 				req.getRequestDispatcher(path).forward(req, resp);
 			}
 			
 
 			
-			
-			
-			
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
+			
 		
-		
-	
 	}
 	
-	
+		
 	
 	
 	

@@ -22,7 +22,7 @@ public class Board {
 	private String memberNickname;
 	private String category;
 	
-	public Board() {}
+	
 	
 	public Board(int boardNo, String boardTitle, String boardContent, String createDate, String profileImage,
 			String memberNickname, String category) {
