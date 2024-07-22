@@ -1,18 +1,6 @@
-package APro.board.vo;
+package APro.announce.model.vo;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-
-// List용
-
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-public class Board {
+public class AnnounceBoard {
 	
 	private int boardNo;
 	private String boardTitle;
@@ -22,9 +10,10 @@ public class Board {
 	private String memberNickname;
 	private String category;
 	
-	public Board() {}
+	public AnnounceBoard() {}
 	
-	public Board(int boardNo, String boardTitle, String boardContent, String createDate, String profileImage,
+	
+	public AnnounceBoard(int boardNo, String boardTitle, String boardContent, String createDate, String profileImage,
 			String memberNickname, String category) {
 		super();
 		this.boardNo = boardNo;
@@ -37,7 +26,6 @@ public class Board {
 	}
 
 
-	// getter / setter
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -81,16 +69,12 @@ public class Board {
 		this.category = category;
 	}
 	
-	// toString
 	@Override
 	public String toString() {
-		return "Board [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
+		return "AnnounceBoard [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", createDate=" + createDate + ", profileImage=" + profileImage + ", memberNickname=" + memberNickname
 				+ ", category=" + category + "]";
 	}
-	
-	
-
 	
 	
 }

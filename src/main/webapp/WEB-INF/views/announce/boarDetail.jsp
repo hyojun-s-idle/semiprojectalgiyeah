@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,31 +26,33 @@
         <section class="board-detail">
 
             <!-- 제목 -->
-            <div class="board-title">제목</div>
+            <div class="board-title">${detail.boardTitle}</div>
 
             <!-- 프로필 + 닉네임 + 작성일 + 조회수 -->
             <div class="board-header">
                 <div class="board-writer">
-                    <img src="${contextPath}/resources/images/user.png">
-                    <span>운영자</span>
+                    <c:if test="${empty detail.profileImage}">
+                        <img src="${contextPath}/resources/images/user.png">
+                    </c:if>
+
+                    <c:if test="${!empty detail.profileImage}">
+                        <img src="${contextPath}%{detail.profileImage}">
+                    </c:if>
+                    <span>${detail.memberNickname}</span>
                 </div>
 
                 <div class="board-info">
-                    <p><span>작성일</span> 2024년 07월 10일 10:16:23</p>
-                    <p><span>마지막 수정일</span> 2024년 07월 10일 10:16:23</p>
-                    <p><span>조회수</span> 45</p>
+                    <p><span>작성일</span> ${detail.createDate}</p>
+                    <c:if test="${!empty detail.updateDate}">
+                        <p><span>마지막 수정일</span> ${detail.updateDate}</p>
+                    </c:if>
+                    <p><span>조회수</span> ${detail.readCount}</p>
                 </div>
             </div>
 
             <!-- 내용 -->
             <div class="board-content">
-                내용입니다.<br>
-                내용입니다.<br>
-                내용입니다.<br>
-                내용입니다.<br>
-                내용입니다.<br>
-                내용입니다.<br>
-                내용입니다.<br>
+                ${detail.boardContent}
             </div>
 
             <!-- 버튼 영역 -->
@@ -63,44 +64,58 @@
 
         </section>
 
-        <div id="reply-area">
+            <div id="reply-area">
+                
+                <!-- 댓글 목록 -->
+                <div class="reply-list-area">
+                    <ul id="reply-list">
 
-            <!-- 댓글 목록 -->
-            <div class="reply-list-area">
-                <ul id="reply-list">
-                    <li class="reply-row">
-                        <p class="reply-writer">
-                            <img src="${contextPath}/resources/images/user.png">
-                            <span>댓글 작성자 닉네임</span>
-                            <span class="reply-date">(2024.07.11 10:09:30)</span>
-                        </p>
-        
-                        <p class="reply-content">
-                            댓글 내용입니다.<br>
-                            댓글 내용입니다.<br>
-                        </p>
-        
-                        <div class="reply-btn-area">
-                            <button>수정</button>
-                            <button>삭제</button>
-                        </div>
-                    </li>
-                    
-                </ul>
-        
-            </div>
-        
-            <!-- 댓글 작성 부분 -->
-            <div class="reply-write-area">
-                <textarea id="replyContent"></textarea>
-                <button id="addReply">
-                    댓글<br>
-                    등록
-                </button>
-            </div>
+                        <c:forEach var="reply" items="${detail.replyList}">
+                            <li class="reply-row">
+                                <p class="reply-writer">
+                                    <c:if test="${empty reply.profileImage}">
+                                        <img src="${contextPath}/resources/images/user.png">
+                                    </c:if>
+                                    <c:if test="${!empty reply.profileImage}">
+                                        <img src="${contextPath}${reply.profileImage}">
+                                    </c:if>
+
+                                    <span>${reply.memberNickname}</span>
+                                    <c:if test="${empty detail.updateDate}">
+                                        <span class="reply-date">${reply.createDate}</span>
+                                    </c:if>
+                                    <c:if test="${!empty detail.updateDate}">
+                                        <span class="reply-date">${reply.updateDate}</span>
+                                    </c:if>
+                                </p>
+                
+                                <p class="reply-content">
+                                    ${reply.replyContent}
+                                </p>
+                
+                                <div class="reply-btn-area">
+                                    <button>수정</button>
+                                    <button>삭제</button>
+                                </div>
+                            </li>
+
+                        </c:forEach>
+                        
+                    </ul>
             
-        </div>
-        
+                </div>
+            
+                <!-- 댓글 작성 부분 -->
+                <div class="reply-write-area">
+                    <textarea id="replyContent"></textarea>
+                    <button id="addReply">
+                        댓글<br>
+                        등록
+                    </button>
+                </div>
+                
+            </div>
+
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
