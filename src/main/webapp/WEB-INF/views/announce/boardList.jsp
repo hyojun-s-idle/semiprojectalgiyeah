@@ -47,9 +47,9 @@
                         </c:if>
 
                         <c:if test="${!empty boardList}">
-                            <c:forEach var="board" items="${boardList}">
+                            <c:forEach var="board" items="${boardList}" varStatus="v">
                                 <tr>
-                                    <td>${board.boardNo}</td>
+                                    <td>${v.count}</td>
                                     <td>
                                         <a href="boardList/detail?type=23&no=${board.boardNo}&cp=${pagination.currentPage}">${board.boardTitle}</a>
                                     </td>

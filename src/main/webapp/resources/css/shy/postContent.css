@@ -1,7 +1,7 @@
 /* post-content-suround */
 
 .post-content-suround {
-    height: 1060px;
+    height: auto;
     width: 1000px;
 }
 
@@ -93,13 +93,15 @@
     padding: 10px;
     border-radius: 50%;
     margin-right: 10px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 프로필 사진 */
 .account-img > img{
-    max-width: 20px;
-    max-height: 20px;
+    max-width: 40px;
+    max-height: 40px;
 }
 
 /* .account-img:hover {

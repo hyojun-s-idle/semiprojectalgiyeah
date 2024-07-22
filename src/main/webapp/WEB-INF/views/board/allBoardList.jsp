@@ -133,8 +133,8 @@
     
     </main>
     
+    
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
     <script src="${contextPath}/resources/js/shy/write.js"></script>
     <script src="${contextPath}/resources/js/shy/postContentCut.js"></script>
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>

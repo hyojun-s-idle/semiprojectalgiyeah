@@ -247,7 +247,7 @@ public class BoardDAO {
 	 */
 	public int getSearchListCount(Connection conn, int board, int all, String search, String standard) throws Exception {
 		int listCount = 0;
-		
+		System.out.println(search);
 		try {
 			String sql = null;
 			if(all == 0) {

@@ -86,7 +86,7 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		search = Util.XSSHandling(search);
-		search += Util.newLineHandling(search);
+		search = Util.newLineHandling(search);
 		
 		// 게시판 이름
 		String boardName = dao.selectBoardName(conn,board);

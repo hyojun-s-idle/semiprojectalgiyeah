@@ -53,7 +53,7 @@
                     <select name="conSearch">
                         
                         <option value="title" ${tselect}>제목</option>
-                       <!--  <option value="writer" ${wselect}>닉네임</option> -->
+                        <option value="writer" ${wselect}>닉네임</option>
                         <option value="content" ${cselect}>내용</option>
                     </select>
         
