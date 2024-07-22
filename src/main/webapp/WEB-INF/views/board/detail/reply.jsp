@@ -8,14 +8,10 @@
             <div id="replyList">
 
 
-
                 <c:forEach var="reply" items="${rList}">
-
-
 
                     <div class="replyContentBox">
                         <div class="replyWriterPhotoBox">
-
 
                             <c:if test="${empty reply.profileImage}">
                                 <img src="${contextPath}/resources/images/user.png" id="replyWriterPhoto">
@@ -24,25 +20,17 @@
                                 <img src="${contextPath}${reply.profileImage}" id="replyWriterPhoto">
                             </c:if>
 
-
-
-
-
-
                         </div>
+                        
                         <div class="replyView">
 
                             <div class="replyWriter" id="replyWriter">
                                 <div>
-
                                     <span>${reply.memberNickname}</span>
-
                                     <span>${reply.createDate}</span>
-
                                 </div>
 
                                 <div>
-
 
                                     <c:if test="${loginMember.memberNo==reply.memberNo}">
 
@@ -71,9 +59,11 @@
                                             arrow_right
                                         </span>
                                     </button>
+
                                 </div>
 
                             </div>
+
 
                             <div class="replyContent">
                                 ${reply.replyContent}

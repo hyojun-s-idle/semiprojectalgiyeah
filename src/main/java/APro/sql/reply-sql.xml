@@ -15,4 +15,10 @@
 	</entry>
 	
 	
+	<!-- 댓글등록 -->
+	<entry key="replyRegister">
+		INSERT INTO REPLY VALUES(
+		SEQ_RNO.NEXTVAL, ?, DEFAULT, NULL, DEFAULT, ?, ?, NULL)
+	</entry>
+	
 </properties>

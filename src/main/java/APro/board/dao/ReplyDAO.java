@@ -65,6 +65,24 @@ public class ReplyDAO {
 		}
 		return rlist;
 	}
+
+	public int replyRegister(Connection conn, Reply reply) throws Exception {
+		int result=0;
+		
+		try {
+			String sql = prop.getProperty("replyRegister");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, reply.getReplyContent());
+			pstmt.setInt(2, reply.getBoardNo());
+			pstmt.setInt(3, reply.getMemberNo());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 	
 	

@@ -25,18 +25,7 @@ public class BoardService {
 	
 	
 	
-	
-	public BoardDetail selectBoardDetail(int boardNo) throws Exception{
-		
-		Connection conn = getConnection();
-		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
 
-		
-		
-		close(conn);
-		return detail;
-		
-	}
 
 	
 	
