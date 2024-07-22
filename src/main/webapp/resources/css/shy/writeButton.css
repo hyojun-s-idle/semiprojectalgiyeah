@@ -32,8 +32,11 @@
     text-align: center;
     line-height: 60px;
 
+    color: white;
+    text-decoration: none;
+
     cursor: pointer;
     position: fixed;
-    right: 100px;
-    bottom: 90px;
+    right: 110px;
+    bottom: 110px;
 }
