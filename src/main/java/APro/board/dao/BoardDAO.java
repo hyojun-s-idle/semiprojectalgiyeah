@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Properties;
 
 
-import APro.board.vo.BoardDetail;
 
 
 import APro.board.vo.Board;
+import APro.board.vo.BoardDetail;
 import APro.board.vo.Category;
 import APro.board.vo.Pagination;
 
