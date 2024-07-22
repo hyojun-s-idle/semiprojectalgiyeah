@@ -1,5 +1,17 @@
 package APro.board.vo;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+// List용
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Board {
 	
 	private int boardNo;
@@ -10,7 +22,7 @@ public class Board {
 	private String memberNickname;
 	private String category;
 	
-	public Board() {}
+	
 	
 	public Board(int boardNo, String boardTitle, String boardContent, String createDate, String profileImage,
 			String memberNickname, String category) {
@@ -79,4 +91,6 @@ public class Board {
 	
 	
 
+	
+	
 }

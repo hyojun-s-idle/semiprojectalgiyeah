@@ -17,19 +17,18 @@ $('#replyRegister').on('click', function () {
     $(this).siblings();
 
     const clone = $(this).siblings().clone();
-    // clone.find(".replyButtonBox").addClass("flex");
     clone.find(".replyButtonBox").css("display","flex");
-    clone.find(".replyNestedButtonBox").css("display","flex");
-    // replyNestedButtonBox
                             
     clone.find(".textareaReplyBox").html(text);
     clone.find(".textareaReplyBox").attr('class','replyContent');
-    clone.find(".replyContent").append($("<div class='replyNestedBox'>"));
-    clone.find(".replyNestedRightBox").addClass("replyNestedDisplay");
+    clone.find(".replyContent").append($("<div class='nestedBox'>"));
     
     
     $('#replyList').append(clone);
 
-    $('.textareaReply').val("");
+    // $('.textareaReply').val("");
+    //form태그 초기화되서 삭제처리 !!!
+    //cf. ajax처리하는경우 필요함. <- 화면내 처리하기에 <- 화면단위 ""필요 
+    
 })
 

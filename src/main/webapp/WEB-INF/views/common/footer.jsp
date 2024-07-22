@@ -10,6 +10,9 @@
         <span>알지예</span>
     </article>
     <fieldset class="footer-2">
-        <div>소스트리는 Pull과 Push만 잘하면 된다.</div>
+        <div>
+        	<span>소스트리는 Pull과 Push만 잘하면 된다.</span>
+        	<span>-JYG</span>
+        </div>
     </fieldset>
 </footer>

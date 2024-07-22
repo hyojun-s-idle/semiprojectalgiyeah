@@ -114,20 +114,24 @@
                         <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
                     </ul>
                 </div>
-                </ul>
-            </div>
 
-    </section>
+            </section>
 
-<!--     <div class="write-suround">
+            <!--     <div class="write-suround">
         <div class="fa-solid fa-pen" id="write">
         </div>
         <a href="${contextPath}/board/allList/boardWrite" id="write-write">글쓰기</a>
     </div> -->
 
-    <jsp:include page="/WEB-INF/views/common/write.jsp"/>
-    <jsp:include page="/WEB-INF/views/common/toUp.jsp"/>
+            <jsp:include page="/WEB-INF/views/common/write.jsp" />
+            <jsp:include page="/WEB-INF/views/common/toUp.jsp" />
 
+
+
+
+        </main>
+
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 
     

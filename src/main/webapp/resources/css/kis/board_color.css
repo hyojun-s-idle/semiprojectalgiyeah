@@ -1,0 +1,57 @@
+/* 변수선언 */
+:root {
+
+    --opt: 1;
+
+    --all: rgba(5, 146, 18, calc(var(--opt)));
+    --wor: rgba(255, 158, 170, calc(var(--opt)));
+    --ceo: rgb(75, 112, 245, calc(var(--opt)));
+
+    --alB: 0px 0px 10px rgb(0, 128, 0);
+    --woB: 0px 0px 10px rgb(255, 0, 0);
+    --ceB: 0px 0px 10px rgb(65, 105, 225);
+
+
+    /* 전체색깔 */
+    --clr: var(--all);
+    --clr: var(--wor);
+    --clr: var(--ceo);
+
+    /* 박스색깔 */
+    --clb: var(--alB);
+    --clb: var(--woB);
+    --clb: var(--ceB);
+
+    /* clr == color */
+    /* clb == colorBox */
+
+}
+
+
+/* 배경색 */
+body {
+    background-color: var(--clr);
+}
+
+
+/* 대댓글 */
+.replyNestedRight {
+    background-color: var(--clr);
+    box-shadow: var(--clb);
+}
+
+.replyNestedRight:before {
+    background-color: var(--clr);
+    box-shadow: var(--clb);
+}
+
+.replyNestedRight:after {
+    background-color: var(--clr);
+    box-shadow: var(--clb);
+}
+
+
+/* 대댓글버튼 */
+.replyNestedRegister {
+    background-color: var(--clr);
+}

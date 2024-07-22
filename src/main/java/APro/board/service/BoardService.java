@@ -3,6 +3,9 @@ package APro.board.service;
 import static APro.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+
+import APro.board.dao.BoardDAO;
+import APro.board.vo.BoardDetail;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +21,27 @@ public class BoardService {
 	
 	BoardDAO dao = new BoardDAO();
 
+	
+	
+	
+	
+	
+	public BoardDetail selectBoardDetail(int boardNo) throws Exception{
+		
+		Connection conn = getConnection();
+		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
+
+		
+		
+		close(conn);
+		return detail;
+		
+	}
+
+	
+	
+	
+	
 	/** 게시글 목록 조회 Service
 	 * @param type
 	 * @param cp

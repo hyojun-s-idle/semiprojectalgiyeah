@@ -2,4 +2,17 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>reply-sql.xml</comment>
+
+
+	<!-- 댓글조회 -->
+	<entry key="selectReplyList">
+		SELECT REPLY_NO, REPLY_CONTENT, CREATE_DATE, UPDATE_DATE, BOARD_NO,
+		MEMBER_NO, MEMBER_NICK, PROFILE_IMGE
+		FROM REPLY
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE  REPLY_ST='N'
+		AND BOARD_NO=?
+	</entry>
+	
+	
 </properties>

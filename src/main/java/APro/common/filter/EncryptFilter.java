@@ -15,7 +15,9 @@ import APro.common.wrapper.EncryptWrapper;
 
 
 @WebFilter(filterName = "encryptFilter", 
-			urlPatterns= {})
+			urlPatterns= {
+					
+			})
 public class EncryptFilter extends HttpFilter implements Filter {
        
 	public void init(FilterConfig fConfig) throws ServletException {}
@@ -25,11 +27,9 @@ public class EncryptFilter extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		HttpServletRequest req = (HttpServletRequest)request;
-		
 		EncryptWrapper wrapper = new EncryptWrapper(req);
-		
-		
 		chain.doFilter(wrapper, response);
+		
 	}
 
 

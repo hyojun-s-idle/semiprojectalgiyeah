@@ -1,0 +1,84 @@
+#replyWrite {
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+/* 댓글작성자 */
+#replyWriter {
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+#replyWriter span {
+    margin: 0px 3px;
+}
+
+/* 댓글작성 */
+.textareaReplyBox{
+    display: block;
+}
+.textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    resize: none;
+    padding: 10px;
+    
+    color: white;
+
+    background-color: transparent;
+}
+
+
+.textareaReply {
+    background-color: rgba(0, 0, 0, 1);
+
+    box-shadow: 3px 5px 10px 0px gray;
+    filter: drop-shadow(3px 5px 10px black);
+    margin-bottom: 50px;
+}
+
+
+
+
+.replyButtonBox {
+    display: none;
+}
+
+
+
+
+/* 댓글버튼 */
+.replyRegister {
+
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+    border: none;
+    box-shadow: 10px 10px 10px 0px gray;
+}
+
+.replyRegister:hover {
+    transition-duration: 0.7s;
+
+    transform: rotate(1800deg);
+    background-color: transparent;
+    font-size: 20px;
+    border-radius: 100%;
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px 0px black;
+}
+

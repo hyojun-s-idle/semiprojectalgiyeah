@@ -5,15 +5,10 @@
 .replyNestedButtonBox button{
     width: 100%;
 }
-.replyNestedButtonBox button:hover{
-    background-color:  rgba(255, 158, 170, 0.3);
 
-    
-    /* filter: invert(0.7); */
-    transition-duration: 0.5s;
-}
-.replyNestedButtonBox button span {
-    color: gainsboro;
+.rNToggle{
+    color:black;
+
 }
 
     
@@ -24,18 +19,21 @@
     
     
     
-    /* 우측모양 */
+    /* 대댓글 */
     .replyNestedRight {
         display: block;
         position: relative;
-        background-color: rgba(255, 158, 170, 1);
+        
 
-        box-shadow: 0px 0px 10px red;
+        
+        
+        color: white;
+
+
         width: 270px;
         margin: 30px 50px 0px 0px;
 
         border-radius: 20px;
-        color: white;
         padding: 10px;
 
     }
@@ -52,7 +50,7 @@
         right: -30px;
 
         border-radius: 25px;
-        background-color: rgba(255, 158, 170, 0.7);
+
     }
 
     .replyNestedRight:after {
@@ -62,9 +60,15 @@
         width: 10px;
         border-radius: 25px;
         z-index: 0;
-        background-color: rgba(255, 158, 170, 0.5);
+
+
+
         top: 10px;
         right: -50px;
+    }
+
+    .textareaReplyNested{
+        color:black;
     }
 
     /* 이미지 */
@@ -79,16 +83,16 @@
     }
 
     /* 구조 */
-    .replyNestedRightBox{
+    .nested{
         width: 596px;
 
-
         display: none;
-        
 
         padding: 10px 0;
+        justify-content: end;
+
     }
-    .replyNestedRightBox>div:nth-child(2){
+    .nested>div:nth-child(2){
         margin:0 0 0 7px;
     }
 
@@ -123,8 +127,11 @@
         border: none;
         border-radius: 10px;
         box-shadow: 5px 5px 7px 0px   black;
-        background-color: rgba(255, 158, 170, 1);
+
         color:white;
+
+        
+
     }
     .replyNestedRegister:hover{
 
@@ -146,10 +153,8 @@
 
 
 
-/* **************************************************** */
-/* 하단 추후제거 */
-/* 대댓글 */
-.replyNestedBox {
+
+.nestedBox {
 
     display: flex;
     flex-direction: column;
@@ -169,50 +174,6 @@
 
 
 
-
-/* 대댓글모양 */
-.replyNested {
-    display: block;
-    position: relative;
-    background-color: rgba(255, 158, 170, 1);
-
-    box-shadow: 0px 0px 10px red;
-    width: 400px;
-    margin: 70px 0px 30px 0px;
-
-    border-radius: 20px;
-    color: white;
-    padding: 10px;
-
-}
-
-
-.replyNested:before {
-    height: 17px;
-    width: 17px;
-
-    content: '';
-
-    position: absolute;
-    top: -40px;
-    /* left: 5px; */
-    right:  5px;
-
-    border-radius: 25px;
-    background-color: rgba(255, 158, 170, 0.7);
-}
-
-.replyNested:after {
-    content: '';
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    border-radius: 25px;
-    z-index: 0;
-    background-color: rgba(255, 158, 170, 0.5);
-    top: -60px;
-    right: 0px;
-}
 
 
 
