@@ -89,13 +89,11 @@
                                     </c:if>
                                 </p>
                 
-                                <p class="reply-content">
-                                    ${reply.replyContent}
-                                </p>
+                                <p class="reply-content">${reply.replyContent}</p>
                 
                                 <div class="reply-btn-area">
-                                    <button>수정</button>
-                                    <button>삭제</button>
+                                    <button onclick="showUpdateReply(${reply.replyNo},this)">수정</button>
+                                    <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                                 </div>
                             </li>
 
@@ -118,5 +116,15 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        const contextPath = "${contextPath}";
+        const boardNo = "${detail.boardNo}";
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
+
+    <script src="${contextPath}/resources/js/shy/reply.js"></script>
 </body>
 </html>
