@@ -1,14 +1,16 @@
-document.getElementById("write").addEventListener("click", function () {
-    const a = document.getElementById("write-write");
+const writeA = document.getElementById("write-write");
+const writeBtn = document.getElementById("write");
 
+writeBtn.addEventListener("click", function () {
 
-    console.log(a);
+    if(writeA.style.display == ""){
+        writeA.style.display = "inline-block";
 
- 
-    if (a.style.display == "none") {
-        a.style.display = "inline-block";
-    } else {
-        a.style.display = "none";
+    }else if(writeA.style.display == "inline-block"){
+        writeA.style.display = "none";
+        
+    }else if(writeA.style.display == "none"){
+        writeA.style.display = "inline-block";
     }
 
 })
