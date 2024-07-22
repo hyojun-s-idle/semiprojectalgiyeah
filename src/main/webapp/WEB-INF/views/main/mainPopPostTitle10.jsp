@@ -9,8 +9,8 @@
             <li class="pop-tab-item" >사장</li><!-- style="display: none;" -->
         </ul>
 
-        <table class="popTitle tab-active">
-                <tr onclick="location.href='${contextPath}/board/boardList/detail'">
+        <table class="popTitle tab-active allPop">
+                <!-- <tr onclick="location.href='${contextPath}/board/boardList/detail'">
                     <td class="pop-num">1</td>
                     <td>제목</td>
                 </tr>
@@ -49,11 +49,11 @@
                 <tr>
                     <td class="pop-num">10</td>
                     <td>제목</td>
-                </tr>
+                </tr> -->
         </table>
 
-        <table class="popTitle">
-                <tr>
+        <table class="popTitle workerPop">
+                <!-- <tr>
                     <td class="pop-num">1</td>
                     <td>제목</td>
                 </tr>
@@ -92,11 +92,11 @@
                 <tr>
                     <td class="pop-num">10</td>
                     <td>제목</td>
-                </tr>
+                </tr> -->
         </table>
 
-        <table class="popTitle">
-                <tr>
+        <table class="popTitle ceoPop">
+               <!--  <tr>
                     <td class="pop-num">1</td>
                     <td>제목</td>
                 </tr>
@@ -135,7 +135,7 @@
                 <tr>
                     <td class="pop-num">10</td>
                     <td>제목</td>
-                </tr>
+                </tr> -->
         </table>
 
     </article>

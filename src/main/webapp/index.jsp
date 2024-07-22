@@ -123,6 +123,7 @@
     <script src="${contextPath}/resources/js/main/mainTopNotice.js"></script>
     <script src="${contextPath}/resources/js/main/mainHotSlide.js"></script>
     <script src="${contextPath}/resources/js/shy/mainHot.js"></script>
+    <script src="${contextPath}/resources/js/shy/mainPop10.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="${contextPath}/resources/js/main/graph_minimumWage.js"></script>

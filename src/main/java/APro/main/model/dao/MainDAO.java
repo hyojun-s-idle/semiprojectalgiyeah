@@ -71,5 +71,39 @@ public class MainDAO {
 		return list;
 	}
 
+	/**좋아요 조회 DAO
+	 * @param conn
+	 * @param type
+	 * @return list
+	 * @throws Exception
+	 */
+	public List<HotPost> getPopBoard(Connection conn, int type) throws Exception {
+		List<HotPost> list = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("getPopBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				HotPost h = new HotPost();
+				h.setBoardNo(rs.getInt("BOARD_NO"));
+				h.setBoardTitle(rs.getString("BOARD_TITLE"));
+				h.setLikeCount(rs.getInt("LIKE_BOARD"));
+				
+				list.add(h);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
 
 }

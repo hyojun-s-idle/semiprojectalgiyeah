@@ -44,23 +44,6 @@ public class BoardListServelt extends HttpServlet{
 		
 		try {
 			
-			//목록조회
-			if(command.equals("allList")) {
-				String path = "/WEB-INF/views/board/allBoardList.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-				
-			}
-			
-			if(command.equals("workerList")) {
-				String path = "/WEB-INF/views/board/workerBoardList.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
-			if(command.equals("ceoList")) {
-				String path = "/WEB-INF/views/board/ceoBoardList.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
 			
 			
 			

@@ -1,19 +1,15 @@
 const allHotPost = document.querySelectorAll(".allHotSlider");
-console.log(allHotPost);
 
 const workerHotPost = document.querySelectorAll(".workerHotSlider");
-console.log(workerHotPost);
 
 const ceoHotPost = document.querySelectorAll(".ceoHotSlider");
-console.log(ceoHotPost);
 
-const pathname = location.pathname;
-let url = pathname.substring(0, pathname.indexOf("/",1));
-console.log(url);
+const pathnameh = location.pathname;
+let urlh = pathnameh.substring(0, pathnameh.indexOf("/",1));
 (function(){
 
     $.ajax({
-        url : url + "/hotPost/all",
+        url : urlh + "/hotPost/all",
         data : {"type": 1},
         dataType : "JSON",
         type : "GET",
@@ -36,7 +32,7 @@ console.log(url);
     });
 
     $.ajax({
-        url : url + "/hotPost/all",
+        url : urlh + "/hotPost/all",
         data : {"type": 2},
         dataType : "JSON",
         type : "GET",
@@ -59,7 +55,7 @@ console.log(url);
     });
 
     $.ajax({
-        url : url + "/hotPost/all",
+        url : urlh + "/hotPost/all",
         data : {"type": 3},
         dataType : "JSON",
         type : "GET",
@@ -105,9 +101,9 @@ function createHotPost(container,post,i){
 
     const boardImg = document.createElement("img");
     if(post.boardImage == null){
-        boardImg.setAttribute("src", url + "/resources/images/main/worker"+i+".jpeg");
+        boardImg.setAttribute("src", urlh + "/resources/images/main/worker"+i+".jpeg");
     }else{
-        boardImg.setAttribute("src", url + post.boardImage);
+        boardImg.setAttribute("src", urlh + post.boardImage);
     }
     typeHot.append(boardImg);
     // 전체 내용 영역
@@ -139,9 +135,9 @@ function createHotPost(container,post,i){
 
     const accountImg = document.createElement("img");
     if(post.profileImage == null){
-        accountImg.setAttribute("src", url + "/resources/images/user.png");
+        accountImg.setAttribute("src", urlh + "/resources/images/user.png");
     }else{
-        accountImg.setAttribute("src", url + post.profileImage);
+        accountImg.setAttribute("src", urlh + post.profileImage);
     }
 
     accountImgSur.append(accountImg);

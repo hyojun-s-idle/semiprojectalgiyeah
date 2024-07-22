@@ -9,6 +9,8 @@ public class HotPost {
 	private String memberNickname;
 	private String profileImage;
 	
+	private int likeCount;
+	
 	public HotPost() {}
 	
 	public int getBoardNo() {
@@ -49,17 +51,20 @@ public class HotPost {
 	public void setBoardImage(String boardImage) {
 		this.boardImage = boardImage;
 	}
+	
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 
 	@Override
 	public String toString() {
 		return "HotPost [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", boardImage=" + boardImage + ", memberNickname=" + memberNickname + ", profileImage=" + profileImage
-				+ "]";
+				+ ", likeCount=" + likeCount + "]";
 	}
-
-
-	
-	
-	
 
 }

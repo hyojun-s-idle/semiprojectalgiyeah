@@ -34,6 +34,14 @@ public class MainRackServlet extends HttpServlet {
 				new Gson().toJson(list, resp.getWriter());
 			}
 			
+			if(command.equals("pop")) {
+				int type = Integer.parseInt(req.getParameter("type"));
+				
+				List<HotPost> list = service.getPopBoard(type);
+				
+				new Gson().toJson(list, resp.getWriter());
+			}
+			
 		}catch(Exception e) {
 			
 		}

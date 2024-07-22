@@ -28,4 +28,20 @@ public class MainService {
 		return list;
 	}
 
+	/**좋아요 조회 Service
+	 * @param type
+	 * @return list
+	 * @throws Exception
+	 */
+	public List<HotPost> getPopBoard(int type) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<HotPost> list = dao.getPopBoard(conn, type);
+		
+		close(conn);
+				
+		return list;
+	}
+
 }
