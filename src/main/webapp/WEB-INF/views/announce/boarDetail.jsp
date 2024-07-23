@@ -65,9 +65,9 @@
 
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
-                <button id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
-                <button id="delectBtn">삭제</button>
-                <button id="goToListBtn">목록으로</button>
+                <button type="button" id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
+                <button type="button" id="deleteBtn">삭제</button>
+                <button type="button" id="goToListBtn">목록으로</button>
             </div>
 
         </section>
@@ -134,5 +134,6 @@
     </script>
 
     <script src="${contextPath}/resources/js/shy/reply.js"></script>
+    <script src="${contextPath}/resources/js/shy/anBoard.js"></script>
 </body>
 </html>

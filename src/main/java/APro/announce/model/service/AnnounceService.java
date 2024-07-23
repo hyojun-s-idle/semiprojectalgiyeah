@@ -10,6 +10,7 @@ import APro.announce.model.vo.AnBoardDetail;
 import APro.announce.model.vo.AnReply;
 import APro.announce.model.vo.AnnounceBoard;
 import APro.board.vo.Pagination;
+import APro.common.Util;
 
 import static APro.common.JDBCTemplate.*;
 
@@ -71,5 +72,71 @@ public class AnnounceService {
 		
 		return detail;
 	}
+
+	/**공지사항 게시물 수정 Service
+	 * @param detail
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updatePost(AnBoardDetail detail) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		detail.setBoardTitle( Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent( Util.XSSHandling(detail.getBoardContent()));
+		
+		detail.setBoardContent( Util.newLineHandling(detail.getBoardContent()));
+		
+		int result = dao.updatePost(conn, detail);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/**게시글 삭제 Service
+	 * @param type
+	 * @param no
+	 * @param cp
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deletePost(int type, int no) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.deletePost(conn, type, no);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		return result;
+	}
+
+	/**게시물 등록 Service
+	 * @param detail
+	 * @param type
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertPost(AnBoardDetail detail, int type) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		detail.setBoardTitle( Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+		
+		detail.setBoardContent( Util.newLineHandling(detail.getBoardContent()));
+		
+		int result = dao.insertPost(conn, detail, type);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		return result;
+	}
+
 
 }

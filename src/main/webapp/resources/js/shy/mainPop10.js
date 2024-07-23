@@ -65,8 +65,8 @@ function createPop(container, post, i){
     const colTitle = document.createElement("td");
     colTitle.innerText = post.boardTitle;
 
-    rowsPop.append(td1, td2);
+    rowsPop.append(colRanck, colTitle);
 
-    container.append(tr);
+    container.append(rowsPop);
 
 }

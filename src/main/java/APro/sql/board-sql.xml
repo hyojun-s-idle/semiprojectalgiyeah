@@ -123,6 +123,7 @@
 	WHERE BOARD_TYPE_CD = ?
 	AND INSTR(MEMBER_NICK, ?) > 0
     AND SECESSION_FL = 'N'
+    AND BOARD_ST = 'N'
 	</entry>
 	
 	<!-- 작성자 검색 게시물 수 -->
@@ -133,6 +134,7 @@
 	WHERE PR_BOARD = ?
 	AND INSTR(MEMBER_NICK, ?) > 0
     AND SECESSION_FL = 'N'
+    AND BOARD_ST = 'N'
 	</entry>
 	
 	<!-- 카테고리 내용 검색 게시물 수 -->
@@ -199,6 +201,7 @@
 	    WHERE BOARD_TYPE_CD = ?
 	    AND INSTR(MEMBER_NICK,?) > 0
 	    AND SECESSION_FL = 'N'
+	    AND BOARD_ST = 'N'
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>
@@ -216,6 +219,7 @@
 		WHERE PR_BOARD = ?
 	    AND INSTR(MEMBER_NICK,?) > 0
 	    AND SECESSION_FL = 'N'
+	    AND BOARD_ST = 'N'
 	    ORDER BY BOARD_NO DESC)A)
 	WHERE RNUM BETWEEN ? AND ?
 	</entry>

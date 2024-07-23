@@ -51,6 +51,7 @@
 
 .list-table > tbody > tr{
     border-bottom: 1px solid gray;
+    cursor: pointer;
 }
 
 .list-table tr > *{

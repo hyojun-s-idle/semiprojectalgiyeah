@@ -124,15 +124,15 @@ public class AnnounceDAO {
 			
 			if(rs.next()) {
 				detail = new AnBoardDetail();
-				detail.setBoardNo(rs.getInt(1));
-				detail.setBoardTitle(rs.getString(2));
-				detail.setBoardContent(rs.getString(3));
-				detail.setCreateDate(rs.getString(4));
-				detail.setUpdateDate(rs.getString(5));
-				detail.setProfileImage(rs.getString(6));
-				detail.setMemberNickname(rs.getString(7));
-				detail.setReadCount(rs.getInt(8));
-				detail.setMemberNo( rs.getInt(9));
+				detail.setBoardNo(rs.getInt("BOARD_NO"));
+				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
+				detail.setBoardContent(rs.getString("BOARD_CONTENT"));
+				detail.setCreateDate(rs.getString("CREATE_DT"));
+				detail.setUpdateDate(rs.getString("UPDATE_DT"));
+				detail.setProfileImage(rs.getString("PROFILE_IMGE"));
+				detail.setMemberNickname(rs.getString("MEMBER_NICK"));
+				detail.setReadCount(rs.getInt("READ_COUNT"));
+				detail.setMemberNo( rs.getInt("MEMBER_NO"));
 			}
 			
 		}finally {
@@ -167,7 +167,7 @@ public class AnnounceDAO {
 		return result;
 	}
 
-	/**게시물 댓글 조회 DAP
+	/**게시물 댓글 조회 DAO
 	 * @param conn
 	 * @param no
 	 * @return list
@@ -203,6 +203,86 @@ public class AnnounceDAO {
 		}
 		
 		return list;
+	}
+
+	/**게시물 수정 DAO
+	 * @param conn
+	 * @param detail
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updatePost(Connection conn, AnBoardDetail detail) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updatePost");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, detail.getBoardTitle());
+			pstmt.setString(2, detail.getBoardContent());
+			pstmt.setInt(3, detail.getBoardNo());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/**게시물 삭제 DAO
+	 * @param conn
+	 * @param type
+	 * @param no
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deletePost(Connection conn, int type, int no) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("deletePost");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, type);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/**게시물 등록 DAO
+	 * @param conn
+	 * @param detail
+	 * @param type
+	 * @return result 
+	 * @throws Exception
+	 */
+	public int insertPost(Connection conn, AnBoardDetail detail, int type) throws Exception {
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertPost");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, detail.getBoardTitle());
+			pstmt.setString(2, detail.getBoardContent());
+			pstmt.setInt(3, detail.getMemberNo());
+			pstmt.setInt(4, type);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

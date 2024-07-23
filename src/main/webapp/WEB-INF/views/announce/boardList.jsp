@@ -60,10 +60,10 @@
 
                         <c:if test="${!empty boardList}">
                             <c:forEach var="board" items="${boardList}" varStatus="v">
-                                <tr>
+                                <tr onclick="location.href='boardList/detail?type=23&no=${board.boardNo}&cp=${pagination.currentPage}'">
                                     <td>${v.count}</td>
                                     <td>
-                                        <a href="boardList/detail?type=23&no=${board.boardNo}&cp=${pagination.currentPage}">${board.boardTitle}</a>
+                                        ${board.boardTitle}
                                     </td>
                                     <td>${board.createDate}</td>
                                 </tr>
@@ -116,5 +116,6 @@
         
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
 </body>
 </html>
