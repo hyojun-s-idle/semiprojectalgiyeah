@@ -34,9 +34,8 @@
                             <td>
                                 <select name="mSearchCon" id="mSearchCon">
                                     <option value="id">아이디</option>
-                                    <option value="name">회원명</option>
-                                    <option value="email">이메일</option>
-                                    <option value="tel">전화번호</option>
+                                    <option value="name">닉네임</option>
+                                    <option value="name">이름</option>
                                 </select>
                             
                             
@@ -55,39 +54,11 @@
                                     <option value="ceo">사장</option>
                                 </select>
                             
-                            
-                                <select name="businessSearch" class="category">
-                                    <option value="null">사업별</option>
-                                    <option value="요식업">요식업</option>
-                                    <option value="숙박업">숙박업</option>
-                                    <option value="제조업">제조업</option>
-                                    <option value="배송업">배송업</option>
-                                    <option value="정보서비스업">정보서비스업</option>
-                                    <option value="시설관리업">시설관리업</option>
-                                    <option value="교육관리업">교육관리업</option>
-                                    <option value="여가관련업">여가관련업</option>
-                                    <option value="기타">기타</option>
-                                </select>
-                            
-                            
-                                <select name="rectalSearch" class="category">
-                                    <option value="null">직종별</option>
-                                    <option value="외식/음료">외식/음료</option>
-                                    <option value="매장관리">매장관리</option>
-                                    <option value="서비스">서비스</option>
-                                    <option value="사무직">사무직</option>
-                                    <option value="운전/배달">운전/배달</option>
-                                    <option value="생산">생산</option>
-                                    <option value="디자인">디자인</option>
-                                    <option value="IT">IT</option>
-                                    <option value="교육">교육</option>
-                                    <option value="기타">기타</option>
-                                </select>
                             </td>
                         </tr>
                     </tbody>
     
-                    <tfoot>
+                    <!-- <tfoot>
                         <tr>
                             <th>가입날짜</th>
                             <td><input type="text" name="entryDateStart" placeholder="년도-0월-0일" id="entryDateStart"> ~ 
@@ -95,7 +66,7 @@
     
                             </td>
                         </tr>
-                    </tfoot>
+                    </tfoot> -->
                 </table>
                 <div class="mbtn-suround">
                 <button id="btnMSearch">검색</button> <button type="reset">초기화</button>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="boardName" value="${list.boardName}"/>
 <c:set var="pagination" value="${list.pagination}"/>
 <c:set var="boardList" value="${list.boardList}"/>
@@ -10,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardList-style.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css"> -->
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
@@ -18,7 +20,12 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <!-- <c:if test="${loginMember.memberType == 2 || loginMember.memberType == 3}"> -->
+       <!--  </c:if> -->
 
+       <!-- <c:if test="${loginMember.memberType == 0}">
+            <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
+       </c:if>   -->
         <div id="header-UP" class="all">
         </div>
         <div class="title-color">
@@ -27,6 +34,11 @@
 
         <section class="board-list">
             <form action="" method="get" id="boardSearch">
+                <select name="anBoardSearch">
+                    <option value="title">제목</option>
+                    <option value="content">내용</option>
+                    <option value="titleCon">제목+내용</option>
+                </select>
                 <input type="text" name="query" placeholder="검색어를 입력해주세요.">
                 <button>검색</button>
             </form>
@@ -63,7 +75,16 @@
                 </table>
             </div>
 
-        
+            <c:if test="${empty param.cp}">
+                <c:set var="cp" value="1"/>
+            </c:if>
+
+            <c:if test="${!empty param.cp}">
+                <c:set var="cp" value="${param.cp}"/>
+            </c:if>
+            <div class="btn-area">
+                <a href="${contextPath}/manager/manAnnounce/boardWrite?mode=insert&type=${param.type}&cp=${cp}" id="insertBtn">글쓰기</a>
+            </div>
 
             <div class="pagination-area">
 

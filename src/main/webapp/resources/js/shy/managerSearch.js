@@ -46,40 +46,25 @@ document.getElementById("mSearchMember").addEventListener("change", (e) => {
             ceoNum[i].classList.remove("active");
         }
     }
-})
+});
 
-/* 날짜 작성시 검사 */
-const regExd = /^\d{2}\-[0-1]\d\-[0-3]\d$/;
-
-document.getElementById("entryDateStart").addEventListener("keyup", e => {
-    const date = e.target;
-    if (regExd.test(date.value)) {
-        date.style.color = "green";
-    } else {
-        date.style.color = "red";
-    }
-})
-document.getElementById("entryDateEnd").addEventListener("keyup", e => {
-    const date = e.target;
-    if (regExd.test(date.value)) {
-        date.style.color = "green";
-    } else {
-        date.style.color = "red";
-    }
-})
 
 /* comment자르기 */
-const contentText = document.querySelectorAll(".contentReport");
-let comAll = "";
-let comCut = "";
-for (let i = 0; i < contentText.length; i++) {
-    if (contentText[i].innerText.length > 20) {
-        comAll = contentText[i].innerText;
-        comCut = contentText[i].innerText.substr(0, 16);
-        contentText[i].innerText = comCut + "...";
+(function(){
 
+    const contentText = document.querySelectorAll(".contentReport");
+    let comAll = "";
+    let comCut = "";
+    for (let i = 0; i < contentText.length; i++) {
+        if (contentText[i].innerText.length > 20) {
+            comAll = contentText[i].innerText;
+            comCut = contentText[i].innerText.substr(0, 16);
+            contentText[i].innerText = comCut + "...";
+    
+        }
     }
-}
+
+})();
 
 //신고 누적 검색 시 직접입력시 옆에 input 나옴
 document.getElementById("reportAccumulateSearch").addEventListener("change",(e) => {

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/reply-style.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css"> -->
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardDetail-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
@@ -17,6 +18,13 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <!-- <c:if test="${loginMember.memberType == 2 || loginMember.memberType == 3}"> -->
+       <!--  </c:if> -->
+
+       <!-- <c:if test="${loginMember.memberType == 0}">
+            <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
+       </c:if>   -->
+
         <div id="header-UP" class="all">
         </div>
         <div class="title-color">
@@ -57,7 +65,7 @@
 
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
-                <button id="updateBtn">수정</button>
+                <button id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
                 <button id="delectBtn">삭제</button>
                 <button id="goToListBtn">목록으로</button>
             </div>

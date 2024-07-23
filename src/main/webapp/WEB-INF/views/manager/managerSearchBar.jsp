@@ -3,7 +3,7 @@
     <form action="" name="mSearchForm">
         <table class="mSearchTable">
 
-            <thead>
+            <!-- <thead>
                 <tr>
                     <th>검색어</th>
                     <td>
@@ -17,7 +17,7 @@
                         <input type="search" name="mSearchConText" placeholder="검색어을 입력해주세요.">
                     </td>
                 </tr>
-            </thead>
+            </thead> -->
 
             <tbody>
                 <tr>
@@ -87,7 +87,7 @@
                 </tr>
             </tbody>
 
-            <tfoot>
+            <!-- <tfoot>
                 <tr>
                     <th>작성일자</th>
                     <td><input type="text" name="entryDateStart" placeholder="년도-0월-0일" id="entryDateStart"> ~ 
@@ -95,7 +95,7 @@
 
                     </td>
                 </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
         <div class="mbtn-suround">
         <button id="btnMSearch">검색</button> <button type="reset">초기화</button>

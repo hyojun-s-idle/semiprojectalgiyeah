@@ -37,6 +37,18 @@
                     <button>등록하기</button>
                     <button>목록으로</button>
                 </div>
+
+                <!-- 가져가야할 값 -->
+                 <input type="hidden" name="mode" value="${param.mode}">
+
+                <!-- 공지게시판 -->
+                 <input type="hidden" name="type" value="23">
+
+                <!-- 현재 페이지 -->
+                <input type="hidden" name="cp" value="${param.cp}">
+
+                <!-- 게시글 번호 -->
+                 <input type="hidden" name="no" value="${param.no}">
             </form>
         </section>
 

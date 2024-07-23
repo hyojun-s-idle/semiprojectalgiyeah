@@ -45,20 +45,6 @@ public class ManagerServlet extends HttpServlet {
 				
 			}
 			
-			if(command.equals("manAnnounce")) {
-				String path = "/WEB-INF/views/manager/manDoardList.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
-			if(command.equals("manAnnounce/boardDetail")) {
-				String path = "/WEB-INF/views/manager/manDoarDetail.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
-			if(command.equals("manAnnounce/boardWrite")) {
-				String path="/WEB-INF/views/manager/manDoardWrite.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();

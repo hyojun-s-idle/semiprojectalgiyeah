@@ -18,5 +18,6 @@ public class Reply {
 	private int memberNo;
 	private String memberNickname;
 	private String profileImage;
+	private String updateDate;
 
 }
