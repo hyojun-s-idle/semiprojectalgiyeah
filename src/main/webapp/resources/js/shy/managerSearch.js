@@ -4,24 +4,20 @@ const all = document.querySelector("select[name='allSearch']");
 const ceoNumTitle = document.getElementById("ceoNumTitle");
 const ceoNum = document.querySelectorAll(".ceoNum");
 const resultNull = document.querySelector(".mSearchComResult > td > td:first-child");
+const board =  document.getElementById("mSearchMember");
 
-/* 게시판 변경시 카테고리 변경 */
-document.getElementById("mSearchMember").addEventListener("change", (e) => {
-    let member = e.target;
-    let memberOption = member.options[member.selectedIndex];
-    let memberValue = memberOption.value;
-
-
-    if (memberValue == "worker") {
+function selectValue(memberValue){
+    if (memberValue == 2) {
         worker.classList.add("active");
         ceo.classList.remove("active");
         all.classList.remove("active");
+
         ceoNumTitle.innerText = "비고";
         for (let i = 0; i < ceoNum.length; i++) {
             ceoNum[i].classList.remove("active");
         }
 
-    } else if (memberValue == "ceo") {
+    } else if (memberValue == 3) {
         ceo.classList.add("active");
         worker.classList.remove("active");
         all.classList.remove("active");
@@ -29,7 +25,7 @@ document.getElementById("mSearchMember").addEventListener("change", (e) => {
         for (let i = 0; i < ceoNum.length; i++) {
             ceoNum[i].classList.add("active");
         }
-    } else if (memberValue == "all") {
+    } else if (memberValue == 1) {
         worker.classList.remove("active");
         ceo.classList.remove("active");
         all.classList.add("active");
@@ -37,17 +33,25 @@ document.getElementById("mSearchMember").addEventListener("change", (e) => {
         for (let i = 0; i < ceoNum.length; i++) {
             ceoNum[i].classList.remove("active");
         }
-    } else {
-        worker.classList.remove("active");
-        ceo.classList.remove("active");
-        all.classList.remove("active");
-        ceoNumTitle.innerText = "비고";
-        for (let i = 0; i < ceoNum.length; i++) {
-            ceoNum[i].classList.remove("active");
-        }
-    }
-});
+    } 
+}
 
+
+/* 게시판 변경시 카테고리 변경 */
+(function(){
+    let memberOption = board.options[board.selectedIndex];
+    let memberValue = memberOption.value;
+
+    selectValue(memberValue);
+    
+    board.addEventListener("change",()=>{
+        memberOption = board.options[board.selectedIndex];
+        memberValue = memberOption.value;
+
+        selectValue(memberValue);
+    });
+
+})();
 
 /* comment자르기 */
 (function(){

@@ -49,24 +49,23 @@
                             <th>회원</th>
                             <td>
                                 <select name="mSearchMember" id="mSearchMember">
-                                    <option value="null" selected>회원</option>
-                                    <option value="worker">알바</option>
-                                    <option value="ceo">사장</option>
+                                    <option value="0" selected>회원</option>
+                                    <option value="1">알바</option>
+                                    <option value="2">사장</option>
                                 </select>
                             
                             </td>
                         </tr>
                     </tbody>
     
-                    <!-- <tfoot>
+                    <tfoot>
                         <tr>
                             <th>가입날짜</th>
                             <td><input type="text" name="entryDateStart" placeholder="년도-0월-0일" id="entryDateStart"> ~ 
                                 <input type="text" name="entryDateEnd" placeholder="년도-0월-0일" id="entryDateEnd">
-    
                             </td>
                         </tr>
-                    </tfoot> -->
+                    </tfoot>
                 </table>
                 <div class="mbtn-suround">
                 <button id="btnMSearch">검색</button> <button type="reset">초기화</button>
