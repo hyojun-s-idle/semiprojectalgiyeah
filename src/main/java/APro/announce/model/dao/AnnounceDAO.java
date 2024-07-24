@@ -285,4 +285,72 @@ public class AnnounceDAO {
 		return result;
 	}
 
+	/**공지사항 게시물 검색 수 조회
+	 * @param conn
+	 * @param type
+	 * @param condition
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int getBoardListCount(Connection conn, int type, String condition) throws Exception {
+		int listCount = 0;
+		
+		try {
+			String sql = prop.getProperty("searchListCount") + condition;
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+
+	/**공지사항 게시물 검색 목록 조회 DAO
+	 * @param conn
+	 * @param condition
+	 * @param pagination
+	 * @param type
+	 * @return list
+	 */
+	public List<AnnounceBoard> searchBoardList(Connection conn, String condition, Pagination pagination, int type) throws Exception {
+		List<AnnounceBoard> list = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("searchBoardList1") + condition + prop.getProperty("searchBoardList2");
+			
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				AnnounceBoard b = new AnnounceBoard(rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8));
+				
+				list.add(b);
+			}
+			
+		}catch(Exception e) {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
 }

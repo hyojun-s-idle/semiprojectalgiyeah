@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
+    <title>알지예</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/reply-style.css">
     <!-- <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css"> -->
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">

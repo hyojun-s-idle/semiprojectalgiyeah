@@ -59,30 +59,23 @@ public class BoardService {
 		// 키테고리 이름 변수
 		List<Category> category = dao.selectCategory(conn);
 		
-		// 게시글 수 변수
-		int listCount = 0;
-		
+		String condition = null;
 		// 전체 선택 아닐 시
 		if(cate != 0) {
-
 			// 카테고리 선택 게시판 전체 게시글 수 조회
-			listCount = dao.getListCount(conn, cate);
+			condition = " AND BOARD_TYPE_CD = " + cate + " ";
 		}else {
-			listCount = dao.getListCount(type, conn);
+			condition = " AND PR_BOARD = " + type + " ";
 		}
+		// 게시글 수 변수
+		int listCount  = dao.getListCount(conn, condition);
+		
 		// 전체 게시글 수(카테고리 게시글 수) + 현재 페이지(cp)를 이용해 페이지네이션 객체 생성
 		Pagination pagination = new Pagination(cp, listCount);
 		
 		// 게시글 목록 조회 컬렉션
-		List<Board> boardList = new ArrayList<>();
+		List<Board> boardList = dao.selectBoardList(conn, condition, pagination);
 		
-		// 카테고리 목록 조회 DAO 호출
-		if(cate != 0) {
-			boardList = dao.selectBoardList(conn, cate, pagination);
-		}else {
-			// 전체 게시물 목록 조회
-			boardList = dao.selectBoardList(conn, pagination, type);
-		}
 		
 		// MAP객체를 생성하여 결과들 모두 저장
 		Map<String, Object> boardMap = new HashMap<>();
@@ -96,7 +89,7 @@ public class BoardService {
 		return boardMap;
 	}
 
-	/** 모두 게시판 검색 Service
+	/** 게시판 검색 Service
 	 * @param standard
 	 * @param board
 	 * @param all
@@ -109,8 +102,7 @@ public class BoardService {
 		
 		Connection conn = getConnection();
 		
-		search = Util.XSSHandling(search);
-		search = Util.newLineHandling(search);
+		
 		
 		// 게시판 이름
 		String boardName = dao.selectBoardName(conn,board);
@@ -118,11 +110,24 @@ public class BoardService {
 		// 카테고리 얻어오기
 		List<Category> category = dao.selectCategory(conn);
 		
-		int listCount = dao.getSearchListCount(conn,board, all, search, standard);
-		System.out.println(listCount);
+		String condition = null;
+		if(all == 0) {
+			condition = " AND PR_BOARD = " + board;
+		}else {
+			condition = " AND BOARD_TYPE_CD = " + all;
+		}
+		
+		switch(standard) {
+		case "title" : condition += " AND BOARD_TITLE LIKE '%"+search+"%' " ; break;
+		case "writer" : condition += " AND MEMBER_NICK LIKE '%" + search + "%' "; break;
+		case "content" : condition += " AND BOARD_CONTENT LIKE '%"+search+"%' "; break;
+		}
+		
+		int listCount = dao.getSearchListCount(conn, condition, standard);
+		
 		Pagination pagination = new Pagination(cp, listCount);
 		
-		List<Board> list = dao.searchBoardList(conn,board, all, search, pagination, standard);
+		List<Board> list = dao.searchBoardList(conn, condition, pagination);
 		
 		Map<String, Object> allList = new HashMap<>();
 		allList.put("boardName", boardName);

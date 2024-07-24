@@ -44,9 +44,6 @@ public class BoardListServelt extends HttpServlet{
 		
 		try {
 			
-			
-			
-			
 			//상세조회
 			int boardNo=0;
 			if(command.equals("allList/detail")) {
@@ -100,13 +97,12 @@ public class BoardListServelt extends HttpServlet{
 			
 			// BoardService
 			
-			
+			/*목록 가져오는 페이지 네이션*/
 			if(command.equals("boardList")) {
 				int type = Integer.parseInt( req.getParameter("type") ); 
 				
 				if( req.getParameter("cp") != null ) {
 					cp = Integer.parseInt(req.getParameter("cp"));
-					System.out.println(cp);
 				}
 				
 				if( req.getParameter("cate") != null) {

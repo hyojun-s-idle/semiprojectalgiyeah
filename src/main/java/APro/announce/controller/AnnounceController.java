@@ -38,8 +38,16 @@ public class AnnounceController extends HttpServlet {
 					cp = Integer.parseInt(req.getParameter("cp"));
 					System.out.println(cp);
 				}
-
-				Map<String, Object> boardList = service.selectBoardList(type, cp);
+				Map<String, Object> boardList = null;
+				if(req.getParameter("anBoardSearch") == null) {
+					boardList = service.selectBoardList(type, cp);
+					
+				}else {
+					String searchType = req.getParameter("anBoardSearch");
+					String query = req.getParameter("query");
+					
+					boardList = service.searchBoardList(type, cp, searchType, query);
+				}
 				req.setAttribute("list", boardList);
 				path = "/WEB-INF/views/announce/boardList.jsp";
 			}

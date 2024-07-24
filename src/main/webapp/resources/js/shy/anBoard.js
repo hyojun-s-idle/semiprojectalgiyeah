@@ -15,6 +15,16 @@
 
             url += type + "&" + cp;
 
+            console.log(param.get("anBoardSearch"));
+
+            if(param.get("anBoardSearch") != null){
+                let key = "&anBoardSearch=" + param.get("anBoardSearch");
+                let query = "&query=" + param.get("query");
+
+                url += key + query;
+
+            }
+
             location.href=url;
         });
     }
@@ -34,6 +44,8 @@
             const cp = "&cp=" + param.get("cp");
 
             url += type + no + cp;
+
+            
 
             if(confirm("정말로 삭제하시겠습니까?")){
                 location.href = url;

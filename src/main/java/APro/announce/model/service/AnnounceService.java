@@ -138,5 +138,38 @@ public class AnnounceService {
 		return result;
 	}
 
+	/** 게시물 검색 목록 조회
+	 * @param type
+	 * @param cp
+	 * @param searchType
+	 * @param query
+	 * @return map
+	 * @throws Exception
+	 */
+	public Map<String, Object> searchBoardList(int type, int cp, String searchType, String query) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		String condition = null;
+		
+		switch(searchType) {
+		case "title": condition = " AND BOARD_TITLE LIKE '%"+query+"%' "; break;
+		case "content" : condition = " AND BOARD_CONTENT LIKE '%"+query+"%' "; break;
+		case "titleCon": condition = "AND (BOARD_TITLE LIKE '%"+query+"%' OR BOARD_CONTENT LIKE '%"+query+"%')"; break;
+		}
+		
+		int listCount = dao.getBoardListCount(conn, type, condition);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<AnnounceBoard> boardList = dao.searchBoardList(conn, condition, pagination,type);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		return map;
+	}
+
 
 }

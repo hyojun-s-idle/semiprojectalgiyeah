@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>알지예</title>
     
         <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
@@ -37,24 +37,15 @@
         <div class="title-back-color all all-box-shadow">
             <div class="title-content-post all-title-boder-bottom">게시판 검색</div>
         </div>
-        <c:if test="${search.conSearch == 'title'}">
-            <c:set var="tselect" value="selected"/>
-        </c:if>
-        <c:if test="${search.conSearch == 'writer'}">
-            <c:set var="wselect" value="selected"/>
-        </c:if>
-        <c:if test="${search.conSearch == 'content'}">
-            <c:set var="cselect" value="selected"/>
-        </c:if>
 
         <section class="nSearch-section">
             <div class="nSearch-suround all">
                 <form action="search" name="nSearchForm">
                     <select name="conSearch">
                         
-                        <option value="title" ${tselect}>제목</option>
-                        <option value="writer" ${wselect}>닉네임</option>
-                        <option value="content" ${cselect}>내용</option>
+                        <option value="title" >제목</option>
+                        <option value="writer" >닉네임</option>
+                        <option value="content" >내용</option>
                     </select>
         
     
@@ -64,7 +55,7 @@
                         <c:forEach var="i" begin="0" end="2" step="1">
                             <c:set var="cat" value="${category[i]}"/>
                             <c:choose>
-                                <c:when test="${search.mSearchMember == i+1}">
+                                <c:when test="${param.mSearchMember == i+1}">
                                     <option value="${i+1}" selected>${cat.categoryName}</option>
                                 </c:when>
                                 <c:otherwise>
@@ -82,7 +73,7 @@
                         <c:forEach var="i" begin="1" end="2" step="1">
                             <c:set var="cat" value="${category[i]}"/>
                             <c:choose>
-                                <c:when test="${search.allSearch == i+1}">
+                                <c:when test="${param.allSearch == i+1}">
                                     <option value="${i+1}" selected>${cat.categoryName}</option>
                                 </c:when>
                                 <c:otherwise>
@@ -103,7 +94,7 @@
                         <c:forEach var="i" begin="13" end="21" step="1">
                             <c:set var="cat" value="${category[i]}"/>
                             <c:choose>
-                                <c:when test="${search.businessSearch == i+1}">
+                                <c:when test="${param.businessSearch == i+1}">
                                     <option value="${i+1}" selected>${cat.categoryName}</option>
                                 </c:when>
                                 <c:otherwise>
@@ -125,7 +116,7 @@
                         <c:forEach var="i" begin="3" end="12" step="1">
                             <c:set var="cat" value="${category[i]}"/>
                             <c:choose>
-                                <c:when test="${search.businessSearch == i+1}">
+                                <c:when test="${param.rectalSearch == i+1}">
                                     <option value="${i+1}" selected>${cat.categoryName}</option>
                                 </c:when>
                                 <c:otherwise>
@@ -187,7 +178,7 @@
                         <div class="pagination-area">
                             
                          
-                                <c:set var="url" value="search?conSearch=${search.conSearch}&mSearchMember=${search.mSearchMember}&allSearch=${search.allSearch}&businessSearch=${search.businessSearch}&rectalSearch=${search.rectalSearch}&nSearch=${search.nSearch}&cp="/>
+                                <c:set var="url" value="search?conSearch=${param.conSearch}&mSearchMember=${param.mSearchMember}&allSearch=${param.allSearch}&businessSearch=${param.businessSearch}&rectalSearch=${param.rectalSearch}&nSearch=${param.nSearch}&cp="/>
                             
 
                             <ul class="pagination">
@@ -228,5 +219,6 @@
         <script src="${contextPath}/resources/js/shy/write.js"></script>
         <script src="${contextPath}/resources/js/shy/postContentCut.js"></script>
         <script src="${contextPath}/resources/js/shy/boardSearch.js"></script>
+        <script src="${contextPath}/resources/js/shy/boardList.js"></script>
     </body>
     </html>
