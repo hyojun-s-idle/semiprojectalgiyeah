@@ -58,12 +58,17 @@ form[name="reportComFormDel"] > button:active{
     
 }
 
-#postGo{
+/* 게시판 번호 */
+#postGo > a{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
     cursor: pointer;
     transition-duration: 0.3s;
 }
 
-#postGo:hover{
+#postGo > a:hover{
     transform: scale(1.2);
 }
 
@@ -71,3 +76,27 @@ form[name="reportComFormDel"] > button:active{
 .reportPost tr > *:nth-of-type(2){ width: 10%;}
 .reportPost tr > *:nth-of-type(3){ width: 15%;}
 .reportPost tr > *:nth-of-type(4){ width: 15%;}
+
+/* 신고 사유 */
+.reportReson{
+    margin-top: 25px;
+    box-sizing: border-box;
+    width: 1200px;
+    border: 3px solid gray;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.reportReson th{
+    border: 2px solid gray;
+    background-color: rgba(128, 128, 128, 0.384);
+}
+
+.reportReson td{
+    height: 30px;
+    border: 2px solid gray;
+}
+
+.reportReson tr > *:nth-of-type(1){width: 5%;}
+.reportReson tr > *:nth-of-type(2){width: 85%;}
+.reportReson tr > *:nth-of-type(3){width: 10%;}

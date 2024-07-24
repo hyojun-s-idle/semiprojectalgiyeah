@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>알지예-관리자</title>
 
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css">
@@ -29,7 +29,7 @@
                 <th>제목</th>
                 <td colspan="4">옆집 왜 이러냐</td>
                 <th>게시판 번호</th>
-                <td colspan="2">1234</td>
+                <td colspan="2" id="postGo"><a href="게시판 상세 페이지 이동">1234</a></td>
             </tr>
             <tr>
                 <th>닉네임</th>
@@ -68,6 +68,21 @@
                     우리는 모두 적막한 세계를 떠도는 나그네다.</td>
             </tr>
         </table>
+
+        <table class="reportReson">
+            <tr>
+                <th>번호</th>
+                <th>신고 내용</th>
+                <th>신고 일자</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>신고 내용</td>
+                <td>2024.07.23</td>
+            </tr>
+            
+        </table>
+
         <form action="" name="reportPostFormDel">
             <input type="hidden" name="postNum" value="1234">
             <button>삭제하기</button>
@@ -86,7 +101,6 @@
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <script src="${contextPath}/resources/js/shy/managerReportComment.js"></script>
     
 </body>
 </html>

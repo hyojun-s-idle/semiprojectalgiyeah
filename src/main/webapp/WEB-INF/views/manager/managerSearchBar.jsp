@@ -1,25 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <c:set var="category" value="${list.category}" scope="session"/>
 <c:set var="category" value="${category}"/>
-<section class="mSearch-section">
-    <form action="" name="mSearchForm">
+
         <table class="mSearchTable">
-            <!-- <thead>
+            <thead>
                 <tr>
                     <th>검색어</th>
                     <td>
                         <select name="mSearchCon" id="mSearchCon">
                             <option value="name">닉네임</option>
-                            <option value="title">게시판 제목</option>
+                            <option value="title">제목</option>
+                            <option value="content">내용</option>
+
                         </select>
                     
                     
                         <input type="search" name="mSearchConText" placeholder="검색어을 입력해주세요.">
                     </td>
                 </tr>
-            </thead> -->
+            </thead>
 
             <tbody>
                 <tr>
@@ -114,7 +116,7 @@
                     <th>신고 누적 횟수</th>
                     <td>
                         <select name="reportAccumulateSearch" id="reportAccumulateSearch">
-                            <option selected>직접입력</option>
+                            <option>직접입력</option>
                             <option>1</option>
                             <option>10</option>
                             <option>20</option>
@@ -133,5 +135,3 @@
         <div class="mbtn-suround">
         <button id="btnMSearch">검색</button> <button type="reset">초기화</button>
         </div>
-    </form>
-</section>

@@ -40,7 +40,7 @@
 
         <section class="nSearch-section">
             <div class="nSearch-suround all">
-                <form action="search" name="nSearchForm">
+                <form action="search" name="nSearchForm" onsubmit="return searchValidate()">
                     <select name="conSearch">
                         
                         <option value="title" >제목</option>
@@ -130,7 +130,7 @@
                     </select>
         
                     
-                    <input type="text" name="nSearch" placeholder="검색어를 입력해주세요">
+                    <input type="text" name="nSearch" placeholder="검색어를 입력해주세요" id="searchQuery">
         
                     <button class="all2">검색</button>
                 </form>
