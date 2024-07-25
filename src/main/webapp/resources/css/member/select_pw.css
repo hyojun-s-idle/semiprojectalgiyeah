@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Jua&display=swap');
+
+.content{
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.find-box{
+    border: 2px solid #059212;
+    border-radius: 20px;
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;   
+    box-shadow: 2px 3px 5px 0px; 
+}
+
+fieldset{
+    border: none;
+}
+
+/* 찾은 아이디 */
+.findDiv{
+    border: 2px solid #059212;
+    height: 400px;
+    margin: auto;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 400px;
+    height: 80px;
+    border: 2px solid #059212 ;
+    border-radius: 20px;
+}
+
+button{
+    width: 150px;
+    height: 70px;
+    border-radius: 20px;
+    margin: 25px 50px;
+    border: none;
+    background-color: #059212;
+    font-weight: bold;
+    box-shadow: 2px 3px 5px 0px; 
+    font-size: 17px;
+    padding: 0 10px;
+    
+}
+
+button:hover{
+    background-color: #034e0b;
+    box-shadow: none;
+}
+
+
+span{
+    display: inline-block;
+    height: 60px
+}
+
+#memberId{
+    display: none;
+}

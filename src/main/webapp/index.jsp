@@ -80,10 +80,16 @@
             </section>
 
             <section class="main-right-side">
-
+				
+				<c:if test="${empty loginMember}">
                 <jsp:include page="/WEB-INF/views/main/mainLoginSignUp.jsp"/>
-
-                <jsp:include page="/WEB-INF/views/main/mainLoginMemberArea.jsp"/>
+				</c:if>
+				
+				<c:if test="${!empty loginMember}">
+				<jsp:include page="/WEB-INF/views/main/mainLoginMemberArea.jsp"/>
+				</c:if>
+				
+                
 
                 <jsp:include page="/WEB-INF/views/main/mainPopPostTitle10.jsp"/>
                 
@@ -121,7 +127,7 @@
     <script>
         const contextPath = "${contextPath}";
     </script>
-
+	
     <script src="${contextPath}/resources/js/main/popTabMenu.js"></script>
     <script src="${contextPath}/resources/js/jquery.marquee.min.js"></script>
     <script src="${contextPath}/resources/js/shy/headerUPSlidAuto.js"></script>

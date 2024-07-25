@@ -11,6 +11,7 @@ const checkObj1 = {   "memberId": false,
 
 
 const checkObj2 = {
+	"businessNum" : false,
    "memberNickname": false,
    "memberA": false,
 };
@@ -118,6 +119,7 @@ const memberPwConfirm = document.getElementById("memberPwConfirm");
 const pwdMsg = document.getElementById("pwd-msg");
 memberPwConfirm.addEventListener("input", checkPw);
 memberPw.addEventListener("input", checkPw);
+
 
 function checkPw() {
    if (memberPw.value.trim() == "") {
@@ -263,6 +265,29 @@ function check1Validation() {
    document.getElementById("signup-box2").classList.add("block");
    
 }
+
+/* 사업자번호 유효성 검사 */
+
+const BnMsg = document.getElementById("Bn-msg");
+const businessNum = document.getElementById("businessNum");
+
+businessNum.addEventListener("input", function () {
+   if (businessNum.value.trim() == "") {
+      checkObj2.businessNum = removeMsg(BnMsg, "사업자번호를 입력해주세요.")
+      return;
+   }
+
+   const regExpBn = /[0-9]{6}/;
+
+   if (regExpBn.test(businessNum.value)) { // 유효한 경우
+      checkObj2.businessNum = confirmMsg(BnMsg, "유효한 사업자번호입니다.");
+
+   } else {
+      checkObj2.businessNum = errorMsg(BnMsg, "사업자번호 형식이 올바르지 않습니다.");
+
+   }
+})
+
 
 
 
@@ -425,6 +450,9 @@ function check2Validation() {
 
                case "memberA":
                    str = "답변이"; break;
+                   
+               case "businessNum":
+                   str = "사업자번호가"; break;
            }
 
            alert(str + " 유효하지 않습니다.");

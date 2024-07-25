@@ -16,40 +16,40 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <div class="content">
             <div class="find-box">
-                <form action="">
-                    <fieldset>
+                <form action="selectId" method="post">
+                   
                 <h1>아이디 찾기</h1>
                 
-                <div class="email">
+                <div class="email" id="memberEmail" >
                     <h2>회원 이메일 입력</h2>
-                    <input type="">
+                    <input type="text" name="mamberEmail">
                 </div>
 
-                <div class="email">
+                <div class="tel" id="memberTel" >
                     <h2>회원 전화번호 입력</h2>
-                    <input type="">
+                    <input type="text" name="memberTel">
                 </div>
 
-                <div class="phone-area">
+                <div>
                             
                     <h2>질문</h2>
-                    <select name="" class="select" id="like-select">
-                        <option value="1">키우는 반려동물 이름은?</option>
-                        <option value="2">내가 다닌 고등학교 이름은?</option>
-                        <option value="3">부모님의 이름은?</option>
-                        <option value="4">나의 별명은?</option>
-                        <option value="5">내가 좋아하는 음식은?</option>
-                        <option value="6">나의 취미는?</option>
+                    <select name="memberQ" class="select" id="like-select">
+                        <option value="1">질문을 선택해주세요.</option>
+                        <option value="키우는 반려동물 이름은?">키우는 반려동물 이름은?</option>
+                        <option value="내가 다닌 고등학교 이름은?">내가 다닌 고등학교 이름은?</option>
+                        <option value="부모님의 이름은?">부모님의 이름은?</option>
+                        <option value="나의 별명은?">나의 별명은?</option>
+                        <option value="내가 좋아하는 음식은?">내가 좋아하는 음식은?</option>
+                        <option value="나의 취미는?">나의 취미는?</option>
                     </select>
                 </div>
-
-                <div class="phone-area">
+		
+                <div>
                     <h2>답변</h2>
-                    <input type="text" id="phone-input">
+                    <input type="text" name="memberA">
                 </div>
 
                 <button id="find-com">찾기</button>
-            </fieldset>
             </form>
             </div>
         </div>
