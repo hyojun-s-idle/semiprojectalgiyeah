@@ -14,7 +14,7 @@ import APro.board.service.BoardDetailService;
 import APro.board.service.BoardService;
 import APro.board.service.BoardWriteService;
 import APro.board.vo.BoardDetail;
-import APro.board.vo.LoginMember;
+import APro.member.model.vo.Member;
 
 @WebServlet("/board/write")
 public class BoardWriteServlet extends HttpServlet {
@@ -75,7 +75,7 @@ public class BoardWriteServlet extends HttpServlet {
 			//LoginMember->member
 			/* *********************************************************************/
 			HttpSession session = req.getSession();
-			LoginMember loginMember=(LoginMember)session.getAttribute("loginMember");
+			Member loginMember=(Member)session.getAttribute("loginMember");
 			int memberNo=loginMember.getMemberNo(); 
 			System.out.println(loginMember.getMemberNo());
 			System.out.println(loginMember.getMemberNickname());
