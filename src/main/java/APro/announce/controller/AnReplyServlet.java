@@ -16,7 +16,7 @@ import APro.announce.model.vo.Reply;
 
 
 
-@WebServlet("/reply/*")
+@WebServlet("/areply/*")
 public class AnReplyServlet extends HttpServlet {
 	
 	@Override

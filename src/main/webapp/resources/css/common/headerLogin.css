@@ -124,11 +124,13 @@ main{
     transition-duration: 0.3s;
 }
 
-#headerProfileHidden>div {
+#headerProfileHidden > div {
+    display: block;
     margin: 10px;
 }
 
-#headerProfileHidden a {
+#headerProfileHidden > div > a {
+    
     font-size: 20px;
 }
 

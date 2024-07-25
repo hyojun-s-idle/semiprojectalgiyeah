@@ -14,7 +14,6 @@ import APro.board.service.BoardDetailService;
 import APro.board.service.BoardService;
 import APro.board.service.ReplyService;
 import APro.board.vo.BoardDetail;
-import APro.board.vo.LoginMember;
 import APro.board.vo.Reply;
 
 @WebServlet("/board/boardList/detail/*")
@@ -51,18 +50,6 @@ public class BoardDetailServlet extends HttpServlet {
 					List<Reply> rList = new ReplyService().selectReplyList(boardNo);
 					req.setAttribute("rList", rList);
 				}
-
-				
-				
-				// 로그인 테스트용 - 추후지울것 !!!
-				// ***************************************************
-				LoginMember loginMember = new LoginMember();
-//				loginMember.setMemberNo(19);
-				loginMember.setMemberNo(1);
-				loginMember.setMemberNickname("닉네임");
-				HttpSession session = req.getSession();
-				session.setAttribute("loginMember", loginMember);
-				// ***************************************************
 
 				
 				

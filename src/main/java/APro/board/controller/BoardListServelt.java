@@ -19,7 +19,6 @@ import APro.board.service.BoardService;
 
 import APro.board.service.ReplyService;
 import APro.board.vo.BoardDetail;
-import APro.board.vo.LoginMember;
 import APro.board.vo.Reply;
 
 
