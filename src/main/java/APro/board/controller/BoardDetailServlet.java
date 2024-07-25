@@ -40,6 +40,8 @@ public class BoardDetailServlet extends HttpServlet {
 			//게시글 상세조회
 			if (command.equals("detail")) {
 
+				System.out.println(1);
+				
 				// 게시판
 				int boardNo = Integer.parseInt(req.getParameter("no"));
 				BoardDetail detail = service.selectBoardDetail(boardNo);
@@ -53,6 +55,7 @@ public class BoardDetailServlet extends HttpServlet {
 
 				
 				
+
 				String path = "/WEB-INF/views/board/detail/boardDetail.jsp";
 				req.getRequestDispatcher(path).forward(req, resp);
 				

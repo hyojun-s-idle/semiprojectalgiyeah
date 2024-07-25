@@ -14,6 +14,7 @@ import APro.board.service.BoardDetailService;
 import APro.board.service.BoardService;
 import APro.board.service.BoardWriteService;
 import APro.board.vo.BoardDetail;
+
 import APro.member.model.vo.Member;
 
 @WebServlet("/board/write")
@@ -64,29 +65,19 @@ public class BoardWriteServlet extends HttpServlet {
 			System.out.println(boardTitle);
 			System.out.println(boardContent);
 			System.out.println(boardCode);
-//			System.out.println("type : "+type);
 			System.out.println(mode);
 			
 			
 			
 			
 			
-			//변경해야될부분.!!!
-			//LoginMember->member
-			/* *********************************************************************/
+
 			HttpSession session = req.getSession();
 			Member loginMember=(Member)session.getAttribute("loginMember");
 			int memberNo=loginMember.getMemberNo(); 
-			System.out.println(loginMember.getMemberNo());
-			System.out.println(loginMember.getMemberNickname());
+
 			
-			/* **************************************************
-			detail부분 들어가야 loginMember*sesssion걸림.!!!
-			글쓰기 detail갔다나올것.!!!
-			-----------------------------------------------------
-			LoginMember : test용  <- 나중에 Member로 변환해줄것.!!!
-			Member      : 취합용
-			***************************************************/
+
 			
 			
 			
