@@ -142,5 +142,11 @@
 	FROM MEMBER
 	LEFT JOIN MEMBER_TYPE USING(MEMBER_TYPE_CD)
 	</entry>
+	
+	<!-- 회원 검색 수 -->
+	<entry key="searchCount">
+	SELECT COUNT(*)
+	FROM MEMBER
+	</entry>
 
 </properties>
