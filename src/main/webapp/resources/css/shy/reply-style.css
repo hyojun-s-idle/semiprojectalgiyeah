@@ -1,3 +1,11 @@
+#reply-area{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* 댓글 목록 */
 #reply-list{
 	width: 100%;
@@ -59,6 +67,7 @@
 
 /* 댓글 작성 영역 */
 .reply-write-area{
+    width: 1500px;
     display: flex;
     justify-content: center;
     min-height: 85px;
@@ -85,4 +94,11 @@
 #addReply:hover{
     background-color: black;
     color: white;
+}
+
+/* 댓글 수정 textarea */
+.update-textarea{
+    width: 100%;
+    height: 90px;
+    resize: none;
 }

@@ -15,54 +15,70 @@ import APro.board.service.BoardService;
 
 @WebServlet("/announce/*")
 public class AnnounceController extends HttpServlet {
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/announce/").length()  );
 		int cp = 1;
-		int cate= 0;
+		int type = 0;
+		int no = 0;
+		
 		AnnounceService service = new AnnounceService();
-		
-		if(command.equals("boardList")) {
-			int type = Integer.parseInt( req.getParameter("type") ); 
+		try {
 			
-			if( req.getParameter("cp") != null ) {
-				cp = Integer.parseInt(req.getParameter("cp"));
-				System.out.println(cp);
-			}
+			String path = null;
 			
-			try {
-				Map<String, Object> boardList = service.selectBoardList(type, cp);
+
+			if(command.equals("boardList")) {
+				type = Integer.parseInt( req.getParameter("type") ); 
+
+				if( req.getParameter("cp") != null ) {
+					cp = Integer.parseInt(req.getParameter("cp"));
+					System.out.println(cp);
+				}
+				Map<String, Object> boardList = null;
+				if(req.getParameter("anBoardSearch") == null) {
+					boardList = service.selectBoardList(type, cp);
+					
+				}else {
+					String searchType = req.getParameter("anBoardSearch");
+					String query = req.getParameter("query");
+					
+					boardList = service.searchBoardList(type, cp, searchType, query);
+				}
 				req.setAttribute("list", boardList);
-				String path = "/WEB-INF/views/announce/boardList.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				path = "/WEB-INF/views/announce/boardList.jsp";
 			}
-		}
-		
-		if(command.equals("boardList/detail")) {
-			int no = Integer.parseInt(req.getParameter("no"));
-			int type = Integer.parseInt(req.getParameter("type"));
-			
-			try {
+
+			if(command.equals("boardList/detail")) {
+				no = Integer.parseInt(req.getParameter("no"));
+				type = Integer.parseInt(req.getParameter("type"));
+
 				AnBoardDetail detail = service.getBoardDetail(no);
 				req.setAttribute("detail", detail);
-				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(detail);
+				path = "/WEB-INF/views/announce/boarDetail.jsp";
 			}
 			
-			String path = "/WEB-INF/views/announce/boarDetail.jsp";
+			if(command.equals("boardList/anDelete")) {
+				type = Integer.parseInt(req.getParameter("type"));
+				no = Integer.parseInt(req.getParameter("no"));
+				cp = Integer.parseInt(req.getParameter("cp"));
+				
+				int result = service.deletePost(type,no);
+				resp.sendRedirect(req.getContextPath() + "/announce/boardList?cp="+cp+"&type="+type);
+				return;
+			}
 			req.getRequestDispatcher(path).forward(req, resp);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+=======
+
+
+>>>>>>> origin/LSH
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,6 +107,7 @@
         </section>
     </main>
 
+
 	<!-- footer jsp -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 
@@ -112,14 +118,17 @@
 
     <!-- 헤더 -->
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
-
+    <script>
+        const contextPath = "${contextPath}";
+    </script>
 
     <script src="${contextPath}/resources/js/main/popTabMenu.js"></script>
-    <script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
     <script src="${contextPath}/resources/js/jquery.marquee.min.js"></script>
     <script src="${contextPath}/resources/js/shy/headerUPSlidAuto.js"></script>
     <script src="${contextPath}/resources/js/main/mainTopNotice.js"></script>
     <script src="${contextPath}/resources/js/main/mainHotSlide.js"></script>
+    <script src="${contextPath}/resources/js/shy/mainHot.js"></script>
+    <script src="${contextPath}/resources/js/shy/mainPop10.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="${contextPath}/resources/js/main/graph_minimumWage.js"></script>

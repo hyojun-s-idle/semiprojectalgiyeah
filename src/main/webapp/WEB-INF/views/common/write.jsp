@@ -14,4 +14,5 @@
     <a href="${contextPath}/board/write?mode=insert&type=${param.type}" id="write-write">글쓰기</a>
 	
 
+
 </div>

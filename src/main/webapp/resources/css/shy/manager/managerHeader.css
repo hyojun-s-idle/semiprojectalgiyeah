@@ -1,10 +1,10 @@
-.header a {
+.manheader a {
     text-decoration: none;
     color: black;
     margin: 20px;
 }
 
-.header a:hover {
+.manheader a:hover {
     font-weight: bold;
     border-bottom: 3px solid black;
     transition-duration: 0.3s;
@@ -15,7 +15,7 @@ body {
     padding: 0;
 }
 
-.header {
+.manheader {
     z-index: 1;
     padding: 0;
     margin: 0;
@@ -31,7 +31,7 @@ body {
 
 }
 
-.header-suround {
+.manheader-suround {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,29 +40,18 @@ body {
     font-size: 18px;
 }
 
-.header-post {
+.manheader-post {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.header-login {
+.manheader-login {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-}
-
-#search-header:hover {
-    border: none;
-    transform: scale(1.2, 1.2);
-    transition-duration: 0.3s;
-}
-
-#search-header {
-    margin-right: 30px;
-    font-size: 25px;
 }
 
 #header-UP {

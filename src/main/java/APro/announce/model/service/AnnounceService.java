@@ -10,6 +10,7 @@ import APro.announce.model.vo.AnBoardDetail;
 import APro.announce.model.vo.AnReply;
 import APro.announce.model.vo.AnnounceBoard;
 import APro.board.vo.Pagination;
+import APro.common.Util;
 
 import static APro.common.JDBCTemplate.*;
 
@@ -71,5 +72,104 @@ public class AnnounceService {
 		
 		return detail;
 	}
+
+	/**공지사항 게시물 수정 Service
+	 * @param detail
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updatePost(AnBoardDetail detail) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		detail.setBoardTitle( Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent( Util.XSSHandling(detail.getBoardContent()));
+		
+		detail.setBoardContent( Util.newLineHandling(detail.getBoardContent()));
+		
+		int result = dao.updatePost(conn, detail);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/**게시글 삭제 Service
+	 * @param type
+	 * @param no
+	 * @param cp
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deletePost(int type, int no) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.deletePost(conn, type, no);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		return result;
+	}
+
+	/**게시물 등록 Service
+	 * @param detail
+	 * @param type
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertPost(AnBoardDetail detail, int type) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		detail.setBoardTitle( Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+		
+		detail.setBoardContent( Util.newLineHandling(detail.getBoardContent()));
+		
+		int result = dao.insertPost(conn, detail, type);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		return result;
+	}
+
+	/** 게시물 검색 목록 조회
+	 * @param type
+	 * @param cp
+	 * @param searchType
+	 * @param query
+	 * @return map
+	 * @throws Exception
+	 */
+	public Map<String, Object> searchBoardList(int type, int cp, String searchType, String query) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		String condition = null;
+		
+		switch(searchType) {
+		case "title": condition = " AND BOARD_TITLE LIKE '%"+query+"%' "; break;
+		case "content" : condition = " AND BOARD_CONTENT LIKE '%"+query+"%' "; break;
+		case "titleCon": condition = "AND (BOARD_TITLE LIKE '%"+query+"%' OR BOARD_CONTENT LIKE '%"+query+"%')"; break;
+		}
+		
+		int listCount = dao.getBoardListCount(conn, type, condition);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<AnnounceBoard> boardList = dao.searchBoardList(conn, condition, pagination,type);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		return map;
+	}
+
 
 }

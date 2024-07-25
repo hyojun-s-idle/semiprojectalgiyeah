@@ -6,8 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
+    <title>알지예</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/reply-style.css">
+    <!-- <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css"> -->
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/annTitle-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/boardDetail-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
@@ -17,6 +18,13 @@
 <body>
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <!-- <c:if test="${loginMember.memberType == 2 || loginMember.memberType == 3}"> -->
+       <!--  </c:if> -->
+
+       <!-- <c:if test="${loginMember.memberType == 0}">
+            <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
+       </c:if>   -->
+
         <div id="header-UP" class="all">
         </div>
         <div class="title-color">
@@ -57,9 +65,9 @@
 
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
-                <button id="updateBtn">수정</button>
-                <button id="delectBtn">삭제</button>
-                <button id="goToListBtn">목록으로</button>
+                <button type="button" id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
+                <button type="button" id="deleteBtn">삭제</button>
+                <button type="button" id="goToListBtn">목록으로</button>
             </div>
 
         </section>
@@ -89,13 +97,11 @@
                                     </c:if>
                                 </p>
                 
-                                <p class="reply-content">
-                                    ${reply.replyContent}
-                                </p>
+                                <p class="reply-content">${reply.replyContent}</p>
                 
                                 <div class="reply-btn-area">
-                                    <button>수정</button>
-                                    <button>삭제</button>
+                                    <button onclick="showUpdateReply(${reply.replyNo},this)">수정</button>
+                                    <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                                 </div>
                             </li>
 
@@ -118,5 +124,16 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        const contextPath = "${contextPath}";
+        const boardNo = "${detail.boardNo}";
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
+
+    <script src="${contextPath}/resources/js/shy/reply.js"></script>
+    <script src="${contextPath}/resources/js/shy/anBoard.js"></script>
 </body>
 </html>

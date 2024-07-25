@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>main-sql.xml</comment>
+
+	<!-- hot게시물 6개 조회  -->
+	<entry key="getHotPost">
+	
+	SELECT * FROM 
+	(SELECT ROWNUM RNUM, A.* FROM(
+	SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,
+		        NVL((SELECT IMG_RENAME FROM BOARD_IMG I
+	                WHERE I.BOARD_NO = B.BOARD_NO AND IMG_LEVEL = 0), NULL) POST_IMAGE
+		        ,PROFILE_IMGE,MEMBER_NICK
+	 FROM BOARD B
+	JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
+	JOIN MEMBER USING(MEMBER_NO)
+	WHERE PR_BOARD= ?
+	AND BOARD_ST = 'N'
+	ORDER BY READ_COUNT DESC)A)
+	WHERE RNUM BETWEEN 1 AND 6
+	</entry>
+	
+	<!-- 좋아요 게시물 10개 조회 -->
+	<entry key="getPopBoard">
+	SELECT * FROM
+	(SELECT ROWNUM RNUM, A.* FROM(
+	SELECT BOARD_TITLE,BOARD_NO,(SELECT COUNT(*) FROM LIKE_BOARD WHERE BOARD_NO2 = B.BOARD_NO) LIKE_BOARD
+	FROM BOARD B
+	JOIN BOARD_TYPE USING(BOARD_TYPE_CD)
+	WHERE PR_BOARD = ?
+	AND BOARD_ST = 'N'
+	ORDER BY LIKE_BOARD DESC) A)
+	WHERE RNUM BETWEEN 1 AND 10
+	</entry>
+</properties>

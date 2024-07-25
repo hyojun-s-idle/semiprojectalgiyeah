@@ -2,20 +2,12 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-            
-            ${list} <br><br>
-            ${list.pagination} <br><br>
-            ${list.boardList} <br><br>
-            ${list.category} <br><br>
-            
-            <!-- 게시판번호 -->
-            ${list.boardList[0].boardNo} <br><br>
+
 
 
             <!-- 변수선언(변수통일) -->
             <c:set var="type" value="${param.type}"/>
-            ${param.type}
-            ${type}
+
             
 
 
@@ -142,11 +134,7 @@
 
                     </section>
 
-                    <!--     <div class="write-suround">
-        <div class="fa-solid fa-pen" id="write">
-        </div>
-        <a href="${contextPath}/board/allList/boardWrite" id="write-write">글쓰기</a>
-    </div> -->
+
 
                     <jsp:include page="/WEB-INF/views/common/write.jsp" />
                     <jsp:include page="/WEB-INF/views/common/toUp.jsp" />
