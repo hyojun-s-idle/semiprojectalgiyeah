@@ -1,0 +1,99 @@
+.modback{
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+
+    display: none;
+}
+
+.mod{
+    position: fixed;
+    z-index: 2;
+    top: 50vh;
+    left: 50vw;
+    transform: translateY(-50%) translateX(-50%);
+
+
+    border-radius: 15px;
+    padding: 10px 20px;
+    
+    width: 400px;
+    height: 200px;
+    background-color: rgba(128, 128, 128,0.5);
+    box-shadow: 10px 10px 10px black;
+
+
+    border: none;
+
+    display: flex;
+    display: none;
+
+
+
+
+}
+
+.upr{
+    width: 340px;
+    height: 170px;
+    max-height: 170px;
+    overflow: hidden;
+    outline: none;
+    background-color: rgba(128, 128, 128,0.5);
+    border: none;
+    resize: none;
+    
+    color:white;
+    font-weight: bold;
+
+    transition-duration: 0.25s;
+}
+
+
+.upb{
+    width: 50px;
+    border:none;
+    margin-left:10px;
+    height:40px;
+    color:white;
+    background-color: transparent;
+
+}
+
+.upb span{
+    font-size: 30px;
+}
+
+/* JS */
+.topping{
+    position: fixed;
+    z-index: 3;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(140px, -70px);
+}
+.showing{
+    display: flex;
+    z-index: 1;
+}
+
+
+.hidingX{
+    transform: scaleX(0);
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}
+.hidingY{
+    transform: scaleY(0);
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}
+.hidingTrans{
+    transform: translateX(10vw) translateY(-50%) scale(0) ;
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+}

@@ -47,74 +47,7 @@ public class BoardDAO {
 
 	
 	
-	/** 상세조회
-	 * @param conn
-	 * @param boardNo
-	 * @return
-	 * @throws Exception
-	 */
-	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception{
 
-		BoardDetail detail = null;
-		
-		try {
-
-			String sql = prop.getProperty("selectBoardDetail");
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-
-
-				detail = new BoardDetail();
-
-				detail.setBoardNo(rs.getInt("BOARD_NO"));                      //화면
-				detail.setBoardTitle(rs.getString("BOARD_TITLE"));             //화면
-				detail.setBoardContent(rs.getString("BOARD_CONTENT"));         //화면
-				detail.setCreateDate(rs.getString("CREATE_DT"));               //화면(택일)
-				detail.setUpdateDate(rs.getString("UPDATE_DT"));               //화면(택일)
-				detail.setReadCount(rs.getInt("READ_COUNT"));				   //화면
-				detail.setMemberNo(rs.getInt("MEMBER_NO"));					   //조건
-				
-				//추후 정해야할부분 <- 쿼리스트링 어떻게 끌어올지 <- 세희님방식에서 따라가기
-//				detail.setBoardTypeCd(rs.getInt("BOARD_TYPE_CD"));             //화면
-
-				
-				
-				detail.setLikeCount(rs.getInt("LIKE_COUNT"));                  //화면
-				
-				
-				detail.setProfileImage(rs.getString("PROFILE_IMGE"));          //화면
-				detail.setMemberNickname(rs.getString("MEMBER_NICK"));         //화면
-
-				detail.setReplyCount(rs.getInt("REPLY_COUNT"));                  //화면
-				
-				detail.setMajCategory(rs.getString("MAJ"));         //화면
-				detail.setSubCategory(rs.getString("SUB"));         //화면
-				
-				//*******************************************************************
-				//9개(화면) + 1개(조건)
-				//boardNo boardName createDate   +    likeCount readCount replyCount
-				//boardTitle
-				//profileImage
-				//boardContent
-				
-				//memberNo
-				//*******************************************************************
-				
-				
-			}
-
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return detail;
-		
-	}
 	
 	/** 게시판 이름 가져오기 DAO
 	 * @param conn

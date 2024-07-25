@@ -12,22 +12,10 @@ body {
     align-items: center;
     margin: 0px;
 
-    /* background-color: violet; */
-    /* border: 1px solid black; */
+
     background-color: #FFD0D0;
     background-color: rgba(255, 158, 170, 1);
     
-
-    /* 강한색채 */
-    /* background: #fc00ff;
-    background: -webkit-linear-gradient(135deg, #00dbde, #fc00ff);
-    background: linear-gradient(135deg, #00dbde, #fc00ff); */
-    /* 움직임 */
-    /* background-size: 1000% 1000%;
-    animation: gradient 10s linear infinite; */
-
-    /* 연한색채 */
-    /* background-image: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%); */
 
 }
 
@@ -169,13 +157,13 @@ div {
     border-radius: 100%;
     width: 100px;
     height: 100px;
-    /* width: 100px;
-    height: 100px; */
-    /* width: 50px;
-    height: 50px; */
 
-    /* box-shadow: 3px 3px 3px 0px grey; */
     box-shadow: 10px 10px 20px 0px black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .sideCircle:hover {
@@ -190,6 +178,7 @@ div {
     font-size: 50px;
     font-weight: bold;
 }
+
 
 
 /* 상단 */
@@ -247,6 +236,7 @@ select {
 
 select:hover {
     filter: invert(0.7);
+    box-shadow: 0px 0px 3px  white;
 }
 
 select option {
