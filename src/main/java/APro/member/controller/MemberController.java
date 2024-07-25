@@ -243,6 +243,7 @@ public class MemberController extends HttpServlet{
 				if(loginMember!=null) {
 					session.setAttribute("loginMember", loginMember);
 				}
+				
 				resp.sendRedirect(req.getContextPath());
 				
 				
