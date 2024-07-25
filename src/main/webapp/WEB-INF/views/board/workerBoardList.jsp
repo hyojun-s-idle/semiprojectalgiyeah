@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+            <!-- 변수선언(변수통일) -->
+            <c:set var="type" value="${param.type}"/>
+            ${param.type}
+            ${type}
+
+            
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>알지예</title>
 
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">

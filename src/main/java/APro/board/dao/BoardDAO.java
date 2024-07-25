@@ -19,6 +19,7 @@ import APro.board.vo.BoardDetail;
 import APro.board.vo.Category;
 import APro.board.vo.Pagination;
 
+
 /**
  * @author shy62
  *
@@ -46,74 +47,7 @@ public class BoardDAO {
 
 	
 	
-	/** 상세조회
-	 * @param conn
-	 * @param boardNo
-	 * @return
-	 * @throws Exception
-	 */
-	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception{
 
-		BoardDetail detail = null;
-		
-		try {
-
-			String sql = prop.getProperty("selectBoardDetail");
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-
-
-				detail = new BoardDetail();
-
-				detail.setBoardNo(rs.getInt("BOARD_NO"));                      //화면
-				detail.setBoardTitle(rs.getString("BOARD_TITLE"));             //화면
-				detail.setBoardContent(rs.getString("BOARD_CONTENT"));         //화면
-				detail.setCreateDate(rs.getString("CREATE_DT"));               //화면(택일)
-				detail.setUpdateDate(rs.getString("UPDATE_DT"));               //화면(택일)
-				detail.setReadCount(rs.getInt("READ_COUNT"));				   //화면
-				detail.setMemberNo(rs.getInt("MEMBER_NO"));					   //조건
-				
-				//추후 정해야할부분 <- 쿼리스트링 어떻게 끌어올지 <- 세희님방식에서 따라가기
-//				detail.setBoardTypeCd(rs.getInt("BOARD_TYPE_CD"));             //화면
-
-				
-				
-				detail.setLikeCount(rs.getInt("LIKE_COUNT"));                  //화면
-				
-				
-				detail.setProfileImage(rs.getString("PROFILE_IMGE"));          //화면
-				detail.setMemberNickname(rs.getString("MEMBER_NICK"));         //화면
-
-				detail.setReplyCount(rs.getInt("REPLY_COUNT"));                  //화면
-				
-				detail.setMajCategory(rs.getString("MAJ"));         //화면
-				detail.setSubCategory(rs.getString("SUB"));         //화면
-				
-				//*******************************************************************
-				//9개(화면) + 1개(조건)
-				//boardNo boardName createDate   +    likeCount readCount replyCount
-				//boardTitle
-				//profileImage
-				//boardContent
-				
-				//memberNo
-				//*******************************************************************
-				
-				
-			}
-
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return detail;
-		
-	}
 	
 	/** 게시판 이름 가져오기 DAO
 	 * @param conn
@@ -144,22 +78,21 @@ public class BoardDAO {
 		return boardName;
 	}
 
-	/**카테고리 게시판 게시글 수 조회
+	/** 공지사항 게시물 수 조회 DAO
 	 * @param conn
-	 * @param cate
+	 * @param condition
 	 * @return listCount
 	 * @throws Exception
 	 */
-	public int getListCount(Connection conn, int cate) throws Exception {
+	public int getListCount(Connection conn, String condition) throws Exception {
 		int listCount = 0;
 		
 		try {
-			String sql = prop.getProperty("getListCountCate");
+			String sql = prop.getProperty("getListCountCate") + condition;
 			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cate);
+			stmt = conn.createStatement();
 			
-			rs = pstmt.executeQuery();
+			rs = stmt.executeQuery(sql);
 			
 			if(rs.next()) {
 				listCount = rs.getInt(1);
@@ -174,34 +107,6 @@ public class BoardDAO {
 	}
 
 
-	/**게시판 전체 게시글 수 조회
-	 * @param type
-	 * @param conn
-	 * @return listCount
-	 * @throws Exception
-	 */
-	public int getListCount(int type, Connection conn) throws Exception {
-		int listCount = 0;
-		
-		try {
-			String sql = prop.getProperty("getListCount");
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				listCount = rs.getInt(1);
-			}
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return listCount;
-	}
 
 	/**게시판 카테고리 조회
 	 * @param conn
@@ -232,27 +137,26 @@ public class BoardDAO {
 		return category;
 	}
 
-	/** 카테고리 게시물 목록 조회
+	/** 게시물 목록 조회 DAO
 	 * @param conn
-	 * @param cate
+	 * @param condition
 	 * @param pagination
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> selectBoardList(Connection conn, int cate, Pagination pagination) throws Exception {
+	public List<Board> selectBoardList(Connection conn, String condition, Pagination pagination) throws Exception {
 		List<Board> boardList = new ArrayList<>();
 		
 		try {
-			String sql = prop.getProperty("selectCategoryList");
+			String sql = prop.getProperty("selectCategoryList1") + condition + prop.getProperty("selectCategoryList2");
 			
 			// between 구문에 들어갈 범위 계산
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cate);
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			
 			rs = pstmt.executeQuery();
 			
@@ -271,83 +175,23 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	/** 게시판 전체 조회 목록
-	 * @param conn
-	 * @param pagination
-	 * @param type
-	 * @return boardList
-	 * @throws Exception
-	 */
-	public List<Board> selectBoardList(Connection conn, Pagination pagination, int type) throws Exception {
-		List<Board> boardList = new ArrayList<>();
-		
-		try {
-			String sql = prop.getProperty("selectBoardList");
-			
-			// between 구문에 들어갈 범위 계산
-			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
-			int end = start + pagination.getLimit() - 1;
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Board b = new Board( rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getString(8) );
-				
-				boardList.add(b);
-			}
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return boardList;
-		
-	}
 
-	/**카테고리 제목 검색 수 DAO
+	/**게시물 검색 수 DAO
 	 * @param conn
-	 * @param all
 	 * @param all 
 	 * @param search
 	 * @param standard 
 	 * @return listCount
 	 * @throws Exception
 	 */
-	public int getSearchListCount(Connection conn, int board, int all, String search, String standard) throws Exception {
+	public int getSearchListCount(Connection conn, String condition, String standard) throws Exception {
 		int listCount = 0;
-		System.out.println(search);
 		try {
-			String sql = null;
-			if(all == 0) {
-				switch(standard) {
-				case "title" : sql = prop.getProperty("searchTitleAll"); break;
-				case "writer" : sql = prop.getProperty("searchWriterAll"); break;
-				case "content" : sql = prop.getProperty("searchContentAll"); break;
-				}
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, board);
-				pstmt.setString(2, search);
-				
-			}else {
-				switch(standard) {
-				case "title" : sql = prop.getProperty("searchTitle"); break;
-				case "writer" : sql = prop.getProperty("searchWriter"); break;
-				case "content" : sql = prop.getProperty("searchContent"); break;
-				}
-				
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, all);
-				pstmt.setString(2, search);
-			}
+			String sql = prop.getProperty("searchBoardCount") + condition;
 			
-			rs = pstmt.executeQuery();
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
 			
 			if(rs.next()) {
 				listCount = rs.getInt(1);
@@ -363,46 +207,24 @@ public class BoardDAO {
 
 	/**검색 게시물 목록 조회 DAO
 	 * @param conn
-	 * @param all
 	 * @param all 
 	 * @param search
 	 * @param pagination
-	 * @param standard 
 	 * @return list
 	 * @throws Exception
 	 */
-	public List<Board> searchBoardList(Connection conn, int board, int all, String search, Pagination pagination, String standard) throws Exception {
+	public List<Board> searchBoardList(Connection conn, String condition, Pagination pagination) throws Exception {
 		List<Board> list = new ArrayList<>();
 		
 		try {
-			String sql = null;
+			String sql = prop.getProperty("searchBoardList1") + condition + prop.getProperty("searchBoardList2");
 			
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
 			
-			if(all == 0) {
-				switch(standard) {
-				case "title" : sql = prop.getProperty("searchListTitleAll"); break;
-				case "writer" : sql = prop.getProperty("searchListWriterAll"); break;
-				case "content" : sql = prop.getProperty("searchListConAll"); break;
-				}
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, board);
-				pstmt.setString(2, search);
-				pstmt.setInt(3, start);
-				pstmt.setInt(4, end);
-			}else {
-				switch(standard) {
-				case "title" : sql = prop.getProperty("searchListTitle"); break;
-				case "writer" : sql = prop.getProperty("searchListWriter"); break;
-				case "content" : sql = prop.getProperty("searchListCon"); break;
-				}
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, all);
-				pstmt.setString(2, search);
-				pstmt.setInt(3, start);
-				pstmt.setInt(4, end);
-			}
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			
 			rs = pstmt.executeQuery();
 			
@@ -420,5 +242,7 @@ public class BoardDAO {
 		
 		return list;
 	}
+
+
 
 }

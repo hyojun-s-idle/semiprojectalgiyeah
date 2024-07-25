@@ -119,11 +119,11 @@ function createHotPost(container,post,i){
     const content = document.createElement("div");
     content.classList.add("content-hot-div");
 
-    const p = document.createElement("p");
-    p.innerHTML = post.boardContent;
-    cutContent(p.innerText);
+    const contentP = document.createElement("p");
+    contentP.innerHTML = post.boardContent;
+    cutContent(contentP.innerText);
 
-    content.append(p);
+    content.append(contentP);
 
     // 계정 영역
     const accountDiv = document.createElement("div");

@@ -1,12 +1,20 @@
 package APro.manager.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import APro.board.service.BoardService;
+import APro.board.vo.Category;
+import APro.manager.model.service.ManagerService;
+import APro.manager.model.vo.ManCommentDetail;
+import APro.manager.model.vo.ManPostDetail;
 
 @WebServlet("/manager/*")
 public class ManagerServlet extends HttpServlet {
@@ -17,48 +25,70 @@ public class ManagerServlet extends HttpServlet {
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/manager/").length()  );
 		
+		// Board 서비스 호출
+		BoardService service = new BoardService();
+		
+		// Manager 서비스 호출
+		ManagerService mService = new ManagerService();
+		int cp=1;
+		
 		try {
+			
+			List<Category> category = service.getCategory();
+			String path = null;
 			if(command.equals("manCommentSearch")) {
-				String path = "/WEB-INF/views/manager/manCommentReportSearch.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
+				
+				if(req.getParameter("cp") != null) {
+					cp = Integer.parseInt(req.getParameter("cp"));
+				}
+				
+				Map<String, Object> list = mService.getCommentList(cp);
+				
+				req.setAttribute("list", list);
+				
+				path = "/WEB-INF/views/manager/manCommentReportSearch.jsp";
 			}
 			
 			if(command.equals("manPostSearch")) {
-				String path = "/WEB-INF/views/manager/manPostReportSearch.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
+				
+				if(req.getParameter("cp") != null) {
+					cp = Integer.parseInt(req.getParameter("cp"));
+				}
+				
+				Map<String, Object> list = mService.getPostList(cp);
+				
+				req.setAttribute("list", list);
+				
+				path = "/WEB-INF/views/manager/manPostReportSearch.jsp";
 			}
 			
 			if(command.equals("manMemberSearch")) {
-				String path = "/WEB-INF/views/manager/manMemberSearch.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
+				path = "/WEB-INF/views/manager/manMemberSearch.jsp";
 			}
 			
 			if(command.equals("commentDetail")) {
-				String path = "/WEB-INF/views/manager/manCommentDetail.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
+				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+				int replyNo = Integer.parseInt(req.getParameter("replyNo"));
+				
+				ManCommentDetail detail = mService.getCommentDetail(boardNo, replyNo);
+				
+				req.setAttribute("detail", detail);
+				
+				path = "/WEB-INF/views/manager/manCommentDetail.jsp";
 				
 			}
 			
 			if(command.equals("postDetail")) {
-				String path = "/WEB-INF/views/manager/manPostDetail.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
+				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 				
+				ManPostDetail detail = mService.getPostDetail(boardNo);
+				
+				req.setAttribute("detail", detail);
+				
+				path = "/WEB-INF/views/manager/manPostDetail.jsp";
 			}
-			
-			if(command.equals("manAnnounce")) {
-				String path = "/WEB-INF/views/manager/manDoardList.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
-			if(command.equals("manAnnounce/boardDetail")) {
-				String path = "/WEB-INF/views/manager/manDoarDetail.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
-			if(command.equals("manAnnounce/boardWrite")) {
-				String path="/WEB-INF/views/manager/manDoardWrite.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
+			req.setAttribute("category", category);
+			req.getRequestDispatcher(path).forward(req, resp);
 			
 		}catch(Exception e) {
 			e.printStackTrace();

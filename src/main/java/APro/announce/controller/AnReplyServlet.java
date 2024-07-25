@@ -44,8 +44,10 @@ public class AnReplyServlet extends HttpServlet {
 			if(command.equals("insert")) {
 				// 파라미터 얻어오기
 				int boardNo = Integer.parseInt( req.getParameter("boardNo"));
-				int memberNo = Integer.parseInt( req.getParameter("memberNo"));
+				int memberNo = 4;
+						//Integer.parseInt( req.getParameter("memberNo"));
 				String replyContent = req.getParameter("replyContent");
+				System.out.println(boardNo);
 				
 				// Reply 객체를 생성해서 파라미터 담기
 				Reply r = new Reply();
@@ -55,7 +57,7 @@ public class AnReplyServlet extends HttpServlet {
 				
 				// 댓글 등록 서비스 호출 수 결과 반환 받기
 				int result = service.insertReply(r);
-				
+				System.out.println(result);
 				// 서비스 호출 결과를 그대로 응답 데이터로 내보내기
 				resp.getWriter().print(result);
 				

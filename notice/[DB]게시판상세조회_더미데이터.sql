@@ -26,12 +26,16 @@ NULL, 1, NULL, DEFAULT)
 --------------------------------------------------------------------------------
 --게시판 상세조회(데이터삽입)
 --모두게시판
-INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, '게시판제목 카테고리더미', '게시판내용 카테고리더미', DEFAULT, NULL, 1, DEFAULT, 1, 2)
+INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, '게시판제목 카테고리더미', '게시판내용 카테고리더미', DEFAULT, NULL, 1, DEFAULT, 1, 3)
 ;
 
 
 --알바게시판
 INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, '게시판제목', '게시판내용', DEFAULT, NULL, 1, DEFAULT, 1, 5)
+;
+
+--사장게시판
+INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, '게시판제목', '게시판내용', DEFAULT, NULL, 1, DEFAULT, 1, 14)
 ;
 
 

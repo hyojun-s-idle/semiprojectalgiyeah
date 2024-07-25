@@ -1,16 +1,27 @@
-//삭제버튼
-$(document).on("click", ".deletingReply", function () {
-    if (confirm("삭제하시겠습니까?")) {
-    const replyContentBox = $(this).parents(".replyContentBox");
-    $(this).parents(".replyContentBox").slideUp();
-    setTimeout(function () { replyContentBox.remove(); }, 1000)
-    }
-})
+//댓글삭제
+// $(document).on("click", ".deletingReply", function () {
+
+//     if (confirm("삭제하시겠습니까?")) {
+        
+//     const replyContentBox = $(this).parents(".replyContentBox");
+//     $(this).parents(".replyContentBox").slideUp();
+//     setTimeout(function () { replyContentBox.remove(); }, 1000)
+//     }
+
+
+// })
 
 
 
 
-//댓글토글버튼
+
+
+
+
+
+
+
+//대댓글토글
 $(document).on("click", ".replyingNested", function () {
     const disp=$(this).parents(".replyView").children(".nested").css("display");
     if(disp!="none"){
@@ -29,8 +40,7 @@ $(document).on("click", ".replyingNested", function () {
 
 
 
-
-//등록버튼
+//대댓글등록
 $(document).on("click",".replyNestedRegister",function(){
     const text=$(this).parents(".nested").find(".textarea").val().replaceAll('\n', '<br>')
     const clone =$(this).parents(".nested").clone();

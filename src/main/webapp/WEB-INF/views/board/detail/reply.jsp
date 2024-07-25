@@ -8,14 +8,10 @@
             <div id="replyList">
 
 
-
                 <c:forEach var="reply" items="${rList}">
-
-
 
                     <div class="replyContentBox">
                         <div class="replyWriterPhotoBox">
-
 
                             <c:if test="${empty reply.profileImage}">
                                 <img src="${contextPath}/resources/images/user.png" id="replyWriterPhoto">
@@ -24,34 +20,29 @@
                                 <img src="${contextPath}${reply.profileImage}" id="replyWriterPhoto">
                             </c:if>
 
-
-
-
-
-
                         </div>
+
                         <div class="replyView">
 
                             <div class="replyWriter" id="replyWriter">
                                 <div>
-
                                     <span>${reply.memberNickname}</span>
-
                                     <span>${reply.createDate}</span>
-
                                 </div>
 
                                 <div>
 
-
                                     <c:if test="${loginMember.memberNo==reply.memberNo}">
 
-                                        <button class="icon deleting deletingReply">
+                                        <button class="icon deleting deletingReply"
+                                            onclick="deleteReply(${reply.replyNo})">
                                             <span class="material-symbols-outlined">
                                                 delete
                                             </span>
                                         </button>
-                                        <button class="icon updating">
+                                        <!-- 수정버튼 -->
+                                        <button class="icon updating updatingReply"
+                                            onclick="updateReply(${reply.replyNo}, this)">
                                             <span class="material-symbols-outlined">
                                                 refresh
                                             </span>
@@ -71,9 +62,11 @@
                                             arrow_right
                                         </span>
                                     </button>
+
                                 </div>
 
                             </div>
+
 
                             <div class="replyContent">
                                 ${reply.replyContent}
@@ -112,4 +105,16 @@
 
                 </c:forEach>
 
+            </div>
+
+
+            <!-- 댓글수정(모달부분) -->
+            <div class="modback"></div>
+            <div class="mod">
+                <textarea class="upr" name="" id=""></textarea>
+                <button class="upb">
+                    <span class="material-symbols-outlined">
+                        refresh
+                    </span>
+                </button>
             </div>

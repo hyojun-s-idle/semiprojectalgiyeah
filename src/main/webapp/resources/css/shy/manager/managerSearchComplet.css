@@ -33,9 +33,8 @@
 .mSearchComTable > thead  th:nth-of-type(5){ width: 5%;}
 .mSearchComTable > thead  th:nth-of-type(6){ width: 7%;}
 .mSearchComTable > thead  th:nth-of-type(7){ width: 8%;}
-.mSearchComTable > thead  th:nth-of-type(8){ width: 5%;}
-.mSearchComTable > thead  th:nth-of-type(9){ width: 20%;}
-.mSearchComTable > thead  th:nth-of-type(10){ width: 10%;}
+.mSearchComTable > thead  th:nth-of-type(8){ width: 20%;}
+.mSearchComTable > thead  th:nth-of-type(9){ width: 10%;}
 
 
 /* comment */
@@ -47,9 +46,8 @@
 .mSearchComTable.comment > thead  th:nth-of-type(6){ width: 7%;}
 .mSearchComTable.comment > thead  th:nth-of-type(7){ width: 10%;}
 .mSearchComTable.comment > thead  th:nth-of-type(8){ width: 5%;}
-.mSearchComTable.comment > thead  th:nth-of-type(9){ width: 10%;}
-.mSearchComTable.comment > thead  th:nth-of-type(10){ width: 20%;}
-.mSearchComTable.comment > thead  th:nth-of-type(11){ width: 10%;}
+.mSearchComTable.comment > thead  th:nth-of-type(9){ width: 20%;}
+.mSearchComTable.comment > thead  th:nth-of-type(10){ width: 10%;}
 
 /* post */
 .mSearchComTable.post > thead  th:nth-of-type(1){ width: 5%;}

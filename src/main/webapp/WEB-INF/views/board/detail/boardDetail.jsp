@@ -6,6 +6,9 @@
             loginMember : ${loginMember}<br><br>
             loginMember.memberNo : ${loginMember.memberNo}<br><br>
             detail : ${detail}<br><br>
+            type : ${param.type}<br><br>
+            no : ${param.no}<br><br>
+
             rList : ${rList}<br><br>
             rList[0] : ${rList[0]}
 
@@ -14,6 +17,14 @@
             <c:set var="url" value="${requestScope['javax.servlet.forward.request_uri']}" />
             <c:set var="sub" value="${url.substring((contextPath+='/board/').length())}" />
             <c:set var="type" value="${sub.substring(0,sub.length()-7)}" />
+
+            <!-- 변수설정 -->
+
+            <c:set var="type" value="${param.type}" />
+            <c:set var="no" value="${param.no}" />
+
+
+
 
 
             <!DOCTYPE html>
@@ -41,12 +52,13 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_replyNested.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_color.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_js.css">
+                <link rel="stylesheet" href="${contextPath}/resources/css/kis/updateReply.css">
 
 
 
 
                 <!-- 색채 -->
-                <c:if test="${type=='allList'}">
+                <c:if test="${type==1}">
                     <style>
                         :root {
                             --clr: var(--all);
@@ -54,7 +66,7 @@
                         }
                     </style>
                 </c:if>
-                <c:if test="${type=='workerList'}">
+                <c:if test="${type==2}">
                     <style>
                         :root {
                             --clr: var(--wor);
@@ -62,7 +74,7 @@
                         }
                     </style>
                 </c:if>
-                <c:if test="${type=='ceoList'}">
+                <c:if test="${type==3}">
                     <style>
                         :root {
                             --clr: var(--ceo);
@@ -125,7 +137,7 @@
                                                 <span class="material-symbols-outlined">
                                                     heart_plus
                                                 </span>
-                                                <p class="numbering">${detail.likeCount}</p>
+                                                <p class="numbering likeNum">${detail.likeCount}</p>
                                             </button>
 
 
@@ -164,13 +176,16 @@
                                             <c:if test="${loginMember.memberNo==detail.memberNo}">
 
 
-                                                <button class="icon deleting" id="deletingBoard">
+                                                <!-- 게시글 삭제버튼 -->
+                                                <button class="icon deleting" id="deletingBoard"
+                                                    onclick="location.href='detail/delete?type=${type}&no=${no}'">
                                                     <span class="material-symbols-outlined">
                                                         delete
                                                     </span>
                                                 </button>
 
-                                                <button class="icon updating" id="updatingBoard">
+                                                <!-- 게시글 수정버튼 -->
+                                                <button class="icon updating" id="updatingBoard" onclick="location.href='../write?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">
                                                     <span class="material-symbols-outlined">
                                                         refresh
                                                     </span>
@@ -230,7 +245,7 @@
                                         <span class="material-symbols-outlined boardLike">
                                             favorite
                                         </span>
-                                        <p>${detail.likeCount}</p>
+                                        <p class="likeNum">${detail.likeCount}</p>
                                     </button>
 
                                 </div>
@@ -290,7 +305,7 @@
                         <!-- 댓글작성 -->
 
                         <!-- <div id="replyWrite"> -->
-                        <form id="replyWrite" method="get" action="detail">
+                        <div id="replyWrite" method="get" action="detail">
                             <!-- no도 같이보내는법 -->
 
 
@@ -313,7 +328,7 @@
                                         <div>
 
 
-                                            <span >${loginMember.memberNickname}</span>
+                                            <span>${loginMember.memberNickname}</span>
                                             <span class="todayDate"></span>
 
 
@@ -356,7 +371,7 @@
                                     <div class="textareaReplyBox">
 
                                         <textarea name="replycontent" class="textarea textareaReply" id="textareaReply"
-                                            rows="7">111</textarea>
+                                            rows="7"></textarea>
 
 
                                         <!-- 대댓글 추가위해 영역할당 -->
@@ -369,9 +384,10 @@
 
 
 
-                                    <!-- 숨김용!!! -->
+                                    <!-- 숨김용!!!(form) -->
                                     <!-- 대댓글작성 -->
-                                    <div class="nested" style="display: flex;">
+                                    <div class="nested">
+
 
                                         <div class="textareaBox replyNestedRight">
                                             <textarea name="" class="textarea textareaReplyNested" rows="2"></textarea>
@@ -402,7 +418,7 @@
 
                             <!-- onclick="location.href='${contextPath}/board/allList/datail/reply/insert?no=${detail.boardNo}'" -->
 
-                        </form>
+                        </div>
 
                     </div>
                 </div>
@@ -415,6 +431,20 @@
                 <script src="${contextPath}/resources/js/kis/board_replyButton.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_replyInnerButton.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_replyWrite.js"></script>
+
+                <!-- ajax위한(JS) 변수선언 -->
+                <script>
+                    // 댓글
+                    const contextPath = "${contextPath}";
+                    const boardNo = "${detail.boardNo}";
+                    const loginMemberNo = "${loginMember.memberNo}";
+                    const loginMemberNickname = "${loginMember.memberNickname}";
+
+
+                </script>
+                <script src="${contextPath}/resources/js/kis/reply.js"></script>
+                <script src="${contextPath}/resources/js/kis/updateReply.js"></script>
+                <script src="${contextPath}/resources/js/kis/like.js"></script>
             </body>
 
             </html>

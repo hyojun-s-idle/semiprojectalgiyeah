@@ -6,6 +6,9 @@
 		<div class="header-suround">
 			<div class="header-post">
 				<a href="${contextPath}" id="logo-header"><img src="${contextPath}/resources/images/logo.png"></a>
+
+				<c:set var="type" value=""/>
+				
 				<a href="${contextPath}/board/boardList?type=1" id="header-all">모두 게시판</a>
 						
 						<c:if test="${loginMember.memberTypeCode == 1 }">

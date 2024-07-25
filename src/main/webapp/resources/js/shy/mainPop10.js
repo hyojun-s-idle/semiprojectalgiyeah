@@ -55,18 +55,18 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
 
 function createPop(container, post, i){
 
-    const tr = document.createElement("tr");
-    tr.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
+    const rowsPop = document.createElement("tr");
+    rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
 
-    const td1 = document.createElement("td");
-    td1.classList.add("pop-num");
-    td1.innerText = i+1;
+    const colRanck = document.createElement("td");
+    colRanck.classList.add("pop-num");
+    colRanck.innerText = i+1;
 
-    const td2 = document.createElement("td");
-    td2.innerText = post.boardTitle;
+    const colTitle = document.createElement("td");
+    colTitle.innerText = post.boardTitle;
 
-    tr.append(td1, td2);
+    rowsPop.append(colRanck, colTitle);
 
-    container.append(tr);
+    container.append(rowsPop);
 
 }

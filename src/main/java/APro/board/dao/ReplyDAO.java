@@ -13,30 +13,36 @@ import APro.board.vo.Reply;
 import static APro.common.JDBCTemplate.*;
 
 public class ReplyDAO {
-	
+
 	private Statement stmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	private Properties prop;
-	
+
 	public ReplyDAO() {
 		try {
 			prop = new Properties();
 			String filePath = BoardDAO.class.getResource("/APro/sql/reply-sql.xml").getPath();
-			prop.loadFromXML( new FileInputStream(filePath));
-			
-			
-		}catch(Exception e) {
+			prop.loadFromXML(new FileInputStream(filePath));
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public List<Reply> selectReplyList(Connection conn, int boardNo) throws Exception{
+	/**
+	 * 댓글조회
+	 * 
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Reply> selectReplyList(Connection conn, int boardNo) throws Exception {
 
 		List<Reply> rlist = new ArrayList<>();
 
-		
 		try {
 
 			String sql = prop.getProperty("selectReplyList");
@@ -65,14 +71,82 @@ public class ReplyDAO {
 		}
 		return rlist;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	/**
+	 * 댓글등록
+	 * 
+	 * @param conn
+	 * @param reply
+	 * @return
+	 * @throws Exception
+	 */
+	public int replyRegister(Connection conn, Reply reply) throws Exception {
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("replyRegister");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, reply.getReplyContent());
+			pstmt.setInt(2, reply.getBoardNo());
+			pstmt.setInt(3, reply.getMemberNo());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/**
+	 * 댓글삭제
+	 * 
+	 * @param conn
+	 * @param replyNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int replyDelete(Connection conn, int replyNo) throws Exception {
+
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("replyDelete");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, replyNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+	/**
+	 * 댓글수정
+	 * 
+	 * @param conn
+	 * @param replyNo
+	 * @param replyContent
+	 * @return
+	 * @throws Exception
+	 */
+	public int replyUpdate(Connection conn, int replyNo, String replyContent) throws Exception {
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("replyUpdate");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, replyContent);
+			pstmt.setInt(2, replyNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 
 }
