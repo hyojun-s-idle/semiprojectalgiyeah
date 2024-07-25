@@ -45,8 +45,11 @@ public class likeServlet extends HttpServlet {
 
 				int likeCount= new BoardDetailService().boardLikeSelect(boardNo, memberNo);
 				int likeState= new BoardDetailService().boardLikeState(boardNo, memberNo);
+				
+				System.out.println("****************************");
 				System.out.println("likeCount : "+ likeCount);
 				System.out.println("likeState : "+ likeState);
+				System.out.println("****************************");
 				
 				BoardLike boardlike=new BoardLike();
 				

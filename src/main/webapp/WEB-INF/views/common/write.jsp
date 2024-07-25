@@ -8,11 +8,16 @@
 
 
 <div class="write-suround">
-    <div class="fa-solid fa-pen" id="write">
-    </div>
 
-    <a href="${contextPath}/board/write?mode=insert&type=${param.type}" id="write-write">글쓰기</a>
-	
+    <c:if test="${!empty loginMember}">
+        
+        <div class="fa-solid fa-pen" id="write">
+        </div>
+    
+        <a href="${contextPath}/board/write?mode=insert&type=${param.type}" id="write-write">글쓰기</a>
+        
+
+    </c:if>
 
 
 </div>
