@@ -15,44 +15,44 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="content">
-        <form action="#">
+        <form action="signUp" method="post" onsubmit="return check2Validation()">
             <!-- <form action="signUp" method="post" name="signUp-form" onsubmit="return signUpValidate()"> -->
             <fieldset>
                 <div class="signup-box" id="signup-box">
                     <h1>알바님 회원가입</h1>
                     <div class="id-area">
                         <h3>아이디</h3>
-                        <input type="text" id="id-input" placeholder="4자~20자리" maxlength="20">
+                        <input type="text" id="memberId" placeholder="4자~20자리" maxlength="20">
                         <br><span id="id-msg"></span>
                     </div>
                     <div class="pw-area">
                         <h3>비밀번호</h3>
-                        <input type="text" id="pw-input" placeholder="8~16자리" maxlength="16">
+                        <input type="text" id="memberPw" placeholder="8~16자리" maxlength="16">
                         <br><span id="pw-msg">asd</span>
                     </div>
                     <div class="pw-check-area">
                         <h3>비밀번호 확인</h3>
-                        <input type="text" id="pwd-input" placeholder="8~16자리" maxlength="16">
+                        <input type="text" id="memberPwConfirm" placeholder="8~16자리" maxlength="16">
                         <br><span id="pwd-msg">asd</span>
                     </div>
                     <div class="name-area">
                         <h3>이름</h3>
-                        <input type="text" id="name-input" placeholder="이름 입력">
+                        <input type="text" id="memberName" placeholder="이름 입력">
                         <br><span id="name-msg">asd</span>
                     </div>
                     <div class="email-area">
                         <h3>이메일</h3>
-                        <input type="text" id="email-input" placeholder="alba@alba.co.kr">
+                        <input type="text" id="memberEmail" placeholder="alba@alba.co.kr">
                         <br><span id="email-msg">asd</span>
                     </div>
                     <div class="phone-area">
                         <h3>전화번호</h3>
-                        <input type="text" id="tel-input" placeholder="-빼고 입력해주세요" maxlength="11">
+                        <input type="text" id="memberTel" placeholder="-빼고 입력해주세요" maxlength="11">
                         <br><span id="tel-msg">asd</span>
                     </div>
 
 
-                    <button type="button" id="next">NEXT</button>
+                    <button type="button" id="next" onclick="check1Validation()">NEXT</button>
 
                 </div>
 
@@ -62,48 +62,57 @@
 
                     <div class="nickName-area">
                         <h3>닉네임</h3>
-                        <input type="text" id="nick-input">
+                        <input type="text" id="memberNickname">
                         <br><span id="nick-msg">asd</span>
                     </div>
 
                     <div class="address-area">
                         <h3>주소</h3>
-                        <input type="text" id="address-input">
-                        <br><span id="address-msg">asd</span>
+                        <div class="address-box">
+                            <input type="text" id="postcode" class="address" placeholder="우편번호">
+                            <input type="button" id="postBtn"onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+                            <input type="text" id="roadAddress" class="address" placeholder="도로명주소">
+                            <input type="text" id="jibunAddress" class="address" placeholder="지번주소">
+                            <span id="guide" style="color:#999;display:none"></span>
+                            <input type="text" id="detailAddress" class="address" placeholder="상세주소">
+                        </div>
                     </div>
                     <div class="job-area">
                         <h3>직종</h3>
-                        <select name="job" class="select" id="job-select">
-                            <option value="1">외식/음료</option>
-                            <option value="2">매장 관리</option>
-                            <option value="3">서비스</option>
-                            <option value="4">사무직</option>
-                            <option value="5">운전/배달</option>
-                            <option value="6">생산</option>
-                            <option value="7">디자인</option>
-                            <option value="8">IT</option>
-                            <option value="8">교육</option>
+                        <select name="job" class="select" id="memberJob">
+                            
+                            <option value="1">직종을 선택해주세요.</option>
+                            <option value="2">외식/음료</option>
+                            <option value="3">매장 관리</option>
+                            <option value="4">서비스</option>
+                            <option value="5">사무직</option>
+                            <option value="6">운전/배달</option>
+                            <option value="7">생산</option>
+                            <option value="8">디자인</option>
+                            <option value="9">IT</option>
+                            <option value="10">교육</option>
                         </select>
                         <br><span id="job-msg">asd</span>
                     </div>
                     <div class="question-area">
 
-                        <h3>질문 * <i id="ic" class="fa-solid fa-question" style="color: #f60909;"></i></h3>
+                        <h3>질문</h3>
                         <div id="q">아이디 / 비밀번호 분실시 사용됩니다</div>
-                        <select name="question" class="select" id="question-select">
-                            <option value="1">키우는 반려동물 이름은?</option>
-                            <option value="2">내가 다닌 고등학교 이름은?</option>
-                            <option value="3">부모님의 이름은?</option>
-                            <option value="4">나의 별명은?</option>
-                            <option value="5">내가 좋아하는 음식은?</option>
-                            <option value="6">나의 취미는?</option>
+                        <select name="question" class="select" id="memberQ">
+                            <option value="1">질문을 선택해주세요.</option>
+                            <option value="2">키우는 반려동물 이름은?</option>
+                            <option value="3">내가 다닌 고등학교 이름은?</option>
+                            <option value="4">부모님의 이름은?</option>
+                            <option value="5">나의 별명은?</option>
+                            <option value="6">내가 좋아하는 음식은?</option>
+                            <option value="7">나의 취미는?</option>
                         </select>
                         <br><span id="question-msg">asd</span>
                     </div>
                     <div class="answer-area">
                         <h3>답변</h3>
-                        <input type="text" id="answer-input">
-                        <br><span id="tel-msg">asd</span>
+                        <input type="text" id="memberA">
+                        <br><span id="a-msg">asd</span>
                     </div>
                     <div class="email-area">
                         <h3>약관동의</h3>
@@ -344,7 +353,7 @@
 
 
 
-                    <button id="signup-com">SIGN UP</button>
+                    <button id="signup-com" type="submit">SIGN UP</button>
                 </div>
             </fieldset>
         </form>
@@ -353,7 +362,10 @@
 
     <div class="footer"></div>
 
-    <script src="../resources/js/Arbite_signup.js"></script>
+    <!-- 주소api 스크립트 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <script src="${contextPath}/resources/js/lsh/Arbite_signup.js"></script>
 
 </body>
 

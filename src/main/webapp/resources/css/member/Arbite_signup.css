@@ -42,6 +42,7 @@ fieldset{
     box-shadow: 2px 3px 10px 0px;
     border-radius: 20px;
     padding-top: 10px;
+    display: none;
 }
 
 .signup-box span{
@@ -101,7 +102,7 @@ select{
     }   
 
 .signup-box2{
-    height: 1000px;
+    height: 1300px;
     width: 600px;
     margin: auto;
     text-align: center;
@@ -113,13 +114,16 @@ select{
     box-shadow: 2px 3px 10px 0px;
     border-radius: 20px;
     padding-top: 10px;
-    display: none;
+    /* display: none; */
 }
 
+
+
 .signup-box2>div{
-    width: 400px;
-    height: 110px;
+    width: 300px;
+    /* height: 110px; */
     margin: 20px auto;
+    
 }
 
 #signup-com{
@@ -155,6 +159,39 @@ select{
     border-radius: 10px;
 }
 
+
+/* 주소 */
+.address-area{
+    height: 300px;
+}
+
+.address-box input{
+    margin-bottom: 15px;
+}
+
+.address-box > input:nth-of-type(1){
+    width: 180px;
+}
+
+.address-box > input:nth-of-type(2){
+    width: 115px;
+}
+
+#postBtn{
+    background-color: #FFD0D0;
+    border-radius: 20px;
+    border: #ffd1ff;
+    box-shadow: 1px 2px 3px 0px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#postBtn:hover{
+    box-shadow: none;
+    background-color: #c59e9e;
+    }
+
+
 .do{
     overflow: auto;
     height: 80px;
@@ -171,4 +208,12 @@ select{
 
 .error {
     color: red;
+}
+
+.none{
+    display: none;
+}
+
+.block{
+    display: block;
 }
