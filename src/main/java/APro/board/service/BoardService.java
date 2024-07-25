@@ -16,6 +16,7 @@ import APro.board.vo.Board;
 import APro.board.vo.Category;
 import APro.board.vo.Pagination;
 import APro.common.Util;
+import APro.manager.model.vo.ManCommentDetail;
 
 public class BoardService {
 	
@@ -154,5 +155,6 @@ public class BoardService {
 		
 		return category;
 	}
+
 
 }

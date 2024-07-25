@@ -40,7 +40,7 @@
 #postContent>td {
     text-align: left;
     height: 300px;
-    overflow-y: scroll;
+    overflow: auto;
     vertical-align: top;
     line-height: auto;
 }

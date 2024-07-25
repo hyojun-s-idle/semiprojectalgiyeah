@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var="category" value="${list.category}" scope="session"/>
 <c:set var="category" value="${category}"/>
 
         <table class="mSearchTable">
@@ -115,7 +114,7 @@
                 <tr>
                     <th>신고 누적 횟수</th>
                     <td>
-                        <select name="reportAccumulateSearch" id="reportAccumulateSearch">
+                        <!-- <select name="reportAccumulateSearch" id="reportAccumulateSearch">
                             <option>직접입력</option>
                             <option>1</option>
                             <option>10</option>
@@ -125,8 +124,9 @@
                             <option>80</option>
                             <option>100</option>
                         </select>
-    
-                        <input type="number" name="reportAccuSearchText" class="reportAccumulate active">
+     -->
+                        <input type="number" name="reportAccuSearchNum" class="reportAccumulate active"
+                            placeholder="신고수를 입력하세요.">
                     </td>
                 </tr>
                

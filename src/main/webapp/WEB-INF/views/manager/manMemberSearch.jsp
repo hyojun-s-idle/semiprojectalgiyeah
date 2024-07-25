@@ -44,28 +44,28 @@
                         </tr>
                     </thead>
     
-                    <tbody>
+                    <tfoot>
                         <tr>
                             <th>회원</th>
                             <td>
                                 <select name="mSearchMember" id="mSearchMember">
                                     <option value="0" selected>회원</option>
-                                    <option value="1">알바</option>
-                                    <option value="2">사장</option>
+                                    <option value="2">알바</option>
+                                    <option value="3">사장</option>
                                 </select>
                             
                             </td>
                         </tr>
-                    </tbody>
+                    </tfoot>
     
-                    <tfoot>
+                    <!-- <tfoot>
                         <tr>
                             <th>가입날짜</th>
                             <td><input type="text" name="entryDateStart" placeholder="년도-0월-0일" id="entryDateStart"> ~ 
                                 <input type="text" name="entryDateEnd" placeholder="년도-0월-0일" id="entryDateEnd">
                             </td>
                         </tr>
-                    </tfoot>
+                    </tfoot> -->
                 </table>
                 <div class="mbtn-suround">
                 <button id="btnMSearch">검색</button> <button type="reset">초기화</button>
@@ -79,8 +79,7 @@
                     <tr>
                         <th>회원<br> 번호</th>
                         <th>회원 아이디</th>
-                        <th>카테고리</th>
-                        <th>가입일</th>
+                        <th>회원</th>
                         <th>이름</th>
                         <th>닉네임</th>
                         <th>전화번호</th>
@@ -95,7 +94,6 @@
                         <td>n1234</td>
                         <td>user01</td>
                         <td class="categoryMember">요식업</td>
-                        <td>2024-03-01</td>
                         <td>방방길</td>
                         <td>방길사잗</td>
                         <td>01032569856</td>

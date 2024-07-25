@@ -19,6 +19,7 @@ import APro.board.vo.Board;
 import APro.board.vo.Category;
 import APro.board.vo.Pagination;
 
+
 /**
  * @author shy62
  *
@@ -308,5 +309,7 @@ public class BoardDAO {
 		
 		return list;
 	}
+
+
 
 }
