@@ -175,7 +175,8 @@
                                                 </button>
 
                                                 <!-- 게시글 수정버튼 -->
-                                                <button class="icon updating" id="updatingBoard" onclick="location.href='../write?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">
+                                                <button class="icon updating" id="updatingBoard"
+                                                    onclick="location.href='../write?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">
                                                     <span class="material-symbols-outlined">
                                                         refresh
                                                     </span>
@@ -394,6 +395,7 @@
                                             <span>낭만헌터</span><br>
                                             <span>2024.06.22</span><br>
                                             <button class="replyNestedRegister" id="replyNestedRegister">등록</button>
+
                                         </div>
 
                                     </div>
@@ -404,7 +406,9 @@
                                 </div>
                             </div>
 
-                            <button class="replyRegister" id="replyRegister" type="submit">등록</button>
+                            <c:if test="${!empty loginMember}">
+                                <button class="replyRegister" id="replyRegister" type="submit">등록</button>
+                            </c:if>
 
                             <!-- onclick="location.href='${contextPath}/board/allList/datail/reply/insert?no=${detail.boardNo}'" -->
 

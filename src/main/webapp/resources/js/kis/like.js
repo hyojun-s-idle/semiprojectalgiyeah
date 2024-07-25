@@ -11,6 +11,7 @@ function selectLike(){
         dataType: "JSON",
         success: function (likeCount) {
 
+            console.log(likeCount);
             $(".likeNum").text(likeCount);
 
         },
@@ -54,6 +55,6 @@ $(document).on("click",".boardLiking",function(){
     })
 
 
-    $(".likeNum").text(2);
+   
 
 })

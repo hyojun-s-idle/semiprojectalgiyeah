@@ -92,7 +92,13 @@
                                     </div>
                                     <span>${loginMember.memberNickname}</span><br>
                                     <span class="todayDate"></span><br>
-                                    <button class="replyNestedRegister" id="replyNestedRegister">등록</button>
+                                    
+
+                                    <c:if test="${!empty loginMember}">
+                                        <button class="replyNestedRegister" id="replyNestedRegister">등록</button>
+                                    </c:if>
+
+
                                 </div>
 
                             </div>
