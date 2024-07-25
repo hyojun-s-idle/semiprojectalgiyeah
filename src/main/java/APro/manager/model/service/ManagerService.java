@@ -9,6 +9,7 @@ import APro.board.vo.Pagination;
 import APro.manager.model.dao.ManagerDAO;
 import APro.manager.model.vo.ManComment;
 import APro.manager.model.vo.ManCommentDetail;
+import APro.manager.model.vo.ManMember;
 import APro.manager.model.vo.ManPost;
 import APro.manager.model.vo.ManPostDetail;
 import APro.manager.model.vo.ReportReson;
@@ -107,6 +108,29 @@ public class ManagerService {
 		close(conn);
 		
 		return detail;
+	}
+
+	/** 회원 목록 조회
+	 * @param cp
+	 * @return map
+	 * @throws Exception
+	 */
+	public Map<String, Object> getMemberList(int cp) throws Exception {
+		Connection conn = getConnection();
+		
+		int listCount = dao.getMemberCount(conn);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<ManMember> list = dao.getMemberList(conn, pagination);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("boardList", list);
+		
+		close(conn);
+		
+		return map;
 	}
 
 }

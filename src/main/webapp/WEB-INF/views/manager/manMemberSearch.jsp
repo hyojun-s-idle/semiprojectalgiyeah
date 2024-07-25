@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pagination" value="${list.pagination}"/>
+<c:set var="boardList" value="${list.boardList}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +46,7 @@
                         </tr>
                     </thead>
     
-                    <tfoot>
+                    <tbody>
                         <tr>
                             <th>회원</th>
                             <td>
@@ -56,16 +58,20 @@
                             
                             </td>
                         </tr>
-                    </tfoot>
-    
-                    <!-- <tfoot>
+                    </tbody>
+
+                    <tfoot>
                         <tr>
-                            <th>가입날짜</th>
-                            <td><input type="text" name="entryDateStart" placeholder="년도-0월-0일" id="entryDateStart"> ~ 
-                                <input type="text" name="entryDateEnd" placeholder="년도-0월-0일" id="entryDateEnd">
+                            <th>탈퇴 여부</th>
+                            <td>
+                                <select name="mSecession" id="mSecession">
+                                    <option value="N">N</option>
+                                    <option value="Y">Y</option>
+                                </select>
                             </td>
                         </tr>
-                    </tfoot> -->
+                    </tfoot>
+    
                 </table>
                 <div class="mbtn-suround">
                 <button id="btnMSearch">검색</button> <button type="reset">초기화</button>
@@ -85,45 +91,61 @@
                         <th>전화번호</th>
                         <th>이메일</th>
                         <th>주소</th>
-                        <th id="ceoNumTitle">비고</th>
+                        <th>탈퇴<br>여부</th>
+                        <th >사업번호</th>
                     </tr>
                 </thead>
     
                 <tbody class="mSearchComResult">
-                    <tr onclick="location.href=''">
-                        <td>n1234</td>
-                        <td>user01</td>
-                        <td class="categoryMember">요식업</td>
-                        <td>방방길</td>
-                        <td>방길사잗</td>
-                        <td>01032569856</td>
-                        <td>user01@kh.or.kr</td>
-                        <td>대한민국 어딘가 어느시 어느역로</td>
-                        <td class="ceoNum">n142536-4578869</td>
-                    </tr>
+
+                    <c:if test="${empty boardList}">
+                        <tr><td colspan="10">검색 결과가 없습니다.</td></tr>
+                    </c:if>
+
+                    <c:if test="${!empty boardList}">
+                        <c:forEach var="board" items="${boardList}">
+                            <tr onclick="location.href=''">
+                                <td>${board.memberNo}</td>
+                                <td>${board.memberId}</td>
+                                <td class="categoryMember">${board.memberType}</td>
+                                <td>${board.memberName}</td>
+                                <td>${board.memberNickname}</td>
+                                <td>${board.memberTel}</td>
+                                <td>${board.memberEmail}</td>
+                                <td>${board.memberAddress}</td>
+                                <td>${board.secessionFl}</td>
+                                <td>${board.bussinessNum}</td>
+                            </tr>
+
+                        </c:forEach>
+                    </c:if>
                 </tbody>
     
             </table>
-        <div class="pagination-area">
-            <ul class="pagination">
-                <li><a href="#">&lt;&lt;</a></li>
-                <li><a href="#">&lt;</a></li>
+            <c:if test="${!empty boardList}">
+                <div class="pagination-area">
+                    <c:set var="url" value="manMemberSearch?cp="/>
+                    <ul class="pagination">
+                        <li><a href="${url}1">&lt;&lt;</a></li>
+                            <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+        
+                            <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                                <c:choose>
+                                    <c:when test="${pagination.currentPage == i}">
+                                        <li><a href="${url}${i}" class="current">${i}</a></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="${url}${i}">${i}</a></li>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+        
+                            <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                            <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                    </ul>
+                </div>
 
-                <li><a class="current">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-                <li><a href="">6</a></li>
-                <li><a href="">7</a></li>
-                <li><a href="">8</a></li>
-                <li><a href="">9</a></li>
-                <li><a href="">10</a></li>
-
-                <li><a href="#">&gt;</a></li>
-                <li><a href="#">&gt;&gt;</a></li>
-            </ul>
-        </div>
+            </c:if>
 
       
     </section>

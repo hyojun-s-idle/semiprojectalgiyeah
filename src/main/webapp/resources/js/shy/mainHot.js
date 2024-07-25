@@ -100,7 +100,9 @@ function createHotPost(container,post,i){
     typeHot.classList.add("type-hot");
 
     const boardImg = document.createElement("img");
-    if(post.boardImage == null){
+    if(post.boardImage == undefined){
+        boardImg.setAttribute("src", urlh + "/resources/images/main/worker"+i+".jpeg");
+    }else if(post.boardImage == null){
         boardImg.setAttribute("src", urlh + "/resources/images/main/worker"+i+".jpeg");
     }else{
         boardImg.setAttribute("src", urlh + post.boardImage);

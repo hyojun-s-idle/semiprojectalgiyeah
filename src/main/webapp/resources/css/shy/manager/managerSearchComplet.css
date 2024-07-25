@@ -34,7 +34,8 @@
 .mSearchComTable > thead  th:nth-of-type(6){ width: 7%;}
 .mSearchComTable > thead  th:nth-of-type(7){ width: 8%;}
 .mSearchComTable > thead  th:nth-of-type(8){ width: 20%;}
-.mSearchComTable > thead  th:nth-of-type(9){ width: 10%;}
+.mSearchComTable > thead  th:nth-of-type(9){ width: 5%;}
+.mSearchComTable > thead  th:nth-of-type(10){ width: 10%;}
 
 
 /* comment */

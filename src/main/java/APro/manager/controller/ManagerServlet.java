@@ -42,6 +42,7 @@ public class ManagerServlet extends HttpServlet {
 					cp = Integer.parseInt(req.getParameter("cp"));
 				}
 				
+				
 				Map<String, Object> list = mService.getCommentList(cp);
 				
 				req.setAttribute("list", list);
@@ -63,6 +64,15 @@ public class ManagerServlet extends HttpServlet {
 			}
 			
 			if(command.equals("manMemberSearch")) {
+				
+				if(req.getParameter("cp") != null) {
+					cp = Integer.parseInt(req.getParameter("cp"));
+				}
+				
+				Map<String, Object> list = mService.getMemberList(cp);
+				
+				req.setAttribute("list", list);
+				
 				path = "/WEB-INF/views/manager/manMemberSearch.jsp";
 			}
 			

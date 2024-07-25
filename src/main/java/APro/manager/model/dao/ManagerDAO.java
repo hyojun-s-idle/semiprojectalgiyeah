@@ -13,6 +13,7 @@ import APro.board.dao.BoardDAO;
 import APro.board.vo.Pagination;
 import APro.manager.model.vo.ManComment;
 import APro.manager.model.vo.ManCommentDetail;
+import APro.manager.model.vo.ManMember;
 import APro.manager.model.vo.ManPost;
 import APro.manager.model.vo.ManPostDetail;
 import APro.manager.model.vo.ReportReson;
@@ -334,6 +335,74 @@ public class ManagerDAO {
 		}
 		
 		return rList;
+	}
+
+	/**회원수 조회 DAO
+	 * @param conn
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int getMemberCount(Connection conn) throws Exception {
+		int listCount = 0;
+		
+		try {
+			String sql = prop.getProperty("memberCount");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return listCount;
+	}
+
+	/**회원 목록 조회 DAO
+	 * @param conn
+	 * @param pagination
+	 * @return list
+	 * @throws Exception
+	 */
+	public List<ManMember> getMemberList(Connection conn, Pagination pagination) throws Exception {
+		List<ManMember> list = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("memberList");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				ManMember m = new ManMember();
+				
+				m.setMemberNo(rs.getInt(1));
+				m.setMemberId(rs.getString(2));
+				m.setMemberType(rs.getString(3));
+				m.setMemberName(rs.getString(4));
+				m.setMemberNickname(rs.getString(5));
+				m.setMemberTel(rs.getString(6));
+				m.setMemberEmail(rs.getString(7));
+				m.setMemberAddress(rs.getString(8));
+				m.setBussinessNum(rs.getString(9));
+				m.setSecessionFl(rs.getString(10).toUpperCase().charAt(0));
+				
+				list.add(m);
+				
+			}
+		}finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return list;
 	}
 
 }

@@ -52,7 +52,7 @@
     
                 <tbody class="mSearchComResult">
                     <c:if test="${empty boardList}">
-                        <tr><td>신고된 게시판이 없습니다.</td></tr>
+                        <tr><td colspan="9">신고된 게시판이 없습니다.</td></tr>
                     </c:if>
 
                     <c:if test="${!empty boardList}">
