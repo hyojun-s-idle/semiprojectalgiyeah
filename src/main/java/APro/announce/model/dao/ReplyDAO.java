@@ -61,7 +61,8 @@ public class ReplyDAO {
 				reply.setBoardNo( rs.getInt("BOARD_NO"));
 				reply.setMemberNo( rs.getInt("MEMBER_NO"));
 				reply.setMemberNickname( rs.getString("MEMBER_NICK"));
-				reply.setProfileImage( rs.getString("PROFILE_IMG"));
+				reply.setProfileImage( rs.getString("PROFILE_IMGE"));
+				reply.setUpdateDate(rs.getString("UPDATE_DT"));
 				
 				replyList.add(reply);
 			}
@@ -89,8 +90,8 @@ public class ReplyDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, r.getReplyContent());
-			pstmt.setInt(2, r.getMemberNo());
-			pstmt.setInt(3, r.getBoardNo());
+			pstmt.setInt(2, r.getBoardNo());
+			pstmt.setInt(3, r.getMemberNo());
 			
 			result = pstmt.executeUpdate();
 			

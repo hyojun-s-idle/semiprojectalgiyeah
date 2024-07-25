@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>알지예-관리자</title>
 
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css">
@@ -34,9 +34,8 @@
                             <td>
                                 <select name="mSearchCon" id="mSearchCon">
                                     <option value="id">아이디</option>
-                                    <option value="name">회원명</option>
-                                    <option value="email">이메일</option>
-                                    <option value="tel">전화번호</option>
+                                    <option value="name">닉네임</option>
+                                    <option value="name">이름</option>
                                 </select>
                             
                             
@@ -45,57 +44,28 @@
                         </tr>
                     </thead>
     
-                    <tbody>
+                    <tfoot>
                         <tr>
                             <th>회원</th>
                             <td>
                                 <select name="mSearchMember" id="mSearchMember">
-                                    <option value="null" selected>회원</option>
-                                    <option value="worker">알바</option>
-                                    <option value="ceo">사장</option>
+                                    <option value="0" selected>회원</option>
+                                    <option value="2">알바</option>
+                                    <option value="3">사장</option>
                                 </select>
                             
-                            
-                                <select name="businessSearch" class="category">
-                                    <option value="null">사업별</option>
-                                    <option value="요식업">요식업</option>
-                                    <option value="숙박업">숙박업</option>
-                                    <option value="제조업">제조업</option>
-                                    <option value="배송업">배송업</option>
-                                    <option value="정보서비스업">정보서비스업</option>
-                                    <option value="시설관리업">시설관리업</option>
-                                    <option value="교육관리업">교육관리업</option>
-                                    <option value="여가관련업">여가관련업</option>
-                                    <option value="기타">기타</option>
-                                </select>
-                            
-                            
-                                <select name="rectalSearch" class="category">
-                                    <option value="null">직종별</option>
-                                    <option value="외식/음료">외식/음료</option>
-                                    <option value="매장관리">매장관리</option>
-                                    <option value="서비스">서비스</option>
-                                    <option value="사무직">사무직</option>
-                                    <option value="운전/배달">운전/배달</option>
-                                    <option value="생산">생산</option>
-                                    <option value="디자인">디자인</option>
-                                    <option value="IT">IT</option>
-                                    <option value="교육">교육</option>
-                                    <option value="기타">기타</option>
-                                </select>
                             </td>
                         </tr>
-                    </tbody>
+                    </tfoot>
     
-                    <tfoot>
+                    <!-- <tfoot>
                         <tr>
                             <th>가입날짜</th>
                             <td><input type="text" name="entryDateStart" placeholder="년도-0월-0일" id="entryDateStart"> ~ 
                                 <input type="text" name="entryDateEnd" placeholder="년도-0월-0일" id="entryDateEnd">
-    
                             </td>
                         </tr>
-                    </tfoot>
+                    </tfoot> -->
                 </table>
                 <div class="mbtn-suround">
                 <button id="btnMSearch">검색</button> <button type="reset">초기화</button>
@@ -109,8 +79,7 @@
                     <tr>
                         <th>회원<br> 번호</th>
                         <th>회원 아이디</th>
-                        <th>카테고리</th>
-                        <th>가입일</th>
+                        <th>회원</th>
                         <th>이름</th>
                         <th>닉네임</th>
                         <th>전화번호</th>
@@ -125,7 +94,6 @@
                         <td>n1234</td>
                         <td>user01</td>
                         <td class="categoryMember">요식업</td>
-                        <td>2024-03-01</td>
                         <td>방방길</td>
                         <td>방길사잗</td>
                         <td>01032569856</td>

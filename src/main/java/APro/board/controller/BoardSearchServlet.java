@@ -24,18 +24,16 @@ public class BoardSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BoardService service = new BoardService();
 		HttpSession session = req.getSession();
+		try {
 		if(req.getParameter("conSearch") != null) {
-			System.out.println("tests");
 			String standard = req.getParameter("conSearch");
 			int board = Integer.parseInt(req.getParameter("mSearchMember"));
 			String search = req.getParameter("nSearch");
-			System.out.println(search);
 			int all = 0;
 			int worker = 0;
 			int ceo = 0;
 			int cp = 1;
 			
-			try {
 				
 				if(req.getParameter("cp") != null) {
 					cp = Integer.parseInt(req.getParameter("cp"));
@@ -43,46 +41,34 @@ public class BoardSearchServlet extends HttpServlet {
 				if(board == 1) {
 					all = Integer.parseInt(req.getParameter("allSearch"));
 					Map<String, Object> allList = service.searchAllBoard(standard, board, all, search,cp);
-					System.out.println(allList);
-					session.setAttribute("list", allList);
+					req.setAttribute("list", allList);
 					
 				}
 				
 				if(board == 2 ) {
 					worker = Integer.parseInt(req.getParameter("rectalSearch"));
 					Map<String, Object> allList = service.searchAllBoard(standard, board, worker, search,cp);
-					System.out.println(allList);
-					session.setAttribute("list", allList);
+					req.setAttribute("list", allList);
 				}
 				
 				if(board == 3) {
 					ceo = Integer.parseInt( req.getParameter("businessSearch"));
 					Map<String, Object> allList = service.searchAllBoard(standard, board, ceo, search,cp);
-					System.out.println(allList);
-					session.setAttribute("list", allList);
+					req.setAttribute("list", allList);
 				}
-				SearchBoard searchBoard = new SearchBoard(standard, board, all, ceo, worker, search);
-				session.setAttribute("search", searchBoard);
-				resp.sendRedirect("search");
-				return;
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
 		} 
 		if(req.getParameter("conSearch") == null){
 			
-			try {
 				List<Category> category = service.getCategory();
 				req.setAttribute("category", category);
 				
-				String path= "/WEB-INF/views/board/boardSearch.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-				return;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		
+		String path= "/WEB-INF/views/board/boardSearch.jsp";
+		req.getRequestDispatcher(path).forward(req, resp);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
