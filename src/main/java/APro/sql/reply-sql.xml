@@ -12,6 +12,7 @@
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE  REPLY_ST='N'
 		AND BOARD_NO=?
+		ORDER BY 1
 	</entry>
 	
 	
@@ -20,5 +21,20 @@
 		INSERT INTO REPLY VALUES(
 		SEQ_RNO.NEXTVAL, ?, DEFAULT, NULL, DEFAULT, ?, ?, NULL)
 	</entry>
+	
+	<!-- 댓글삭제 -->
+	<entry key="replyDelete">
+		UPDATE REPLY SET
+		REPLY_ST='Y'
+		WHERE REPLY_NO=?
+	</entry>
+
+	<!-- 댓글수정 -->
+	<entry key="replyUpdate">
+		UPDATE REPLY SET
+		REPLY_CONTENT= ?
+		WHERE REPLY_NO=?
+	</entry>
+	
 	
 </properties>

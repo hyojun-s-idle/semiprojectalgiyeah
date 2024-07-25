@@ -3,10 +3,6 @@
         <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
-<!-- url자르기 -->
-<!-- /boardWrite == 11자 -->
-<c:set var="sub" value="${requestScope['javax.servlet.forward.request_uri'].substring((contextPath+='/board/').length())}"/>
-<c:set var="type" value="${sub.substring(0,sub.length()-11)}"/>
 
 
 <!DOCTYPE html>
@@ -31,110 +27,97 @@
 
 </head>
 
-<!-- <c:if test="${type=='allList'}"></c:if>
-<c:if test="${type=='workerList'}"></c:if>
-<c:if test="${type=='ceoList'}"></c:if>
- -->
 
 <!-- 배경색 -->
-<c:if test="${type=='allList'}"   ><body style="background-color: rgba(5, 146, 18, 0.7);"></c:if>
-<c:if test="${type=='workerList'}"   ><body style="background-color:  rgba(255, 158, 170, 1);"></c:if>
-<c:if test="${type=='ceoList'}"><body style="background-color: rgba(75, 112, 245, 0.7);"></c:if>
+<c:if test="${param.type==1}"><body style="background-color: rgba(5, 146, 18, 0.5);"></c:if>
+<c:if test="${param.type==2}"><body style="background-color:  rgba(255, 158, 170, 0.7);"></c:if>
+<c:if test="${param.type==3}"><body style="background-color: rgba(75, 112, 245, 0.5); "></c:if>
 
-    
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 
     <div id="mainContainer">
 
-        <form action="게시판.html">
+        <form action="write?mode=insert" method="post">
 
-
+            <!-- 상단 카테고리 -->
             <div id="boardCategory">
 
-                <!-- 게시판선택 -->
-                <!-- 알바 -->
-                <select class="alba" id="albaBoardSelect" name="boardType" value="1">
+                <!-- 게시판종류(고정) -->
+                <select class="type" name="" value="">
 
-
-                    <c:if test="${type=='allList'}"><option name="boardType" value="all">모두</option></c:if>
-                    <c:if test="${type=='workerList'}"><option name="boardType" value="worker">알바</option></c:if>
-                    <c:if test="${type=='ceoList'}"><option name="boardType" value="ceo">사장</option></c:if>
-                    
-
-                    
-
-                    
+                    <c:if test="${param.type==1}"><option name="" value="all">모두</option></c:if>
+                    <c:if test="${param.type==2}"><option name="" value="worker">알바</option></c:if>
+                    <c:if test="${param.type==3}"><option name="" value="ceo">사장</option></c:if>
 
                 </select>
 
 
-                <select class="alba" id="albaSelect" name="occupationType">
-                    <option selected hidden disabled>직종</option>
-                    <option name="occupationType" value="외식/음료">외식/음료</option>
-                    <option name="occupationType" value="매장 관리">매장 관리</option>
-                    <option name="occupationType" value="서비스">서비스</option>
-                    <option name="occupationType" value="사무직">사무직</option>
-                    <option name="occupationType" value="운전/배달">운전/배달</option>
-                    <option name="occupationType" value="생산">생산</option>
-                    <option name="occupationType" value="디자인">디자인</option>
-                    <option name="occupationType" value="IT">IT</option>
-                    <option name="occupationType" value="교육">교육</option>
-                </select>
+
+
+
+                <!-- 타입선택 -->
+                
+                <!-- 모두 -->
+                <c:if test="${param.type==1}">
+                    <select class="all"  name="type">
+                        <option name="type" value="2">알바</option>
+                        <option name="type" value="3">사장</option>
+                    </select>
+    
+                </c:if>
+               
+
+                <!-- 알바 --> 
+                 <c:if test="${param.type==2}">
+                    <select class="wor"  name="type">
+                        <!-- <option selected hidden disabled>직종</option> -->
+                        <option name="type" value="4">외식/음료</option>
+                        <option name="type" value="5">매장 관리</option>
+                        <option name="type" value="6">서비스</option>
+                        <option name="type" value="7">사무직</option>
+                        <option name="type" value="8">운전/배달</option>
+                        <option name="type" value="9">생산</option>
+                        <option name="type" value="10">디자인</option>
+                        <option name="type" value="11">IT</option>
+                        <option name="type" value="12">교육</option>
+                        <option name="type" value="13">기타</option>
+                    </select>
+                 </c:if>
+              
+               
+
                 <!-- 사장 -->
-
-
-                <select class="sajang" id="sajangBoardSelect" name="boardType">
-                    <option selected hidden disabled>게시판</option>
-                    <option name="boardType" value="사장">사장</option>
-                    <option name="boardType" value="모두">모두</option>
-                </select>
-                <select class="sajang" id="sajangSelect" name="businessType">
-                    <option selected hidden disabled>사업</option>
-                    <option name="businessType" value="요식업">요식업</option>
-                    <option name="businessType" value="숙박업">숙박업</option>
-                    <option name="businessType" value="제조업">제조업</option>
-                    <option name="businessType" value="배송업">배송업</option>
-                    <option name="businessType" value="정보서비스업">정보서비스업</option>
-                    <option name="businessType" value="시설관리업">시설관리업</option>
-                    <option name="businessType" value="교육관리업">교육관리업</option>
-                    <option name="businessType" value="기타">기타</option>
-                </select>
+                <c:if test="${param.type==3}">
+                    <select class="ceo"  name="type">
+                        <option name="type" value="14">요식업</option>
+                        <option name="type" value="15">숙박업</option>
+                        <option name="type" value="16">제조업</option>
+                        <option name="type" value="17">배송업</option>
+                        <option name="type" value="18">정보서비스업</option>
+                        <option name="type" value="19">시설관리업</option>
+                        <option name="type" value="20">교육관리업</option>
+                        <option name="type" value="21">여가관리업</option>
+                        <option name="type" value="22">기타</option>
+                    </select>
+                </c:if>
+               
 
             </div>
             
-            <!-- <select class="alba" id="albaBoardSelect" name="boardType">
-            <option selected hidden disabled>종류</option>
-            <option name="boardType" value="알바">알바</option>
-            <option name="boardType" value="모두">모두</option>
-        </select>
-        <select class="alba" id="albaSelect" name="occupationType">
-            <option selected hidden disabled>직종</option>
-            <option name="occupationType" value="외식/음료">외식/음료</option>
-            <option name="occupationType" value="매장 관리">매장 관리</option>
-            <option name="occupationType" value="서비스">서비스</option>
-            <option name="occupationType" value="사무직">사무직</option>
-            <option name="occupationType" value="운전/배달">운전/배달</option>
-            <option name="occupationType" value="생산">생산</option>
-            <option name="occupationType" value="디자인">디자인</option>
-            <option name="occupationType" value="IT">IT</option>
-            <option name="occupationType" value="교육">교육</option>
-        </select> -->
+
         
             <div class="boardHeaderPart boardHeaderTop">
                 
-
-
                 <div id="boardNumber">
                     <div>
-                        <span>No. 10000</span>
-                        <span id="boardDate" name="boardDate"></span>
+                        <span  id="boardDate" ></span>
                     </div>
                 </div>
                 <div id="boardWriter">
                     <div id="boardWriterPhotoBox"><img src="${contextPath}/resources/images/user.png" id="boardWriterPhoto"></div>
-                    <span>낭만헌터</span>
+                    <span>${loginMember.memberNickname}</span>
                 </div>
 
 
@@ -142,20 +125,18 @@
 
             <div class="container">
                 <div class="side">
-                    <div class="sideCircle">
+                    <a href="javascript:window.history.back();" class="sideCircle">
                         <span class="material-symbols-outlined">
                             arrow_left_alt
                         </span>
-                        <br>
-                    </div>
+                    </a>
 
                 </div>
 
-
+                <!-- 게시글제목 및 내용 -->
                 <div class="main">
                     <textarea name="boardTitle" class="textarea" id="textareaTitle" placeholder="Title"></textarea>
-                    <textarea name="boardContent" class="textarea" id="textareaContent"
-                        placeholder="Content"></textarea>
+                    <textarea name="boardContent" class="textarea" id="textareaContent" placeholder="Content"></textarea>
                 </div>
                 <div class="side">
                     <button class="sideCircle">
@@ -166,6 +147,10 @@
                 </div>
             </div>
         </form>
+
+
+
+
         <div class="bottom">
             <button class="bottomElement" id="mouseRotate">
                 <span class="material-symbols-outlined">
@@ -221,6 +206,10 @@
             </select>
             
         </div>
+
+
+
+
     </div>
 
 

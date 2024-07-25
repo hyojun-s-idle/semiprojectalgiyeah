@@ -10,7 +10,13 @@
             
             <!-- 게시판번호 -->
             ${list.boardList[0].boardNo} <br><br>
+
+
+            <!-- 변수선언(변수통일) -->
+            <c:set var="type" value="${param.type}"/>
             ${param.type}
+            ${type}
+            
 
 
             <c:set var="boardName" value="${list.boardName}" />

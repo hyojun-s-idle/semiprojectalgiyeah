@@ -24,11 +24,16 @@
 
 .replyContentBox {
     width: 80%;
+
     display: flex;
     align-items: flex-start;
     overflow: hidden;
+    word-break: break-all;
+
 
     margin: 20px 0;
+
+
 }
 
 

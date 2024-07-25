@@ -37,14 +37,99 @@ public class BoardDetailService {
 
 	}
 
-	public int boardDelete(int boardNo)  throws Exception {
+	/**
+	 * 게시판 삭제
+	 * 
+	 * @param boardNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int boardDelete(int boardNo) throws Exception {
 		Connection conn = getConnection();
 		int result = dao.boardDelete(conn, boardNo);
-		if(result>0) commit(conn);
-		else rollback(conn);
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
 		close(conn);
 		return result;
 
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	/**게시판 좋아요 Select
+	 * @param boardNo
+	 * @param memberNo 
+	 * @return
+	 */
+	public int boardLikeSelect(int boardNo, int memberNo) throws Exception {
+		Connection conn = getConnection();
+		int likeCount = dao.boardLikeSelect(conn, boardNo, memberNo);
+
+		close(conn);
+		return likeCount;
+	}
+
+
+	/** 게시판 좋아요 상태
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 */
+	public int boardLikeState(int boardNo, int memberNo) {
+		Connection conn = getConnection();
+		int likeState = dao.boardLikeState(conn, boardNo, memberNo);
+
+		close(conn);
+		return likeState;
+	}
+	
+	
+	/** 게시판 좋아요 Up
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 */
+	public int boardLikeUp(int boardNo, int memberNo) throws Exception{
+		Connection conn = getConnection();
+		int result = dao.boardLikeUp(conn, boardNo, memberNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+		return result;
+	}
+	
+	
+
+	/** 게시판 좋아요 Down
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int boardLikeDown(int boardNo, int memberNo) throws Exception{
+		Connection conn = getConnection();
+		int result = dao.boardLikeDown(conn, boardNo, memberNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+		return result;
+	}
+
+	
 
 }

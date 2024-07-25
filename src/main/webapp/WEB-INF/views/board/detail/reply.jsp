@@ -21,7 +21,7 @@
                             </c:if>
 
                         </div>
-                        
+
                         <div class="replyView">
 
                             <div class="replyWriter" id="replyWriter">
@@ -34,12 +34,15 @@
 
                                     <c:if test="${loginMember.memberNo==reply.memberNo}">
 
-                                        <button class="icon deleting deletingReply">
+                                        <button class="icon deleting deletingReply"
+                                            onclick="deleteReply(${reply.replyNo})">
                                             <span class="material-symbols-outlined">
                                                 delete
                                             </span>
                                         </button>
-                                        <button class="icon updating">
+                                        <!-- 수정버튼 -->
+                                        <button class="icon updating updatingReply"
+                                            onclick="updateReply(${reply.replyNo}, this)">
                                             <span class="material-symbols-outlined">
                                                 refresh
                                             </span>
@@ -102,4 +105,16 @@
 
                 </c:forEach>
 
+            </div>
+
+
+            <!-- 댓글수정(모달부분) -->
+            <div class="modback"></div>
+            <div class="mod">
+                <textarea class="upr" name="" id=""></textarea>
+                <button class="upb">
+                    <span class="material-symbols-outlined">
+                        refresh
+                    </span>
+                </button>
             </div>

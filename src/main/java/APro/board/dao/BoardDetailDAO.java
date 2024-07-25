@@ -74,6 +74,7 @@ public class BoardDetailDAO {
 				detail.setUpdateDate(rs.getString("UPDATE_DT"));               //화면(택일)
 				detail.setReadCount(rs.getInt("READ_COUNT"));				   //화면
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));					   //조건
+
 				
 				//추후 정해야할부분 <- 쿼리스트링 어떻게 끌어올지 <- 세희님방식에서 따라가기
 //				detail.setBoardTypeCd(rs.getInt("BOARD_TYPE_CD"));             //화면
@@ -114,6 +115,12 @@ public class BoardDetailDAO {
 	}
 
 
+	/** 게시판삭제
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 * @throws Exception
+	 */
 	public int boardDelete(Connection conn, int boardNo) throws Exception {
 		int result = 0;
 		try {
@@ -128,5 +135,87 @@ public class BoardDetailDAO {
 		}
 		return result;
 	}
+
+	
+	
+	
+
+	/** 좋아요 조회
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo 
+	 * @return
+	 */
+	public int boardLikeSelect(Connection conn, int boardNo, int memberNo) throws Exception {
+		int likeCount = 0;
+		
+		try {
+
+			String sql = prop.getProperty("boardLikeSelect");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				likeCount=rs.getInt(1);
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return likeCount;
+	}
+	
+	
+	/** 좋아요 상태조회
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 */
+	public int boardLikeState(Connection conn, int boardNo, int memberNo) {
+		return 0;
+	}
+
+	
+
+
+	public int boardLikeUp(Connection conn, int boardNo, int memberNo) throws Exception  {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("boardLikeUp");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	public int boardLikeDown(Connection conn, int boardNo, int memberNo) throws Exception{
+		int result = 0;
+		try {
+			String sql = prop.getProperty("boardLikeDown");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+
 
 }

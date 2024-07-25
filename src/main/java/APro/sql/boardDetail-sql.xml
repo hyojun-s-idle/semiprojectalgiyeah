@@ -22,6 +22,7 @@
 		    SELECT COUNT(REPLY_NO)
 		    FROM REPLY
 		    WHERE BOARD_NO=BOARD.BOARD_NO
+		    AND REPLY_ST='N'
 		)AS REPLY_COUNT,
 		
 		B.BOARD_NAME AS MAJ, A.BOARD_NAME AS SUB
@@ -41,6 +42,21 @@
 		UPDATE BOARD SET BOARD_ST='Y' 
 		WHERE BOARD_NO=?
 	</entry>
+	
+	
+	
+	<!-- 좋아요 조회 -->
+	<entry key="boardLikeSelect">
+		SELECT COUNT(MEMBER_NO2) AS LIKE_COUNT
+		FROM LIKE_BOARD
+		WHERE BOARD_NO2=?
+	</entry>
+	
+	
+	
+	
+	
+	
 	
 
 </properties>

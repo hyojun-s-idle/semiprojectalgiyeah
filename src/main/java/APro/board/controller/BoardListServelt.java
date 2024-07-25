@@ -73,29 +73,7 @@ public class BoardListServelt extends HttpServlet{
       
 
 			
-			//댓글등록
-			if(command.equals("allList/datail/reply/insert")) {
-				
-				int boardNo=Integer.parseInt(req.getParameter("no"));
-				String replyContent=req.getParameter("replyContent");
-				
-				HttpSession session=req.getSession();
-				session.getAttribute("loginMember");
-//				String[] loginMember =  session.getAttributeValues("loginMember");
 
-				System.out.println(session.getAttribute("loginMember"));
-				
-				System.out.println(boardNo);
-				System.out.println(replyContent);
-				
-//				String path = "../../detail?no="+boardNo;
-				String path=req.getHeader("referer");
-				resp.sendRedirect(path);
-				
-				System.out.println(path);
-
-				
-			}
 			
 			
       
@@ -103,27 +81,6 @@ public class BoardListServelt extends HttpServlet{
 
 
   
-			//상세조회
-			if(command.equals("boardList/detail")) {
-				String path = "/WEB-INF/views/board/boardDetail.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
-      
-			//글쓰기
-			if(command.equals("boardList/boardWrite")) {
-				String path = "/WEB-INF/views/board/boardWrite.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-
-			
-			
-			//사이드 게시판
-			if(command.equals("side/twelveBoard")) {
-				String	path = "/WEB-INF/views/board/side/twelveBoard.jsp";
-				req.getRequestDispatcher(path).forward(req, resp);
-			}
-			
 			
 			
 

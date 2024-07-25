@@ -31,11 +31,6 @@ public class BoardDetailServlet extends HttpServlet {
 
 
 		
-		/* ********************
-		 * uri : queryString(x)
-		 * uri : ? 이하부분(x)
-		 * *********************/
-
 		BoardDetailService service = new BoardDetailService();
 
 		
@@ -43,7 +38,7 @@ public class BoardDetailServlet extends HttpServlet {
 		
 		try {
 
-			// 게시글 상세조회
+			//게시글 상세조회
 			if (command.equals("detail")) {
 
 				// 게시판
@@ -80,7 +75,7 @@ public class BoardDetailServlet extends HttpServlet {
 			
 			
 			
-			// 게시글 삭제
+			//게시글 삭제
 			if (command.equals("detail/delete")) {
 				
 				int boardNo = Integer.parseInt(req.getParameter("no"));
@@ -90,8 +85,12 @@ public class BoardDetailServlet extends HttpServlet {
 				int type = Integer.parseInt(req.getParameter("type"));
 				resp.sendRedirect("../../"+"boardList"+"?type="+type);
 				
-				
 			}
+			
+			
+			
+			
+
 			
 			
 			

@@ -52,6 +52,7 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_replyNested.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_color.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_js.css">
+                <link rel="stylesheet" href="${contextPath}/resources/css/kis/updateReply.css">
 
 
 
@@ -136,7 +137,7 @@
                                                 <span class="material-symbols-outlined">
                                                     heart_plus
                                                 </span>
-                                                <p class="numbering">${detail.likeCount}</p>
+                                                <p class="numbering likeNum">${detail.likeCount}</p>
                                             </button>
 
 
@@ -175,6 +176,7 @@
                                             <c:if test="${loginMember.memberNo==detail.memberNo}">
 
 
+                                                <!-- 게시글 삭제버튼 -->
                                                 <button class="icon deleting" id="deletingBoard"
                                                     onclick="location.href='detail/delete?type=${type}&no=${no}'">
                                                     <span class="material-symbols-outlined">
@@ -182,7 +184,8 @@
                                                     </span>
                                                 </button>
 
-                                                <button class="icon updating" id="updatingBoard">
+                                                <!-- 게시글 수정버튼 -->
+                                                <button class="icon updating" id="updatingBoard" onclick="location.href='../write?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">
                                                     <span class="material-symbols-outlined">
                                                         refresh
                                                     </span>
@@ -242,7 +245,7 @@
                                         <span class="material-symbols-outlined boardLike">
                                             favorite
                                         </span>
-                                        <p>${detail.likeCount}</p>
+                                        <p class="likeNum">${detail.likeCount}</p>
                                     </button>
 
                                 </div>
@@ -381,9 +384,10 @@
 
 
 
-                                    <!-- 숨김용!!! -->
+                                    <!-- 숨김용!!!(form) -->
                                     <!-- 대댓글작성 -->
-                                    <div class="nested" style="display: flex;">
+                                    <div class="nested">
+
 
                                         <div class="textareaBox replyNestedRight">
                                             <textarea name="" class="textarea textareaReplyNested" rows="2"></textarea>
@@ -428,13 +432,19 @@
                 <script src="${contextPath}/resources/js/kis/board_replyInnerButton.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_replyWrite.js"></script>
 
-                <!-- 댓글 -->
+                <!-- ajax위한(JS) 변수선언 -->
                 <script>
+                    // 댓글
                     const contextPath = "${contextPath}";
                     const boardNo = "${detail.boardNo}";
                     const loginMemberNo = "${loginMember.memberNo}";
+                    const loginMemberNickname = "${loginMember.memberNickname}";
+
+
                 </script>
                 <script src="${contextPath}/resources/js/kis/reply.js"></script>
+                <script src="${contextPath}/resources/js/kis/updateReply.js"></script>
+                <script src="${contextPath}/resources/js/kis/like.js"></script>
             </body>
 
             </html>
