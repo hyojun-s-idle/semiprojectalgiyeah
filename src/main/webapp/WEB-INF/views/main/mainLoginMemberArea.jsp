@@ -7,8 +7,8 @@
         </a>
         <div class="login-member-info">
             <div>
-            <a href="" id="login-member-nickname">알바님 환영합니다.</a>
-            <a href="" id="login-member-logout-btn">로그아웃</a>
+            <a href="" id="login-member-nickname">${loginMember.memberNickname}님 환영합니다.</a>
+            <a href="member/logout" id="login-member-logout-btn">로그아웃</a>
             </div>
             <p>아이디</p>
         </div>

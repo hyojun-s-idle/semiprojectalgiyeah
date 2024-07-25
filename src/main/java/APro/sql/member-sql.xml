@@ -2,4 +2,104 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>member-sql.xml</comment>
+<!-- 회원가입 -->
+<entry key="signUp">
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, ?, ?,
+ ?, ?,?,?,?,?,?
+ ,?,?,DEFAULT,DEFAULT)
+</entry>
+
+<!-- 현재가입한 회원번호 조회  -->
+<entry key="selectMemberNo">
+SELECT MEMBER_NO FROM MEMBER WHERE MEMBER_ID = ?
+</entry>
+
+
+<!-- 질의응답 업데이트 -->
+<entry key="updateQa">
+INSERT INTO MEMBER_QA VALUES(?, ?, ?)
+</entry>
+
+<!-- 로그인 -->
+<entry key="login">
+		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, MEMBER_BIRTH, MEMBER_EMAIL, MEMBER_NICK,
+		MEMBER_TEL, MEMBER_ADRR, MEMBER_JOB, BUSINESS_NUM, MEMBER_TYPE_CD, PROFILE_IMGE
+		FROM MEMBER
+		WHERE MEMBER_ID= ?
+		AND
+		MEMBER_PW= ?
+		AND SECESSION_FL='N'
+		AND MEMBER_TYPE_CD=?
+</entry>
+
+<!-- 아이디 중복 체크 -->
+<entry key="idDupCheck">
+	SELECT COUNT(*) FROM MEMBER
+	WHERE MEMBER_ID = ?
+	AND
+	SECESSION_FL = 'N'
+</entry>
+
+
+<!-- 아이디 중복 체크 -->
+<entry key="nickDupCheck">
+	SELECT COUNT(*) FROM MEMBER
+	WHERE MEMBER_NICK = ?
+	AND
+	SECESSION_FL = 'N'
+</entry>
+
+<!-- 아이디 찾기 -->
+<entry key="selectId">
+SELECT MEMBER_ID FROM MEMBER
+JOIN MEMBER_QA USING(MEMBER_NO)
+WHERE MEMBER_EMAIL = ?
+AND MEMBER_TEL = ?
+AND MEMBER_Q = ?
+AND MEMBER_A = ?
+</entry>
+
+
+<!-- 비밀번호 찾기 -->
+<entry key="selectPw">
+SELECT COUNT(*) FROM MEMBER
+JOIN MEMBER_QA USING(MEMBER_NO)
+WHERE MEMBER_ID = ?
+AND MEMBER_TEL = ?
+AND MEMBER_Q = ?
+AND MEMBER_A = ?
+</entry>
+
+
+<!-- 비밀번호 변경 -->
+<entry key="changePw">
+UPDATE MEMBER SET
+MEMBER_PW = ?
+WHERE MEMBER_NO = ?
+</entry>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </properties>
+

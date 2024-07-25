@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import APro.common.wrapper.EncryptWrapper;
 
 
-@WebFilter(filterName = "encryptFilter", 
-			urlPatterns= {
+@WebFilter(filterName = "encryptFilter",
+			urlPatterns= {"/member/login", "/member/signUp"
 					
 			})
 public class EncryptFilter extends HttpFilter implements Filter {

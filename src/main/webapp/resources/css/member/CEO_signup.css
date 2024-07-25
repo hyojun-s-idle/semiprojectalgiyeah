@@ -2,15 +2,15 @@
 
 /* div{border: 1px solid black;} */
 
-
-.content *{box-sizing: border-box;
+.content * {
+    box-sizing: border-box;
     font-family: "Jua", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 
-.container{
+.container {
     height: 100vh;
     font-family: "Playwrite SK", cursive;
     font-optical-sizing: auto;
@@ -18,25 +18,26 @@
     font-size: 18px;
 }
 
+
 /* 컨텐츠 */
-.content{
-    height: 1016px;
-   /*  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+.content {
+    height: 1500px;
+    /*  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
 
 }
 
-fieldset{
+fieldset {
     border: none;
 }
 
-.signup-box{
-    height: 1000px;
+.signup-box {
+    height: 1200px;
     width: 600px;
     margin: auto;
     text-align: center;
     /* border: 1px solid  rgb(255, 255, 255); */
     /* border: 1px solid  purple; */
-/*     background-color: rgba(0,0,0,0);
+    /*     background-color: rgba(0,0,0,0);
     background-color: rgba(255, 255, 255,0.7); */
     border: 2px solid #4B70F5;
     box-shadow: 2px 3px 10px 0px;
@@ -44,37 +45,48 @@ fieldset{
     padding-top: 10px;
 }
 
-.signup-box>div{
+.signup-box span {
+    display: inline-block;
+    margin-top: 10px;
+
+}
+
+.signup-box>div {
     width: 400px;
     height: 110px;
-    margin: auto;
+    margin: 20px auto;
+
 }
 
-input{
+input {
     width: 300px;
     height: 50px;
-    border: 1px solid #4B70F5;
+    border: 2px solid #4B70F5;
     border-radius: 20px;
+    outline-style: none;
+    padding: 0 15px;
+    font-size: 15px;
 }
 
-select{
+select {
     width: 300px;
     height: 50px;
     border-radius: 20px;
-    border: 1px solid #4B70F5;
-    font-size: 23px;
+    border: 2px solid #4B70F5;
+    font-size: 18px;
     text-align: center;
 }
 
 
-#next{
+#next {
     width: 200px;
     height: 70px;
     margin-top: 40px;
     background-color: #4B70F5;
-   /*  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+    /*  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
     /* background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
     border-radius: 20px;
+    border: #090177;
     box-shadow: 2px 3px 5px 0px;
     cursor: pointer;
     transition-duration: 0.2s;
@@ -82,21 +94,22 @@ select{
     /* background-color:red; */
 }
 
-#next:hover{
+#next:hover {
     /* background-image: linear-gradient(to top, #bea097 0%, #c4a0c4 100%);  */
     /* background-image: linear-gradient(to top, #ffd1ff 0%, #fad0c4 100%);  */
     box-shadow: none;
-    background-color: #4B70F5;
-    }   
+    background-color: #0d0058;
+    
+}
 
-.signup-box2{
-    height: 1000px;
+.signup-box2 {
+    height: 1400px;
     width: 600px;
     margin: auto;
     text-align: center;
     /* border: 1px solid  rgb(255, 255, 255); */
     /* border: 1px solid  purple; */
-/*     background-color: rgba(0,0,0,0);
+    /*     background-color: rgba(0,0,0,0);
     background-color: rgba(255, 255, 255,0.7); */
     border: 2px solid #4B70F5;
     box-shadow: 2px 3px 10px 0px;
@@ -105,19 +118,23 @@ select{
     display: none;
 }
 
-.signup-box2>div{
-    width: 400px;
-    height: 110px;
-    margin: 10px auto;
+
+
+.signup-box2>div {
+    width: 300px;
+    /* height: 110px; */
+    margin: 20px auto;
+
 }
 
-#signup-com{
+#signup-com {
     width: 200px;
     height: 70px;
     margin-top: 40px;
     /* background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
+    background-color: #4B70F5;
     border-radius: 20px;
-    border: #4B70F5;
+    border: #ffd1ff;
     box-shadow: 2px 3px 5px 0px;
     cursor: pointer;
     transition-duration: 0.2s;
@@ -125,14 +142,14 @@ select{
     /* background-color:red; */
 }
 
-#signup-com:hover{
+#signup-com:hover {
     /* background-image: linear-gradient(to top, #bea097 0%, #c4a0c4 100%);  */
     /* background-image: linear-gradient(to top, #ffd1ff 0%, #fad0c4 100%);  */
     box-shadow: none;
-    filter:brightness(0.3) invert(1);
-    }
+    background-color: #0d0058;
+}
 
-#q{
+#q {
     border: 1px solid dimgray;
     width: 200px;
     margin: auto;
@@ -143,12 +160,65 @@ select{
     border-radius: 10px;
 }
 
-.do{
+
+/* 주소 */
+.address-area {
+    height: 300px;
+}
+
+.address-box input {
+    margin-bottom: 15px;
+}
+
+.address-box>input:nth-of-type(1) {
+    width: 180px;
+}
+
+.address-box>input:nth-of-type(2) {
+    width: 115px;
+}
+
+#postBtn {
+    background-color: #4B70F5;
+    border-radius: 20px;
+    border: #ffd1ff;
+    box-shadow: 1px 2px 3px 0px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#postBtn:hover {
+    box-shadow: none;
+    background-color: #c59e9e;
+}
+
+
+.do {
     overflow: auto;
     height: 80px;
 }
 
-.ck{
+.ck {
     height: 25px;
     width: 25px;
+}
+
+.confirm {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+#type {
+    display: none;
 }

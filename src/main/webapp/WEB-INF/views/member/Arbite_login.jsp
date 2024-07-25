@@ -20,7 +20,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="content">
-        <form action="#">
+        <form action="${contextPath}/member/login" method="post"onsubmit="return loginValidate()">
             <fieldset>
                 <div class="login-box" id="login-box">
                     <h1>알바님 로그인</h1>
@@ -32,13 +32,14 @@
                     <button id="signup" type="button"><a href="singUpChoice">회원가입</a></button></span>
                     <button id="login">로그인</button>
                 </div>
+                <input type="text" value="1" id="type" name="type">
                     
             </fieldset>
         </form>
     </div>
 
 
-
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
     <script src="JS/Arbite_login.js"></script>
 </body>
