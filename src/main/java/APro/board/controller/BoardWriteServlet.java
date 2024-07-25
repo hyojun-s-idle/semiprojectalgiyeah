@@ -59,15 +59,9 @@ public class BoardWriteServlet extends HttpServlet {
 			String boardTitle=req.getParameter("boardTitle");
 			String boardContent=req.getParameter("boardContent");
 			int boardCode=Integer.parseInt(req.getParameter("type"));
-//			int type=Integer.parseInt(req.getParameter("type"));
 			String mode=req.getParameter("mode");
 			
-			System.out.println(boardTitle);
-			System.out.println(boardContent);
-			System.out.println(boardCode);
-			System.out.println(mode);
-			
-			
+
 			
 			
 			
