@@ -16,14 +16,14 @@ import APro.announce.model.vo.Reply;
 
 
 
-@WebServlet("/reply/*")
+@WebServlet("/Areply/*")
 public class AnReplyServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
-		String command = uri.substring(  (contextPath + "/reply/").length()  );
+		String command = uri.substring(  (contextPath + "/Areply/").length()  );
 		
 		ReplyService service = new ReplyService();
 		

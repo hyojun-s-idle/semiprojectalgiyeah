@@ -41,6 +41,8 @@ public class BoardDetailServlet extends HttpServlet {
 			//게시글 상세조회
 			if (command.equals("detail")) {
 
+				System.out.println(1);
+				
 				// 게시판
 				int boardNo = Integer.parseInt(req.getParameter("no"));
 				BoardDetail detail = service.selectBoardDetail(boardNo);
@@ -54,15 +56,7 @@ public class BoardDetailServlet extends HttpServlet {
 
 				
 				
-				// 로그인 테스트용 - 추후지울것 !!!
-				// ***************************************************
-				LoginMember loginMember = new LoginMember();
-//				loginMember.setMemberNo(19);
-				loginMember.setMemberNo(1);
-				loginMember.setMemberNickname("닉네임");
-				HttpSession session = req.getSession();
-				session.setAttribute("loginMember", loginMember);
-				// ***************************************************
+
 
 				
 				
