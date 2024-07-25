@@ -2,16 +2,6 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
-            loginMember : ${loginMember}<br><br>
-            loginMember.memberNo : ${loginMember.memberNo}<br><br>
-            detail : ${detail}<br><br>
-            type : ${param.type}<br><br>
-            no : ${param.no}<br><br>
-
-            rList : ${rList}<br><br>
-            rList[0] : ${rList[0]}
-
             <!-- url자르기 -->
             <!-- /detail -->
             <c:set var="url" value="${requestScope['javax.servlet.forward.request_uri']}" />
@@ -42,7 +32,6 @@
                 <!-- 헤더 -->
                 <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
 
-
                 <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
 
                 <!-- 게시판 -->
@@ -53,6 +42,7 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_color.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_js.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/updateReply.css">
+
 
 
 
@@ -445,6 +435,7 @@
                 <script src="${contextPath}/resources/js/kis/reply.js"></script>
                 <script src="${contextPath}/resources/js/kis/updateReply.js"></script>
                 <script src="${contextPath}/resources/js/kis/like.js"></script>
+                <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
             </body>
 
             </html>

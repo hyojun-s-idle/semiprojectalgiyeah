@@ -14,7 +14,6 @@ import APro.board.service.BoardDetailService;
 import APro.board.service.BoardService;
 import APro.board.service.ReplyService;
 import APro.board.vo.BoardDetail;
-import APro.board.vo.LoginMember;
 import APro.board.vo.Reply;
 
 @WebServlet("/board/boardList/detail/*")
@@ -57,9 +56,6 @@ public class BoardDetailServlet extends HttpServlet {
 				
 				
 
-
-				
-				
 				String path = "/WEB-INF/views/board/detail/boardDetail.jsp";
 				req.getRequestDispatcher(path).forward(req, resp);
 				

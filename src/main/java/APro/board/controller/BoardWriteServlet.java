@@ -14,7 +14,7 @@ import APro.board.service.BoardDetailService;
 import APro.board.service.BoardService;
 import APro.board.service.BoardWriteService;
 import APro.board.vo.BoardDetail;
-import APro.board.vo.LoginMember;
+
 import APro.member.model.vo.Member;
 
 @WebServlet("/board/write")

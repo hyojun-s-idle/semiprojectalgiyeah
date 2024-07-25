@@ -2,7 +2,7 @@
 function selectReplyList(){
 
     $.ajax({
-        url : contextPath + "/reply/selectReplyList",
+        url : contextPath + "/areply/selectReplyList",
         data : {"boardNo" : boardNo},
         type : "GET",
         dataType : "JSON",
@@ -92,7 +92,7 @@ addReply.addEventListener("click",function(){
     }
 console.log(boardNo);
     $.ajax({
-        url : contextPath + "/reply/insert",
+        url : contextPath + "/areply/insert",
         data : {/* "memberNo" : loginMemberNo, */
                 "replyContent" : replyContent.value,
                 "boardNo" : boardNo},
@@ -116,7 +116,7 @@ function deleteReply(replyNo){
     if(confirm("정말로 삭제 하시겠습니까?")){
 
         $.ajax({
-            url : contextPath + "/reply/delete",
+            url : contextPath + "/areply/delete",
             data : {"replyNo" : replyNo},
             type  : "GET",
             success : function(result){
@@ -188,7 +188,7 @@ function updateReply(replyNo, btn){
     let beforeContent = replyRow.children[0].value;
 
     $.ajax({
-        url: contextPath+ "/reply/update",
+        url: contextPath+ "/areply/update",
         type : "POST",
         data : {"replyNo" : replyNo,
                 "content" : beforeContent
