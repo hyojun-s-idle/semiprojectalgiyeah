@@ -65,8 +65,11 @@
 
             <!-- 버튼 영역 -->
             <div class="board-btn-area">
-                <button type="button" id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
-                <button type="button" id="deleteBtn">삭제</button>
+                <c:if test="${loginMember.memberTypeCode == 0}">
+                    <button type="button" id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
+                    <button type="button" id="deleteBtn">삭제</button>
+
+                </c:if>
                 <button type="button" id="goToListBtn">목록으로</button>
             </div>
 
@@ -99,10 +102,13 @@
                 
                                 <p class="reply-content">${reply.replyContent}</p>
                 
-                                <div class="reply-btn-area">
-                                    <button onclick="showUpdateReply(${reply.replyNo},this)">수정</button>
-                                    <button onclick="deleteReply(${reply.replyNo})">삭제</button>
-                                </div>
+                                <c:if test="${loginMember.memberNo == reply.memberNo}">
+                                    <div class="reply-btn-area">
+                                        <button onclick="showUpdateReply(${reply.replyNo},this)">수정</button>
+                                        <button onclick="deleteReply(${reply.replyNo})">삭제</button>
+                                    </div>
+
+                                </c:if>
                             </li>
 
                         </c:forEach>
@@ -124,7 +130,6 @@
 
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script>
@@ -135,5 +140,6 @@
 
     <script src="${contextPath}/resources/js/shy/reply.js"></script>
     <script src="${contextPath}/resources/js/shy/anBoard.js"></script>
+    <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
 </body>
 </html>
