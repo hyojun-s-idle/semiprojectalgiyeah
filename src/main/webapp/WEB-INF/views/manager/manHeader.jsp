@@ -9,7 +9,7 @@
             <a href="${contextPath}/announce/boardList?type=23" id="header-announce">공지사항</a>
         </div>
         <div class="manheader-login">
-            <a href="#">로그아웃</a>
+            <a href="${contextPath}/member/logout">로그아웃</a>
         </div>
     </div>
 </header>

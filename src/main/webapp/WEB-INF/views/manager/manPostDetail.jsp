@@ -29,7 +29,9 @@
                 <th>제목</th>
                 <td colspan="4">${detail.boardTitle}</td>
                 <th>게시판 번호</th>
-                <td colspan="2" id="postGo"><a href="게시판 상세 페이지 이동">${detail.boardNo}</a></td>
+                <td colspan="2" id="postGo">
+                    <a href="${contextPath}/board/boardList/detail?&no=${detail.boardNo}">
+                        ${detail.boardNo}</a></td>
             </tr>
             <tr>
                 <th>닉네임</th>
@@ -76,7 +78,7 @@
 
         <form action="" name="reportPostFormDel">
             <input type="hidden" name="postNum" value="1234">
-            <button>삭제하기</button>
+            <button type="button" onclick="location.href='delete?boardNo=${param.boardNo}'">삭제하기</button>
         </form>
     </section>
    

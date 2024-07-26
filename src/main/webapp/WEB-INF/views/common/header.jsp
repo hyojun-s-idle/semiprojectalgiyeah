@@ -24,31 +24,34 @@
 					<div class="header-login">
 						<a href="${contextPath}/board/search" id="search-header"
 							class="fa-solid fa-magnifying-glass"></a>
-						<%-- <c:choose>
-							<c:when test="${!empty loginMember}"> --%>
+					
 								<c:if test="${!empty loginMember}">
 									<div id="headerProfileWrapper">
-										<div id="header-profile"><img src="${contextPath}/resources/images/user.png">
+										<c:if test="${empty loginMember.profileImage}">
+											<div id="header-profile"><img src="${contextPath}/resources/images/user.png">
+										</c:if>
+										<c:if test="${!empty loginMember.profileImage}">
+											<div id="header-profile"><img src="${contextPath}${loginMember.profileImage}">
+										</c:if>
 										</div>
 										<div id="headerProfileHidden">
 											<div><a href="">마이페이지</a></div>
-											<div><a href="">로그아웃</a></div>
+											<div><a href="${contextPath}/member/logout">로그아웃</a></div>
 										</div>
 									</div>
 								</c:if>
-								<%-- </c:when>
-									<c:otherwise> --%>
-										<c:if test="${empty loginMember}">
-											<a href="${contextPath}/member/singUpChoice">회원가입</a>
-											<a href="${contextPath}/member/loginChoice">로그인</a>
-										</c:if>
+								
+								<c:if test="${empty loginMember}">
+									<a href="${contextPath}/member/singUpChoice">회원가입</a>
+									<a href="${contextPath}/member/loginChoice">로그인</a>
+								</c:if>
 
 
-										<%-- </c:otherwise>
-											</c:choose> --%>
-											<c:if test="${loginMember.memberTypeCode == 3 }">
-												<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
-											</c:if>
+								
+								<c:if test="${loginMember.memberTypeCode == 0 }">
+									<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
+								</c:if>
+											 
 
 					</div>
 

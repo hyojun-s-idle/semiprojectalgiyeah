@@ -36,7 +36,7 @@ public class AnReplyServlet extends HttpServlet {
 				
 				// 댓글 목록 조회 서비스 호출 후 결과 반환 받기
 				List<Reply> rList = service.selectReplyList(boardNo);
-				
+				System.out.println(rList);
 				// JSON 변환 + 응답
 				new Gson().toJson(rList, resp.getWriter());
 				
@@ -45,8 +45,7 @@ public class AnReplyServlet extends HttpServlet {
 			if(command.equals("insert")) {
 				// 파라미터 얻어오기
 				int boardNo = Integer.parseInt( req.getParameter("boardNo"));
-				int memberNo = 4;
-						//Integer.parseInt( req.getParameter("memberNo"));
+				int memberNo = Integer.parseInt( req.getParameter("memberNo"));
 				String replyContent = req.getParameter("replyContent");
 				System.out.println(boardNo);
 				

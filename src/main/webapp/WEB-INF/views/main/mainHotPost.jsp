@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <article class="main-hot-post">
         <div class="main-hot-title">HOT한 컨텐츠</div>
         <ul class="main-hot-post-tab">
             <li class="hot-tab-item main-hot-tab-active">모두</li>
-            <li class="hot-tab-item">알바</li><!-- style="display: none;" -->
-            <li class="hot-tab-item">사장</li><!-- style="display: none;" -->
+            <c:if test="${loginMember.memberTypeCode == 1}">
+            	<li class="hot-tab-item">알바</li>
+            </c:if>
+            <c:if test="${loginMember.memberTypeCode == 2}">
+            	<li class="hot-tab-item">사장</li>
+            </c:if>
         </ul>
         <div class="hot-post-suround-content main-hot-tab-active">
             <div class="fa-solid fa-chevron-left hot-left main-hot-tab-active"></div>

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>찾은 회원정보</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/member/select_id.css">
-    
+     <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
 </head>
 
@@ -33,4 +34,7 @@
         </div>
     </div>
 </body>
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
+
 </html>

@@ -31,7 +31,7 @@
                 <td colspan="2" >${detail.replyNo}</td>
                 <th colspan="2">게시판 번호</th>
                 <td id="postGo" colspan="2">
-                    <a href="게시판 상세 페이지 이동">
+                    <a href="${contextPath}/board/boardList/detail?&no=${detail.boardNo}">
                         ${detail.boardNo}
                     </a>
                 </td>
@@ -85,7 +85,7 @@
         <form action="" name="reportComFormDel">
             <input type="hidden" name="postNum" value="1234">
             <input type="hidden" name="commentNum" value="3">
-            <button type="button" id="btnDeleteCom">삭제하기</button>
+            <button type="button" onclick="location.href='delete?replyNo=${param.replyNo}&boardNo=${param.boardNo}'">삭제하기</button>
         </form>
     </section>
    

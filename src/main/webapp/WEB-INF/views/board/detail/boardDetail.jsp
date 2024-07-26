@@ -28,6 +28,7 @@
 
         <!-- 헤더/풋터-->
         <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
         <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 
@@ -75,7 +76,13 @@
 
     <body>
 
-        <jsp:include page="/WEB-INF/views/common/header.jsp" />
+        <c:if test="${loginMember.memberTypeCode == 1 || loginMember.memberTypeCode == 2 || empty loginMember}">
+                <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        </c:if> 
+
+        <c:if test="${loginMember.memberTypeCode == 0}">
+                <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
+        </c:if>
 
 
         <div class="container">
@@ -142,11 +149,14 @@
                                         <!-- 나중에넣기 -->
                                         <p class="numbering ">${detail.replyCount}</p>
 
+
                                     </button>
                                 </div>
 
                                 <!-- 우측버튼 -->
                                 <div>
+
+                
 
 
 
@@ -192,6 +202,7 @@
                                 <div id="boardWriter">
                                     <div id="boardWriterPhotoBox">
 
+
                                         <!-- 이미지form -->
                                         <c:if test="${empty detail.profileImage}">
                                             <img src="${contextPath}/resources/images/user.png"
@@ -201,6 +212,8 @@
                                             <img src="${contextPath}${detail.profileImage}"
                                                 id="boardWriterPhoto">
                                         </c:if>
+
+                 
 
 
                                     </div>

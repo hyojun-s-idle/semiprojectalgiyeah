@@ -65,7 +65,7 @@
                             <ul class="post-content tab-active">
                                 <c:choose>
                                     <c:when test="${empty boardList}">
-                                        <li>게시글이 없습니다.</li>
+                                        <li><h3>게시글이 없습니다.</h3></li>
                                     </c:when>
                                     <c:otherwise>
                                         <c:forEach var="board" items="${boardList}">
@@ -99,38 +99,40 @@
                                                 </a>
                                             </li>
                                         </c:forEach>
+                                        <div class="pagination-area">
+        
+                                            <c:if test="${empty param.cate}">
+                                                <c:set var="url" value="boardList?type=${param.type}&cp=" />
+                                            </c:if>
+                                            <c:if test="${!empty param.cate}">
+                                                <c:set var="url" value="boardList?type=${param.type}&cate=${param.cate}&cp=" />
+                                            </c:if>
+        
+                                            <ul class="pagination">
+                                                <li><a href="${url}1">&lt;&lt;</a></li>
+                                                <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+        
+                                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}"
+                                                    step="1">
+                                                    <c:choose>
+                                                        <c:when test="${pagination.currentPage == i}">
+                                                            <li><a href="${url}${i}" class="current">${i}</a></li>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <li><a href="${url}${i}">${i}</a></li>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:forEach>
+        
+        
+                                                <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+                                                <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                                            </ul>
+                                        </div>
                                     </c:otherwise>
                                 </c:choose>
-                                <div class="pagination-area">
 
-                                    <c:if test="${empty param.cate}">
-                                        <c:set var="url" value="boardList?type=${param.type}&cp=" />
-                                    </c:if>
-                                    <c:if test="${!empty param.cate}">
-                                        <c:set var="url" value="boardList?type=${param.type}&cate=${param.cate}&cp=" />
-                                    </c:if>
-
-                                    <ul class="pagination">
-                                        <li><a href="${url}1">&lt;&lt;</a></li>
-                                        <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
-
-                                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}"
-                                            step="1">
-                                            <c:choose>
-                                                <c:when test="${pagination.currentPage == i}">
-                                                    <li><a href="${url}${i}" class="current">${i}</a></li>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <li><a href="${url}${i}">${i}</a></li>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </c:forEach>
-
-
-                                        <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                                        <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
-                                    </ul>
-                                </div>
+                                
 
                     </section>
 

@@ -51,20 +51,13 @@
     
                     <!-- 게시판 카테고리 -->
                     <select name="mSearchMember" id="mSearchMember">
-
-                        <c:forEach var="i" begin="0" end="2" step="1">
-                            <c:set var="cat" value="${category[i]}"/>
-                            <c:choose>
-                                <c:when test="${param.mSearchMember == i+1}">
-                                    <option value="${i+1}" selected>${cat.categoryName}</option>
-                                </c:when>
-                                <c:otherwise>
-                                    <option value="${i+1}">${cat.categoryName}</option>
-                                </c:otherwise>
-
-                            </c:choose>
-
-                        </c:forEach>
+                        <option value="1">모두 게시판</option>
+                        <c:if test="${loginMember.memberTypeCode == 1}">
+                            <option value="2">알바 게시판</option>
+                        </c:if>
+                        <c:if test="${loginMember.memberTypeCode == 2}">
+                            <option value="3">사장 게시판</option>
+                        </c:if>
                     </select>
 
                     <select name="allSearch" class="category active">
@@ -145,7 +138,7 @@
         
                 <ul class="post-content tab-active">
                     <c:if test="${empty resultList}">
-                        <li>검색 결과가 없습니다.</li>
+                        <li><h3>검색 결과가 없습니다.</h3></li>
                     </c:if>
 
                     <c:if test="${!empty resultList}">
@@ -176,10 +169,8 @@
                             </li>
                         </c:forEach>
                         <div class="pagination-area">
-                            
                          
-                                <c:set var="url" value="search?conSearch=${param.conSearch}&mSearchMember=${param.mSearchMember}&allSearch=${param.allSearch}&businessSearch=${param.businessSearch}&rectalSearch=${param.rectalSearch}&nSearch=${param.nSearch}&cp="/>
-                            
+                            <c:set var="url" value="search?conSearch=${param.conSearch}&mSearchMember=${param.mSearchMember}&allSearch=${param.allSearch}&businessSearch=${param.businessSearch}&rectalSearch=${param.rectalSearch}&nSearch=${param.nSearch}&cp="/>
 
                             <ul class="pagination">
                                 <li><a href="${url}1">&lt;&lt;</a></li>
