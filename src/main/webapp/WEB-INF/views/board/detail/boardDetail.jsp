@@ -31,7 +31,7 @@
 
                 <!-- 헤더 -->
                 <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
-
+                <link rel="stylesheet" href="${contextPath}/resources/css/shy/manager/managerHeader.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
 
                 <!-- 게시판 -->
@@ -80,7 +80,13 @@
 
             <body>
 
-                <jsp:include page="/WEB-INF/views/common/header.jsp" />
+                <c:if test="${loginMember.memberTypeCode == 1 || loginMember.memberTypeCode == 2 || empty loginMember}">
+                        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+                </c:if> 
+
+                <c:if test="${loginMember.memberTypeCode == 0}">
+                        <jsp:include page="/WEB-INF/views/manager/manHeader.jsp"/>
+                </c:if> 
 
 
                 <div class="container">
