@@ -247,14 +247,14 @@ public class MemberController extends HttpServlet{
 					session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 					
 				}else {
+					session.setAttribute("loginMember", loginMember);
 					
 					if(loginMember.getMemberTypeCode() == 0) {
 						
 						String path = req.getContextPath()+"/manager/manPostSearch";
 						resp.sendRedirect( path );
-						
-				}
-					session.setAttribute("loginMember", loginMember);
+						return;
+					}
 					
 				}
 				

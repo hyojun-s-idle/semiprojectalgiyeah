@@ -31,7 +31,7 @@
                 <td colspan="2" >${detail.replyNo}</td>
                 <th colspan="2">게시판 번호</th>
                 <td id="postGo" colspan="2">
-                    <a href="게시판 상세 페이지 이동">
+                    <a href="${contextPath}/board/boardList/detail?&no=${detail.boardNo}">
                         ${detail.boardNo}
                     </a>
                 </td>
