@@ -209,7 +209,7 @@
         <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>
         <script src="${contextPath}/resources/js/shy/write.js"></script>
         <script src="${contextPath}/resources/js/shy/postContentCut.js"></script>
-        <script src="${contextPath}/resources/js/shy/boardSearch.js"></script>
         <script src="${contextPath}/resources/js/shy/boardList.js"></script>
+        <script src="${contextPath}/resources/js/shy/boardSearch.js"></script>
     </body>
     </html>
