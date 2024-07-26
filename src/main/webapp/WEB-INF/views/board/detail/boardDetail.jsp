@@ -9,9 +9,9 @@
             <c:set var="type" value="${sub.substring(0,sub.length()-7)}" />
 
             <!-- 변수설정 -->
-
             <c:set var="type" value="${param.type}" />
             <c:set var="no" value="${param.no}" />
+            <c:set var="likeState" value="${detail.likeState}" />
 
 
             <!DOCTYPE html>
@@ -138,7 +138,7 @@
                                                 <span class="viewing material-symbols-outlined" id="viewingBoard">
                                                     visibility
                                                 </span>
-                                                <p class="numbering">${detail.readCount}</p>
+                                                <p class="numbering readCounting">${detail.readCount}</p>
                                             </button>
 
                                             <button class="icon replyCounting" type="button">
@@ -236,10 +236,25 @@
 
                                     <button class="icon boardLiking">
                                         <p><br></p>
-                                        <span class="material-symbols-outlined boardLike">
-                                            favorite
-                                        </span>
+
+
+                                        <c:if test="${detail.likeState==0}">
+                                            <span class="material-symbols-outlined boardLike">
+                                                favorite
+                                            </span>
+                                        </c:if>
+
+                                        <c:if test="${detail.likeState==1}">
+                                            <span class="material-symbols-outlined boardLike likeUp">
+                                                favorite
+                                            </span>
+                                        </c:if>
+
                                         <p class="likeNum">${detail.likeCount}</p>
+
+
+
+
                                     </button>
 
                                 </div>
@@ -444,6 +459,10 @@
                     const boardNo = "${detail.boardNo}";
                     const loginMemberNo = "${loginMember.memberNo}";
                     const loginMemberNickname = "${loginMember.memberNickname}";
+
+                    //좋아요 최초상태
+                    let likeState = "${detail.likeState}";
+
                 </script>
 
 
@@ -451,7 +470,7 @@
                 <script src="${contextPath}/resources/js/kis/board_updateReply.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_like.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_warning.js"></script>
-
+                
 
 
 

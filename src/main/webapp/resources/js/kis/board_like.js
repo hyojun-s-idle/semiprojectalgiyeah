@@ -1,5 +1,4 @@
 //좋아요 조회
-let likeState=-1;
 function selectLike(){
     $.ajax({
         url: contextPath + "/like/select",
@@ -13,14 +12,11 @@ function selectLike(){
         success: function (boardLike) {
 
 
-            $(".likeNum").html(boardLike.likeCount +" | "+ boardLike.likeState);
+            $(".likeNum").html(boardLike.likeCount);
 
+            // 좋아요상태 갱신
             likeState=boardLike.likeState;
 
-
-
-
-            
 
         },
         error: function (req, status, error) {
@@ -45,7 +41,7 @@ function likeUp(){
                 alert("좋아요등록 성공");
 
                 selectLike();
-                $('.boardLike').css("backgroundColor","red");
+
 
 
             }else{
@@ -93,37 +89,6 @@ function likeDown(){
 
 
 
-//조회 + Up
-function selectLikeSum(){
-    $.ajax({
-        url: contextPath + "/like/select",
-        data: { 
-            "boardNo": boardNo ,
-            "memberNo": loginMemberNo
-            
-        },
-        type: "POST",
-        dataType: "JSON",
-        success: function (boardLike) {
-
-
-            $(".likeNum").html(boardLike.likeCount +" | "+ boardLike.likeState);
-
-            // likeState=boardLike.likeState;
-            likeUp();
-
-
-
-            
-
-        },
-        error: function (req, status, error) {
-            console.log("에러발생");
-            console.log(req.responseText);
-        }
-
-    })
-}
 
 
 
@@ -135,19 +100,7 @@ function selectLikeSum(){
 // 좋아요 Up
 $(document).on("click",".boardLiking",function(){
 
-    console.log(likeState);
-    
-
-    
-    selectLike();
-    //한번조회 <- likeState담기
-    
-
-
-    console.log(likeState);
-
-
-
+    //좋아요등록
     if(likeState==0){
         $.ajax({
             url: contextPath + "/like/up",
@@ -162,8 +115,8 @@ $(document).on("click",".boardLiking",function(){
                     alert("좋아요등록 성공");
     
                     selectLike();
-                    $('.boardLike').css("backgroundColor","red");
- 
+                    $('.boardLike').addClass("likeUp");
+
     
                 }else{
                     alert("좋아요등록 실패");
@@ -178,6 +131,8 @@ $(document).on("click",".boardLiking",function(){
         })
     }
 
+
+    // 좋아요취소
     if(likeState==1){
         $.ajax({
             url: contextPath + "/like/down",
@@ -192,7 +147,7 @@ $(document).on("click",".boardLiking",function(){
                     alert("좋아요취소 성공");
 
                     selectLike();
-                    $('.boardLike').css("backgroundColor","transparent");
+                    $('.boardLike').removeClass("likeUp");
     
                 }else{
                     alert("좋아요취소 실패");
