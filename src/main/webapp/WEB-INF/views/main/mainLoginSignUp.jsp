@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="searchIdPwSignUp">
-            <a href="">아이디 / 비밀번호 찾기</a>
+            <span><a href="member/findId">아이디</a> / <a href="member/findPw">비밀번호 찾기</a></span>
             <a href="member/singUpChoice">회원가입</a>
         </div>
     </article>

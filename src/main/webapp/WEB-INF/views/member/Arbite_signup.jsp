@@ -8,6 +8,8 @@
     <title>알바님 회원가입</title>
     <link rel="stylesheet" href="../resources/css/member/Arbite_signup.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+     <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     <script src="https://kit.fontawesome.com/3970146fa7.js" crossorigin="anonymous"></script>
 </head>
 
@@ -377,5 +379,7 @@
     <script src="${contextPath}/resources/js/lsh/Arbite_signup.js"></script>
 
 </body>
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 
 </html>

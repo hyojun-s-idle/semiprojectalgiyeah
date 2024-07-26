@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디 찾기</title>
     <link rel="stylesheet" href="../resources/css/member/find_id.css">
-    
+     <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
 </head>
 
@@ -53,9 +54,10 @@
             </form>
             </div>
         </div>
-        <div class="footer">
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 
-        </div>
     </div>
 </body>
+
+
 </html>
