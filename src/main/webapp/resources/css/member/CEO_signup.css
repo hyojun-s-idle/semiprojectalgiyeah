@@ -21,7 +21,7 @@
 
 /* 컨텐츠 */
 .content {
-    height: 1400px;
+    height: 1500px;
     /*  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);  */
 
 }
@@ -33,7 +33,7 @@ fieldset {
 .signup-box {
     height: 1200px;
     width: 600px;
-    margin: 50px auto;
+    margin: auto;
     text-align: center;
     /* border: 1px solid  rgb(255, 255, 255); */
     /* border: 1px solid  purple; */
@@ -43,7 +43,6 @@ fieldset {
     box-shadow: 2px 3px 10px 0px;
     border-radius: 20px;
     padding-top: 10px;
-  
 }
 
 .signup-box span {
@@ -104,9 +103,9 @@ select {
 }
 
 .signup-box2 {
-    height: 1300px;
+    height: 1400px;
     width: 600px;
-    margin: 50px auto;
+    margin: auto;
     text-align: center;
     /* border: 1px solid  rgb(255, 255, 255); */
     /* border: 1px solid  purple; */
@@ -116,7 +115,7 @@ select {
     box-shadow: 2px 3px 10px 0px;
     border-radius: 20px;
     padding-top: 10px;
-    display: none; 
+    display: none;
 }
 
 

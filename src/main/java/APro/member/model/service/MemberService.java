@@ -171,10 +171,6 @@ public class MemberService {
 		
 		result = dao.changePw(conn,newPw,memberNo);
 		
-		
-		if(result>0) commit(conn);
-		else rollback(conn);
-		
 		return result;
 	}
 

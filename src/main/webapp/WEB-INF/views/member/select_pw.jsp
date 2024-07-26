@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/select_pw.css">
     
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
-
-        <!-- footer css -->
-        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 
 
@@ -18,17 +15,17 @@
     <div class="container">
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
         <div class="content">
-            <form action="changePw" method="post" onsubmit="return pwChngeValidation()">
+            <form action="changePw">
             <div class="find-box">
 
                     <h1>비밀번호 변경</h1>
                     <div class="findDiv">
                         <h4>변경할 비밀번호</h4>
-                        <input type="text" name="newPw" id="newPw">
-                        <span class="newPwMsg" id="newPwMsg"></span>
+                        <input type="text" name="newPw" id="">
+                        <span class="newPwMsg"></span>
                         <h4>비밀번호 확인</h4>
-                        <input type="text" class="newPwConfirm" id="newPwConfirm">
-                        <span class="newPwConMsg" id="newPwConMsg"></span>
+                        <input type="text" class="newPwConfirm" id="">
+                        <span class="newPwConMsg"></span>
                     </div>
 					<input type="text" value="${memberId}" name="memberId" class="memberId">
 					<div class="btn-area">
@@ -38,9 +35,9 @@
                 </div>
             </form>
         </div>
-        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
-    </div>
+        <div class="footer">
 
-    <script src="${contextPath}/resources/js/lsh/select_pw.js"></script>s
+        </div>
+    </div>
 </body>
 </html>

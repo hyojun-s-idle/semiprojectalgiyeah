@@ -25,7 +25,7 @@ fieldset{
 
 /* 찾은 아이디 */
 .findDiv{
-    
+    border: 2px solid #059212;
     height: 400px;
     margin: auto;
     font-size: 25px;
@@ -62,21 +62,9 @@ button:hover{
 
 span{
     display: inline-block;
-    height: 60px;
-    font-size: 15px;
-    margin-top: 15px;
-    font-weight: bold;
+    height: 60px
 }
 
-.memberId{
+#memberId{
     display: none;
-}
-
-
-.confirm {
-    color: green;
-}
-
-.error {
-    color: red;
 }

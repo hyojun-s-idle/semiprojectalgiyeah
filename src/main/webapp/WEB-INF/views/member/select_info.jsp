@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/member/select_id.css">
     
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
-
-        <!-- footer css -->
-        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 
 
@@ -31,7 +28,9 @@
 					</div>
             </div>
         </div>
-        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
+        <div class="footer">
+
+        </div>
     </div>
 </body>
 </html>

@@ -57,7 +57,6 @@ function createPop(container, post, i){
 
     const rowsPop = document.createElement("tr");
     rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
-    console.log(post.boardNo);
 
     const colRanck = document.createElement("td");
     colRanck.classList.add("pop-num");

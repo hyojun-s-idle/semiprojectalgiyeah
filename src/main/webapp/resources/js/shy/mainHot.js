@@ -14,14 +14,12 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/",1));
         dataType : "JSON",
         type : "GET",
         success : function(post){
-            	console.log(post+ "type1")
+            
                 for(let i = 5 ; i > 2; i--){
-                    console.log("post :"+ post);
                     createHotPost(allHotPost[0],post[i],i-1)
                 }
     
                 for(let i = 2 ; i >= 0; i--){
-                    console.log("post :"+ post);
                     createHotPost(allHotPost[1],post[i],i+2)
                 }
 
@@ -39,7 +37,7 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/",1));
         dataType : "JSON",
         type : "GET",
         success : function(post){
-            	console.log(post+ "type2")
+            
                 for(let i = 5 ; i > 2; i--){
                     createHotPost(workerHotPost[0],post[i],i+2)
                 }
@@ -102,8 +100,6 @@ function createHotPost(container,post,i){
     typeHot.classList.add("type-hot");
 
     const boardImg = document.createElement("img");
-    
-    console.log("post.boardImage : "+post.boardImage);
     if(post.boardImage == null){
         boardImg.setAttribute("src", urlh + "/resources/images/main/worker"+i+".jpeg");
     }else{
