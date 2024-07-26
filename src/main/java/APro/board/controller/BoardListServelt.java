@@ -23,7 +23,7 @@ import APro.board.vo.Reply;
 
 
 
-@WebServlet("/board/*")
+@WebServlet("/board/boardList")
 public class BoardListServelt extends HttpServlet{
 	
 	@Override
@@ -42,13 +42,6 @@ public class BoardListServelt extends HttpServlet{
 		
 		
 		try {
-			
-
-        
-        
-  
-  
-	
 			
 			// BoardService
 			
@@ -75,35 +68,14 @@ public class BoardListServelt extends HttpServlet{
 			}
 			
 			
-      
-      
-      
-
-			
-
-			
-			
-      
-
-
-
-  
-			
-			
-
-			
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
 			
-		
 	}
 	
 		
-	
-	
-	
 	//doPost -> doGet
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
