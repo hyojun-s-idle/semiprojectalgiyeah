@@ -10,6 +10,8 @@
     
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
     
+        <!-- footer css -->
+        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">s
 <body>
    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
@@ -25,4 +27,5 @@
 
     </div>
 </body>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 </html>

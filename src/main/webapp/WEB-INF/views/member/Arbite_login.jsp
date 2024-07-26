@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+
+    <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body>
 
@@ -36,11 +39,14 @@
                     
             </fieldset>
         </form>
+
     </div>
+    
 
 
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
     <script src="JS/Arbite_login.js"></script>
 </body>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 </html>

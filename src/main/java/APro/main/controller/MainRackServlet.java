@@ -30,6 +30,7 @@ public class MainRackServlet extends HttpServlet {
 				int type = Integer.parseInt(req.getParameter("type"));
 				
 				List<HotPost> list = service.getHotPost(type);
+				System.out.println(list);
 						
 				new Gson().toJson(list, resp.getWriter());
 			}

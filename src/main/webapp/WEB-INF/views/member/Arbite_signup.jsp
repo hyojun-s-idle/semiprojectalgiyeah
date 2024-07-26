@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../resources/css/member/Arbite_signup.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
     <script src="https://kit.fontawesome.com/3970146fa7.js" crossorigin="anonymous"></script>
+        <!-- footer css -->
+        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 
 <body>
@@ -367,7 +369,7 @@
     </div>
 
 
-    <div class="footer"></div>
+   
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -377,5 +379,5 @@
     <script src="${contextPath}/resources/js/lsh/Arbite_signup.js"></script>
 
 </body>
-
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 </html>

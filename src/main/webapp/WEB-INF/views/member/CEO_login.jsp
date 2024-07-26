@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+
+    <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body>
    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -33,6 +36,7 @@
             </fieldset>
         </form>
     </div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 
 
 

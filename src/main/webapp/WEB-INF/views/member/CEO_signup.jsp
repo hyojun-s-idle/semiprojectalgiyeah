@@ -9,6 +9,9 @@
     
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
     <script src="https://kit.fontawesome.com/3970146fa7.js" crossorigin="anonymous"></script>
+
+        <!-- footer css -->
+        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 
 <body>
@@ -372,7 +375,7 @@
     </div>
 
 
-    <div class="footer"></div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- 주소api 스크립트 -->

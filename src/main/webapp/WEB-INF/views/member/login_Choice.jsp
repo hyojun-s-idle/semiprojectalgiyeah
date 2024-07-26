@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../resources/css/member/choice.css">
     
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+
+        <!-- footer css -->
+        <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -23,6 +26,6 @@
         </form>
 
     </div>
-    
 </body>
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
 </html>
