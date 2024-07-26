@@ -573,7 +573,7 @@ public class ManagerDAO {
 		int listCount = 0;
 		
 		try {
-			String sql = prop.getProperty("postSearchCount") + condition + " )";
+			String sql = prop.getProperty("postSearchCount") + condition + ")";
 			
 			stmt = conn.createStatement();
 			

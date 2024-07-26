@@ -150,8 +150,8 @@ public class ManagerService {
 		String condition = null;
 		
 		switch(mSecessoin) {
-		case "N" : condition = " WHERE SECESSION_FL = 'N' "; break;
-		case "Y" : condition = " WHERE SECESSION_FL = 'Y' "; break;
+		case "N" : condition = " AND SECESSION_FL = 'N' "; break;
+		case "Y" : condition = " AND SECESSION_FL = 'Y' "; break;
 		
 		}
 		
@@ -205,7 +205,7 @@ public class ManagerService {
 		switch(mSearchCon) {
 		case "name" : condition1 += " AND MEMBER_NICK LIKE '%"+mSearchConText+"%' "; break;
 		case "title" : condition1 += " AND BOARD_TITLE LIKE '%"+mSearchConText+"%' "; break;
-		case "content" : condition1 += " REPLY_CONTENT LIKE '%"+mSearchConText+"%' "; break;
+		case "content" : condition1 += " AND REPLY_CONTENT LIKE '%"+mSearchConText+"%' "; break;
 		}
 		
 		
@@ -278,7 +278,7 @@ public class ManagerService {
 		switch(mSearchCon) {
 		case "name" : condition += " AND MEMBER_NICK LIKE '%"+mSearchConText+"%' "; break;
 		case "title" : condition += " AND BOARD_TITLE LIKE '%"+mSearchConText+"%' "; break;
-		case "content" : condition += " BOARD_CONTENT LIKE '%"+mSearchConText+"%' "; break;
+		case "content" : condition += " AND BOARD_CONTENT LIKE '%"+mSearchConText+"%' "; break;
 		}
 		
 		switch(mSearchMember) {

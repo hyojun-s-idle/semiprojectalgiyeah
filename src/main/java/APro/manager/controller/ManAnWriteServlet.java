@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import APro.announce.model.service.AnnounceService;
 import APro.announce.model.vo.AnBoardDetail;
+import APro.member.model.vo.Member;
 
 @WebServlet("/manager/manAnnounce/boardWrite")
 public class ManAnWriteServlet extends HttpServlet {
@@ -50,7 +51,9 @@ public class ManAnWriteServlet extends HttpServlet {
 		int cp = Integer.parseInt( req.getParameter("cp"));
 		int boardNo = Integer.parseInt(req.getParameter("no"));
 		HttpSession session = req.getSession();
-		int memberNo = 5;
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		int memberNo = loginMember.getMemberNo();
+		
 		
 		AnBoardDetail detail = new AnBoardDetail();
 		detail.setBoardNo(boardNo);
