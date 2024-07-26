@@ -195,8 +195,12 @@ function createHotPost(container, post, i) {
         gather.append(hotPostContent);
 
         container.append(gather);
-
+       }
+       
 }
+  
+
+
 
 function cutContent(contentText) {
     let comAll = "";
