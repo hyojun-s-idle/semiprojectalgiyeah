@@ -152,12 +152,11 @@ function selectValue(memberValue){
 
 /* comment자르기 */
 (function(){
-
     const contentText = document.querySelectorAll(".contentReport");
     let comCut = "";
     for (let i = 0; i < contentText.length; i++) {
-        if (contentText[i].innerText.length > 20) {
-            comCut = contentText[i].innerText.substr(0, 16);
+        if (contentText[i].innerText.length >= 20) {
+            comCut = contentText[i].innerText.substr(0, 6);
             contentText[i].innerText = comCut + "...";
     
         }

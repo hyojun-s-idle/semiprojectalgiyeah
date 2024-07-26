@@ -60,7 +60,7 @@ public class BoardWriteServlet extends HttpServlet {
 			
 			int type=Integer.parseInt(req.getParameter("type"));
 			
-			int boardCode=Integer.parseInt(req.getParameter("boardCode"));
+			int boardCode = Integer.parseInt(req.getParameter("boardCode"));
 			String mode=req.getParameter("mode");
 			
 			

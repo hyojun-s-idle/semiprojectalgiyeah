@@ -24,7 +24,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
+                <title>알지예</title>
                 <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
                 <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/shy/outTopTile.css">
