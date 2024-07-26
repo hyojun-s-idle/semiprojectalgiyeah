@@ -48,8 +48,34 @@ public class BoardDetailServlet extends HttpServlet {
 				// 게시판
 				int boardNo = Integer.parseInt(req.getParameter("no"));
 				BoardDetail detail = service.selectBoardDetail(boardNo);
+				
+				
+				
+				//+좋아요 상태
+				Member member=(Member)req.getSession().getAttribute("loginMember");
+				
+				int memberNo=0;
+				if(member!=null) {
+					memberNo=((Member)req.getSession().getAttribute("loginMember")).getMemberNo();
+				}
+				
+				
+				int likeState=0;
+				likeState=new BoardDetailService().boardLikeState(boardNo, memberNo);
+				detail.setLikeState(likeState);
+				
+
+				
+				//+조회수
+				
+				int readCount=new BoardDetailService().viewsCount(boardNo);
+				detail.setReadCount(readCount);
 				req.setAttribute("detail", detail);
 
+				
+				
+				
+				
 				
 				// 댓글
 				if (detail != null) {
@@ -59,18 +85,8 @@ public class BoardDetailServlet extends HttpServlet {
 				
 				
 				
-				//좋아요 상태
-				Member member=(Member)req.getSession().getAttribute("loginMember");
 				
-				int memberNo=0;
-				if(member!=null) {
-					memberNo=((Member)req.getSession().getAttribute("loginMember")).getMemberNo();
-				}
-				
-
-				System.out.println("*****************************************************");
-				System.out.println("memberNo : "+memberNo);
-				System.out.println("*****************************************************");
+	
 				
 				
 
@@ -95,7 +111,8 @@ public class BoardDetailServlet extends HttpServlet {
 				int result=service.boardDelete(boardNo);
 				
 				int type =0;
-				if(	req.getParameter("type")!=null) {
+				//인기글링크+삭제경우 조치
+				if(	req.getParameter("type")==null) {
 					System.out.println("parse전 : "+req.getParameter("type"));
 					
 					 type = Integer.parseInt(req.getParameter("type"));

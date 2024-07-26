@@ -19,6 +19,7 @@ import APro.board.vo.BoardDetail;
 import APro.board.vo.Board;
 import APro.board.vo.Category;
 import APro.board.vo.Pagination;
+import APro.board.vo.Reply;
 
 
 /**
@@ -136,6 +137,27 @@ public class BoardDetailDAO {
 		return result;
 	}
 
+	
+	/** 댓글삭제
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 */
+	public int boardDeleteReply(Connection conn, int boardNo) throws Exception {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("boardDeleteReply");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 	
 	
 	
@@ -307,6 +329,63 @@ public class BoardDetailDAO {
 		}
 		return result;
 	}
+
+
+	
+
+
+
+	/** 조회수증가
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 */
+	public int viewsCountUp(Connection conn, int boardNo) throws Exception{
+		int result = 0;
+		try {
+			String sql = prop.getProperty("viewsCountUp");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/** 조회수상태
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 */
+	public int viewsCountSt(Connection conn, int boardNo) throws Exception {
+		int viewsCount=0;
+
+		try {
+
+			String sql = prop.getProperty("viewsCountSt");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				viewsCount=rs.getInt(1);
+						
+			}
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return viewsCount;
+	}
+
+
+	
+	
 
 
 
