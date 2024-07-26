@@ -177,7 +177,7 @@ public class ManagerServlet extends HttpServlet {
 				}else {
 					session.setAttribute("message", "신고 댓글 삭제를 실패했습니다.");
 				}
-				path = "/WEB-INF/views/manager/manCommentReportSearch.jsp";
+				path ="/manager/manCommentSearch";
 			}
 			
 			if(command.equals("postDetail/delete")) {
@@ -192,8 +192,7 @@ public class ManagerServlet extends HttpServlet {
 				}else {
 					session.setAttribute("message", "신고 댓글 삭제를 실패했습니다.");
 				}
-				
-				path = "/WEB-INF/views/manager/manPostReportSearch.jsp";
+				path = "/manager/manPostSearch";
 			}
 			req.setAttribute("category", category);
 			req.getRequestDispatcher(path).forward(req, resp);

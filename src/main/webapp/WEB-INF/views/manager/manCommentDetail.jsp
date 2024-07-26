@@ -85,7 +85,7 @@
         <form action="" name="reportComFormDel">
             <input type="hidden" name="postNum" value="1234">
             <input type="hidden" name="commentNum" value="3">
-            <button type="button" onclick="location.href='delete?replyNo=${param.replyNo}&boardNo=${param.boardNo}'">삭제하기</button>
+            <button type="button" onclick="location.href='${contextPath}/manager/commentDetail/delete?replyNo=${param.replyNo}&boardNo=${param.boardNo}'">삭제하기</button>
         </form>
     </section>
    
