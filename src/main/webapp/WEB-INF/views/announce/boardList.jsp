@@ -95,6 +95,9 @@
                 </div>
             </c:if>
 
+            <c:if test="${!empty boardList}">
+
+            
             <div class="pagination-area">
 
                 <c:set var="url" value="boardList?type=${param.type}&cp="/>
@@ -119,6 +122,7 @@
                     <li><a href="${url}${pagination.maxPage}${sUrl}">&gt;&gt;</a></li>
                 </ul>
             </div>
+        </c:if>
 
             
         </section>
