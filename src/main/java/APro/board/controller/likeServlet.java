@@ -35,7 +35,13 @@ public class likeServlet extends HttpServlet {
 		String command = uri.substring((contextPath + "/like/").length());
 
 		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-		int memberNo = Integer.parseInt(req.getParameter("memberNo") );
+		
+		
+		int memberNo=0;
+		if(req.getParameter("memberNo")!=null) {
+			memberNo = Integer.parseInt(req.getParameter("memberNo") );
+		}
+		
 
 		
 		System.out.println("********************");
@@ -56,16 +62,20 @@ public class likeServlet extends HttpServlet {
 				int likeState= new BoardDetailService().boardLikeState(boardNo, memberNo);
 
 				
+				
 				BoardLike boardLike=new BoardLike();
 				boardLike.setLikeCount(likeCount);
 				boardLike.setLikeState(likeState);
 				
+				
 				System.out.println("boardLike : "+ boardLike);
 				System.out.println("likeCount : "+ likeCount);
 				System.out.println("likeState : "+ likeState);
-				System.out.println("****************************");
+				System.out.println("***************************************");
+				
 				
 				new Gson().toJson(boardLike,  resp.getWriter());
+				
 				
 			}
 			

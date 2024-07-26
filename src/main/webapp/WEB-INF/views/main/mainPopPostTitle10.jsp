@@ -6,6 +6,7 @@
         <div>인기글</div>
         <ul class="main-pop-tab">
             <li class="pop-tab-item tab-active">모두</li>
+
             <c:if test="${loginMember.memberTypeCode == 1}">
             	<li class="pop-tab-item" >알바</li>
             </c:if>
@@ -15,15 +16,12 @@
         </ul>
 
         <table class="popTitle tab-active allPop">
-                
         </table>
 
         <table class="popTitle workerPop">
-                
         </table>
 
         <table class="popTitle ceoPop">
-               
         </table>
 
     </article>
