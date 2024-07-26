@@ -241,10 +241,21 @@ public class MemberController extends HttpServlet{
 				System.out.println(loginMember);
 				
 				HttpSession session=req.getSession();
-				if(loginMember!=null) {
-					session.setAttribute("loginMember", loginMember);
-				}else {
+				
+				if(loginMember==null) {
+					
 					session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+					
+				}else {
+					
+					if(loginMember.getMemberTypeCode() == 0) {
+						
+						String path = req.getContextPath()+"/manager/manPostSearch";
+						resp.sendRedirect( path );
+						
+				}
+					session.setAttribute("loginMember", loginMember);
+					
 				}
 				
 				resp.sendRedirect(req.getContextPath());
