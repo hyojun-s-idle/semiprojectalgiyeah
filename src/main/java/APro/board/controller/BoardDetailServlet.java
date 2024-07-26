@@ -22,7 +22,6 @@ public class BoardDetailServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("board/detail");
 		String uri = req.getRequestURI();
 
 		String contextPath = req.getContextPath();
@@ -51,6 +50,7 @@ public class BoardDetailServlet extends HttpServlet {
 				BoardDetail detail = service.selectBoardDetail(boardNo);
 				req.setAttribute("detail", detail);
 
+				
 				// 댓글
 				if (detail != null) {
 					List<Reply> rList = new ReplyService().selectReplyList(boardNo);
@@ -60,10 +60,16 @@ public class BoardDetailServlet extends HttpServlet {
 				
 				
 				//좋아요 상태
-//				int memberNo=((Member)req.getSession().getAttribute("loginMember")).getMemberNo();
+				Member member=(Member)req.getSession().getAttribute("loginMember");
+				
+				int memberNo=0;
+				if(member!=null) {
+					memberNo=((Member)req.getSession().getAttribute("loginMember")).getMemberNo();
+				}
+				
 
 				System.out.println("*****************************************************");
-//				System.out.println("memberNo : "+memberNo);
+				System.out.println("memberNo : "+memberNo);
 				System.out.println("*****************************************************");
 				
 				

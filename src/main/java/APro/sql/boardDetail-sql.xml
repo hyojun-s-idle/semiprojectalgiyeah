@@ -37,7 +37,7 @@
 	</entry>
 	
 	
-		<!-- 게시판 삭제 -->
+	<!-- 게시판 삭제 -->
 	<entry key="boardDelete">
 		UPDATE BOARD SET BOARD_ST='Y' 
 		WHERE BOARD_NO=?

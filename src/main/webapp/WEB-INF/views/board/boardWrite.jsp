@@ -3,8 +3,6 @@
         <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +20,7 @@
     <!-- 헤더/풋터 -->
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/shy/headerUPslide.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
 
 
@@ -46,7 +45,7 @@
             <div id="boardCategory">
 
                 <!-- 게시판종류(고정) -->
-                <select class="type" name="" value="">
+                <select class="" name="" value="">
 
                     <c:if test="${param.type==1}"><option name="" value="all">모두</option></c:if>
                     <c:if test="${param.type==2}"><option name="" value="worker">알바</option></c:if>
@@ -63,8 +62,20 @@
                 <!-- 모두 -->
                 <c:if test="${param.type==1}">
                     <select class="all"  name="boardCode">
-                        <option name="aaaaa" value="2">알바</option>
-                        <option name="boardCode" value="3">사장</option>
+
+
+
+                        <c:if test="${loginMember.memberTypeCode==1}">
+                            <option name="boardCode" value="2">알바</option>
+                        </c:if>
+                        
+                        <c:if test="${loginMember.memberTypeCode==2}">
+                            <option name="boardCode" value="3">사장</option>
+                        </c:if>
+
+
+
+
                     </select>
     
                 </c:if>
@@ -74,7 +85,7 @@
                  <c:if test="${param.type==2}">
                     <select class="wor"  name="boardCode">
                         <!-- <option selected hidden disabled>직종</option> -->
-                        <option name="aaaaaaa" value="4">외식/음료</option>
+                        <option name="boardCode" value="4">외식/음료</option>
                         <option name="boardCode" value="5">매장 관리</option>
                         <option name="boardCode" value="6">서비스</option>
                         <option name="boardCode" value="7">사무직</option>
@@ -91,7 +102,7 @@
 
                 <!-- 사장 -->
                 <c:if test="${param.type==3}">
-                    <select class="ceo"  name="type">
+                    <select class="ceo"  name="boardCode">
                         <option name="boardCode" value="14">요식업</option>
                         <option name="boardCode" value="15">숙박업</option>
                         <option name="boardCode" value="16">제조업</option>
@@ -229,6 +240,9 @@
 
 
     <script src="${contextPath}/resources/js/kis/boardWrite.js"></script>
+    <script src="${contextPath}/resources/js/shy/headerUPSlidAuto.js"></script>
+
+
 </body>
 
 </html>
