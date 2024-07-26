@@ -7,7 +7,8 @@
     <title>회원가입 선택</title>
 
     <link rel="stylesheet" href="../resources/css/member/choice.css">
-    
+     <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
     
 <body>
@@ -25,4 +26,7 @@
 
     </div>
 </body>
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
+
 </html>

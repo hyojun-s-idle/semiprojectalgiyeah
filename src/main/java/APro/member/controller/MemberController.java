@@ -65,19 +65,20 @@ public class MemberController extends HttpServlet{
 			System.out.println(newPw);
 			System.out.println(memberId);
 			MemberService service = new MemberService();
+			HttpSession session = req.getSession();
 			
 			try {
 				int result = service.changePw(newPw, memberId);
 				
 				
 				if(result > 0) {
-					System.out.println("성공");
+					session.setAttribute("message", "비밀번호가 변경되었습니다.");
 				} else {
-					System.out.println("실패");
+					session.setAttribute("message", "비밀번호가 변경에 실패하였습니다.");
 				}
-				req.getRequestDispatcher(contextPath).forward(req, resp);
+				resp.sendRedirect(req.getContextPath());
 			}catch (Exception e) {
-				
+				e.printStackTrace();
 			}
 		}
 		
@@ -172,7 +173,7 @@ public class MemberController extends HttpServlet{
 	
 			} 
 
-
+			HttpSession session = req.getSession();
 			Member mem = new Member();
 			MemberQA qa = new MemberQA();
 
@@ -210,9 +211,9 @@ public class MemberController extends HttpServlet{
 				
 
 				if(result!=0) {
-					System.out.println("회원가입 성공");
+					session.setAttribute("message", "회원가입에 성공하셨습니다.");
 				}else { 
-					System.out.println("회원가입 실패");
+					session.setAttribute("message", "회원가입 실패 ㅠㅠ");
 				}
 				resp.sendRedirect(req.getContextPath());
 			}catch (Exception e) {
@@ -240,8 +241,21 @@ public class MemberController extends HttpServlet{
 				System.out.println(loginMember);
 				
 				HttpSession session=req.getSession();
-				if(loginMember!=null) {
+				
+				if(loginMember==null) {
+					
+					session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+					
+				}else {
+					
+					if(loginMember.getMemberTypeCode() == 0) {
+						
+						String path = req.getContextPath()+"/manager/manPostSearch";
+						resp.sendRedirect( path );
+						
+				}
 					session.setAttribute("loginMember", loginMember);
+					
 				}
 				
 				resp.sendRedirect(req.getContextPath());

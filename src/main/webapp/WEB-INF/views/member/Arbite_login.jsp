@@ -10,6 +10,9 @@
     <!-- 헤더 css  -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
 	
+	 <!-- footer css -->
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
+	
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
@@ -43,4 +46,7 @@
     
     <script src="JS/Arbite_login.js"></script>
 </body>
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
+
 </html>
