@@ -66,9 +66,7 @@
                                 <td>${board.category}</td>
                                 <td>${board.boardNo}</td>
                                 <td class="manSTitle">${board.boardTitle}</td>
-                                <td class="contentReport">
-                                    ${board.boardContent}
-                                </td>
+                                <td class="contentReport">${board.boardContent}</td>
                                 <c:if test="${empty board.updateDate}">
                                     <td>${board.createDate}</td>
                                 </c:if>
