@@ -76,7 +76,7 @@
 
         <form action="" name="reportPostFormDel">
             <input type="hidden" name="postNum" value="1234">
-            <button>삭제하기</button>
+            <button type="button" onclick="location.href='delete?boardNo=${param.boardNo}'">삭제하기</button>
         </form>
     </section>
    

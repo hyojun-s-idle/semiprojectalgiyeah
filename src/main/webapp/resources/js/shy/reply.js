@@ -44,8 +44,8 @@ function selectReplyList(){
                 p2.classList.add("reply-content");
 
                 li.append(p1, p2);
-/* 
-                if(reply.memberNo == loginMemberNo){ */
+                
+                if(reply.memberNo == loginMemberNo){ 
                     const div = document.createElement("div");
                     div.classList.add("reply-btn-area");
 
@@ -60,7 +60,7 @@ function selectReplyList(){
                     div.append(btn1, btn2);
 
                     li.append(div);
-               /*  } */
+                } 
 
                 replyList.append(li);
 
@@ -78,10 +78,10 @@ const replyContent = document.getElementById("replyContent");
 
 addReply.addEventListener("click",function(){
 
-   /*  if( loginMemberNo == ""){
+    if( loginMemberNo == ""){
         alert("로그인 후 이용해주세요.");
         return;
-    } */
+    }
 
     if( replyContent.value.trim().length == 0){
         alert("댓글을 작성한 후 버튼을 클릭해주세요.");
@@ -93,7 +93,7 @@ addReply.addEventListener("click",function(){
 console.log(boardNo);
     $.ajax({
         url : contextPath + "/areply/insert",
-        data : {/* "memberNo" : loginMemberNo, */
+        data : {"memberNo" : loginMemberNo,
                 "replyContent" : replyContent.value,
                 "boardNo" : boardNo},
         type : "POST",

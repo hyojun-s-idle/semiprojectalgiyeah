@@ -44,11 +44,11 @@
 										</c:if>
 
 
-										<%-- </c:otherwise>
-											</c:choose> --%>
-											<c:if test="${loginMember.memberTypeCode == 3 }">
-												<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
+										<%-- 
+										<c:if test="${loginMember.memberTypeCode == 3 }">
 											</c:if>
+											 --%>
+												<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
 
 					</div>
 

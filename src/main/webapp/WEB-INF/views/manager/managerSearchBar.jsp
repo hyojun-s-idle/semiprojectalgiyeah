@@ -27,20 +27,11 @@
                     <th>게시판</th>
                     <td>
                         <select name="mSearchMember" id="mSearchMember">
+                            <option value="0">게시판 전체</option>
+                            <option value="1">모두 게시판</option>
+                            <option value="2">알바 게시판</option>
+                            <option value="3">사장 게시판</option>
 
-                            <c:forEach var="i" begin="0" end="2" step="1">
-                                <c:set var="cat" value="${category[i]}"/>
-                                <c:choose>
-                                    <c:when test="${search.mSearchMember == i+1}">
-                                        <option value="${cat.categoryNo}" selected>${cat.categoryName}</option>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="${cat.categoryNo}">${cat.categoryName}</option>
-                                    </c:otherwise>
-    
-                                </c:choose>
-    
-                            </c:forEach>
                         </select>
     
                         <select name="allSearch" class="category">
@@ -125,8 +116,10 @@
                             <option>100</option>
                         </select>
      -->
-                        <input type="number" name="reportAccuSearchNum" class="reportAccumulate active"
-                            placeholder="신고수를 입력하세요.">
+                        <input type="number" name="reportAccuSearchNum1" class="reportAccumulate active"
+                            placeholder="시작 신고 수"> ~ 
+                        <input type="number" name="reportAccuSearchNum2" class="reportAccumulate active"
+                        placeholder="끝 신고 수">
                     </td>
                 </tr>
                
