@@ -628,7 +628,26 @@ FROM REPLY
 --------------------------------------------------------------------------------
 --[좋아요]
 
---좋아요 
+
+
+--좋아요 UP /DOWN
+INSERT INTO LIKE_BOARD VALUES (61 , 4)
+;
+
+DELETE FROM LIKE_BOARD 
+WHERE BOARD_NO2=60
+AND MEMBER_NO2=4
+;
+
+
+--============================================
+
+--좋아요 상태
+SELECT NVL2(MIN(MEMBER_NO2),1,0) LIKE_ST
+FROM LIKE_BOARD
+WHERE BOARD_NO2=?
+AND MEMBER_NO2=?
+;
 
 --좋아요개수+좋아요상태
 SELECT COUNT(MEMBER_NO2) AS LIKE_COUNT,
@@ -641,6 +660,14 @@ AND MEMBER_NO2=1
 FROM LIKE_BOARD
 WHERE BOARD_NO2=4
 ;
+--(x)
+
+SELECT NVL2(MIN(MEMBER_NO2),1,0) LIKE_ST
+FROM LIKE_BOARD
+WHERE BOARD_NO2=61
+AND MEMBER_NO2=4
+;
+
 
 SELECT NVL2(MIN(MEMBER_NO2),1,0) LIKE_ST
 FROM LIKE_BOARD

@@ -19,10 +19,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <!-- 헤더 -->
+    <!-- 헤더/풋터 -->
     <script src="https://kit.fontawesome.com/58046189b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/common/headerLogin.css">
-    
+    <link rel="stylesheet" href="${contextPath}/resources/css/common/footer.css">
+
 
 
 </head>
@@ -39,7 +40,7 @@
 
     <div id="mainContainer">
 
-        <form action="write?mode=insert" method="post">
+        <form action="write?mode=insert&type=${param.type}" method="post">
 
             <!-- 상단 카테고리 -->
             <div id="boardCategory">
@@ -61,9 +62,9 @@
                 
                 <!-- 모두 -->
                 <c:if test="${param.type==1}">
-                    <select class="all"  name="type">
-                        <option name="type" value="2">알바</option>
-                        <option name="type" value="3">사장</option>
+                    <select class="all"  name="boardCode">
+                        <option name="aaaaa" value="2">알바</option>
+                        <option name="boardCode" value="3">사장</option>
                     </select>
     
                 </c:if>
@@ -71,18 +72,18 @@
 
                 <!-- 알바 --> 
                  <c:if test="${param.type==2}">
-                    <select class="wor"  name="type">
+                    <select class="wor"  name="boardCode">
                         <!-- <option selected hidden disabled>직종</option> -->
-                        <option name="type" value="4">외식/음료</option>
-                        <option name="type" value="5">매장 관리</option>
-                        <option name="type" value="6">서비스</option>
-                        <option name="type" value="7">사무직</option>
-                        <option name="type" value="8">운전/배달</option>
-                        <option name="type" value="9">생산</option>
-                        <option name="type" value="10">디자인</option>
-                        <option name="type" value="11">IT</option>
-                        <option name="type" value="12">교육</option>
-                        <option name="type" value="13">기타</option>
+                        <option name="aaaaaaa" value="4">외식/음료</option>
+                        <option name="boardCode" value="5">매장 관리</option>
+                        <option name="boardCode" value="6">서비스</option>
+                        <option name="boardCode" value="7">사무직</option>
+                        <option name="boardCode" value="8">운전/배달</option>
+                        <option name="boardCode" value="9">생산</option>
+                        <option name="boardCode" value="10">디자인</option>
+                        <option name="boardCode" value="11">IT</option>
+                        <option name="boardCode" value="12">교육</option>
+                        <option name="boardCode" value="13">기타</option>
                     </select>
                  </c:if>
               
@@ -91,15 +92,15 @@
                 <!-- 사장 -->
                 <c:if test="${param.type==3}">
                     <select class="ceo"  name="type">
-                        <option name="type" value="14">요식업</option>
-                        <option name="type" value="15">숙박업</option>
-                        <option name="type" value="16">제조업</option>
-                        <option name="type" value="17">배송업</option>
-                        <option name="type" value="18">정보서비스업</option>
-                        <option name="type" value="19">시설관리업</option>
-                        <option name="type" value="20">교육관리업</option>
-                        <option name="type" value="21">여가관리업</option>
-                        <option name="type" value="22">기타</option>
+                        <option name="boardCode" value="14">요식업</option>
+                        <option name="boardCode" value="15">숙박업</option>
+                        <option name="boardCode" value="16">제조업</option>
+                        <option name="boardCode" value="17">배송업</option>
+                        <option name="boardCode" value="18">정보서비스업</option>
+                        <option name="boardCode" value="19">시설관리업</option>
+                        <option name="boardCode" value="20">교육관리업</option>
+                        <option name="boardCode" value="21">여가관리업</option>
+                        <option name="boardCode" value="22">기타</option>
                     </select>
                 </c:if>
                
@@ -135,8 +136,14 @@
 
                 <!-- 게시글제목 및 내용 -->
                 <div class="main">
-                    <textarea name="boardTitle" class="textarea" id="textareaTitle" placeholder="Title"></textarea>
-                    <textarea name="boardContent" class="textarea" id="textareaContent" placeholder="Content"></textarea>
+
+                    
+                    <textarea name="boardTitle" class="textarea" id="textareaTitle" placeholder="Title">${detail.boardTitle}</textarea>
+
+
+                    <textarea name="boardContent" class="textarea" id="textareaContent" placeholder="Content">${detail.boardContent}</textarea>
+
+
                 </div>
                 <div class="side">
                     <button class="sideCircle">
@@ -211,6 +218,14 @@
 
 
     </div>
+
+
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>    
+
+    
+
+    <!-- 게시글뿌려준후 session에서 제거 -->
+    <c:remove var="detail" scope="session"/>
 
 
     <script src="${contextPath}/resources/js/kis/boardWrite.js"></script>

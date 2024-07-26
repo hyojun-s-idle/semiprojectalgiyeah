@@ -5,74 +5,82 @@ const workerHotPost = document.querySelectorAll(".workerHotSlider");
 const ceoHotPost = document.querySelectorAll(".ceoHotSlider");
 
 const pathnameh = location.pathname;
-let urlh = pathnameh.substring(0, pathnameh.indexOf("/",1));
-(function(){
+let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
+(function () {
 
     $.ajax({
-        url : urlh + "/hotPost/all",
-        data : {"type": 1},
-        dataType : "JSON",
-        type : "GET",
-        success : function(post){
-            
-                for(let i = 5 ; i > 2; i--){
-                    createHotPost(allHotPost[0],post[i],i-1)
-                }
-    
-                for(let i = 2 ; i >= 0; i--){
-                    createHotPost(allHotPost[1],post[i],i+2)
-                }
+        url: urlh + "/hotPost/all",
+        data: { "type": 1 },
+        dataType: "JSON",
+        type: "GET",
+        success: function (post) {
 
-            
+
+
+
+
+            for (let i = 5; i > 2; i--) {
+                createHotPost(allHotPost[0], post[i], i - 1)
+                
+            }
+
+            for (let i = 2; i >= 0; i--) {
+                createHotPost(allHotPost[1], post[i], i + 2)
+                
+            }
+
+
 
         },
-        error : function(){
+        error: function () {
             console.log("에러 발생")
         }
     });
 
     $.ajax({
-        url : urlh + "/hotPost/all",
-        data : {"type": 2},
-        dataType : "JSON",
-        type : "GET",
-        success : function(post){
-            
-                for(let i = 5 ; i > 2; i--){
-                    createHotPost(workerHotPost[0],post[i],i+2)
-                }
-    
-                for(let i = 2 ; i >= 0; i--){
-                    createHotPost(workerHotPost[1],post[i],i+1)
-                }
+        url: urlh + "/hotPost/all",
+        data: { "type": 2 },
+        dataType: "JSON",
+        type: "GET",
+        success: function (post) {
 
-            
+            for (let i = 5; i > 2; i--) {
+                
+                createHotPost(workerHotPost[0], post[i], i + 2)
+            }
+
+            for (let i = 2; i >= 0; i--) {
+                
+                createHotPost(workerHotPost[1], post[i], i + 1)
+            }
+
+
 
         },
-        error : function(){
+        error: function () {
             console.log("에러 발생")
         }
     });
 
     $.ajax({
-        url : urlh + "/hotPost/all",
-        data : {"type": 3},
-        dataType : "JSON",
-        type : "GET",
-        success : function(post){
-            
-                for(let i = 5 ; i > 2; i--){
-                    createHotPost(ceoHotPost[0],post[i],i+1)
-                }
-    
-                for(let i = 2 ; i >= 0; i--){
-                    createHotPost(ceoHotPost[1],post[i],i+1)
-                }
+        url: urlh + "/hotPost/all",
+        data: { "type": 3 },
+        dataType: "JSON",
+        type: "GET",
+        success: function (post) {
 
-            
+            for (let i = 5; i > 2; i--) {
+                createHotPost(ceoHotPost[0], post[i], i + 1)
+            }
+
+            for (let i = 2; i >= 0; i--) {
+                createHotPost(ceoHotPost[1], post[i], i + 1)
+            }
+
+
 
         },
-        error : function(){
+        error: function () {
             console.log("에러 발생")
         }
     });
@@ -81,9 +89,10 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/",1));
 
 })();
 
-function createHotPost(container,post,i){
+function createHotPost(container, post, i) {
 
     if(post != undefined || post != null){
+
 
         // 가장 바깥
         const gather = document.createElement("div");
@@ -162,6 +171,7 @@ function createHotPost(container,post,i){
         container.append(gather);
     }else{
 
+
         // 가장 바깥
         const gather = document.createElement("div");
         gather.classList.add("hot-post-gather");
@@ -186,19 +196,17 @@ function createHotPost(container,post,i){
 
         container.append(gather);
 
-    }
-
 }
 
-function cutContent(contentText){
+function cutContent(contentText) {
     let comAll = "";
     let comCut = "";
-    for(let i = 0; i < contentText.length; i++){
-        if(contentText > 20){
+    for (let i = 0; i < contentText.length; i++) {
+        if (contentText > 20) {
             comAll = contentText[i].innerText;
-            comCut = contentText[i].innerText.substr(0,16);
+            comCut = contentText[i].innerText.substr(0, 16);
             contentText[i].innerText = comCut + "...";
-            
+
         }
     }
 }

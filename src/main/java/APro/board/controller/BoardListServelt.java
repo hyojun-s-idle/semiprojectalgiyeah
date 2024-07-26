@@ -28,7 +28,7 @@ public class BoardListServelt extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		System.out.println("board/*");
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String command = uri.substring(  (contextPath + "/board/").length()  );
@@ -42,7 +42,7 @@ public class BoardListServelt extends HttpServlet{
 		
 		
 		try {
-			
+
 			// BoardService
 			
 			/*목록 가져오는 페이지 네이션*/
@@ -68,6 +68,7 @@ public class BoardListServelt extends HttpServlet{
 			}
 			
 			
+
 		} catch (Exception e) {
 
 			e.printStackTrace();
