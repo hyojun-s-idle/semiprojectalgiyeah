@@ -29,10 +29,6 @@ public class BoardListServelt extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String uri = req.getRequestURI();
-		String contextPath = req.getContextPath();
-		String command = uri.substring(  (contextPath + "/board/").length()  );
-		
 		
 		BoardService service = new BoardService();
 		
@@ -46,7 +42,7 @@ public class BoardListServelt extends HttpServlet{
 			// BoardService
 			
 			/*목록 가져오는 페이지 네이션*/
-			if(command.equals("boardList")) {
+			
 				
 				int type = Integer.parseInt( req.getParameter("type") ); 
 				
@@ -65,7 +61,7 @@ public class BoardListServelt extends HttpServlet{
 				String path = "/WEB-INF/views/board/allBoardList.jsp";
 
 				req.getRequestDispatcher(path).forward(req, resp);
-			}
+			
 			
 			
 		} catch (Exception e) {
