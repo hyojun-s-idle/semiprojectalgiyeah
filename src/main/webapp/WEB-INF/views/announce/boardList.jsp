@@ -89,7 +89,7 @@
             <c:if test="${!empty param.cp}">
                 <c:set var="cp" value="${param.cp}"/>
             </c:if>
-            <c:if test="${!empty loginMember}">
+            <c:if test="${loginMember.memberTypeCode == 0}">
                 <div class="btn-area">
                     <a href="${contextPath}/manager/manAnnounce/boardWrite?mode=insert&type=${param.type}&cp=${cp}" id="insertBtn">글쓰기</a>
                 </div>
@@ -124,6 +124,7 @@
         </section>
         
     </main>
+    
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     <script src="${contextPath}/resources/js/shy/boardList.js"></script>
     <script src="${contextPath}/resources/js/common/headerProfileClick.js"></script>

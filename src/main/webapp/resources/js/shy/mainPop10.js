@@ -19,6 +19,7 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
         success : function(post){
 
             for(let i = 0; i < 10; i++){
+                
                 createPop(allPop,post[i],i);
 
             }
@@ -55,18 +56,35 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
 
 function createPop(container, post, i){
 
-    const rowsPop = document.createElement("tr");
-    rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
+    if(post != null || post != undefined){
+        const rowsPop = document.createElement("tr");
+        rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
+    
+        const colRanck = document.createElement("td");
+        colRanck.classList.add("pop-num");
+        colRanck.innerText = i+1;
+    
+        const colTitle = document.createElement("td");
+        colTitle.innerText = post.boardTitle;
+    
+        rowsPop.append(colRanck, colTitle);
+    
+        container.append(rowsPop);
 
-    const colRanck = document.createElement("td");
-    colRanck.classList.add("pop-num");
-    colRanck.innerText = i+1;
+    }else{
+        const nothingPost = document.createElement("tr");
 
-    const colTitle = document.createElement("td");
-    colTitle.innerText = post.boardTitle;
+        const nothingText = document.createElement("td");
+        nothingText.classList.add("pop-num");
+        nothingText.innerText = i + 1;
 
-    rowsPop.append(colRanck, colTitle);
+        const nothingTitle = document.createElement("td");
+        nothingTitle.innerText = "게시물이 없습니다.";
 
-    container.append(rowsPop);
+        nothingPost.append(nothingText,nothingTitle);
+
+        container.append(nothingPost);
+    }
+
 
 }

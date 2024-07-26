@@ -28,7 +28,7 @@
         </div>
 
         <section class="mSearch-section">
-            <form action="" name="mSearchForm">
+            <form action="manMemberSearch" name="mSearchForm" onsubmit="return searchValidate()">
                 <table class="mSearchTable">
                     <thead>
                         <tr>
@@ -36,7 +36,7 @@
                             <td>
                                 <select name="mSearchCon" id="mSearchCon">
                                     <option value="id">아이디</option>
-                                    <option value="name">닉네임</option>
+                                    <option value="Nickname">닉네임</option>
                                     <option value="name">이름</option>
                                 </select>
                             
@@ -51,9 +51,9 @@
                             <th>회원</th>
                             <td>
                                 <select name="mSearchMember" id="mSearchMember">
-                                    <option value="0" selected>회원</option>
-                                    <option value="2">알바</option>
-                                    <option value="3">사장</option>
+                                    <option value="0" selected>회원 전체</option>
+                                    <option value="1">알바</option>
+                                    <option value="2">사장</option>
                                 </select>
                             
                             </td>
@@ -122,26 +122,30 @@
                 </tbody>
     
             </table>
+
+            <c:if test="${!empty param.mSearchCon}">
+                <c:set var="sUrl" value="&mSearchCon=${param.mSearchCon}&mSearchConText=${param.mSearchConText}&mSearchMember=${param.mSearchMember}&mSecession=${param.mSecession}"/>
+            </c:if>
             <c:if test="${!empty boardList}">
                 <div class="pagination-area">
                     <c:set var="url" value="manMemberSearch?cp="/>
                     <ul class="pagination">
-                        <li><a href="${url}1">&lt;&lt;</a></li>
-                            <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+                        <li><a href="${url}1${sUrl}">&lt;&lt;</a></li>
+                            <li><a href="${url}${pagination.prevPage}${sUrl}">&lt;</a></li>
         
                             <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
                                 <c:choose>
                                     <c:when test="${pagination.currentPage == i}">
-                                        <li><a href="${url}${i}" class="current">${i}</a></li>
+                                        <li><a href="${url}${i}${sUrl}" class="current">${i}</a></li>
                                     </c:when>
                                     <c:otherwise>
-                                        <li><a href="${url}${i}">${i}</a></li>
+                                        <li><a href="${url}${i}${sUrl}">${i}</a></li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
         
-                            <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                            <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                            <li><a href="${url}${pagination.nextPage}${sUrl}">&gt;</a></li>
+                            <li><a href="${url}${pagination.maxPage}${sUrl}">&gt;&gt;</a></li>
                     </ul>
                 </div>
 

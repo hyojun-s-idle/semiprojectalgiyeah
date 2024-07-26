@@ -83,29 +83,33 @@
                 </tbody>
     
             </table>
-
+            
+            <c:if test="${!empty param.mSearchCon}">
+                <c:set var="sUrl" value="&mSearchCon=${param.mSearchCon}&mSearchConText=${param.mSearchConText}&mSearchMember=${param.mSearchMember}&allSearch=${param.allSearch}&businessSearch=${param.businessSearch}&rectalSearch=${param.rectalSearch}&reportAccuSearchNum1=${param.reportAccuSearchNum1}&reportAccuSearchNum2=${param.reportAccuSearchNum2}"/>
+            </c:if>
             <c:if test="${!empty boardList}">
                 <div class="pagination-area">
+
                     
                     <c:set var="url" value="manPostSearch?cp="/>
                     
                         <ul class="pagination">
-                            <li><a href="${url}1">&lt;&lt;</a></li>
-                            <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+                            <li><a href="${url}1${sUrl}">&lt;&lt;</a></li>
+                            <li><a href="${url}${pagination.prevPage}${sUrl}">&lt;</a></li>
         
                             <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
                                 <c:choose>
                                     <c:when test="${pagination.currentPage == i}">
-                                        <li><a href="${url}${i}" class="current">${i}</a></li>
+                                        <li><a href="${url}${i}${sUrl}" class="current">${i}</a></li>
                                     </c:when>
                                     <c:otherwise>
-                                        <li><a href="${url}${i}">${i}</a></li>
+                                        <li><a href="${url}${i}${sUrl}">${i}</a></li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
         
-                            <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-                            <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+                            <li><a href="${url}${pagination.nextPage}${sUrl}">&gt;</a></li>
+                            <li><a href="${url}${pagination.maxPage}${sUrl}">&gt;&gt;</a></li>
                         </ul>
                     
                 </div>

@@ -138,7 +138,7 @@
         
                 <ul class="post-content tab-active">
                     <c:if test="${empty resultList}">
-                        <li>검색 결과가 없습니다.</li>
+                        <li><h3>검색 결과가 없습니다.</h3></li>
                     </c:if>
 
                     <c:if test="${!empty resultList}">
@@ -169,10 +169,8 @@
                             </li>
                         </c:forEach>
                         <div class="pagination-area">
-                            
                          
-                                <c:set var="url" value="search?conSearch=${param.conSearch}&mSearchMember=${param.mSearchMember}&allSearch=${param.allSearch}&businessSearch=${param.businessSearch}&rectalSearch=${param.rectalSearch}&nSearch=${param.nSearch}&cp="/>
-                            
+                            <c:set var="url" value="search?conSearch=${param.conSearch}&mSearchMember=${param.mSearchMember}&allSearch=${param.allSearch}&businessSearch=${param.businessSearch}&rectalSearch=${param.rectalSearch}&nSearch=${param.nSearch}&cp="/>
 
                             <ul class="pagination">
                                 <li><a href="${url}1">&lt;&lt;</a></li>
