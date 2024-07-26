@@ -90,7 +90,10 @@ addReply.addEventListener("click",function(){
         replyContent.valuew = "";
         return;
     }
+
+    
 console.log(boardNo);
+
     $.ajax({
         url : contextPath + "/areply/insert",
         data : {/* "memberNo" : loginMemberNo, */
@@ -100,7 +103,11 @@ console.log(boardNo);
         success : function(result){
             if(result > 0){
                 alert("댓글 등록되었습니다.");
+
+
                 replyContent.value = "";
+
+
                 selectReplyList();
             }else{ alert("댓글 등록 실패했습니다.");}
         },

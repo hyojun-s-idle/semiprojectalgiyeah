@@ -146,7 +146,7 @@ public class BoardDetailDAO {
 	 * @param memberNo 
 	 * @return
 	 */
-	public int boardLikeSelect(Connection conn, int boardNo, int memberNo) throws Exception {
+	public int boardLikeSelect(Connection conn, int boardNo) throws Exception {
 		int likeCount = 0;
 		
 		try {
@@ -154,7 +154,7 @@ public class BoardDetailDAO {
 			String sql = prop.getProperty("boardLikeSelect");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
-			pstmt.setInt(2, memberNo);
+
 
 			rs = pstmt.executeQuery();
 			
@@ -177,19 +177,52 @@ public class BoardDetailDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public int boardLikeState(Connection conn, int boardNo, int memberNo) {
-		return 0;
+	public int boardLikeState(Connection conn, int boardNo, int memberNo)  throws Exception {
+		int likeState = 0;
+		
+		try {
+
+			String sql = prop.getProperty("boardLikeState");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+
+
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				likeState=rs.getInt(1);
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return likeState;
 	}
 
 	
+	
+	
+	
+	
 
 
+	/** 좋아요 Up
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public int boardLikeUp(Connection conn, int boardNo, int memberNo) throws Exception  {
 		int result = 0;
 		try {
 			String sql = prop.getProperty("boardLikeUp");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
 
 			result = pstmt.executeUpdate();
 
@@ -200,12 +233,72 @@ public class BoardDetailDAO {
 	}
 
 
+	/** 좋아요 Down
+	 * @param conn 
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public int boardLikeDown(Connection conn, int boardNo, int memberNo) throws Exception{
 		int result = 0;
 		try {
 			String sql = prop.getProperty("boardLikeDown");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	
+	
+	/** 게시물 신고
+	 * @param conn
+	 * @param memberNo
+	 * @param boardNo
+	 * @param warn
+	 * @return
+	 */
+	public int boardWarn(Connection conn, int memberNo, int boardNo, String warn)  throws Exception{
+		int result = 0;
+		try {
+			String sql = prop.getProperty("boardWarn");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+			pstmt.setString(3, warn);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/** 댓글신고
+	 * @param conn
+	 * @param memberNo
+	 * @param replyNo
+	 * @param warn
+	 * @return
+	 */
+	public int replyWarn(Connection conn, int memberNo, int replyNo, String warn) throws Exception{
+		int result = 0;
+		try {
+			String sql = prop.getProperty("replyWarn");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, replyNo);
+			pstmt.setString(3, warn);
 
 			result = pstmt.executeUpdate();
 

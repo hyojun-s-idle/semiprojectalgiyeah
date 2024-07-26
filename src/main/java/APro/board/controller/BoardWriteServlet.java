@@ -33,7 +33,6 @@ public class BoardWriteServlet extends HttpServlet {
 				detail.setBoardContent(detail.getBoardContent().replaceAll("<br>", "\n"));	
 				req.setAttribute("detail", detail);
 				
-				System.out.println(boardNo);
 			}
 			
 			
@@ -55,12 +54,18 @@ public class BoardWriteServlet extends HttpServlet {
 			// insert/update 구분없이 전달받은 파라미터 모두꺼내서 변수에저장
 			
 			
-			//*이미지를제외한 게시글 관련정보*
 			String boardTitle=req.getParameter("boardTitle");
 			String boardContent=req.getParameter("boardContent");
-			int boardCode=Integer.parseInt(req.getParameter("type"));
+			
+			
+			int type=Integer.parseInt(req.getParameter("type"));
+			
+			int boardCode=Integer.parseInt(req.getParameter("boardCode"));
 			String mode=req.getParameter("mode");
 			
+			
+			System.out.println("type: "+type);
+			System.out.println("boardCode: "+boardCode);
 
 			
 			
@@ -95,12 +100,14 @@ public class BoardWriteServlet extends HttpServlet {
 				
 				int boardNo=new BoardWriteService().insertBoard(detail, boardCode);
 				
+				
 				if(boardNo >0) { 
-//					session.setAttribute("message", "게시글등록 성공");
-					path="boardList/detail?no="+boardNo +"&type="+boardCode;
+					session.setAttribute("message", "게시글등록 성공");
+					path="boardList/detail?no="+boardNo +"&type="+type;
+					
 					
 				}else {
-//					session.setAttribute("message", "게시글등록 실패");
+					session.setAttribute("message", "게시글등록 실패");
 					path=req.getHeader("referer");
 				}
 				

@@ -15,13 +15,14 @@ import APro.board.service.BoardService;
 import APro.board.service.ReplyService;
 import APro.board.vo.BoardDetail;
 import APro.board.vo.Reply;
+import APro.member.model.vo.Member;
 
 @WebServlet("/board/boardList/detail/*")
 public class BoardDetailServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		System.out.println("board/detail");
 		String uri = req.getRequestURI();
 
 		String contextPath = req.getContextPath();
@@ -37,6 +38,10 @@ public class BoardDetailServlet extends HttpServlet {
 		
 		try {
 
+			
+			
+			
+			
 			//게시글 상세조회
 			if (command.equals("detail")) {
 
@@ -51,7 +56,15 @@ public class BoardDetailServlet extends HttpServlet {
 					List<Reply> rList = new ReplyService().selectReplyList(boardNo);
 					req.setAttribute("rList", rList);
 				}
+				
+				
+				
+				//좋아요 상태
+//				int memberNo=((Member)req.getSession().getAttribute("loginMember")).getMemberNo();
 
+				System.out.println("*****************************************************");
+//				System.out.println("memberNo : "+memberNo);
+				System.out.println("*****************************************************");
 				
 				
 
@@ -64,15 +77,30 @@ public class BoardDetailServlet extends HttpServlet {
 			
 			
 			
+			
+			
+			
+			
+			
 			//게시글 삭제
 			if (command.equals("detail/delete")) {
 				
 				int boardNo = Integer.parseInt(req.getParameter("no"));
 				int result=service.boardDelete(boardNo);
 				
+				int type =0;
+				if(	req.getParameter("type")!=null) {
+					System.out.println("parse전 : "+req.getParameter("type"));
+					
+					 type = Integer.parseInt(req.getParameter("type"));
+					 
+					 System.out.println("parse후 : "+Integer.parseInt(req.getParameter("type")));
+					 
+					 resp.sendRedirect("../../"+"boardList"+"?type="+type);
+				}else {
+					resp.sendRedirect(contextPath);
+				}
 				
-				int type = Integer.parseInt(req.getParameter("type"));
-				resp.sendRedirect("../../"+"boardList"+"?type="+type);
 				
 			}
 			

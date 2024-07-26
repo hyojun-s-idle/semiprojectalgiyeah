@@ -44,6 +44,9 @@ public class BoardDetail {
 	
 	
 	
+	//좋아요 상태 반영
+	private int likeState;
+	
 
 	
 
