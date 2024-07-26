@@ -53,6 +53,47 @@
 	</entry>
 	
 	
+	<!-- 좋아요 상태조회 -->
+	<entry key="boardLikeState">
+		SELECT NVL2(MIN(MEMBER_NO2),1,0) LIKE_ST
+		FROM LIKE_BOARD
+		WHERE BOARD_NO2=?
+		AND MEMBER_NO2=?
+	</entry>
+	
+	
+	
+	
+	<!-- 좋아요 Up -->
+	<entry key="boardLikeUp">
+		INSERT INTO LIKE_BOARD VALUES (? , ?)
+	</entry>
+	
+	<!-- 좋아요 Down -->
+	<entry key="boardLikeDown">
+		DELETE FROM LIKE_BOARD 
+		WHERE BOARD_NO2=?
+		AND MEMBER_NO2=?
+	</entry>
+		
+	
+	
+	<!-- 게시글 신고 -->
+	<entry key="boardWarn">
+		INSERT INTO REPORT
+		VALUES(?, 1, ?, ?, DEFAULT)
+	</entry>
+	
+	<!-- 댓글 신고 -->
+	<entry key="replyWarn">
+		INSERT INTO REPORT
+		VALUES(?, 2, ?, ?, DEFAULT)
+	</entry>
+	
+	
+	
+	
+	
 	
 	
 	

@@ -68,9 +68,9 @@ public class BoardDetailService {
 	 * @param memberNo 
 	 * @return
 	 */
-	public int boardLikeSelect(int boardNo, int memberNo) throws Exception {
+	public int boardLikeSelect(int boardNo) throws Exception {
 		Connection conn = getConnection();
-		int likeCount = dao.boardLikeSelect(conn, boardNo, memberNo);
+		int likeCount = dao.boardLikeSelect(conn, boardNo);
 
 		close(conn);
 		return likeCount;
@@ -82,7 +82,7 @@ public class BoardDetailService {
 	 * @param memberNo
 	 * @return
 	 */
-	public int boardLikeState(int boardNo, int memberNo) {
+	public int boardLikeState(int boardNo, int memberNo) throws Exception{
 		Connection conn = getConnection();
 		int likeState = dao.boardLikeState(conn, boardNo, memberNo);
 
@@ -100,10 +100,8 @@ public class BoardDetailService {
 		Connection conn = getConnection();
 		int result = dao.boardLikeUp(conn, boardNo, memberNo);
 
-		if (result > 0)
-			commit(conn);
-		else
-			rollback(conn);
+		if (result > 0) commit(conn);
+		else rollback(conn);
 
 		close(conn);
 		return result;
@@ -121,10 +119,45 @@ public class BoardDetailService {
 		Connection conn = getConnection();
 		int result = dao.boardLikeDown(conn, boardNo, memberNo);
 
-		if (result > 0)
-			commit(conn);
-		else
-			rollback(conn);
+		if (result > 0)	commit(conn);
+		else rollback(conn);
+
+		close(conn);
+		return result;
+	}
+
+	
+	/** 게시물 신고
+	 * @param memberNo
+	 * @param boardNo
+	 * @param warn
+	 * @return
+	 */
+	public int boardWarn(int memberNo, int boardNo, String warn)  throws Exception{
+		
+		Connection conn = getConnection();
+		int result = dao.boardWarn(conn, memberNo, boardNo, warn);
+
+		if (result > 0)	commit(conn);
+		else rollback(conn);
+
+		close(conn);
+		return result;
+	}
+
+	
+	/** 댓글 신고
+	 * @param memberNo
+	 * @param replyNo
+	 * @param warn
+	 * @return
+	 */
+	public int replyWarn(int memberNo, int replyNo, String warn) throws Exception{
+		Connection conn = getConnection();
+		int result = dao.replyWarn(conn, memberNo, replyNo, warn);
+
+		if (result > 0)	commit(conn);
+		else rollback(conn);
 
 		close(conn);
 		return result;

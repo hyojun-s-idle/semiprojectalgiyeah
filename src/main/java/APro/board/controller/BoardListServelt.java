@@ -38,7 +38,7 @@ public class BoardListServelt extends HttpServlet{
 		
 		
 		try {
-			
+
 			// BoardService
 			
 			/*목록 가져오는 페이지 네이션*/
@@ -64,6 +64,7 @@ public class BoardListServelt extends HttpServlet{
 			
 			
 			
+
 		} catch (Exception e) {
 
 			e.printStackTrace();

@@ -50,7 +50,6 @@ public class ManAnWriteServlet extends HttpServlet {
 		int cp = Integer.parseInt( req.getParameter("cp"));
 		int boardNo = Integer.parseInt(req.getParameter("no"));
 		HttpSession session = req.getSession();
-		// Member loginMember = session.getAttribute("loginMember");
 		int memberNo = 5;
 		
 		AnBoardDetail detail = new AnBoardDetail();

@@ -55,17 +55,18 @@ function selectReplyList() {
                 const div12122= document.createElement("button");
                 div12122.classList.add("icon","updating","updatingReply");
                 div12122.setAttribute("onclick","updateReply("+reply.replyNo + ", this)");
-
-
+                
+                
                 const div121211= document.createElement("span");
                 div121211.classList.add("material-symbols-outlined");
                 const div121221= document.createElement("span");
                 div121221.classList.add("material-symbols-outlined");
-
-
+                
+                
                 // 우측
                 const div12123= document.createElement("button");
                 div12123.classList.add("icon","warning");
+                div12123.setAttribute("onclick","warnReply("+reply.replyNo + ")" );
                 const div12124= document.createElement("button");
                 div12124.classList.add("icon","replyingNested");
 
@@ -208,7 +209,7 @@ rbt.addEventListener("click", function () {
             }
 
 
-            replyContent.value = "";
+            con.value = "";
         },
         error: function (req, status, error) {
             console.log("댓글등록실패");

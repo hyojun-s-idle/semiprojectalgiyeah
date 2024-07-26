@@ -56,6 +56,7 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
 
 function createPop(container, post, i){
 
+
     if(post != null || post != undefined){
         const rowsPop = document.createElement("tr");
         rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
