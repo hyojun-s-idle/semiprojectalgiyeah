@@ -26,17 +26,17 @@
                     <h1>알바님 회원가입</h1>
                     <div class="id-area">
                         <h3>아이디</h3>
-                        <input type="text" id="memberId" name="memberId" placeholder="4자~20자리" maxlength="20">
+                        <input type="text" id="memberId" name="memberId" placeholder="영어 소문자 시작 4-20자" maxlength="20">
                         <br><span id="id-msg"></span>
                     </div>
                     <div class="pw-area">
                         <h3>비밀번호</h3>
-                        <input type="text" id="memberPw" name="memberPw" placeholder="8~16자리" maxlength="16">
+                        <input type="text" id="memberPw" name="memberPw" placeholder="영어,숫자,특수문자 포함 8-16자" maxlength="16">
                         <br><span id="pw-msg"></span>
                     </div>
                     <div class="pw-check-area">
                         <h3>비밀번호 확인</h3>
-                        <input type="text" id="memberPwConfirm" name="memberPwConfirm" placeholder="8~16자리" maxlength="16">
+                        <input type="text" id="memberPwConfirm" name="memberPwConfirm" placeholder="비밀번호 재입력" maxlength="16">
                         <br><span id="pwd-msg"></span>
                     </div>
                     <div class="name-area">
@@ -73,7 +73,7 @@
 
                     <div class="nickName-area">
                         <h3>닉네임</h3>
-                        <input type="text" id="memberNickname" name="memberNickname">
+                        <input type="text" id="memberNickname" name="memberNickname" placeholder="3-12자리" maxlength="12">
                         <br><span id="nick-msg"></span>
                     </div>
 
@@ -120,7 +120,7 @@
                     </div>
                     <div class="answer-area">
                         <h3>답변</h3>
-                        <input type="text" id="memberA" name="memberA">
+                        <input type="text" id="memberA" name="memberA" placeholder="답변 입력">
                         <br><span id="a-msg"></span>
                     </div>
                     <div class="email-area">

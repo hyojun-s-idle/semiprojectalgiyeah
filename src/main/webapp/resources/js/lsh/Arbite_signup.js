@@ -321,14 +321,14 @@ memberA.addEventListener("input", function () {
       return;
    }
 
-   const regExpA = /[가-힣a-zA-Z]{4}/;
+   const regExpA = /[가-힣a-zA-Z]{1}/;
 
    if (regExpA.test(memberA.value)) { // 유효한 경우
       checkObj2.memberA = confirmMsg(aMsg, "유효한 답변입니다.");
       console.log(memberQ.value)
       console.log(memberJob.value)
    } else {
-      checkObj2.memberA = errorMsg(aMsg, "답변을 4자 이상 입력해주세요");
+      checkObj2.memberA = errorMsg(aMsg, "유효하지 않은 답변입니다.");
    }
 
 })
