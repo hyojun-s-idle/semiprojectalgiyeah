@@ -712,4 +712,33 @@ public class ManagerDAO {
 		return result;
 	}
 
+	/**게시판 댓글 수 확인 DAO
+	 * @param conn
+	 * @param deleteNo
+	 * @return replCount
+	 * @throws Exeption
+	 */
+	public int countComment(Connection conn, int deleteNo) throws Exception {
+		int replyCount = 0;
+		
+		try {
+			String sql = prop.getProperty("countComment");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deleteNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				replyCount = rs.getInt(1);
+			}
+					
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return replyCount;
+	}
+
 }

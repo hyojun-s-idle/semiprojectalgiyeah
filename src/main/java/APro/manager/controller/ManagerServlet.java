@@ -188,9 +188,9 @@ public class ManagerServlet extends HttpServlet {
 				int result = mService.deleteReport(boardNo, deleteType);
 				
 				if(result > 0) {
-					session.setAttribute("message", "신고 댓글을 삭제했습니다.");
+					session.setAttribute("message", "신고 게시판을 삭제했습니다.");
 				}else {
-					session.setAttribute("message", "신고 댓글 삭제를 실패했습니다.");
+					session.setAttribute("message", "신고 게시판 삭제를 실패했습니다.");
 				}
 				path = "/manager/manPostSearch";
 			}
