@@ -174,10 +174,13 @@ public class ManagerServlet extends HttpServlet {
 				
 				if(result > 0) {
 					session.setAttribute("message", "신고 댓글을 삭제했습니다.");
+					path ="/manager/manCommentSearch";
 				}else {
 					session.setAttribute("message", "신고 댓글 삭제를 실패했습니다.");
+					path = req.getHeader("referer");
+					resp.sendRedirect(path);
+					return;
 				}
-				path ="/manager/manCommentSearch";
 			}
 			
 			if(command.equals("postDetail/delete")) {
@@ -189,10 +192,13 @@ public class ManagerServlet extends HttpServlet {
 				
 				if(result > 0) {
 					session.setAttribute("message", "신고 게시판을 삭제했습니다.");
+					path = "/manager/manPostSearch";
 				}else {
 					session.setAttribute("message", "신고 게시판 삭제를 실패했습니다.");
+					path = req.getHeader("referer");
+					resp.sendRedirect(path);
+					return;
 				}
-				path = "/manager/manPostSearch";
 			}
 			req.setAttribute("category", category);
 			req.getRequestDispatcher(path).forward(req, resp);
