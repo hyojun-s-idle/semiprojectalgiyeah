@@ -27,65 +27,6 @@ function selectLike(){
     })
 }
 
-function likeUp(){
-    $.ajax({
-        url: contextPath + "/like/up",
-        data: {
-            "memberNo": loginMemberNo,
-            "boardNo": boardNo
-        },
-        type: "GET",
-        success: function (result) {
-
-            if (result > 0) {
-                alert("좋아요등록 성공");
-
-                selectLike();
-
-
-
-            }else{
-                alert("좋아요등록 실패");
-            }
-
-
-        },
-        error: function (req, status, error) {
-            console.log("좋아요등록실패");
-            console.log(req.responseText);
-        }
-    })
-}
-
-
-function likeDown(){
-    $.ajax({
-        url: contextPath + "/like/down",
-        data: {
-            "memberNo": loginMemberNo,
-            "boardNo": boardNo
-        },
-        type: "GET",
-        success: function (result) {
-
-            if (result > 0) {
-                alert("좋아요취소 성공");
-
-                selectLike();
-                $('.boardLike').css("backgroundColor","transparent");
-
-            }else{
-                alert("좋아요취소 실패");
-            }
-
-
-        },
-        error: function (req, status, error) {
-            console.log("좋아요취소실패");
-            console.log(req.responseText);
-        }
-    })
-}
 
 
 
@@ -112,7 +53,6 @@ $(document).on("click",".boardLiking",function(){
             success: function (result) {
     
                 if (result > 0) {
-                    alert("좋아요등록 성공");
     
                     selectLike();
                     $('.boardLike').addClass("likeUp");
@@ -144,7 +84,6 @@ $(document).on("click",".boardLiking",function(){
             success: function (result) {
     
                 if (result > 0) {
-                    alert("좋아요취소 성공");
 
                     selectLike();
                     $('.boardLike').removeClass("likeUp");
