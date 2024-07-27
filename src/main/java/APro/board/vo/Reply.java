@@ -25,4 +25,10 @@ public class Reply {
 	private String profileImage;
 	
 	
+	//수행결과 반환
+	private int result;
+	private int replyCount;
+
+	
+	
 }

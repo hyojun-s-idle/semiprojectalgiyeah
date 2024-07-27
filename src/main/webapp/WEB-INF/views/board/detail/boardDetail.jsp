@@ -147,7 +147,7 @@
                                                     speaker_notes
                                                 </span>
                                                 <!-- 나중에넣기 -->
-                                                <p class="numbering ">${detail.replyCount}</p>
+                                                <p class="numbering replyNum">${detail.replyCount}</p>
 
 
                                             </button>
