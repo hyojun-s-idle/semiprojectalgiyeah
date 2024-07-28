@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/main/minimumwageNumbering.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/treemap.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/main/jukeBox.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/main/mainSide.css">
     
     <link rel="stylesheet" href="${contextPath}/resources/css/main/calc.css">
     
@@ -99,18 +100,15 @@
                 <jsp:include page="/WEB-INF/views/main/mainPopPostTitle10.jsp"/>
                 
 				<!-- 계산기영역-->
-				
                 <jsp:include page="/WEB-INF/views/main/calc.jsp"/>
                 
-                <div>
-                    ${contextPath}/board/allList/detail
-                    <a href="${contextPath}/board/side/twelveBoard">12글자 게시판</a>
-                    <a href="#">불꽃 게시판</a>
-                    <a href="#">균형 게시판</a>
-                </div>
+
 
 
                 <jsp:include page="/WEB-INF/views/main/mainTreemap.jsp"/>
+
+                <jsp:include page="/WEB-INF/views/main/mainSide.jsp"/>
+
 
                 <jsp:include page="/WEB-INF/views/main/mainJukeBox.jsp"/>
 
