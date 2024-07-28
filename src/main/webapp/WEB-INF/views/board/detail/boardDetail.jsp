@@ -41,6 +41,7 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_color.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_js.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/updateReply.css">
+                <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_like.css">
 
 
                 <!-- 색채 -->
@@ -238,17 +239,31 @@
                                         <p><br></p>
 
 
-                                        <c:if test="${detail.likeState==0}">
-                                            <span class="material-symbols-outlined boardLike">
-                                                favorite
-                                            </span>
-                                        </c:if>
+                                        
+                                            <div class="likeBox">
+                                                <c:if test="${detail.likeState==0}">
+                                                    <span class="material-symbols-outlined boardLike likeDn">
+                                                        favorite
+                                                    </span>
+                                                </c:if>
 
-                                        <c:if test="${detail.likeState==1}">
-                                            <span class="material-symbols-outlined boardLike likeUp">
-                                                favorite
-                                            </span>
-                                        </c:if>
+                                                <c:if test="${detail.likeState==1}">
+                                                    <span class="material-symbols-outlined boardLike likeUp real">
+                                                        favorite
+                                                    </span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy1">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy2">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy3">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy4">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy5">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy6">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy7">favorite</span>
+                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy8">favorite</span>
+                                                </c:if>
+
+                                            </div>
+
+
 
                                         <p class="likeNum">${detail.likeCount}</p>
 

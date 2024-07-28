@@ -55,7 +55,11 @@ $(document).on("click",".boardLiking",function(){
                 if (result > 0) {
     
                     selectLike();
+
+                    $('.boardLike').removeClass("likeDn");
                     $('.boardLike').addClass("likeUp");
+                    $('.boardLike').addClass("real");
+                    upMotion();
 
     
                 }else{
@@ -86,8 +90,13 @@ $(document).on("click",".boardLiking",function(){
                 if (result > 0) {
 
                     selectLike();
+
+                    dnMotion();
                     $('.boardLike').removeClass("likeUp");
-    
+                    $('.boardLike').removeClass("real");
+                    $('.boardLike').addClass("likeDn");
+                    
+
                 }else{
                     alert("좋아요취소 실패");
                 }
@@ -108,4 +117,22 @@ $(document).on("click",".boardLiking",function(){
 
 
 
-//
+// 좋아요Up 함수
+function upMotion(){
+
+    for(let i=1 ; i<=8 ; i++){
+        const span=document.createElement("span");
+        span.classList.add("material-symbols-outlined","boardLike","likeUp","dummy",  "dummy"+i);
+        $(span).text("favorite");
+        $('.likeBox').append(span);
+    }
+
+}
+
+// 좋아요Down 함수
+function dnMotion(){
+
+    $('.likeBox').find('span').remove('.dummy');
+
+
+}
