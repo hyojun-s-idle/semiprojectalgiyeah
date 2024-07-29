@@ -3,3 +3,16 @@ pull만 하고 싶다...
 오 갑자기 풀만 되는는데
 뭐지
 일단 테스트 여러번 간다
+
+<Resource 
+      name="jdbc/oracle" 
+      auth="Container"
+      type="javax.sql.DataSource" 
+      driverClassName="oracle.jdbc.OracleDriver"
+      url="jdbc:oracle:thin:@localhost:1521:xe"
+      username="APro" 
+      password="APro1234" 
+      maxTotal="50"      
+      maxIdle="10"
+      maxWaitMillis="-1"
+    />

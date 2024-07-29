@@ -67,7 +67,7 @@
             <div class="board-btn-area">
                 <c:if test="${loginMember.memberTypeCode == 0}">
                     <button type="button" id="updateBtn" onclick="location.href='${contextPath}/manager/manAnnounce/boardWrite?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
-                    <button type="button" id="deleteBtn" onclick="location.href='${contextPath}/announce/boardList/detail/delete?type=${param.type}&no=${param.no}&cp=${param.cp}'">삭제</button>
+                    <button type="button" id="deleteBtn">삭제</button>
 
                 </c:if>
                 <button type="button" id="goToListBtn">목록으로</button>

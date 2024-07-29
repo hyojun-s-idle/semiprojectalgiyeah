@@ -7,7 +7,6 @@ function selectReplyList() {
         type: "GET",
         dataType: "JSON",
         success: function (rList) {
-            
 
 
             //0준위
@@ -198,23 +197,15 @@ rbt.addEventListener("click", function () {
             "boardNo": boardNo
         },
         type: "POST",
-        dataType: "JSON",
-        success: function (reply) {
+        success: function (result) {
 
+            if (result > 0) {
+                alert("댓글등록성공");
 
-
-      
-            
-            
-            if (reply.result > 0) {
-                alert("댓글등록 성공");
-
-                $('.replyNum').text(reply.replyCount);
                 selectReplyList();
 
-
             }else{
-                alert("댓글등록 실패");
+                alert("댓글등록실패");
             }
 
 
@@ -233,23 +224,18 @@ function deleteReply(replyNo){
     if( confirm("정말로 삭제하시겠습니까?")){
         $.ajax({
             url     : contextPath + "/reply/delete",
-            data    : { 
-                "replyNo" : replyNo,
-                "boardNo": boardNo
-            },
+            data    : { "replyNo" : replyNo},
             type    : "GET",
-            dataType: "JSON",
-            success : function(reply){
+            success : function(result){
 
-                if(reply.result > 0){
-                    alert("댓글삭제 성공");
+                if(result !=0){
+                    alert("삭제성공");
 
-                    
-                    $('.replyNum').text(reply.replyCount);
+
                     selectReplyList();
 
                 }else{
-                    alert("댓글삭제 실패");
+                    alert("삭제실패");
                 }
 
             },

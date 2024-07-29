@@ -52,6 +52,8 @@ public class BoardWriteServlet extends HttpServlet {
 		try {
 			
 			// insert/update 구분없이 전달받은 파라미터 모두꺼내서 변수에저장
+			
+			
 			String boardTitle=req.getParameter("boardTitle");
 			String boardContent=req.getParameter("boardContent");
 			
