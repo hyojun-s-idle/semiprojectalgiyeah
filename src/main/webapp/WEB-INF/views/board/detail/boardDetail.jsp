@@ -9,9 +9,9 @@
             <c:set var="type" value="${sub.substring(0,sub.length()-7)}" />
 
             <!-- 변수설정 -->
+
             <c:set var="type" value="${param.type}" />
             <c:set var="no" value="${param.no}" />
-            <c:set var="likeState" value="${detail.likeState}" />
 
 
             <!DOCTYPE html>
@@ -41,7 +41,6 @@
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_color.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_js.css">
                 <link rel="stylesheet" href="${contextPath}/resources/css/kis/updateReply.css">
-                <link rel="stylesheet" href="${contextPath}/resources/css/kis/board_like.css">
 
 
                 <!-- 색채 -->
@@ -139,7 +138,7 @@
                                                 <span class="viewing material-symbols-outlined" id="viewingBoard">
                                                     visibility
                                                 </span>
-                                                <p class="numbering readCounting">${detail.readCount}</p>
+                                                <p class="numbering">${detail.readCount}</p>
                                             </button>
 
                                             <button class="icon replyCounting" type="button">
@@ -148,7 +147,7 @@
                                                     speaker_notes
                                                 </span>
                                                 <!-- 나중에넣기 -->
-                                                <p class="numbering replyNum">${detail.replyCount}</p>
+                                                <p class="numbering ">${detail.replyCount}</p>
 
 
                                             </button>
@@ -166,7 +165,7 @@
 
                                                 <!-- 게시글 삭제버튼 -->
                                                 <button class="icon deleting" id="deletingBoard"
-                                                    onclick="deleteBoardValidate()">
+                                                    onclick="location.href='detail/delete?type=${type}&no=${no}'">
                                                     <span class="material-symbols-outlined">
                                                         delete
                                                     </span>
@@ -237,39 +236,10 @@
 
                                     <button class="icon boardLiking">
                                         <p><br></p>
-
-
-                                        
-                                            <div class="likeBox">
-                                                <c:if test="${detail.likeState==0}">
-                                                    <span class="material-symbols-outlined boardLike likeDn">
-                                                        favorite
-                                                    </span>
-                                                </c:if>
-
-                                                <c:if test="${detail.likeState==1}">
-                                                    <span class="material-symbols-outlined boardLike likeUp real">
-                                                        favorite
-                                                    </span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy1">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy2">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy3">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy4">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy5">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy6">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy7">favorite</span>
-                                                    <span class="material-symbols-outlined boardLike likeUp dummy dummy8">favorite</span>
-                                                </c:if>
-
-                                            </div>
-
-
-
+                                        <span class="material-symbols-outlined boardLike">
+                                            favorite
+                                        </span>
                                         <p class="likeNum">${detail.likeCount}</p>
-
-
-
-
                                     </button>
 
                                 </div>
@@ -469,19 +439,11 @@
 
                 <!-- ajax위한(JS) 변수선언 -->
                 <script>
-                    // 게시글
-                    const type = "${param.type}";
-                    const no = "${detail.boardNo}";
-
                     // 댓글
                     const contextPath = "${contextPath}";
                     const boardNo = "${detail.boardNo}";
                     const loginMemberNo = "${loginMember.memberNo}";
                     const loginMemberNickname = "${loginMember.memberNickname}";
-
-                    //좋아요 최초상태
-                    let likeState = "${detail.likeState}";
-
                 </script>
 
 
@@ -489,7 +451,7 @@
                 <script src="${contextPath}/resources/js/kis/board_updateReply.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_like.js"></script>
                 <script src="${contextPath}/resources/js/kis/board_warning.js"></script>
-                
+
 
 
 

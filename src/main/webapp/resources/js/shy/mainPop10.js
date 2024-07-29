@@ -32,9 +32,8 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
         type : "GET",
         dataType : "JSON",
         success : function(post){
-
             for(let i = 0; i < 10; i++){
-                createPop(workerPop,post[i],i,type);
+                createPop(workerPop,post[i],i);
 
             }
         },
@@ -46,8 +45,6 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
         type : "GET",
         dataType : "JSON",
         success : function(post){
-
-            
             for(let i = 0; i < 10; i++){
                 createPop(ceoPop,post[i],i);
 
@@ -62,7 +59,7 @@ function createPop(container, post, i){
 
     if(post != null || post != undefined){
         const rowsPop = document.createElement("tr");
-        rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo+ "'");
+        rowsPop.setAttribute("onclick", "location.href='"+ urlp + "/board/boardList/detail?no="+post.boardNo +"'");
     
         const colRanck = document.createElement("td");
         colRanck.classList.add("pop-num");

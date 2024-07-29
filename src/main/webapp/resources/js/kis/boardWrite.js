@@ -39,7 +39,7 @@ $('#boardCategory>select').on("blur", function () {
 
 var count = 1;
 $('#mouseRotate').on("click", function () {
-    const containerHeight = $('.containerBox').height();
+    const containerHeight = $('.container').height();
     console.log(containerHeight);
     const containerHeightPortion = containerHeight * 0.75;
     const containerHeightPortionRemain = containerHeight * 0.25;

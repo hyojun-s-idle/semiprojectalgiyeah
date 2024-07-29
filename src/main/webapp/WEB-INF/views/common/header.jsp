@@ -47,7 +47,11 @@
 								</c:if>
 
 
-				
+								
+								<c:if test="${loginMember.memberTypeCode == 0 }">
+									<a href="${contextPath}/manager/manCommentSearch">매니저페이지</a>
+								</c:if>
+											 
 
 					</div>
 

@@ -1,50 +1,7 @@
 
 
 
-COMMIT;
 
-DELETE FROM BOARD;
-DELETE FROM REPLY;
-DELETE FROM LIKE_BOARD;
-COMMIT;
-
-
-
-UPDATE BOARD A SET READ_COUNT=
-(
- SELECT READ_COUNT
- FROM BOARD 
- WHERE BOARD_NO=A.BOARD_NO
-)+1
-WHERE BOARD_NO=87
-;
-COMMIT;
-
- SELECT READ_COUNT
- FROM BOARD 
- WHERE BOARD_NO=87
- ;
-
-
-
-
-
-
-
-
-
---------------------------------------------------------------------------------
-
---게시물신고
-INSERT INTO REPORT
-VALUES(?, 1, ?, ?, DEFAULT);
-
-INSERT INTO REPORT
-VALUES(4, 1, 61, '모름', DEFAULT);
-
-
-
---------------------------------------------------------------------------------
 
 
 
@@ -69,12 +26,6 @@ DEFAULT, DEFAULT, ?, ?)
 UPDATE BOARD SET BOARD_ST='Y' 
 WHERE BOARD_NO=?
 ;
-
---댓글삭제
-UPDATE REPLY SET REPLY_ST='Y' 
-WHERE BOARD_NO=?
-;
-
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
