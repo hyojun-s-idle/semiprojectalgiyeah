@@ -37,9 +37,10 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 
+
     <div id="mainContainer">
 
-        <form action="write?mode=insert&type=${param.type}" method="post">
+        <form action="write?mode=${param.mode}&type=${param.type}&cp=${param.cp}&no=${param.no}" method="post">
 
             <!-- 상단 카테고리 -->
             <div id="boardCategory">

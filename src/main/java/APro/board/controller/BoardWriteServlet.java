@@ -130,7 +130,7 @@ public class BoardWriteServlet extends HttpServlet {
 				String contextPath = req.getContextPath();
 				if(result>0) {
 					session.setAttribute("message", "게시글이 수정되었습니다.");
-					path=contextPath + "/board/boardList/detail?no="+boardNo+"&cp="+cp +"&type="+boardCode;
+					path=contextPath + "/board/boardList/detail?no="+boardNo+"&cp="+cp +"&type="+type;
 				}else {
 					session.setAttribute("message", "게시글수정에 실패하였습니다.");
 					path=req.getHeader("referer");
