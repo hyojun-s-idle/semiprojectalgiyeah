@@ -120,4 +120,4 @@ $(document).on("click",".boardLiking",function(){
 
 
 
-//
+        $('.likeBox').append(span);//
