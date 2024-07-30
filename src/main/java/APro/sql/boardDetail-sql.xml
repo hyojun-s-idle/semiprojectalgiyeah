@@ -43,6 +43,13 @@
 		WHERE BOARD_NO=?
 	</entry>
 	
+	<!-- 게시판댓글 삭제 -->
+	<entry key="boardDeleteReply">
+		UPDATE REPLY SET REPLY_ST='Y' 
+		WHERE BOARD_NO=?
+	</entry>
+	
+	
 	
 	
 	<!-- 좋아요 조회 -->
@@ -92,6 +99,27 @@
 	
 	
 	
+	<!-- 조회수 증가 -->
+	<entry key="viewsCountUp">
+		UPDATE BOARD A SET READ_COUNT=
+		(
+		 SELECT READ_COUNT
+		 FROM BOARD 
+		 WHERE BOARD_NO=A.BOARD_NO
+		)+1
+		WHERE BOARD_NO=?
+	</entry>
+	
+	
+	<!-- 조회수 증가 -->
+	<entry key="viewsCountSt">
+		 SELECT READ_COUNT
+		 FROM BOARD 
+		 WHERE BOARD_NO=?
+	</entry>
+	
+	
+
 	
 	
 	

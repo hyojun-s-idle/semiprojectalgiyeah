@@ -168,31 +168,47 @@ public class ManagerServlet extends HttpServlet {
 			if(command.equals("commentDetail/delete")) {
 				int replyNo = Integer.parseInt(req.getParameter("replyNo"));
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+				if(req.getParameter("cp") != null) {
+					cp = Integer.parseInt(req.getParameter("cp"));
+				}
 				char deleteType = 'r';
 				
 				int result = mService.deleteReport(replyNo, deleteType);
 				
 				if(result > 0) {
 					session.setAttribute("message", "신고 댓글을 삭제했습니다.");
+					path = req.getContextPath()+ "/manager/manCommentSearch?cp="+cp;
+					resp.sendRedirect(path);
+					return;
 				}else {
 					session.setAttribute("message", "신고 댓글 삭제를 실패했습니다.");
+					path = req.getHeader("referer");
+					resp.sendRedirect(path);
+					return;
 				}
-				path ="/manager/manCommentSearch";
 			}
 			
 			if(command.equals("postDetail/delete")) {
 				
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+				if(req.getParameter("cp") != null) {
+					cp = Integer.parseInt(req.getParameter("cp"));
+				}
 				char deleteType = 'b';
 				
 				int result = mService.deleteReport(boardNo, deleteType);
 				
 				if(result > 0) {
-					session.setAttribute("message", "신고 댓글을 삭제했습니다.");
+					session.setAttribute("message", "신고 게시판을 삭제했습니다.");
+					path = req.getContextPath()+"/manager/manPostSearch?cp=" + cp;
+					resp.sendRedirect(path);
+					return;
 				}else {
-					session.setAttribute("message", "신고 댓글 삭제를 실패했습니다.");
+					session.setAttribute("message", "신고 게시판 삭제를 실패했습니다.");
+					path = req.getHeader("referer");
+					resp.sendRedirect(path);
+					return;
 				}
-				path = "/manager/manPostSearch";
 			}
 			req.setAttribute("category", category);
 			req.getRequestDispatcher(path).forward(req, resp);

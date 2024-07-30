@@ -42,6 +42,11 @@ public class MainRackServlet extends HttpServlet {
 				new Gson().toJson(list, resp.getWriter());
 			}
 			
+
+			
+			
+			
+			
 		}catch(Exception e) {
 			
 		}

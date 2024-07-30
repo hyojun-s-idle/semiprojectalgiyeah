@@ -57,6 +57,11 @@ public class MemberController extends HttpServlet{
 			req.getRequestDispatcher("/WEB-INF/views/member/find_pw.jsp").forward(req, resp);
 		}
 		
+		// 마이페이지
+		if(command.equals("myPage")) {
+			req.getRequestDispatcher("/WEB-INF/views/member/myPage.jsp").forward(req, resp);
+		}
+		
 
 		// 비밀번호 변경
 		if(command.equals("changePw")) {

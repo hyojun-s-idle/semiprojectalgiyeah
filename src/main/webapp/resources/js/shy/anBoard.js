@@ -30,27 +30,4 @@
     }
 })();
 
-(function(){
 
-    const deleteBtn = document.getElementById("deleteBtn");
-
-    if(deleteBtn != null){
-        deleteBtn.addEventListener("click",() => {
-            let url = "anDelete";
-
-            const param = new URL(location.href).searchParams;
-            const type = "?type=" + param.get("type");
-            const no = "&no=" + param.get("no");
-            const cp = "&cp=" + param.get("cp");
-
-            url += type + no + cp;
-
-            
-
-            if(confirm("정말로 삭제하시겠습니까?")){
-                location.href = url;
-            }
-
-        });
-    }
-})();

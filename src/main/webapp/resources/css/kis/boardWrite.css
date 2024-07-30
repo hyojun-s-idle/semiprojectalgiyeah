@@ -133,7 +133,7 @@ div {
 
 
 /* 사이드 */
-.container {
+.containerBox {
     width: 1500px;
     box-shadow: 10px 10px 20px 0px black;
     background-color: rgba(255, 255, 255, 0.3);
@@ -388,7 +388,4 @@ textarea:focus{
 }
 #mouseRotate:hover{
     filter: invert(1);
-}
-.footer{
-    height:1000px;
 }

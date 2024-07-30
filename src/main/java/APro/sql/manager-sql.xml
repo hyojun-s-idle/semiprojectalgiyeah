@@ -267,5 +267,12 @@
 	UPDATE REPLY SET REPLY_ST = 'Y' WHERE BOARD_NO = ?
 	</entry>
 	
+	<!-- 신고한 게시판 삭제시 댓글 있는 지 확인 -->
+	<entry key="countComment">
+	SELECT COUNT(*) FROM REPLY
+	WHERE REPLY_ST = 'N'
+	AND BOARD_NO = ?
+	</entry>
+	
 
 </properties>

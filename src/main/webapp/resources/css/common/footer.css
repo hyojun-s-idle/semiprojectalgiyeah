@@ -3,7 +3,13 @@
 footer{
     margin-top: 50px;
     width: 100%;
-    height: 200px;
+
+    /* ********************************************** */
+    /* 세희님!!! 밑에 채워지도록 */
+    /* height -> min-height로 바꾸시는것 어떤지요~!!ㅎㅎ */
+    min-height: 200px;
+    /* ********************************************** */
+
     background-color: #ddd;
     display: flex;
     flex-direction: column;
@@ -37,4 +43,51 @@ footer{
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+/* footer추가 */
+.footer-3,.footer-4,.footer-5,.footer-6{
+    border:none;
+    height: 100px;
+}
+.footer-3{
+    display: flex;
+}
+
+
+.footer-3 li{
+    text-align:center;
+    visibility: hidden;
+}
+
+
+.footer-3 ul:hover li{
+    visibility: visible;
+    transform: scale(2) translateY(-40vh);
+    transition-duration: 1s;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0,0 ,0.3);
+    color:white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+
+
+
+
+
+.footer-3 span:nth-of-type(2), .footer-4 span:nth-of-type(2){
+    font-size: 12px;
+}
+
+.footer-3 span:nth-of-type(3){
+    font-size: 10px;
 }

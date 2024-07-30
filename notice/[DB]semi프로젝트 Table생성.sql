@@ -143,6 +143,9 @@ INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user05', 'pass05', '관리자'
 
 UPDATE MEMBER SET MEMBER_NICK = '관리자' WHERE MEMBER_NO = 5;
 COMMIT;
+
+
+
 -- 게시판
 CREATE TABLE "BOARD" (
    "BOARD_NO"   NUMBER      PRIMARY KEY,
@@ -308,6 +311,14 @@ CREATE TABLE "MEMBER_QA" (
 COMMENT ON COLUMN "MEMBER_QA"."MEMBER_NO" IS '회원번호(시퀀스)';
 COMMENT ON COLUMN "MEMBER_QA"."MEMBER_Q" IS '질문';
 COMMENT ON COLUMN "MEMBER_QA"."MEMBER_A" IS '답변';
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 
 -- 게시판 이름
@@ -916,4 +927,4 @@ SELECT COUNT(*)
 		LEFT JOIN MEMBER_TYPE MT ON(M.MEMBER_TYPE_CD = MT.MEMBER_TYPE_CD)
 		WHERE BOARD_ST = 'N'
 		AND REPLY_ST = 'N'
-	 AND REPLY_CONTENT LIKE '%방%'  )A WHERE RCOUNT = 1 );
+AND BOARD_NO = 9000;	 AND REPLY_CONTENT LIKE '%방%'  )A WHERE RCOUNT = 1 );

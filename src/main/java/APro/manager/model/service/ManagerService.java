@@ -346,7 +346,12 @@ public class ManagerService {
 			
 			if(result > 0) {
 				commit(conn);
-				result = dao.deletePostComment(conn, deleteNo);
+				
+				int replyExsit = dao.countComment(conn,deleteNo);
+				
+				if(replyExsit > 0) {
+					result = dao.deletePostComment(conn, deleteNo);
+				}
 			}
 		}
 		

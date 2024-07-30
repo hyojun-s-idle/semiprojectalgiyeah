@@ -46,11 +46,14 @@ public class BoardDetailService {
 	 */
 	public int boardDelete(int boardNo) throws Exception {
 		Connection conn = getConnection();
-		int result = dao.boardDelete(conn, boardNo);
-		if (result > 0)
-			commit(conn);
-		else
-			rollback(conn);
+		int result=0;
+		int result1 = dao.boardDelete(conn, boardNo);
+		int result2 = dao.boardDeleteReply(conn, boardNo);
+		
+		result=result1;
+		if (result > 0) commit(conn);
+		else rollback(conn);
+			
 		close(conn);
 		return result;
 
@@ -161,6 +164,34 @@ public class BoardDetailService {
 
 		close(conn);
 		return result;
+	}
+
+	
+	/** 조회수 조회
+	 * @param boardNo
+	 * @return
+	 */
+	public int viewsCount(int boardNo) throws Exception{
+		Connection conn = getConnection();
+		int result = dao.viewsCountUp(conn, boardNo);
+
+		
+		int viewsCount=0;
+		if (result > 0)	{
+			commit(conn);
+			
+			viewsCount=dao.viewsCountSt(conn,boardNo);
+			
+		}
+		else {
+			rollback(conn);
+		}
+
+		
+		
+		close(conn);
+		
+		return viewsCount;
 	}
 
 	
