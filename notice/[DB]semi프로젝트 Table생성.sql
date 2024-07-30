@@ -317,6 +317,10 @@ COMMENT ON COLUMN "MEMBER_QA"."MEMBER_A" IS '답변';
 --------------------------------------------------------------------------------
 
 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
 -- 게시판 이름
 SELECT BOARD_NAME 
 FROM BOARD_TYPE
@@ -923,9 +927,4 @@ SELECT COUNT(*)
 		LEFT JOIN MEMBER_TYPE MT ON(M.MEMBER_TYPE_CD = MT.MEMBER_TYPE_CD)
 		WHERE BOARD_ST = 'N'
 		AND REPLY_ST = 'N'
-	 AND REPLY_CONTENT LIKE '%방%'  )A WHERE RCOUNT = 1 );
-     
--- 신고 게시판 삭제시 댓글 수 확인
-SELECT COUNT(*) FROM REPLY
-WHERE REPLY_ST = 'N'
-AND BOARD_NO = 9000;
+AND BOARD_NO = 9000;	 AND REPLY_CONTENT LIKE '%방%'  )A WHERE RCOUNT = 1 );

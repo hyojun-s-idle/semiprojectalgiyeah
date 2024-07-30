@@ -41,7 +41,19 @@ function selectLike(){
 // 좋아요 Up
 $(document).on("click",".boardLiking",function(){
 
-    //좋아요등록
+    console.log(likeState);
+    
+
+    
+    selectLike();
+    //한번조회 <- likeState담기
+    
+
+
+    console.log(likeState);
+
+
+
     if(likeState==0){
         $.ajax({
             url: contextPath + "/like/up",
@@ -53,14 +65,11 @@ $(document).on("click",".boardLiking",function(){
             success: function (result) {
     
                 if (result > 0) {
+                    alert("좋아요등록 성공");
     
                     selectLike();
-
-                    $('.boardLike').removeClass("likeDn");
-                    $('.boardLike').addClass("likeUp");
-                    $('.boardLike').addClass("real");
-                    upMotion();
-
+                    $('.boardLike').css("backgroundColor","red");
+ 
     
                 }else{
                     alert("좋아요등록 실패");
@@ -75,8 +84,6 @@ $(document).on("click",".boardLiking",function(){
         })
     }
 
-
-    // 좋아요취소
     if(likeState==1){
         $.ajax({
             url: contextPath + "/like/down",
@@ -88,15 +95,11 @@ $(document).on("click",".boardLiking",function(){
             success: function (result) {
     
                 if (result > 0) {
+                    alert("좋아요취소 성공");
 
                     selectLike();
-
-                    dnMotion();
-                    $('.boardLike').removeClass("likeUp");
-                    $('.boardLike').removeClass("real");
-                    $('.boardLike').addClass("likeDn");
-                    
-
+                    $('.boardLike').css("backgroundColor","transparent");
+    
                 }else{
                     alert("좋아요취소 실패");
                 }
@@ -117,22 +120,4 @@ $(document).on("click",".boardLiking",function(){
 
 
 
-// 좋아요Up 함수
-function upMotion(){
-
-    for(let i=1 ; i<=8 ; i++){
-        const span=document.createElement("span");
-        span.classList.add("material-symbols-outlined","boardLike","likeUp","dummy",  "dummy"+i);
-        $(span).text("favorite");
-        $('.likeBox').append(span);
-    }
-
-}
-
-// 좋아요Down 함수
-function dnMotion(){
-
-    $('.likeBox').find('span').remove('.dummy');
-
-
-}
+//
