@@ -167,8 +167,7 @@ public class ManagerServlet extends HttpServlet {
 			
 			if(command.equals("commentDetail/delete")) {
 				int replyNo = Integer.parseInt(req.getParameter("replyNo"));
-				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-				if(req.getParameter("cp") != null) {
+				if(req.getParameter("cp") != "") {
 					cp = Integer.parseInt(req.getParameter("cp"));
 				}
 				char deleteType = 'r';
@@ -191,7 +190,7 @@ public class ManagerServlet extends HttpServlet {
 			if(command.equals("postDetail/delete")) {
 				
 				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-				if(req.getParameter("cp") != null) {
+				if(req.getParameter("cp") != "") {
 					cp = Integer.parseInt(req.getParameter("cp"));
 				}
 				char deleteType = 'b';

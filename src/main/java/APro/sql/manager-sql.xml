@@ -157,7 +157,7 @@
 	
 	<entry key="postSearchList2">
 	ORDER BY RCOUNT DESC)
-	WHERE RCOUNT BETWEEN ? AND ?
+	WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 	<!-- 신고 게시판 목록 조회 -->
@@ -178,7 +178,7 @@
 			ORDER BY RCOUNT DESC)A
 		WHERE RCOUNT > 0
 		ORDER BY RCOUNT DESC)
-	WHERE RCOUNT BETWEEN ? AND ?
+	WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 	

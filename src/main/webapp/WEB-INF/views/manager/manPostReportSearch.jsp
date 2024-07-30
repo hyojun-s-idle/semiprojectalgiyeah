@@ -57,8 +57,7 @@
 
                     <c:if test="${!empty boardList}">
                         <c:forEach var="board" items="${boardList}">
-
-                            <tr onclick="location.href='${contextPath}/manager/postDetail?boardNo=${board.boardNo}'">
+                            <tr onclick="location.href='${contextPath}/manager/postDetail?boardNo=${board.boardNo}&cp=${param.cp}'">
                                 <td>${board.reportCount}</td>
                                 <td>${board.memberNickname}</td>
                                 <td>${board.memberType}</td>

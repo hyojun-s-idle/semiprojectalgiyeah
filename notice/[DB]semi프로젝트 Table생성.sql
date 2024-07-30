@@ -182,7 +182,7 @@ BEGIN
         SEQ_BOARD_NO.NEXTVAL, 
         SEQ_BOARD_NO.CURRVAL || '번째 게시글',
         SEQ_BOARD_NO.CURRVAL || '번째 게시글 내용입니다.',
-        DEFAULT, DEFAULT, DEFAULT, DEFAULT, 5, 23
+        DEFAULT, DEFAULT, DEFAULT, DEFAULT, 1, 2
     );
     END LOOP;
 END;
