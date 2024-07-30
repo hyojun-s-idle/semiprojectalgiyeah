@@ -178,6 +178,75 @@ public class MemberService {
 		return result;
 	}
 
+
+
+	/** 회원 정보 수정 Service
+	 * @param mem
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateMyInfo(Member mem) throws Exception {
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		result = dao.updateMyInfo(conn, mem);
+		
+		if(result > 0) commit(conn);
+		else 			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+
+	/** 마이페이지 비밀번호 변경 Service
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int MychangePw(String currentPw, String newPw, int memberNo) throws Exception {
+		
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		result = dao.MychangePw(currentPw, newPw, memberNo, conn);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+
+	/**회원 탈퇴 Service
+	 * @param currentPw
+	 * @param memberNo 
+	 * @return result
+	 * @throws Exception
+	 */
+	public int memberSecession(String currentPw, int memberNo) throws Exception {
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		result = dao.memberSecession(conn, currentPw, memberNo);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 	
 }
 
