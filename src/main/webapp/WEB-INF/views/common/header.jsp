@@ -35,7 +35,7 @@
 										</c:if>
 										</div>
 										<div id="headerProfileHidden">
-											<div><a href="">마이페이지</a></div>
+											<div><a href="member/myPage">마이페이지</a></div>
 											<div><a href="${contextPath}/member/logout">로그아웃</a></div>
 										</div>
 									</div>

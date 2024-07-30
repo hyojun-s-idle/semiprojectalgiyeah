@@ -4,7 +4,7 @@
 
     <article class="login-member-area">
         <c:if test="${empty loginMember.profileImage}">
-            <a> <img src="${contextPath}/resources/images/user.png" id="login-member-profile-img"></a>
+            <a href="member/myPage"> <img src="${contextPath}/resources/images/user.png" id="login-member-profile-img"></a>
         </c:if>
         <c:if test="${!empty loginMember.profileImage}">
             <a> <img src="${contextPath}${loginMember.profileImage}" id="login-member-profile-img"></a>
