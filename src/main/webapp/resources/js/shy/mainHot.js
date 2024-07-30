@@ -33,7 +33,36 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
 
         },
         error: function () {
-            console.log("에러 발생")
+            console.log("에러 발생");
+
+            for(let i = 0; i < allHotPost.length; i++){
+                for(let l = 0; i < 3; i++){
+                    // 가장 바깥
+                    const gather = document.createElement("div");
+                    gather.classList.add("hot-post-gather");
+
+                    
+                    // 그다음 바깥
+                    const hotPostContent = document.createElement("div");
+                    hotPostContent.classList.add("hot-post-content");
+                
+                    // a 태그
+                    const suround = document.createElement("a");
+                    suround.classList.add("hot-post-suround");
+                    
+                    const nothingHot = document.createElement("div");
+                    nothingHot.innerHTML = "<h3>게시물이 없습니다.</h3>";
+
+                    suround.append(nothingHot);
+
+                    hotPostContent.append(suround);
+
+                    gather.append(hotPostContent);
+
+                    allHotPost[i].append(gather);
+
+                }
+            }
         }
     });
 
@@ -58,7 +87,36 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
 
         },
         error: function () {
-            console.log("에러 발생")
+            console.log("에러 발생");
+
+            for(let i = 0; i < workerHotPost.length; i++){
+                for(let l = 0; i < 3; i++){
+                    // 가장 바깥
+                    const gather = document.createElement("div");
+                    gather.classList.add("hot-post-gather");
+
+                    
+                    // 그다음 바깥
+                    const hotPostContent = document.createElement("div");
+                    hotPostContent.classList.add("hot-post-content");
+                
+                    // a 태그
+                    const suround = document.createElement("a");
+                    suround.classList.add("hot-post-suround");
+                    
+                    const nothingHot = document.createElement("div");
+                    nothingHot.innerHTML = "<h3>게시물이 없습니다.</h3>";
+
+                    suround.append(nothingHot);
+
+                    hotPostContent.append(suround);
+
+                    gather.append(hotPostContent);
+
+                    workerHotPost[i].append(gather);
+
+                }
+            }
         }
     });
 
@@ -81,7 +139,36 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
 
         },
         error: function () {
-            console.log("에러 발생")
+            console.log("에러 발생");
+
+            for(let i = 0; i < ceoHotPost.length; i++){
+                for(let l = 0; i < 3; i++){
+                    // 가장 바깥
+                    const gather = document.createElement("div");
+                    gather.classList.add("hot-post-gather");
+
+                    
+                    // 그다음 바깥
+                    const hotPostContent = document.createElement("div");
+                    hotPostContent.classList.add("hot-post-content");
+                
+                    // a 태그
+                    const suround = document.createElement("a");
+                    suround.classList.add("hot-post-suround");
+                    
+                    const nothingHot = document.createElement("div");
+                    nothingHot.innerHTML = "<h3>게시물이 없습니다.</h3>";
+
+                    suround.append(nothingHot);
+
+                    hotPostContent.append(suround);
+
+                    gather.append(hotPostContent);
+
+                    ceoHotPost[i].append(gather);
+
+                }
+            }
         }
     });
 
