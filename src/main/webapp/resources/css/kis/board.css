@@ -179,7 +179,29 @@ div {
     margin: 0px;
 }
 
-
+/* 좋아요 버튼 */
+#boardClick span {
+    font-size: 50px;
+    margin: 5px;
+    animation: beat  10s  ease-in-out infinite ;
+}
+@keyframes beat{
+    0%{
+        transform: scale(1)  rotate(0deg) translate(0px);
+    }
+    25%{
+        transform: scale(0.5)  rotate(1080deg) translate(50px, 50px)  ;
+    }
+    50%{
+        transform: scale(1)  rotate(1080deg)  translate(0px);
+    }
+    75%{
+        transform: rotate(360deg) translate(0px);
+    }
+    100%{
+        transform: rotate(360deg) translate(0px);
+    }
+}
 
 
 

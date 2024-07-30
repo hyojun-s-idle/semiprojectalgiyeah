@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import APro.board.service.BoardDetailService;
 import APro.board.service.ReplyService;
-import APro.board.vo.BoardDetail;
 import APro.board.vo.Reply;
 
 @WebServlet("/reply/*")
@@ -50,7 +48,9 @@ public class replyServlet extends HttpServlet{
 				int memberNo=Integer.parseInt(req.getParameter("memberNo"));
 				int boardNo=Integer.parseInt(req.getParameter("boardNo"));
 				
-
+				System.out.println("replyContent : "+replyContent);
+				System.out.println("memberNo : "+ memberNo);
+				System.out.println("boardNo : "+ boardNo);
 				
 				
 				
@@ -62,14 +62,8 @@ public class replyServlet extends HttpServlet{
 				
 				int result=service.replyRegister(reply);
 				
-				// 댓글수 동기화
-				BoardDetail detail =new BoardDetailService().selectBoardDetail(boardNo);
 				
-				reply.setResult(result); 
-				reply.setReplyCount(detail.getReplyCount());
-
-				
-				new Gson().toJson(reply,  resp.getWriter());
+				resp.getWriter().print(result);
 				
 			}
 			
@@ -78,28 +72,10 @@ public class replyServlet extends HttpServlet{
 			//댓글삭제
 			if(command.equals("delete")) {
 				int replyNo=Integer.parseInt(req.getParameter("replyNo"));
-				int boardNo=Integer.parseInt(req.getParameter("boardNo"));
-
 				
 				int result=service.replyDelete(replyNo);
-				
-				
-				// 댓글수 동기화
-				BoardDetail detail =new BoardDetailService().selectBoardDetail(boardNo);
-				
-				Reply reply=new Reply();
-				reply.setResult(result); 
-				reply.setReplyCount(detail.getReplyCount());
-
-				
-				new Gson().toJson(reply,  resp.getWriter());
-
-				
-				
+				resp.getWriter().print(result);
 			}
-			
-			
-			
 			
 		
 			//댓글수정

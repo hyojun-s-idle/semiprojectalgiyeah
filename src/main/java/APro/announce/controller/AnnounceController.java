@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import APro.announce.model.service.AnnounceService;
 import APro.announce.model.vo.AnBoardDetail;
@@ -30,7 +29,8 @@ public class AnnounceController extends HttpServlet {
 		try {
 			
 			String path = null;
-			HttpSession session = req.getSession();
+			
+
 			if(command.equals("boardList")) {
 				type = Integer.parseInt( req.getParameter("type") ); 
 
@@ -58,26 +58,18 @@ public class AnnounceController extends HttpServlet {
 
 				AnBoardDetail detail = service.getBoardDetail(no);
 				req.setAttribute("detail", detail);
+				System.out.println(detail);
 				path = "/WEB-INF/views/announce/boarDetail.jsp";
 			}
 			
-			if(command.equals("boardList/detail/delete")) {
+			if(command.equals("boardList/anDelete")) {
 				type = Integer.parseInt(req.getParameter("type"));
 				no = Integer.parseInt(req.getParameter("no"));
 				cp = Integer.parseInt(req.getParameter("cp"));
 				
 				int result = service.deletePost(type,no);
-				if(result > 0) {
-					path = req.getContextPath() + "/announce/boardList?type="+type+"&cp="+cp;
-					session.setAttribute("message", "게시물을 삭제했습니다.");
-					resp.sendRedirect(path);
-					return;
-				}else {
-					path = req.getHeader("referer");
-					session.setAttribute("message", "게시물 삭제를 실패했습니다.");
-					resp.sendRedirect(path);
-					return;
-				}
+				resp.sendRedirect(req.getContextPath() + "/announce/boardList?cp="+cp+"&type="+type);
+				return;
 			}
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {

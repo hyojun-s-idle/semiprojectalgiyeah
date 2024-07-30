@@ -16,7 +16,6 @@ import APro.board.service.BoardDetailService;
 import APro.board.vo.BoardDetail;
 import APro.board.vo.BoardLike;
 import APro.board.vo.Reply;
-import APro.member.model.vo.Member;
 
 /**
  * 좋아요
@@ -31,61 +30,79 @@ public class likeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String uri = req.getRequestURI();
+		String contextPath = req.getContextPath();
+		String command = uri.substring((contextPath + "/like/").length());
+
+		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+		
+		
+		int memberNo=0;
+		if(req.getParameter("memberNo")!=null) {
+			memberNo = Integer.parseInt(req.getParameter("memberNo") );
+		}
+		
+
+		
+		System.out.println("********************");
+		System.out.println("memberNo : "+memberNo);
+		System.out.println("********************");
+		
+		
+//		int memberNo = Integer.parseInt(req.getSession().req.getParameter("memberNo"));
+
+		
 		try {
+			
+			//좋아요 select
+			//-좋아요개수 + 좋아요상태
+			if (command.equals("select")) {
 
-			String uri = req.getRequestURI();
-			String contextPath = req.getContextPath();
-			String command = uri.substring((contextPath + "/like/").length());
-
-			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-
-			int memberNo = 0;
-			if (req.getSession().getAttribute("loginMember") != null) {
-				memberNo = ((Member) req.getSession().getAttribute("loginMember")).getMemberNo();
+				int likeCount= new BoardDetailService().boardLikeSelect(boardNo);
+				int likeState= new BoardDetailService().boardLikeState(boardNo, memberNo);
 
 				
 				
-				// 좋아요 select (좋아요개수 + 좋아요상태)
-				if (command.equals("select")) {
-
-					int likeCount = new BoardDetailService().boardLikeSelect(boardNo);
-					int likeState = new BoardDetailService().boardLikeState(boardNo, memberNo);
-
-					BoardLike boardLike = new BoardLike();
-					boardLike.setLikeCount(likeCount);
-					boardLike.setLikeState(likeState);
-
-					new Gson().toJson(boardLike, resp.getWriter());
-
-				}
-
+				BoardLike boardLike=new BoardLike();
+				boardLike.setLikeCount(likeCount);
+				boardLike.setLikeState(likeState);
 				
 				
+				System.out.println("boardLike : "+ boardLike);
+				System.out.println("likeCount : "+ likeCount);
+				System.out.println("likeState : "+ likeState);
+				System.out.println("***************************************");
 				
-				// 좋아요 Up
-				if (command.equals("up")) {
-					int result = new BoardDetailService().boardLikeUp(boardNo, memberNo);
-					resp.getWriter().print(result);
-				}
-
-				// 좋아요 Down
-				if (command.equals("down")) {
-					int result = new BoardDetailService().boardLikeDown(boardNo, memberNo);
-					resp.getWriter().print(result);
-				}
 				
+				new Gson().toJson(boardLike,  resp.getWriter());
 				
 				
 			}
-
-	
 			
 			
-
+			//좋아요 Up
+			if (command.equals("up")) {
+				
+				int result= new BoardDetailService().boardLikeUp(boardNo, memberNo);
+				resp.getWriter().print(result);
+				
+			}
+			
+			//좋아요 Down
+			if (command.equals("down")) {
+				int result= new BoardDetailService().boardLikeDown(boardNo, memberNo);
+				resp.getWriter().print(result);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 
+		
+		
+		
 	}
 
 	@Override

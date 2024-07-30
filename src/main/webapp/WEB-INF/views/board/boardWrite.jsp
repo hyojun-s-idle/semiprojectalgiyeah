@@ -135,7 +135,7 @@
 
             </div>
 
-            <div class="containerBox">
+            <div class="container">
                 <div class="side">
                     <a href="javascript:window.history.back();" class="sideCircle">
                         <span class="material-symbols-outlined">
