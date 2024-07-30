@@ -24,7 +24,24 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
 
             }
         },
-        error : function(){console.log("에러발생")}
+        error : function(){
+            console.log("에러발생");
+
+            for(let i =0; i < 10; i++){
+                const nothingPost = document.createElement("tr");
+
+                const nothingText = document.createElement("td");
+                nothingText.classList.add("pop-num");
+                nothingText.innerText = i + 1;
+
+                const nothingTitle = document.createElement("td");
+                nothingTitle.innerText = "게시물이 없습니다.";
+
+                nothingPost.append(nothingText,nothingTitle);
+
+                allPop.append(nothingPost);
+                }
+        }
     });
     $.ajax({
         url : urlp + "/hotPost/pop",
@@ -38,7 +55,24 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
 
             }
         },
-        error : function(){console.log("에러발생")}
+        error : function(){
+            console.log("에러발생");
+            
+            for(let i =0; i < 10; i++){
+                const nothingPost = document.createElement("tr");
+
+                const nothingText = document.createElement("td");
+                nothingText.classList.add("pop-num");
+                nothingText.innerText = i + 1;
+
+                const nothingTitle = document.createElement("td");
+                nothingTitle.innerText = "게시물이 없습니다.";
+
+                nothingPost.append(nothingText,nothingTitle);
+
+                workerPop.append(nothingPost);
+                }
+        }
     });
     $.ajax({
         url : urlp + "/hotPost/pop",
@@ -53,7 +87,24 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
 
             }
         },
-        error : function(){console.log("에러발생")}
+        error : function(){
+            console.log("에러발생");
+
+            for(let i =0; i < 10; i++){
+                const nothingPost = document.createElement("tr");
+
+                const nothingText = document.createElement("td");
+                nothingText.classList.add("pop-num");
+                nothingText.innerText = i + 1;
+
+                const nothingTitle = document.createElement("td");
+                nothingTitle.innerText = "게시물이 없습니다.";
+
+                nothingPost.append(nothingText,nothingTitle);
+
+                ceoPop.append(nothingPost);
+                }
+        }
     });
 })();
 
