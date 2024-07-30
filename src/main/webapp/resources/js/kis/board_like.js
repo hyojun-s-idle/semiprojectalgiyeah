@@ -65,11 +65,14 @@ $(document).on("click",".boardLiking",function(){
             success: function (result) {
     
                 if (result > 0) {
-                    alert("좋아요등록 성공");
     
                     selectLike();
-                    $('.boardLike').css("backgroundColor","red");
- 
+
+                    $('.boardLike').removeClass("likeDn");
+                    $('.boardLike').addClass("likeUp");
+                    $('.boardLike').addClass("real");
+                    upMotion();
+
     
                 }else{
                     alert("좋아요등록 실패");
@@ -120,4 +123,4 @@ $(document).on("click",".boardLiking",function(){
 
 
 
-//
+        $('.likeBox').append(span);//
