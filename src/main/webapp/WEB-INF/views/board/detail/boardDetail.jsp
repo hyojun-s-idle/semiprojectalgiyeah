@@ -166,7 +166,7 @@
 
                                                 <!-- 게시글 삭제버튼 -->
                                                 <button class="icon deleting" id="deletingBoard"
-                                                    onclick="deleteBoardValidate()">
+                                                    onclick="location.href='detail/delete?type=${type}&no=${no}'">
                                                     <span class="material-symbols-outlined">
                                                         delete
                                                     </span>
@@ -469,10 +469,6 @@
 
                 <!-- ajax위한(JS) 변수선언 -->
                 <script>
-                    // 게시글
-                    const type = "${param.type}";
-                    const no = "${detail.boardNo}";
-
                     // 댓글
                     const contextPath = "${contextPath}";
                     const boardNo = "${detail.boardNo}";
