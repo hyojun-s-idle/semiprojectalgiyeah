@@ -79,6 +79,7 @@ public class AnnounceController extends HttpServlet {
 					return;
 				}
 			}
+			System.out.println(1);
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
