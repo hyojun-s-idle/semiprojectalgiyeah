@@ -51,7 +51,7 @@ let urlp = pathnamep.substring(0, pathnamep.indexOf("/",1));
         success : function(post){
 
             for(let i = 0; i < 10; i++){
-                createPop(workerPop,post[i],i,type);
+                createPop(workerPop,post[i],i);
 
             }
         },
