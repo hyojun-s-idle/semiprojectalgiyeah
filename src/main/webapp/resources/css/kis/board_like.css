@@ -1,0 +1,143 @@
+/* 좋아요 버튼 */
+#boardClick span {
+    font-size: 50px;
+    margin: 5px;
+}
+.likeDn{
+    animation: beat  10s  ease-in-out infinite ;
+}
+@keyframes beat{
+    0%{
+        transform: scale(1)  rotate(0deg) translate(0px);
+    }
+    25%{
+        transform: scale(0.5)  rotate(1080deg) translate(50px, 50px)  ;
+    }
+    50%{
+        transform: scale(1)  rotate(1080deg)  translate(0px);
+    }
+    75%{
+        transform: rotate(360deg) translate(0px);
+    }
+    100%{
+        transform: rotate(360deg) translate(0px);
+    }
+}
+
+
+
+
+/* 좋아요UP */
+.liking{
+    perspective: 17.5px;
+
+}
+
+.likeBox{
+    position: relative;
+}
+
+
+
+
+
+:root{
+    --hei: 30px;   /* 높이 */
+    --per: 17.5s;  /* 주기 */
+    --trm: 0.25s;  /* delay텀 */
+}
+
+
+/* 공통 */
+.likeUp {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 0;
+
+    color: red;
+
+
+
+    transition-duration: 1s;
+
+    
+    
+    font-size: var(--hei);
+    
+}
+
+/* 메인하트 */
+.real{
+    animation: rot 20s linear infinite alternate;
+    
+}
+
+
+@keyframes rot {
+    0% {}
+
+    25% {
+        transform: scale(0.5) rotateY(180deg) rotateX(-180deg);
+    }
+
+    50% {
+        transform: scale(1) rotateY(-360deg) rotateX(-360deg);
+    }
+
+    75% {
+        transform: scale(0.3) rotateY(-180deg) rotateX(-540deg);
+    }
+
+    100% {
+        transform: scale(1) rotateY(0deg) rotateX(-360deg);
+    }
+}
+
+
+/* 더미하트 */
+.dummy{
+    position: absolute;
+    top:0; 
+    left: 0;
+
+    transform-origin: center;
+
+    transform: scale(0);
+}
+
+
+.dummy1{   animation: linRot var(--per) linear 0s infinite }
+.dummy2{   animation: linRot var(--per) linear var(--trm)  infinite }
+.dummy3{   animation: linRot var(--per) linear calc(var(--trm)*2) infinite }
+.dummy4{   animation: linRot var(--per) linear calc(var(--trm)*3) infinite }
+.dummy5{   animation: linRot var(--per) linear calc(var(--trm)*4) infinite }
+.dummy6{   animation: linRot var(--per) linear calc(var(--trm)*5) infinite }
+.dummy7{   animation: linRot var(--per) linear calc(var(--trm)*6) infinite }
+.dummy8{   animation: linRot var(--per) linear calc(var(--trm)*7) infinite }
+
+
+@keyframes linRot{
+
+    6.25%{
+        transform: scale(0.3) rotate(0deg) translate(-400%);
+    }
+
+    12.5%{
+        transform: scale(0.225) rotate(360deg) translate(-300%);
+    }
+    
+    25%{
+        transform: scale(0.15) rotate(720deg) translate(-200%);
+    }
+    
+    37.5%{
+        transform: scale(0.075) rotate(1080deg) translate(-100%);
+    }
+    
+    50%{
+        transform: scale(0) rotate(1540deg);
+    }
+
+}
