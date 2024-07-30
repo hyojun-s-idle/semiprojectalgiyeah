@@ -102,12 +102,12 @@
 
 					<div class="myPage-row">
                         <label>성함</label>
-                        <input type="text" name="memberName" value="${loginMember.memberName }" maxlength="10">
+                        <input type="text" name="memberName" value="${loginMember.memberName }" maxlength="5">
                     </div>
 
 					<div class="myPage-row">
                         <label>이메일</label>
-                        <input type="text" name="memberEmail" value="${loginMember.memberEmail }" maxlength="10">
+                        <input type="text" name="memberEmail" value="${loginMember.memberEmail }">
                     </div>
 
                     <div class="myPage-row info-title">

@@ -196,7 +196,6 @@ select {
 .do {
     overflow: auto;
     height: 80px;
-    width: 500px;
 }
 
 .ck {

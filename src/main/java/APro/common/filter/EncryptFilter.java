@@ -15,7 +15,8 @@ import APro.common.wrapper.EncryptWrapper;
 
 
 @WebFilter(filterName = "encryptFilter",
-			urlPatterns= {"/member/login", "/member/signUp","/member/selectPw","/member/myPage/changePw","/member/myPage/MychangePw","/member/myPage/Mysecession"
+			urlPatterns= {"/member/login", "/member/signUp","/member/selectPw","/member/myPage/changePw","/member/myPage/MychangePw",
+					"/member/myPage/Mysecession","/member/changePw"
 					
 			})
 public class EncryptFilter extends HttpFilter implements Filter {
