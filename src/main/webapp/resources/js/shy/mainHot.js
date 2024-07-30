@@ -36,7 +36,7 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
             console.log("에러 발생");
 
             for(let i = 0; i < allHotPost.length; i++){
-                for(let l = 0; i < 3; i++){
+                for(let l = 0; l < 3; i++){
                     // 가장 바깥
                     const gather = document.createElement("div");
                     gather.classList.add("hot-post-gather");
@@ -90,7 +90,7 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
             console.log("에러 발생");
 
             for(let i = 0; i < workerHotPost.length; i++){
-                for(let l = 0; i < 3; i++){
+                for(let l = 0; l < 3; i++){
                     // 가장 바깥
                     const gather = document.createElement("div");
                     gather.classList.add("hot-post-gather");
@@ -142,11 +142,10 @@ let urlh = pathnameh.substring(0, pathnameh.indexOf("/", 1));
             console.log("에러 발생");
 
             for(let i = 0; i < ceoHotPost.length; i++){
-                for(let l = 0; i < 3; i++){
+                for(let l = 0; l < 3; i++){
                     // 가장 바깥
                     const gather = document.createElement("div");
                     gather.classList.add("hot-post-gather");
-
                     
                     // 그다음 바깥
                     const hotPostContent = document.createElement("div");
