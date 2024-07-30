@@ -86,12 +86,14 @@
                     <div class="address-area">
                         <h3>주소</h3>
                         <div class="address-box">
+                        
                             <input type="text" id="postcode" name="memberAddress" placeholder="우편번호">
                             <input type="button" id="postBtn"onclick="execDaumPostcode()" value="우편번호 찾기"><br>
                             <input type="text" id="roadAddress" name="memberAddress" placeholder="도로명주소">
                             <input type="text" id="jibunAddress" name="memberAddress" placeholder="지번주소">
                             <span id="guide" style="color:#999;display:none"></span>
                             <input type="text" id="detailAddress" name="memberAddress" placeholder="상세주소">
+                       
                         </div>
                     </div>
                     <div class="job-area">

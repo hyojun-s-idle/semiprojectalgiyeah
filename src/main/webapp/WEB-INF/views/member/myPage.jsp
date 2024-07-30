@@ -117,20 +117,24 @@
 					<c:set var="addr" value="${fn:split(loginMember.memberAddress, ',,') }"/>
 					
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="${addr[0] }" maxlength="6">
-
-                        <button type="button" id="info-address-btn">검색</button>
+                       <%--  <input type="text" name="memberAddress" value="${addr[0] }" maxlength="6"> --%>
+						 <input type="text" id="postcode" name="memberAddress" value="${addr[0] }">
+                       <!--  <button type="button" id="info-address-btn">검색</button> -->
+                        <input type="button" id="postBtn" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
                     </div>
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="${addr[1] }">
+                <%--     <input type="text" name="memberAddress" value="${addr[1] }"> --%>
+                        <input type="text" id="roadAddress" name="memberAddress" value="${addr[1] }">
                     </div>
 
 					<div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="${addr[2] }">
+                      <%--   <input type="text" name="memberAddress" value="${addr[2] }"> --%>
+                        <input type="text" id="jibunAddress" name="memberAddress" value="${addr[2] }">
                     </div>
-
+					<span id="guide" style="color:#999;display:none"></span>
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" value="${addr[3] }">
+                       <%--  <input type="text" name="memberAddress" value="${addr[3] }"> --%>
+                        <input type="text" id="detailAddress" name="memberAddress" value="${addr[3] }">
                     </div>
 
                     <button id="info-update-btn">수정하기</button>
@@ -141,6 +145,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 
 <script src="${contextPath}/resources/js/lsh/myPage.js"></script>
